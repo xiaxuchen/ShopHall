@@ -1,0 +1,16 @@
+ext{
+    android = [compileSdkVersion:29,
+               buildToolsVersion : "29.0.2",
+               minSdkVersion : 21,
+               targetSdkVersion : 29,
+               versionCode : 1,
+               versionName : "1.0.0",
+               versionInfo : "第一个版本",
+               //router
+               routerVersion : "1.4.0",
+               annotationProcessor : "1.2.1",
+               testInstrumentationRunner : "androidx.test.runner.AndroidJUnitRunner"]
+    dep = [ok_http_version:"3.3.0",
+           tinker_version : "1.9.1"]
+    tinkerEnable = true
+}
