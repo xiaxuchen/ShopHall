@@ -1,23 +1,17 @@
-package com.cxyz.shophall.activity;
+package com.cxyz.shophall.ui.activity;
 
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.cxyz.main.ui.activity.StoreActivity;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.shophall.R;
-import com.cxyz.shophall.adapter.FruitAdapter;
-import com.cxyz.shophall.data.protocol.Fruit;
 import com.cxyz.shophall.presenter.TestPresenter;
-import com.cxyz.shophall.view.TestView;
+import com.cxyz.shophall.presenter.view.TestView;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 import com.cxyz.widget.loading.LoadingCreator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 // 实现TestView
 public class TestActivity extends BaseActivity<TestPresenter> implements TestView {
@@ -64,8 +58,9 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestVie
 
     @Override
     public void showLoginSuccess(String data) {
-        // 正常情况可以直接跳转主页Activity
-        startActivity(WebViewActivity.class);
+        ToastUtil.showShort(data);
+        // 正常情况可以直接跳转店铺Activity
+        ARouter.getInstance().build("/main/StoreActivity").navigation();
     }
 
     @Override
@@ -73,13 +68,4 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestVie
         ToastUtil.showShort(msg);
     }
 
-    @Override
-    public void showLoadingView() {
-        LoadingCreator.showLoading(this);
-    }
-
-    @Override
-    public void hideLoadingView() {
-        LoadingCreator.stopLoading();
-    }
 }

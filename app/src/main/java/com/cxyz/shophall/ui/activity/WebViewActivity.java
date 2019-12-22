@@ -1,8 +1,6 @@
-package com.cxyz.shophall.activity;
+package com.cxyz.shophall.ui.activity;
 
 import android.view.KeyEvent;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.cxyz.mvp.activity.BaseActivity;

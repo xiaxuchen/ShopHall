@@ -2,6 +2,7 @@ package com.cxyz.mvp.ipresenter;
 
 import com.cxyz.mvp.imodel.IBaseModel;
 import com.cxyz.mvp.iview.IBaseView;
+import com.trello.rxlifecycle2.LifecycleProvider;
 
 /**
  * Created by 夏旭晨 on 2018/9/22.
@@ -12,6 +13,12 @@ public abstract class IBasePresenter<M extends IBaseModel, V extends IBaseView> 
 
     public M mIModle;
     public V mIView;
+
+    protected LifecycleProvider lifecycleProvider;
+
+    public void setLifecycleProvider(LifecycleProvider lifecycleProvider) {
+        this.lifecycleProvider = lifecycleProvider;
+    }
 
     /**
      * 依附相应的IView

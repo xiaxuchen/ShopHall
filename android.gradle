@@ -7,6 +7,16 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
+        // 如果是集成模式且启用了ARouter
+//        if(!isDebug.toBoolean() && ARouterEnable.toBoolean())
+//        {
+//            println("hhahaha")
+//            javaCompileOptions {
+//                annotationProcessorOptions {
+//                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+//                }
+//            }
+//        }
     }
     resourcePrefix name
 

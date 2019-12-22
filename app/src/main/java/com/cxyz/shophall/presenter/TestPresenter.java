@@ -1,11 +1,13 @@
 package com.cxyz.shophall.presenter;
 
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.shophall.model.MainModel;
+import com.cxyz.relative.base.rx.BaseSubscriber;
+import com.cxyz.relative.base.rx.ObservableUtils;
 import com.cxyz.shophall.model.TestModel;
 import com.cxyz.shophall.model.impl.TestModelImpl;
-import com.cxyz.shophall.view.MainView;
-import com.cxyz.shophall.view.TestView;
+import com.cxyz.shophall.presenter.view.TestView;
+
+import org.jetbrains.annotations.NotNull;
 
 public class TestPresenter extends IBasePresenter<TestModel, TestView> {
 
@@ -15,22 +17,23 @@ public class TestPresenter extends IBasePresenter<TestModel, TestView> {
         if(check(userrname)){
             // 由于获取数据属于耗时操作，可以调用IView的showLoadingView方法显示正在加载
            mIView.showLoadingView();
-           mIModle.verifyUser(userrname, new TestModel.VerifyListener() {
-               @Override
-               public void success(String data) {
-                   mIView.showLoginSuccess(data);
-                   // 关闭正在加载
-                   mIView.hideLoadingView();
-               }
+            ObservableUtils.execute(mIModle.verifyUser(userrname),lifecycleProvider,new BaseSubscriber<String>(){
+                @Override
+                public void onNext(String o) {
+                    mIView.showLoginSuccess(o);
+                    // 关闭正在加载
+                    mIView.hideLoadingView();
+                }
 
-               @Override
-               public void fail(String error) {
-                    mIView.showError(error);
-                   // 关闭正在加载
-                   mIView.hideLoadingView();
-               }
-           });
+                @Override
+                public void onError(@NotNull Throwable e) {
+                    mIView.showError(e.getMessage());
+                    // 关闭正在加载
+                    mIView.hideLoadingView();
+                }
+            });
         }
+
     }
 
     private Boolean check(String username){

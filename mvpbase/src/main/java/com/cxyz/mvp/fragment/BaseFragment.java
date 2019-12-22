@@ -12,6 +12,7 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.mvp.iview.IBaseView;
 import com.cxyz.utils.LogUtil;
+import com.trello.rxlifecycle2.components.RxFragment;
 
 /**
  * TODO 需要修改
@@ -31,7 +32,7 @@ import com.cxyz.utils.LogUtil;
  * }<br></br>
  *注：其中FIRST_FRAGMENT是你自定义的标记，BaseFragment搭配FragmentActivity使用
  */
-public abstract class BaseFragment<p extends IBasePresenter> extends Fragment implements IBaseView {
+public abstract class BaseFragment<p extends IBasePresenter> extends RxFragment implements IBaseView {
 
     /**
      * 持有的所在Activity的引用
@@ -71,7 +72,10 @@ public abstract class BaseFragment<p extends IBasePresenter> extends Fragment im
         iPresenter = createIPresenter();
         super.onCreate(savedInstanceState);
         if(iPresenter!=null)
+        {
             iPresenter.attachView(this);
+            iPresenter.setLifecycleProvider(this);
+        }
     }
 
     @Override

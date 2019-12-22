@@ -23,7 +23,9 @@ dependencies {
     api(project(':httplib'))
     api(project(':context'))
     api(project(':widget'))
+    api(project(':relativebase'))
     api 'androidx.recyclerview:recyclerview:1.1.0'
+    compile "com.alibaba:arouter-api:${dep.routerVersion}"
     // agentweb
     api 'com.just.agentweb:agentweb:4.1.2'
     api 'com.just.agentweb:filechooser:4.1.2'

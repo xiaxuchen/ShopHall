@@ -1,4 +1,4 @@
-package com.cxyz.shophall.view
+package com.cxyz.shophall.presenter.view
 
 import com.cxyz.mvp.iview.IBaseView
 

@@ -14,15 +14,15 @@
         android:theme="@style/CommonAppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".activity.TestActivity">
+        <activity android:name="com.cxyz.shophall.ui.activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RecycleViewActivity" />
-        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name="com.cxyz.shophall.ui.activity.RecycleViewActivity" />
+        <activity android:name="com.cxyz.shophall.ui.activity.WebViewActivity" />
 
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="true"/>

@@ -1,11 +1,11 @@
-package com.cxyz.shophall.activity;
+package com.cxyz.shophall.ui.activity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.shophall.R;
-import com.cxyz.shophall.adapter.FruitAdapter;
+import com.cxyz.shophall.ui.adapter.FruitAdapter;
 import com.cxyz.shophall.data.protocol.Fruit;
 import com.cxyz.shophall.presenter.MainPresenter;
 

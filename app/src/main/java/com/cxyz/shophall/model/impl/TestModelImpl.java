@@ -4,38 +4,38 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.cxyz.context.ContextManager;
+import com.cxyz.http.CommonOkHttpClient;
+import com.cxyz.http.listener.DisposeDataHandler;
+import com.cxyz.http.listener.DisposeDataListener;
 import com.cxyz.shophall.model.TestModel;
+import com.kotlin.base.rx.BaseException;
 
 import java.util.Random;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+
 public class TestModelImpl extends TestModel {
 
-    Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
-    public void verifyUser(String username, VerifyListener listener) {
-        new Thread(() -> {
-            try {
-                    Thread.sleep(1500);
-                // 这里获取数据,这里使用随机数模拟，比如这个数字是服务器获取到的
-                int num = new Random().nextInt();
-                if(listener != null)
-                {
-                    // 比如这里是验证成功，服务器返回登录成功信息
-                    if(num % 2 == 0)
-                    {
-                        // 通过handler将操作post到主线程进行
-                        handler.post(() -> listener.success("登录成功"));
-
-                    }else {
-                        // 通过handler将操作post到主线程进行
-                        handler.post(() -> listener.fail("无此用户"));
+    public Observable<String> verifyUser(String username) {
+        return Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                CommonOkHttpClient.get("https://www.baidu.com",null,new DisposeDataHandler(new DisposeDataListener() {
+                    @Override
+                    public void onSuccess(Object responseObj) {
+                        emitter.onNext(responseObj.toString());
                     }
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
 
+                    @Override
+                    public void onFailure(Object error) {
+                        emitter.onError(new BaseException(-1,error.toString()));
+                    }
+                }));
+            }
+        });
     }
 }

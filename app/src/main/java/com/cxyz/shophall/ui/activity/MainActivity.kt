@@ -1,4 +1,4 @@
-package com.cxyz.shophall.activity
+package com.cxyz.shophall.ui.activity
 
 import android.view.View
 import com.cxyz.mvp.activity.BaseActivity

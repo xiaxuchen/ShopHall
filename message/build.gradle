@@ -1,3 +1,4 @@
+apply plugin: 'kotlin-kapt'
 // 如果是单模块调试，则业务模块为application，否则为library
 if (isDebug.toBoolean()) {
     apply plugin: 'com.android.application'
@@ -12,6 +13,16 @@ android {
         // 单模块调试下才有applicationId
         if(isDebug.toBoolean())
             applicationId "com.cxyz.message"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        kapt {
+            arguments {
+                arg("moduleName", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -34,6 +45,14 @@ android {
 }
 
 dependencies {
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:${dep.ankoVersion}"
+
+    // Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25:${dep.ankoVersion}" // sdk15, sdk19, sdk21, sdk23 are also available
+
+    // Coroutine listeners for Anko Layouts
+    implementation "org.jetbrains.anko:anko-sdk25-coroutines:${dep.ankoVersion}"
     implementation(project(':joint'))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -43,4 +62,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    annotationProcessor "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
+    kapt "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
 }

@@ -14,6 +14,8 @@ import com.cxyz.utils.ActivityStackManager;
 import com.cxyz.utils.LogUtil;
 import com.cxyz.utils.ScreenManager;
 import com.cxyz.utils.SpUtil;
+import com.cxyz.widget.loading.LoadingCreator;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -44,7 +46,7 @@ import org.greenrobot.eventbus.EventBus;
 * </ul>
 * <h1>Created by 夏旭晨 on 2018/9/19.</h1>
 * */
-public abstract class BaseActivity<p extends IBasePresenter> extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity<p extends IBasePresenter> extends RxAppCompatActivity implements IBaseView {
 
     /**
      * Activity持有的IPresenter引用，通过重写createIPresenter()方法获取实例
@@ -131,7 +133,10 @@ public abstract class BaseActivity<p extends IBasePresenter> extends AppCompatAc
         ActivityStackManager.getActivityStackManager().pushActivity(this);
         screenManager = ScreenManager.getInstance();
         if(iPresenter != null)
+        {
             iPresenter.attachView(this);
+            iPresenter.setLifecycleProvider(this);
+        }
         initScreen();
     }
 
@@ -340,13 +345,18 @@ public abstract class BaseActivity<p extends IBasePresenter> extends AppCompatAc
     }
 
     @Override
-    public void hideLoadingView() { }
+    public void hideLoadingView() {
+        LoadingCreator.stopLoading();
+    }
 
     @Override
-    public void showLoadingView() { }
+    public void showLoadingView() {
+        LoadingCreator.showLoading(this);
+    }
 
     @Override
-    public void showError(Object msg) { }
+    public void showError(Object msg) {
+    }
 }
 
 

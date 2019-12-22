@@ -12,6 +12,11 @@ android {
         // 单模块调试下才有applicationId
         if(isDebug.toBoolean())
             applicationId "com.cxyz.car"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -43,4 +48,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    annotationProcessor "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
 }
