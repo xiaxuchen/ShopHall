@@ -3,6 +3,7 @@
     package="com.cxyz.car">
 
     <application>
+        <activity android:name=".GoodsInfoActivity" />
     </application>
 
 </manifest>
