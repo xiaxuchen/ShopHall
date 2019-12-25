@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="#F1E9E9"
+    tools:ignore="ResourceName">
 
-    <TextView
+    <LinearLayout
+        android:background="#FF9B00"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/radius_border"
+            android:text="请输入搜索内容"
+            android:gravity="center_vertical"
+            android:paddingLeft="6dp"
+            android:textColor="#ccc"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/search"
+            android:layout_marginLeft="-40dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/sao"
+            />
+    </LinearLayout>
+<!--广告轮播  start-->
+    <RelativeLayout
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        >
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/viewpager"
+            android:background="#33F8ECEC"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/image_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#FF5100"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/point_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" />
+        </LinearLayout>
+        <!--广告轮播  enf-->
+    </RelativeLayout>
+
+
+    <GridView
+        android:layout_gravity="center"
+        android:id="@+id/girdview"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:horizontalSpacing="1pt"
+        android:numColumns="3"
+        android:verticalSpacing="1pt"
+        android:background="#E9E5E5"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg48" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bottom_nav"
+        android:layout_marginTop="15dp" />
+
+</LinearLayout>
