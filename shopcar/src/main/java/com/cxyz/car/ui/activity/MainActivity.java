@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.cxyz.car.R;
+import com.cxyz.car.ui.activity.adapter.ListViewAdapter;
+import com.cxyz.car.ui.activity.domain.Goods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,6 +44,11 @@ public class MainActivity  extends AppCompatActivity {
     int[] canId={R.drawable.can1,R.drawable.can2,R.drawable.can3,R.drawable.can4,R.drawable.can5,R.drawable.can6};
     String[] titles=new String[]{"can1","can2","can3","can4","can5","can6"};
 
+    /*
+    商品
+     */
+    private ListView listView;
+    private List<Goods> goodslistItem=new ArrayList<>();
 
 
     @Override
@@ -62,8 +70,6 @@ public class MainActivity  extends AppCompatActivity {
 
         SimpleAdapter adapter=new SimpleAdapter(this,listItem,R.layout.activity_gridview_item,new String[]{"name","image"},
                 new int[]{R.id.tv_text,R.id.iv_image});
-
-
         gridView.setAdapter(adapter);
         //中间商家列表  gridview end
 
@@ -146,6 +152,23 @@ public class MainActivity  extends AppCompatActivity {
         /**
          * 图片轮播 end
          */
+
+        /**
+         * 底部商品列表 start
+         */
+        Goods goods1=new Goods(R.drawable.bg1,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",999.0);
+        Goods goods2=new Goods(R.drawable.bg2,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",888.0);
+        Goods goods3=new Goods(R.drawable.bg3,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",777.0);
+        Goods goods4=new Goods(R.drawable.bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        goodslistItem.add(goods1);
+        goodslistItem.add(goods2);
+        goodslistItem.add(goods3);
+        goodslistItem.add(goods4);
+        listView=findViewById(R.id.listview1);
+        listView.setAdapter(new ListViewAdapter(MainActivity.this,goodslistItem));
+        /**
+         * 底部商品列表 end
+         */
     }
 
     // 判断是否执行动画
@@ -202,7 +225,6 @@ public class MainActivity  extends AppCompatActivity {
             object = null;
         }
     }
-
 
     @Override
     protected void onDestroy() {

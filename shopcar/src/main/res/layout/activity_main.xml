@@ -78,7 +78,7 @@
         android:layout_gravity="center"
         android:id="@+id/girdview"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:horizontalSpacing="1pt"
@@ -88,11 +88,12 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"/>
 
-    <ImageView
+    <ListView
+        android:id="@+id/listview1"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bg48" />
+        android:layout_height="230dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_samll"/>
 
     <ImageView
         android:layout_width="match_parent"
