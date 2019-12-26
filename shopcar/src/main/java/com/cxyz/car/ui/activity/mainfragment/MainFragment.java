@@ -1,10 +1,13 @@
-package com.cxyz.car.ui.activity;
+package com.cxyz.car.ui.activity.mainfragment;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,7 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -25,7 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity  extends AppCompatActivity {
+public class MainFragment extends Fragment {
+
     private GridView gridView;
 
 
@@ -50,15 +54,40 @@ public class MainActivity  extends AppCompatActivity {
     private ListView listView;
     private List<Goods> goodslistItem=new ArrayList<>();
 
+    private Context context;
+
+    /**
+     * 加载fragment的布局文件
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view;
+        view = inflater.inflate(R.layout.activity_main,container,false);
+        return view;
+    }
+
+    /**
+     * 再fragment依附到activity时保存上下文
+     * @param activity
+     */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.context=activity;
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         //中间商家列表  gridview   start
-        gridView=findViewById(R.id.girdview);
+        gridView=view.findViewById(R.id.girdview);
         List<Map<String,Object>> listItem=new ArrayList<>();
         for(int i=0;i<canId.length;i++){
             Map<String,Object> map=new HashMap<>();
@@ -68,27 +97,26 @@ public class MainActivity  extends AppCompatActivity {
             listItem.add(map);
         }
 
-        SimpleAdapter adapter=new SimpleAdapter(this,listItem,R.layout.activity_gridview_item,new String[]{"name","image"},
+        SimpleAdapter adapter=new SimpleAdapter(context,listItem,R.layout.activity_gridview_item,new String[]{"name","image"},
                 new int[]{R.id.tv_text,R.id.iv_image});
         gridView.setAdapter(adapter);
         //中间商家列表  gridview end
 
-
         /**
          * 图片轮播 start
          */
-        pointGroup = (LinearLayout) findViewById(R.id.point_group);
-        imageDesc = (TextView) findViewById(R.id.image_desc);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        pointGroup = (LinearLayout) view.findViewById(R.id.point_group);
+        imageDesc = (TextView) view.findViewById(R.id.image_desc);
+        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
 
         for (int i = 0; i < imageIds.length; i++) {
             //初始化图片资源
-            ImageView imageView = new ImageView(this);
+            ImageView imageView = new ImageView(context);
             imageView.setBackgroundResource(imageIds[i]);
             imageList.add(imageView);
 
             //添加指示点
-            ImageView point = new ImageView(this);
+            ImageView point = new ImageView(context);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5, 5);
             params.rightMargin = 20;
             point.setLayoutParams(params);
@@ -101,7 +129,7 @@ public class MainActivity  extends AppCompatActivity {
             pointGroup.addView(point);
         }
 
-        viewPager.setAdapter(new MyPagerAdapter());
+        viewPager.setAdapter(new MainFragment.MyPagerAdapter());
         viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % imageList.size()));
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -164,12 +192,15 @@ public class MainActivity  extends AppCompatActivity {
         goodslistItem.add(goods2);
         goodslistItem.add(goods3);
         goodslistItem.add(goods4);
-        listView=findViewById(R.id.listview1);
-        listView.setAdapter(new ListViewAdapter(MainActivity.this,goodslistItem));
+        listView=view.findViewById(R.id.listview1);
+        listView.setAdapter(new ListViewAdapter(context,goodslistItem));
         /**
          * 底部商品列表 end
          */
+
+
     }
+
 
     // 判断是否执行动画
 
@@ -227,12 +258,23 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         isRunning = false;
         super.onDestroy();
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

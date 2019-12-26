@@ -6,11 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.cxyz.car.R;
-import com.cxyz.car.ui.activity.MainActivity;
 import com.cxyz.car.ui.activity.domain.Goods;
 
 import java.util.List;
@@ -23,9 +21,6 @@ public class ListViewAdapter extends BaseAdapter {
     public ListViewAdapter(Context context, List<Goods> listItem) {
         this.context = context;
         this.listItem = listItem;
-    }
-
-    public ListViewAdapter(MainActivity mainActivity, List<Map<String, Object>> listItem) {
     }
 
     @Override
