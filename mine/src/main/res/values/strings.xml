@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Mine</string>
+    <string name="mine_app_name">Mine</string>
+    <string name="mine_mallinformation_mall_name">华丰食品城</string>
+    <string name="mine_mallinformation_ad">来这里找实惠吧</string>
 </resources>
