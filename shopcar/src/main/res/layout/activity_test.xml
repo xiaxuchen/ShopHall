@@ -23,7 +23,10 @@
             android:background="@drawable/border"
             android:text="MainFragment"
             android:textAllCaps="false"
+<<<<<<< HEAD
             android:textColor="#000"
+=======
+>>>>>>> origin/feature-lmk
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -31,8 +34,14 @@
     <FrameLayout
         android:id="@+id/fl_fragment"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
+=======
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+>>>>>>> origin/feature-lmk
     </FrameLayout>
 
 </LinearLayout>
