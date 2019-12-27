@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ResourceName">
+    <item>
+        <shape>
+            <solid android:color="#A5A3A3" /><!-- 连框颜色值 -->
+
+        </shape>
+    </item>
+    <!-- 主体背景颜色值 -->
+    <item
+        android:bottom="0.7dp"
+        android:top="0.7dp"> <!--上下左右四个边框的宽度，为0的话就没有了-->
+        <shape>
+            <solid android:color="#E9E7E7" />  <!-- 背景白色 -->
+        </shape>
+    </item>
+</layer-list>

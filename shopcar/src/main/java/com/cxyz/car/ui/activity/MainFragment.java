@@ -66,12 +66,12 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.activity_main,container,false);
+        view = inflater.inflate(R.layout.fragment_main,container,false);
         return view;
     }
 
     /**
-     * 再fragment依附到activity时保存上下文
+     * 在fragment依附到activity时保存上下文
      * @param activity
      */
     @Override

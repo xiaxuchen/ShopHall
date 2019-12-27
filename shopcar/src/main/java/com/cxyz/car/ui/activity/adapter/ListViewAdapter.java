@@ -12,7 +12,6 @@ import com.cxyz.car.R;
 import com.cxyz.car.ui.activity.domain.Goods;
 
 import java.util.List;
-import java.util.Map;
 
 public class ListViewAdapter extends BaseAdapter {
     private Context context;
@@ -50,7 +49,7 @@ public class ListViewAdapter extends BaseAdapter {
         ViewHolder viewHolder=null;
         if(view==null){
             viewHolder=new ViewHolder();
-            view= LayoutInflater.from(context).inflate(R.layout.listview_item,null);
+            view= LayoutInflater.from(context).inflate(R.layout.listview_item_main,null);
             viewHolder.imageView=view.findViewById(R.id.lisitem_image);
             viewHolder.desc=view.findViewById(R.id.listext_des);
             viewHolder.smal=view.findViewById(R.id.listext_sma);
