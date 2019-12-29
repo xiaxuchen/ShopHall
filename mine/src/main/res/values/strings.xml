@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Mine</string>
+    <string name="mine_app_name">Mine</string>
+    <string name="mine_mallinformation_mall_name">华丰食品城</string>
+    <string name="mine_mallinformation_ad">来这里找实惠吧</string>
+    <string name="mine_hearderBar_title">华丰食品城</string>
+    <string name="mine_personal_img">头像</string>
+    <string name="mine_personal_account">账号</string>
+    <string name="mine_personal_name">昵称</string>
+    <string name="mine_personal_phone">手机</string>
+    <string name="mine_personal_vip">会员级别</string>
+    <string name="mine_personal_more">更多</string>
+    <string name="mine_favorites">购物车</string>
+    <string name="mine_history">浏览历史</string>
+    <string name="mine_account">账户金额</string>
+    <string name="mine_myorder">我的订单</string>
+    <string name="mine_myorder_a">待付款</string>
+    <string name="mine_myorder_b">待发货</string>
+    <string name="mine_myorder_c">待收货</string>
+    <string name="mine_myorder_d">全部订单</string>
+    <string name="mine_header_ziliao">编辑资料</string>
+
 </resources>

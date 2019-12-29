@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context=".li.ui.Personalinformation">
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_bar_height"
+        app:backText="个人信息"
+        app:background="@color/common_orange"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/persoal_img"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_img"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="@dimen/common_icon_height"
+            android:layout_height="@dimen/common_icon_height"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="270dp"
+            android:textColor="@color/common_line"
+            android:background="@drawable/mine_shopinformation_img01"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/mine_personal_back"
+            android:layout_marginTop="25dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_img"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/persoal_account"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/persoal_img"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_account"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="哈哈大王"
+            android:layout_marginLeft="280dp"
+            android:textColor="@color/common_line"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/mine_personal_back"
+            android:layout_marginTop="15dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_account"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/persoal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/persoal_account"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_name"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="哈哈大王"
+            android:layout_marginLeft="280dp"
+            android:textColor="@color/common_line"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/mine_personal_back"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_name"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/persoal_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/persoal_name"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_phone"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="18879951233"
+            android:layout_marginLeft="250dp"
+            android:textColor="@color/common_line"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/mine_personal_back"
+            android:layout_marginTop="15dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_phone"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/persoal_vip"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/persoal_phone"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_vip"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="哈哈大王"
+            android:layout_marginLeft="260dp"
+            android:textColor="@color/common_line"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_vip"
+        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:id="@+id/persoal_more"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/persoal_vip"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:text="@string/mine_personal_more"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="黄金会员"
+            android:layout_marginLeft="290dp"
+            android:textColor="@color/common_line"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        android:layout_marginLeft="@dimen/common_margin"
+        app:layout_constraintTop_toBottomOf="@id/persoal_more"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
