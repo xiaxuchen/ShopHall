@@ -67,7 +67,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.fragment_main,container,false);
+        view = inflater.inflate(R.layout.shopcar_fragment_main,container,false);
         return view;
     }
 
@@ -87,7 +87,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //中间商家列表  gridview   start
-        gridView=view.findViewById(R.id.girdview);
+        gridView=view.findViewById(R.id.gv_middle_stores);
         List<Map<String,Object>> listItem=new ArrayList<>();
         for(int i=0;i<canId.length;i++){
             Map<String,Object> map=new HashMap<>();
@@ -97,17 +97,17 @@ public class MainFragment extends Fragment {
             listItem.add(map);
         }
 
-        SimpleAdapter adapter=new SimpleAdapter(context,listItem,R.layout.activity_gridview_item,new String[]{"name","image"},
-                new int[]{R.id.tv_text,R.id.iv_image});
+        SimpleAdapter adapter=new SimpleAdapter(context,listItem,R.layout.shopcar_list_item_main_store,new String[]{"name","image"},
+                new int[]{R.id.tv_middle_store_name,R.id.iv_middle_store_image});
         gridView.setAdapter(adapter);
         //中间商家列表  gridview end
 
         /**
          * 图片轮播 start
          */
-        pointGroup = (LinearLayout) view.findViewById(R.id.point_group);
-        imageDesc = (TextView) view.findViewById(R.id.image_desc);
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        pointGroup = (LinearLayout) view.findViewById(R.id.ll_point_group);
+        imageDesc = (TextView) view.findViewById(R.id.tv_imagebot);
+        viewPager = (ViewPager) view.findViewById(R.id.vp_imageslide);
 
         for (int i = 0; i < imageIds.length; i++) {
             //初始化图片资源
@@ -192,7 +192,7 @@ public class MainFragment extends Fragment {
         goodslistItem.add(goods2);
         goodslistItem.add(goods3);
         goodslistItem.add(goods4);
-        listView=view.findViewById(R.id.listview1);
+        listView=view.findViewById(R.id.lv_bottom_ad);
         listView.setAdapter(new ListViewAdapter(context,goodslistItem));
         /**
          * 底部商品列表 end

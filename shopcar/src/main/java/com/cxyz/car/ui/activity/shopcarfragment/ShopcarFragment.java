@@ -2,7 +2,6 @@ package com.cxyz.car.ui.activity.shopcarfragment;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -43,7 +40,7 @@ public class ShopcarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view=inflater.inflate(R.layout.fragment_shopcar,container,false);
+        view=inflater.inflate(R.layout.shopcar_fragment_shopcar,container,false);
         return view;
     }
 
@@ -52,7 +49,7 @@ public class ShopcarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //获取lsitview组件
-        listView=view.findViewById(R.id.listview_shop);
+        listView=view.findViewById(R.id.lv_shop);
         listItem=new ArrayList();
         ShopcarGoods goods1=new ShopcarGoods(R.drawable.logo,R.drawable.bg1,26.0,
                 "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
@@ -131,18 +128,18 @@ public class ShopcarFragment extends Fragment {
             ShopViewHolder viewHolder=null;
                     if(view==null){
                         viewHolder=new ShopViewHolder();
-                        view=LayoutInflater.from(context).inflate(R.layout.listview_item_shopcar,null);
+                        view=LayoutInflater.from(context).inflate(R.layout.shopcar_list_item_shopcar,null);
 
-                        viewHolder.logo=view.findViewById(R.id.shopcar_listitem_logo);
-                        viewHolder.image=view.findViewById(R.id.shopcar_listitem_img);
-                        viewHolder.desc=view.findViewById(R.id.shopcar_listitem_desc);
-                        viewHolder.smal=view.findViewById(R.id.shopcar_listitem_smal);
-                        viewHolder.price=view.findViewById(R.id.shopcar_listitem_price);
+                        viewHolder.logo=view.findViewById(R.id.iv_shopcar_logo);
+                        viewHolder.image=view.findViewById(R.id.iv_shopcar_store_image);
+                        viewHolder.desc=view.findViewById(R.id.tv_shopcar_desc);
+                        viewHolder.smal=view.findViewById(R.id.tv_shopcar_smal);
+                        viewHolder.price=view.findViewById(R.id.tv_shopcar_store_price);
 
 
-                        viewHolder.btnAdd=view.findViewById(R.id.shopcar_listitem_btnAdd);
-                        viewHolder.btnDescre=view.findViewById(R.id.shopcar_listitem_btnADescre);
-                        viewHolder.count=view.findViewById(R.id.shopcar_listitem_count);
+                        viewHolder.btnAdd=view.findViewById(R.id.btn_shopcar_add);
+                        viewHolder.btnDescre=view.findViewById(R.id.btn_shopcar_descres);
+                        viewHolder.count=view.findViewById(R.id.et_shopcar_count);
 
 
                         view.setTag(viewHolder);

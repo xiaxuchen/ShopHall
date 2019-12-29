@@ -44,19 +44,19 @@
         android:layout_height="wrap_content"
         >
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
+            android:id="@+id/vp_imageslide"
             android:layout_width="match_parent"
             android:layout_height="180dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/viewpager"
+            android:layout_alignBottom="@id/vp_imageslide"
             android:background="#33F8ECEC"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/image_desc"
+                android:id="@+id/tv_imagebot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -64,7 +64,7 @@
                 android:textSize="18sp" />
 
             <LinearLayout
-                android:id="@+id/point_group"
+                android:id="@+id/ll_point_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -76,7 +76,7 @@
 
     <GridView
         android:layout_gravity="center"
-        android:id="@+id/girdview"
+        android:id="@+id/gv_middle_stores"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="15dp"
@@ -91,7 +91,7 @@
     <ListView
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/listview1"
+        android:id="@+id/lv_bottom_ad"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:background="@drawable/border_samll"/>

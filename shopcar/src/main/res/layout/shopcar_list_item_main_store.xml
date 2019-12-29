@@ -16,14 +16,14 @@
         android:background="@drawable/radius_border1"
         android:layout_marginTop="8dp">
         <ImageView
-            android:id="@+id/iv_image"
+            android:id="@+id/iv_middle_store_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             />
         <TextView
-            android:id="@+id/tv_text"
+            android:id="@+id/tv_middle_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="哈哈哈哈"

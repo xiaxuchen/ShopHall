@@ -49,11 +49,11 @@ public class ListViewAdapter extends BaseAdapter {
         ViewHolder viewHolder=null;
         if(view==null){
             viewHolder=new ViewHolder();
-            view= LayoutInflater.from(context).inflate(R.layout.listview_item_main,null);
-            viewHolder.imageView=view.findViewById(R.id.lisitem_image);
-            viewHolder.desc=view.findViewById(R.id.listext_des);
-            viewHolder.smal=view.findViewById(R.id.listext_sma);
-            viewHolder.price=view.findViewById(R.id.listext_price);
+            view= LayoutInflater.from(context).inflate(R.layout.shopcar_list_item_main_goods,null);
+            viewHolder.imageView=view.findViewById(R.id.iv_goods_image);
+            viewHolder.desc=view.findViewById(R.id.tv_goods_desc);
+            viewHolder.smal=view.findViewById(R.id.tv_goods_smal);
+            viewHolder.price=view.findViewById(R.id.tv_goods_price);
 
             view.setTag(viewHolder);
         }else{
