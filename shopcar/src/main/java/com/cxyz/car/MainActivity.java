@@ -1,6 +1,7 @@
 package com.cxyz.car;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Specification> specificationList,specificationnumberList;
     private ArrayList<String> specialOfferList;
     private ArrayList<String> productFeaturesList;
-
+    private TextView btn_add_shopping_cart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +113,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 初始化控件
     private void initView() {
+        btn_add_shopping_cart=findViewById(R.id.btn_add_shopping_cart);
+        btn_add_shopping_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                startActivity(intent);
+            }
+        });
         // 顶部tool
         ImageView backImg = (ImageView) findViewById(R.id.iv_back);
         backImg.setOnClickListener(this);

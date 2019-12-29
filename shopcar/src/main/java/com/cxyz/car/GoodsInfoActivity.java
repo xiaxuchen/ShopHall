@@ -31,6 +31,7 @@ import com.cxyz.car.view.FlowLayout;
 import com.cxyz.car.view.MyScrollView;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.utils.ColorsUtil;
 import com.cxyz.utils.ToastUtil;
 import com.squareup.picasso.Picasso;
 
@@ -108,9 +109,7 @@ public class GoodsInfoActivity extends BaseActivity {
     public void initView() {
         // 顶部tool
         ImageView backImg = (ImageView) findViewById(R.id.iv_back);
-
         ImageView shareImg = (ImageView) findViewById(R.id.iv_share);
-
         toolbarLayout = (RelativeLayout) findViewById(R.id.layout_toolbar);
         pdescTv= (TextView) findViewById(R.id.tv_product_title);
         pdescTv.setVisibility(View.GONE);
@@ -145,19 +144,16 @@ public class GoodsInfoActivity extends BaseActivity {
         mDatas.add(graphicDetailsFragment);
         mDatas.add(productWillFragment);
         mDatas.add(productEvalInfoFragment);
-
         bottomAdapter = new VPagerFragmentAdapter(getSupportFragmentManager(), mDatas);
         bottomVPager.setAdapter(bottomAdapter);
         bottomVPager.setOffscreenPageLimit(mDatas.size());// 缓存
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
         // 滚动ScrollView
         myScrollView = (MyScrollView) findViewById(R.id.myScrollView);
-
         myScrollView.smoothScrollTo(0, 0);
         // 返回顶部
         backTopIv = (ImageView) findViewById(R.id.iv_back_top);
         backTopIv.setVisibility(View.GONE);
-
         specialOfferFlowLayout = (FlowLayout) findViewById(R.id.flowlayout_special_offer);
         specificationsChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_choice);
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
