@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply from:rootDir.absolutePath+"/android.gradle"
 
 android {
@@ -17,7 +18,14 @@ android {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.1.0'
+
+    implementation(project(':utils'))
+    implementation(project(':mvpbase'))
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.google.code.gson:gson:2.8.5'
     api(project(':mvpbase'))
     api(project(':utils'))
     api(project(':httplib'))
