@@ -16,6 +16,10 @@ import org.jetbrains.anko.px2dip
 import org.jetbrains.anko.toast
 
 class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
+    override fun createIPresenter(): LoginPresenter {
+        return LoginPresenter()
+    }
+
     override fun loginSuccess() {
         toast("登录成功")
     }
@@ -45,8 +49,5 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
         }
     }
 
-    override fun createIPresenter(): LoginPresenter {
-        return LoginPresenter()
-    }
 
 }

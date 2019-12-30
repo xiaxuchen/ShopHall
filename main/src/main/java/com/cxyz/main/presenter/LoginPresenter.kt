@@ -5,11 +5,15 @@ import com.cxyz.main.data.model.impl.LoginModelImpl
 import com.cxyz.main.data.protocol.User
 import com.cxyz.main.presenter.view.ILoginView
 import com.cxyz.mvp.ipresenter.IBasePresenter
+import com.cxyz.mvp.iview.IBaseView
 import com.cxyz.relative.base.ext.execute
 import com.cxyz.relative.base.rx.BaseSubscriber
 import com.cxyz.utils.ToastUtil
 
 class LoginPresenter:IBasePresenter<ILoginModel,ILoginView>() {
+    override fun createModel(): ILoginModel {
+        return LoginModelImpl()
+    }
 
     fun login(username:String,password:String) {
         if(!checkUserInfo(username,password))
@@ -44,7 +48,4 @@ class LoginPresenter:IBasePresenter<ILoginModel,ILoginView>() {
         return true
     }
 
-    override fun createModel(): ILoginModel {
-        return LoginModelImpl()
-    }
 }

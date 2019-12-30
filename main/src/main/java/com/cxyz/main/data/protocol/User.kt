@@ -9,4 +9,10 @@ class User (
     var sex:String? = null,
     // 用户登录凭证
     var token:String? = null
-)
+
+
+) {
+    override fun toString(): String {
+        return "User(username=$username, headImage=$headImage, sex=$sex, token=$token)"
+    }
+}

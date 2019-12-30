@@ -10,7 +10,6 @@ import com.cxyz.relative.base.data.protocol.BaseResp
 import com.cxyz.relative.base.ext.convert
 import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
-import java.util.concurrent.TimeUnit
 
 object UserApi {
 
@@ -26,4 +25,5 @@ object UserApi {
             )
         }.convert()
     }
+
 }
