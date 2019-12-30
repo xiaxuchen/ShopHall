@@ -21,6 +21,7 @@ dependencies {
     implementation(project(':httplib'))
     implementation(project(':utils'))
     implementation(project(':widget'))
+    implementation(project(':context'))
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'

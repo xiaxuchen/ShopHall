@@ -4,19 +4,25 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import com.cxyz.relative.base.exception.NetException
 import com.cxyz.relative.base.rx.BaseFunc
 import com.cxyz.relative.base.rx.BaseFuncBoolean
 import com.cxyz.relative.base.rx.BaseSubscriber
 import com.cxyz.utils.ImageLoaderManager
-import com.kotlin.base.data.protocol.BaseResp
+import com.cxyz.relative.base.data.protocol.BaseResp
 import com.kotlin.base.widgets.DefaultTextWatcher
 import com.trello.rxlifecycle2.LifecycleProvider
 import io.reactivex.Observable
+import io.reactivex.ObservableEmitter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 //Kotlin通用扩展
 
+
+fun ObservableEmitter<*>.error(info:String) {
+    this.onError(NetException(info))
+}
 
 /*
     扩展Observable执行
