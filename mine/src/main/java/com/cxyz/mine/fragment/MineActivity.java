@@ -1,4 +1,4 @@
-package com.cxyz.mine.li.ui;
+package com.cxyz.mine.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

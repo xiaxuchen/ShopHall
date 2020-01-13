@@ -1,4 +1,4 @@
-package com.cxyz.mine.li.ui;
+package com.cxyz.mine.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -44,18 +44,18 @@ public class MallinformationActivity extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         /*商城店铺信息*/
-        int[] ivShopImg = new int[]{R.drawable.mine_shopinformation_img01,
-                R.drawable.mine_shopinformation_img02,
-                R.drawable.mine_shopinformation_img03,
-                R.drawable.mine_shopinformation_img04,
-                R.drawable.mine_shopinformation_img05,
-                R.drawable.mine_shopinformation_img06,
-                R.drawable.mine_shopinformation_img07,
-                R.drawable.mine_shopinformation_img08,
-                R.drawable.mine_shopinformation_img010,
-                R.drawable.mine_shopinformation_img11,
-                R.drawable.mine_shopinformation_img12,
-                R.drawable.mine_shopinformation_img13,};
+        int[] ivShopImg = new int[]{R.mipmap.mine_shopinformation_img01,
+                R.mipmap.mine_shopinformation_img02,
+                R.mipmap.mine_shopinformation_img03,
+                R.mipmap.mine_shopinformation_img04,
+                R.mipmap.mine_shopinformation_img05,
+                R.mipmap.mine_shopinformation_img06,
+                R.mipmap.mine_shopinformation_img07,
+                R.mipmap.mine_shopinformation_img08,
+                R.mipmap.mine_shopinformation_img010,
+                R.mipmap.mine_shopinformation_img11,
+                R.mipmap.mine_shopinformation_img12,
+                R.mipmap.mine_shopinformation_img13,};
         String[] tvShopName = new String[]{"坚强百货","恒通百货",
                 "都是批发市场","捷达百货批发",
                 "嘟嘟美食铺子","利达蛋糕店","百利商行",
@@ -74,11 +74,11 @@ public class MallinformationActivity extends Fragment {
         gridView.setAdapter(simpleAdapterShop);
 
         /*广告部分的信息*/
-        int[] ivAd = new int[]{R.drawable.mine_mall_ad_img01,
-                R.drawable.mine_mall_ad_img02,
-                R.drawable.mine_mall_ad_img03,
-                R.drawable.mine_mall_ad_img04,
-                R.drawable.mine_mall_ad_img05};
+        int[] ivAd = new int[]{R.mipmap.mine_mall_ad_img01,
+                R.mipmap.mine_mall_ad_img02,
+                R.mipmap.mine_mall_ad_img03,
+                R.mipmap.mine_mall_ad_img04,
+                R.mipmap.mine_mall_ad_img05};
         String[] tvAdContents = new String[]{"潮流好看，价格实惠，全国包邮，多买多赠",
                 "时尚女衣，设计精美采用最新制造...","美丽的冬季需要美丽保暖的帽子...",
                 "艺术的设计，送给最爱的人...","时尚商务男装，彰显成功的你..."

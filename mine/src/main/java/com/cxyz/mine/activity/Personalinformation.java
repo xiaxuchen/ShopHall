@@ -1,4 +1,4 @@
-package com.cxyz.mine.li.ui;
+package com.cxyz.mine.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

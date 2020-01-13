@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".li.ui.MineActivity">
+    tools:context=".fragment.MineActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/common_margin_middle"
             android:background="@drawable/mine_header_border"
-            android:src="@drawable/mine_mall_ad_img05"
+            android:src="@mipmap/mine_mall_ad_img05"
             />
         <TextView
             android:id="@+id/mine_header_name"
@@ -55,7 +55,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:padding="@dimen/common_padding_middle"
-            android:src="@drawable/mine_header_setup"
+            android:src="@mipmap/mine_header_setup"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
@@ -87,7 +87,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@drawable/mine_order_a"/>
+                android:src="@mipmap/mine_order_a"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -107,7 +107,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@drawable/mine_order_b"/>
+                android:src="@mipmap/mine_order_b"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -127,7 +127,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@drawable/mine_order_c"/>
+                android:src="@mipmap/mine_order_c"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -147,7 +147,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@drawable/mine_order_d"/>
+                android:src="@mipmap/mine_order_d"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -182,7 +182,7 @@
             android:layout_marginLeft="@dimen/common_margin"
             android:layout_marginTop="@dimen/common_margin_middle"
             android:background="@drawable/mine_favorite_border"
-            android:src="@drawable/mine_favorite"
+            android:src="@mipmap/mine_favorite"
             tools:ignore="MissingConstraints" />
         <TextView
             android:layout_width="wrap_content"
@@ -200,7 +200,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="@dimen/common_margin"
             android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@drawable/mine_personal_back"
+            android:background="@mipmap/mine_personal_back"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
@@ -228,7 +228,7 @@
             android:layout_marginLeft="@dimen/common_margin"
             android:layout_marginTop="@dimen/common_margin_middle"
             android:background="@drawable/mine_account_border"
-            android:src="@drawable/mine_account_img"
+            android:src="@mipmap/mine_account_img"
             tools:ignore="MissingConstraints" />
         <TextView
             android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="@dimen/common_margin"
             android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@drawable/mine_personal_back"
+            android:background="@mipmap/mine_personal_back"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
@@ -274,7 +274,7 @@
             android:layout_marginLeft="@dimen/common_margin"
             android:layout_marginTop="@dimen/common_margin_middle"
             android:background="@drawable/mine_favorite_border"
-            android:src="@drawable/mine_history"
+            android:src="@mipmap/mine_history"
             tools:ignore="MissingConstraints" />
         <TextView
             android:layout_width="wrap_content"
@@ -292,7 +292,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="@dimen/common_margin"
             android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@drawable/mine_personal_back"
+            android:background="@mipmap/mine_personal_back"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
