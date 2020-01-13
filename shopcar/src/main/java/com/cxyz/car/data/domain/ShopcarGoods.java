@@ -1,11 +1,11 @@
-package com.cxyz.car.ui.activity.domain;
+package com.cxyz.car.data.domain;
 
 public class ShopcarGoods {
-    private int logo;
-    private int image;
-    private Double price;
-    private String desc;
-    private String smal;
+    private int logo;//购物车店铺的logo
+    private int image;//商品图片
+    private Double price;//商品价格
+    private String desc;//商品描述
+    private String smal;//活动描述
 
     public ShopcarGoods(int logo, int image, Double price, String desc, String smal) {
         this.logo = logo;

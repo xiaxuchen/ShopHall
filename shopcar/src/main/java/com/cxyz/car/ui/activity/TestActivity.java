@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cxyz.car.R;
-import com.cxyz.car.ui.activity.mainfragment.MainFragment;
-import com.cxyz.car.ui.activity.shopcarfragment.ShopcarFragment;
+import com.cxyz.car.ui.fragment.MainFragment;
+import com.cxyz.car.ui.fragment.ShopcarFragment;
 
 
 public class TestActivity extends AppCompatActivity {
@@ -28,7 +28,7 @@ public class TestActivity extends AppCompatActivity {
         /**
          * 点击按钮加载一个fragment
          */
-        btn1_afragment=findViewById(R.id.btn1_afragment);
+        btn1_afragment=findViewById(R.id.btn_mainfragment);
         btn1_afragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +40,7 @@ public class TestActivity extends AppCompatActivity {
         /**
          * ShopCarFragment
          */
-        btn2_shopcar=findViewById(R.id.btn2_shopcar);
+        btn2_shopcar=findViewById(R.id.btn_shopcar);
         btn2_shopcar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

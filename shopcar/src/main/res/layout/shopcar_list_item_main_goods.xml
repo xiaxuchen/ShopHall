@@ -10,7 +10,7 @@
             android:id="@+id/iv_goods_image"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:background="@drawable/border_samll"
+            android:background="@drawable/car_border_samll"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -65,7 +65,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.2dp"
-            android:background="#000"
+            android:background="#C7C0C0"
             android:layout_marginTop="140dp"
            />
 

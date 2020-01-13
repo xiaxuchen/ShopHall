@@ -1,4 +1,4 @@
-package com.cxyz.car.ui.activity.mainfragment;
+package com.cxyz.car.ui.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,12 +6,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -20,8 +22,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.cxyz.car.R;
-import com.cxyz.car.ui.activity.adapter.ListViewAdapter;
-import com.cxyz.car.ui.activity.domain.Goods;
+import com.cxyz.car.ui.adapter.ListViewAdapter;
+import com.cxyz.car.data.domain.Goods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,12 +33,13 @@ import java.util.Map;
 public class MainFragment extends Fragment {
 
     private GridView gridView;
+    private ScrollView scrollView;
 
 
     private ViewPager viewPager;
     private LinearLayout pointGroup;
     private TextView imageDesc;
-    int[] imageIds = {R.drawable.bg1, R.drawable.bg2, R.drawable.bg3, R.drawable.bg4};
+    int[] imageIds = {R.drawable.car_bg1, R.drawable.car_bg2, R.drawable.car_bg3, R.drawable.car_bg4};
     protected int lastPointPosition = 0;
     private boolean isRunning = false;
     private final String[] imageDescriptions = {"图片1",
@@ -45,7 +48,7 @@ public class MainFragment extends Fragment {
             "图片4"};
     List<ImageView> imageList = new ArrayList<>();
 
-    int[] canId={R.drawable.can1,R.drawable.can2,R.drawable.can3,R.drawable.can4,R.drawable.can5,R.drawable.can6};
+    int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
     String[] titles=new String[]{"can1","can2","can3","can4","can5","can6"};
 
     /*
@@ -86,6 +89,15 @@ public class MainFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        scrollView=view.findViewById(R.id.sv_main);
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                listView.dispatchTouchEvent(motionEvent);
+                return false;
+            }
+        });
+
         //中间商家列表  gridview   start
         gridView=view.findViewById(R.id.gv_middle_stores);
         List<Map<String,Object>> listItem=new ArrayList<>();
@@ -120,7 +132,7 @@ public class MainFragment extends Fragment {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5, 5);
             params.rightMargin = 20;
             point.setLayoutParams(params);
-            point.setBackgroundResource(R.drawable.point_bg);
+            point.setBackgroundResource(R.drawable.car_point_bg);
             if (i == 0) {
                 point.setEnabled(true);
             } else {
@@ -184,14 +196,32 @@ public class MainFragment extends Fragment {
         /**
          * 底部商品列表 start
          */
-        Goods goods1=new Goods(R.drawable.bg1,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",999.0);
-        Goods goods2=new Goods(R.drawable.bg2,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",888.0);
-        Goods goods3=new Goods(R.drawable.bg3,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",777.0);
-        Goods goods4=new Goods(R.drawable.bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods1=new Goods(R.drawable.car_bg1,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",999.0);
+        Goods goods2=new Goods(R.drawable.car_bg2,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",888.0);
+        Goods goods3=new Goods(R.drawable.car_bg3,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",777.0);
+        Goods goods4=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods5=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods6=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods7=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods8=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods9=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods10=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+        Goods goods11=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
+
+
         goodslistItem.add(goods1);
         goodslistItem.add(goods2);
         goodslistItem.add(goods3);
         goodslistItem.add(goods4);
+        goodslistItem.add(goods5);
+        goodslistItem.add(goods6);
+        goodslistItem.add(goods7);
+        goodslistItem.add(goods8);
+        goodslistItem.add(goods9);
+        goodslistItem.add(goods10);
+        goodslistItem.add(goods11);
+
+
         listView=view.findViewById(R.id.lv_bottom_ad);
         listView.setAdapter(new ListViewAdapter(context,goodslistItem));
         /**
@@ -263,6 +293,28 @@ public class MainFragment extends Fragment {
         super.onDestroy();
     }
 
+
+//    手动给listview设置高度
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        if(listView == null) return;
+
+        ListViewAdapter listAdapter = (ListViewAdapter) listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+    }
 }
 
 

@@ -1,13 +1,10 @@
-package com.cxyz.car.ui.activity.domain;
-
-import android.widget.ImageView;
-import android.widget.TextView;
+package com.cxyz.car.data.domain;
 
 public class Goods {
-    private int imageId;
-    private String des;
-    private String smal;
-    private double price;
+    private int imageId;//广告图片
+    private String des;//广告描述
+    private String smal;//广告活动
+    private double price;//价格
 
     public Goods(int imageId, String des, String smal, double price) {
         this.imageId = imageId;

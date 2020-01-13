@@ -59,7 +59,7 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@drawable/border_top_bottom"
+        android:background="@drawable/car_border_top_bottom"
         >
         <CheckBox
             android:id="@+id/cb_selectAll"
@@ -89,7 +89,7 @@
             android:layout_height="35dp"
             android:text="结算"
             android:textSize="16sp"
-            android:background="@drawable/border_bg_organ"
+            android:background="@drawable/car_border_bg_organ"
             />
     </LinearLayout>
 

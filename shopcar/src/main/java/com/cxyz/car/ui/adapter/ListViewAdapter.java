@@ -1,4 +1,4 @@
-package com.cxyz.car.ui.activity.adapter;
+package com.cxyz.car.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cxyz.car.R;
-import com.cxyz.car.ui.activity.domain.Goods;
+import com.cxyz.car.data.domain.Goods;
 
 import java.util.List;
 
