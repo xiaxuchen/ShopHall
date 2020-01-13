@@ -1,4 +1,4 @@
-package com.cxyz.car;
+package com.cxyz.car.Activity;
 
 import android.graphics.Bitmap;
 import android.view.View;
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cxyz.car.R;
 import com.cxyz.car.view.RecyclerUtils;
 import com.cxyz.car.view.RecyclerViewAdapter;
 import com.cxyz.mvp.activity.BaseActivity;

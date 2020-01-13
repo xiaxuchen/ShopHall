@@ -1,9 +1,7 @@
-package com.cxyz.car;
+package com.cxyz.car.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -17,10 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.cxyz.car.R;
 import com.cxyz.car.adapter.VPagerFragmentAdapter;
 import com.cxyz.car.bean.Brand;
 import com.cxyz.car.bean.Specification;
@@ -32,6 +30,8 @@ import com.cxyz.car.utils.ClickUtil;
 import com.cxyz.car.view.ChildAutoHeightViewPager;
 import com.cxyz.car.view.FlowLayout;
 import com.cxyz.car.view.MyScrollView;
+import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +41,7 @@ import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool
      */
@@ -82,9 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * 其他控件
      */
+    private  TextView pdescTv;
     private ImageView backTopIv;
     private int vpagerTopDistance;// 记录底部ViewPager距离顶部的高度
-    private FlowLayout productFeaturesFlowlayout, specialOfferFlowLayout, specificationsChoiceFlowlayout,specificationsNumberChoiceFlowlayout;
+    private FlowLayout productFeaturesFlowlayout, specialOfferFlowLayout, specificationsChoiceFlowlayout;
     /**
      * 底部浮悬
      */
@@ -96,38 +97,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Integer> bannerList;
     private ArrayList<Integer> detailList;
     private ArrayList<Integer> willList;
-    private ArrayList<Specification> specificationList,specificationnumberList;
+    private ArrayList<Specification> specificationList;
     private ArrayList<String> specialOfferList;
     private ArrayList<String> productFeaturesList;
-    private TextView btn_add_shopping_cart;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goodsinfo);
-
-        initData();
-        initView();
-        initImg();
-        refulashData();
+    protected Object getContentView() {
+        return R.layout.activity_goodsinfo;
     }
 
-    // 初始化控件
-    private void initView() {
-        btn_add_shopping_cart=findViewById(R.id.btn_add_shopping_cart);
-        btn_add_shopping_cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
-                startActivity(intent);
-            }
-        });
+    @Override
+    public void initView() {
         // 顶部tool
         ImageView backImg = (ImageView) findViewById(R.id.iv_back);
-        backImg.setOnClickListener(this);
         ImageView shareImg = (ImageView) findViewById(R.id.iv_share);
-        shareImg.setOnClickListener(this);
         toolbarLayout = (RelativeLayout) findViewById(R.id.layout_toolbar);
-        final TextView pdescTv = (TextView) findViewById(R.id.tv_product_title);
+        pdescTv= (TextView) findViewById(R.id.tv_product_title);
         pdescTv.setVisibility(View.GONE);
         brandFlowLayout = (FlowLayout) findViewById(R.id.flowlayout_brand);
         // 顶部的ViewPager
@@ -147,11 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         imgtextInfoTv = (TextView) findViewById(R.id.tv_info_imgtext);
-        imgtextInfoTv.setOnClickListener(this);
         photoInfoTv = (TextView) findViewById(R.id.tv_info_photo);
-        photoInfoTv.setOnClickListener(this);
         evalInfoTv = (TextView) findViewById(R.id.tv_info_eval);
-        evalInfoTv.setOnClickListener(this);
         cursor = (ImageView) findViewById(R.id.cursor);
         // 底部ViewPager
         bottomVPager = (ChildAutoHeightViewPager) findViewById(R.id.bottomvpager);
@@ -163,84 +144,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatas.add(graphicDetailsFragment);
         mDatas.add(productWillFragment);
         mDatas.add(productEvalInfoFragment);
-
         bottomAdapter = new VPagerFragmentAdapter(getSupportFragmentManager(), mDatas);
         bottomVPager.setAdapter(bottomAdapter);
         bottomVPager.setOffscreenPageLimit(mDatas.size());// 缓存
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
         // 滚动ScrollView
         myScrollView = (MyScrollView) findViewById(R.id.myScrollView);
-        myScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
-            @Override
-            public void onScrollchanged(int l, int scrollY, int oldl, int oldt) {
-                vpagerTopDistance = bottomVPager.getTop() - classifyHeight - toolbarLayout.getHeight();
-
-                // 设置浮动栏
-                int translation = Math.max(scrollY, vpagerTopDistance);
-                classifyLayout.setTranslationY(translation);
-                classifyLayout.setVisibility(View.VISIBLE);
-
-                // 设置返回顶部
-                if (scrollY >= vpagerTopDistance) {
-                    backTopIv.setVisibility(View.VISIBLE);
-                } else {
-                    backTopIv.setVisibility(View.GONE);
-                }
-
-                // 顶部栏透明度控制
-                if (scrollY >= 0 && scrollY < 190) {
-                    toolbarLayout.getBackground().mutate().setAlpha(scrollY / 3);
-                    brandFlowLayout.setVisibility(View.VISIBLE);
-                    pdescTv.setVisibility(View.GONE);
-                } else if (scrollY >= 190) {
-                    toolbarLayout.getBackground().mutate().setAlpha(229);
-                    brandFlowLayout.setVisibility(View.GONE);
-                    pdescTv.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onTouchUp() {
-
-            }
-
-            @Override
-            public void onTouchDown() {
-
-            }
-        });
         myScrollView.smoothScrollTo(0, 0);
         // 返回顶部
         backTopIv = (ImageView) findViewById(R.id.iv_back_top);
         backTopIv.setVisibility(View.GONE);
-        backTopIv.setOnClickListener(this);
         specialOfferFlowLayout = (FlowLayout) findViewById(R.id.flowlayout_special_offer);
         specificationsChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_choice);
-        specificationsNumberChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_numberchoice);
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
         //底部浮悬
         img_coll=(ImageView) findViewById(R.id.img_coll);
-     /*   img_coll.setOnClickListener(new View.OnClickListener() {
-            boolean click=true;
-            @Override
-            public void onClick(View view) {
-                ToastUtil.showLong("一点击 啊 ");
-                if (click){
-                    ToastUtil.showShort("已收藏");
-                    click=false;
-                }
-                else {
-                    ToastUtil.showShort("已取消收藏");
-                    click=false;
-                }
 
-            }
-        });*/
+
+
     }
 
-    // 初始化数据
-    private void initData() {
-        // 初始化品牌
+    @Override
+    public void initData() {
         if (brandList == null)
             brandList = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -307,13 +232,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Specification specification = new Specification(i, "N" + i + "码", null);
             specificationList.add(specification);
         }
-        // 初始化数量规格
-        if (specificationnumberList == null)
-            specificationnumberList = new ArrayList<>();
-        specificationnumberList.add(new Specification(1,"1-10件",null));
-        specificationnumberList.add(new Specification(1,"11-20件",null));
-        specificationnumberList.add(new Specification(1,"20件以上",null));
-
         // 初始化优惠
         if (specialOfferList == null)
             specialOfferList = new ArrayList<>();
@@ -326,6 +244,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void setEvent() {
+        bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
+        myScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
+            @Override
+            public void onScrollchanged(int l, int scrollY, int oldl, int oldt) {
+                vpagerTopDistance = bottomVPager.getTop() - classifyHeight - toolbarLayout.getHeight();
+
+                // 设置浮动栏
+                int translation = Math.max(scrollY, vpagerTopDistance);
+                classifyLayout.setTranslationY(translation);
+                classifyLayout.setVisibility(View.VISIBLE);
+
+                // 设置返回顶部
+                if (scrollY >= vpagerTopDistance) {
+                    backTopIv.setVisibility(View.VISIBLE);
+                } else {
+                    backTopIv.setVisibility(View.GONE);
+                }
+
+                // 顶部栏透明度控制
+                if (scrollY >= 0 && scrollY < 190) {
+                    toolbarLayout.getBackground().mutate().setAlpha(scrollY / 3);
+                    brandFlowLayout.setVisibility(View.VISIBLE);
+                    pdescTv.setVisibility(View.GONE);
+                } else if (scrollY >= 190) {
+                    toolbarLayout.getBackground().mutate().setAlpha(229);
+                    brandFlowLayout.setVisibility(View.GONE);
+                    pdescTv.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onTouchUp() {
+
+            }
+
+            @Override
+            public void onTouchDown() {
+
+            }
+        });
+        backTopIv.setOnClickListener(onClickListener);
+        img_coll.setOnClickListener(new View.OnClickListener() {
+            boolean click=true;
+            @Override
+            public void onClick(View view) {
+                ToastUtil.showLong("一点击 啊 ");
+                if (click){
+                    ToastUtil.showShort("已收藏");
+                    click=false;
+                }
+                else {
+                    ToastUtil.showShort("已取消收藏");
+                    click=false;
+                }
+
+            }
+        });
+
+    }
+
+    @Override
+    protected IBasePresenter createIPresenter() {
+        return null;
+    }
     // 刷新数据-一般为网络加载完成后刷新-这里模仿网络，延迟3s
     private void refulashData() {
         new Handler().postDelayed(new Runnable() {
@@ -335,7 +319,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setSpecialOfferFlowLayoutData(specialOfferList);
                 setProductFeaturesFlowlayoutData(productFeaturesList);
                 setSpecificationsChoiceFlowlayoutData(specificationList);
-                setSpecificationsNumberChoiceFlowlayoutData(specificationnumberList);
                 setProductTopViewPager(bannerList);
                 graphicDetailsFragment.setLinearLayoutData(detailList);
                 productWillFragment.setLinearLayoutData(willList);
@@ -348,33 +331,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, 3000);
     }
+    /**
+     * 设置监听
+     */
+   private View.OnClickListener  onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.iv_back:// 返回
 
-    // 点击事件监听
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_back:// 返回
-
-                break;
-            case R.id.iv_share:// 分享
-             //  Toast.makeText(MainActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
-                ToastUtil.showLong("分享功能");
-                break;
-            case R.id.tv_info_imgtext:// 图文详情
-                bottomVPager.setCurrentItem(0);
-                break;
-            case R.id.tv_info_photo:// 产品实拍
-                bottomVPager.setCurrentItem(1);
-                break;
-            case R.id.tv_info_eval:// 评价详情
-                bottomVPager.setCurrentItem(2);
-                break;
-            case R.id.iv_back_top:// 返回顶部
-                myScrollView.smoothScrollTo(0, vpagerTopDistance);
-                break;
+                    break;
+                case R.id.iv_share:// 分享
+                    Toast.makeText(GoodsInfoActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.tv_info_imgtext:// 图文详情
+                    bottomVPager.setCurrentItem(0);
+                    break;
+                case R.id.tv_info_photo:// 产品实拍
+                    bottomVPager.setCurrentItem(1);
+                    break;
+                case R.id.tv_info_eval:// 评价详情
+                    bottomVPager.setCurrentItem(2);
+                    break;
+                case R.id.iv_back_top:// 返回顶部
+                    myScrollView.smoothScrollTo(0, vpagerTopDistance);
+                    break;
+            }
         }
-    }
 
+    };
     /**
      * 设置流式布局控件-tool品牌
      *
@@ -396,7 +381,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             return;
 //                        // 跳转到品牌商品列表
 //                        Intent intent = new Intent(MainActivity.this, BrandActivity.class);
-                        Toast.makeText(MainActivity.this, "跳转品牌页面" + value.getBrand_name(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GoodsInfoActivity.this, "跳转品牌页面" + value.getBrand_name(), Toast.LENGTH_SHORT).show();
                     }
                 });
 //                // 加载图片-加载网络图片-这里为了测试采用本地文件
@@ -404,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                if (!TextUtils.isEmpty(imgPath)) {}
 
                 // 加载本地文件
-                Picasso.with(MainActivity.this)
+                Picasso.with(GoodsInfoActivity.this)
                         .load(value.getBrand_res())
                         .into(iv);
 
@@ -442,12 +427,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Specification specification = datas.get(i);
                             if (specification.getId() == tvTag) {
                                 tv.setBackgroundResource(R.drawable.bg_red_circular);
-                                tv.setTextColor(MainActivity.this.getResources().getColor(R.color.colorTitle));
+                                tv.setTextColor(GoodsInfoActivity.this.getResources().getColor(R.color.colorTitle));
                                 // 刷新界面-发送广播/EventBus
                             } else {
                                 TextView tagView = specificationsChoiceFlowlayout.findViewWithTag(specification.getId());
                                 tagView.setBackgroundResource(R.drawable.bg_gray_circular);
-                                tagView.setTextColor(MainActivity.this.getResources().getColor(R.color.colorSomber));
+                                tagView.setTextColor(GoodsInfoActivity.this.getResources().getColor(R.color.colorSomber));
                             }
                         }
 
@@ -458,50 +443,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             specificationsChoiceFlowlayout.setVisibility(View.VISIBLE);
         } else {
             specificationsChoiceFlowlayout.setVisibility(View.GONE);
-        }
-    }
-    /**
-     * 设置流式布局控件-选择数量规格
-     *
-     * @param datas 数据源
-     */
-    private void setSpecificationsNumberChoiceFlowlayoutData(final ArrayList<Specification> datas) {
-        if (datas != null && datas.size() > 0) {
-            LayoutInflater mInflater = LayoutInflater.from(this);
-            specificationsNumberChoiceFlowlayout.removeAllViews();
-            for (Specification value : datas) {
-                final TextView tv = (TextView) mInflater.inflate(R.layout.tag_gray_circular_textview, specificationsNumberChoiceFlowlayout, false);
-                tv.setTag(value.getId());
-                tv.setText(value.getText());
-                // 规格点击事件监听
-                tv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // 防止连续点击
-                        if (ClickUtil.isFastClick()) {
-                            return;
-                        }
-                        int tvTag = (int) v.getTag();
-                        for (int i = 0; i < datas.size(); i++) {
-                            Specification specification = datas.get(i);
-                            if (specification.getId() == tvTag) {
-                                tv.setBackgroundResource(R.drawable.bg_red_circular);
-                                tv.setTextColor(MainActivity.this.getResources().getColor(R.color.colorTitle));
-                                // 刷新界面-发送广播/EventBus
-                            } else {
-                                TextView tagView = specificationsNumberChoiceFlowlayout.findViewWithTag(specification.getId());
-                                tagView.setBackgroundResource(R.drawable.bg_gray_circular);
-                                tagView.setTextColor(MainActivity.this.getResources().getColor(R.color.colorSomber));
-                            }
-                        }
-
-                    }
-                });
-                specificationsNumberChoiceFlowlayout.addView(tv);
-            }
-            specificationsNumberChoiceFlowlayout.setVisibility(View.VISIBLE);
-        } else {
-            specificationsNumberChoiceFlowlayout.setVisibility(View.GONE);
         }
     }
 
@@ -560,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LinearLayout.LayoutParams dotParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 dotParams.setMargins(0, 0, 20, 0);
                 dotParams.gravity = Gravity.CENTER_VERTICAL;
-                ImageView mImageView = new ImageView(MainActivity.this);
+                ImageView mImageView = new ImageView(GoodsInfoActivity.this);
                 mImageView.setLayoutParams(dotParams);
                 mImageViews[k] = mImageView;
                 if (k == 0) {
@@ -571,10 +512,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mtopVGroup.addView(mImageViews[k]);
             }
             // 初始化generalVpLayout
-            generalVpLayout.init(new HolderCreator<ImageViewHolder>() {
+            generalVpLayout.init(new HolderCreator<GoodsInfoActivity.ImageViewHolder>() {
                 @Override
-                public ImageViewHolder createHolder() {
-                    return new ImageViewHolder();
+                public GoodsInfoActivity.ImageViewHolder createHolder() {
+                    return new GoodsInfoActivity.ImageViewHolder();
                 }
             }, data)
                     // 设置轮播停顿时间
@@ -608,7 +549,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public View createView(Context context) {
             // 创建数据
-            imageView = new ImageView(MainActivity.this);
+            imageView = new ImageView(GoodsInfoActivity.this);
             return imageView;
         }
 
@@ -621,7 +562,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                imageView.setVisibility(View.VISIBLE);
 //            }
             imageView.setVisibility(View.VISIBLE);
-            Picasso.with(MainActivity.this)
+            Picasso.with(GoodsInfoActivity.this)
                     .load(imgPath)
                     .into(imageView);
         }
