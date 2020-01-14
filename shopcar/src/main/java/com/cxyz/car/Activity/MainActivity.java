@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
+//goodsinfoactivity
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * 顶部tool
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Specification> specificationList,specificationnumberList;
     private ArrayList<String> specialOfferList;
     private ArrayList<String> productFeaturesList;
-    private TextView btn_add_shopping_cart;
+    private TextView btaddshoppingcart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,11 +114,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 初始化控件
     private void initView() {
-        btn_add_shopping_cart=findViewById(R.id.btn_add_shopping_cart);
-        btn_add_shopping_cart.setOnClickListener(new View.OnClickListener() {
+        btaddshoppingcart=findViewById(R.id.btaddshoppingcart);
+        btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),ChatMessageActivity.class);
+                Intent intent=new Intent(getApplicationContext(),GoodsInfoActivity.class);
                 startActivity(intent);
             }
         });
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         specificationsNumberChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_numberchoice);
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
         //底部浮悬
-        img_coll=(ImageView) findViewById(R.id.img_coll);
+        img_coll=(ImageView) findViewById(R.id.imgcoll);
     }
 
     // 初始化数据

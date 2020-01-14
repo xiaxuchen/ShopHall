@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
+//有bug 不能运行
 public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool
@@ -89,7 +89,7 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 底部浮悬
      */
-    private ImageView img_coll;//收藏图标
+    private ImageView imgcoll;//收藏图标
     /**
      * 相关数据
      */
@@ -158,7 +158,7 @@ public class GoodsInfoActivity extends BaseActivity {
         specificationsChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_choice);
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
         //底部浮悬
-        img_coll=(ImageView) findViewById(R.id.img_coll);
+        imgcoll=(ImageView) findViewById(R.id.imgcoll);
 
 
 
@@ -287,7 +287,7 @@ public class GoodsInfoActivity extends BaseActivity {
             }
         });
         backTopIv.setOnClickListener(onClickListener);
-        img_coll.setOnClickListener(new View.OnClickListener() {
+        imgcoll.setOnClickListener(new View.OnClickListener() {
             boolean click=true;
             @Override
             public void onClick(View view) {

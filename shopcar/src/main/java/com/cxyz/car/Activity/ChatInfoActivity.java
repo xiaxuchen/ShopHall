@@ -27,8 +27,8 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     private List<String> dataTitle;     //标题（谁的消息）
     private List<String> datasContent;  //内容（消息内容）
     private List<String> datasTime;     //时间（消息时间）
-    private QMUIRadiusImageView iv_logisticsinfo;
-    private QMUIRadiusImageView  iv_discontinfo;
+    private QMUIRadiusImageView ivlogisticsinfo;
+    private QMUIRadiusImageView  ivdiscontinfo;
     @Override
     protected Object getContentView() {
         return R.layout.activity_chatinfo;
@@ -39,12 +39,12 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     public void initView() {
         recycler = (RecyclerView)findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        iv_logisticsinfo=findViewById(R.id.iv_logisticsinfo);
-        iv_logisticsinfo.setCircle(true);
-        iv_logisticsinfo.setBorderColor(ColorsUtil.WHITE);
-        iv_discontinfo=findViewById(R.id.iv_discontinfo);
-        iv_discontinfo.setCircle(true);
-        iv_discontinfo.setBorderColor(ColorsUtil.WHITE);
+        ivlogisticsinfo=findViewById(R.id.ivlogisticsinfo);
+        ivlogisticsinfo.setCircle(true);
+        ivlogisticsinfo.setBorderColor(ColorsUtil.WHITE);
+        ivdiscontinfo=findViewById(R.id.ivdiscontinfo);
+        ivdiscontinfo.setCircle(true);
+        ivdiscontinfo.setBorderColor(ColorsUtil.WHITE);
         datas();//插入数据
         //更新界面
         updateInterface();

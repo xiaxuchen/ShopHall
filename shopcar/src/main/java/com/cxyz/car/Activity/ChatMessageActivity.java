@@ -24,7 +24,7 @@ public class ChatMessageActivity extends AppCompatActivity {
     private Button send;
     private RecyclerView msgRecyclerView;
     private MsgAdapter adapter;
-    private HeaderBar hb_chatmes_title;
+    private HeaderBar hbchatmestitle;
 
 
 
@@ -34,9 +34,9 @@ public class ChatMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initMsgs();
-        hb_chatmes_title=findViewById(R.id.hb_chatmes_title);
-        hb_chatmes_title.setTitle("李明");
-        hb_chatmes_title.setBackColor(ColorsUtil.BLUE_LIGHT);
+        hbchatmestitle=findViewById(R.id.hbchatmestitle);
+        hbchatmestitle.setTitle("李明");
+        hbchatmestitle.setBackColor(ColorsUtil.BLUE_LIGHT);
         inputText = (EditText)findViewById(R.id.input_txet);
         send = (Button) findViewById(R.id.send);
         msgRecyclerView = (RecyclerView)findViewById(R.id.msg_recycle_view);

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 <com.cxyz.widget.HeaderBar
-    android:id="@+id/hb_chatmes_title"
+    android:id="@+id/hbchatmestitle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 

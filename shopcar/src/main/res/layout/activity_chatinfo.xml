@@ -28,7 +28,7 @@
             android:background="@drawable/waterclick"
             android:layout_weight="1">
             <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-                android:id="@+id/iv_logisticsinfo"
+                android:id="@+id/ivlogisticsinfo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                android:layout_marginLeft="20dp"
@@ -55,7 +55,7 @@
             android:background="@drawable/waterclick"
             android:layout_weight="1">
             <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-                android:id="@+id/iv_discontinfo"
+                android:id="@+id/ivdiscontinfo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@mipmap/chatinfo_discountactivity">
