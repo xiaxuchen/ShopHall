@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context=".ui.activity.FavoriteActivity">
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/hb_favorite_headerbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:background="@color/common_orange"
+        app:moreText="管理"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp">
+
+    </com.cxyz.widget.HeaderBar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcarGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="403dp" />
+
+    <ImageView
+        android:id="@+id/iv_favorite_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/car_search_favorite"
+        app:layout_constraintBottom_toTopOf="@+id/shopcarGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/shopcarGuideline"
+        app:layout_constraintStart_toStartOf="@+id/shopcarGuideline2"
+        app:layout_constraintTop_toTopOf="@+id/shopcarGuideline4"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcarGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="312dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcarGuideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="2dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcarGuideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="38dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/shopcarBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/shopcarBarrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全部宝贝"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/shopcarGuideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/hb_favorite_headerbar"
+        app:layout_constraintTop_toTopOf="@+id/shopcarGuideline3"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/shopcarBarrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite_goods"
+        android:layout_width="match_parent"
+        android:layout_height="764dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hb_favorite_headerbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true">
 
         <Button
-            android:id="@+id/btn_mainfragment"
+            android:id="@+id/btnMainFragment"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -30,10 +30,10 @@
             android:text="MainFragment"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btn_shopcar"
+            android:id="@+id/btnShopcar"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -41,7 +41,28 @@
             android:text="ShopCar"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnFavorite"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="收藏夹"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="15sp" />
+        <Button
+            android:id="@+id/btnOrder"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="订单"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="15sp" />
 
     </LinearLayout>
 

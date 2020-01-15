@@ -1,8 +1,10 @@
 package com.cxyz.car.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +16,9 @@ import com.cxyz.car.ui.fragment.ShopcarFragment;
 
 public class TestActivity extends AppCompatActivity {
 
-    private Button btn1_afragment;
-    private Button btn2_shopcar;
-
+    private Button btnMainFragment;
+    private Button btnShopcar;
+    private Button btnFavorite;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -28,8 +30,8 @@ public class TestActivity extends AppCompatActivity {
         /**
          * 点击按钮加载一个fragment
          */
-        btn1_afragment=findViewById(R.id.btn_mainfragment);
-        btn1_afragment.setOnClickListener(new View.OnClickListener() {
+        btnMainFragment=findViewById(R.id.btnMainFragment);
+        btnMainFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mainFragment=new MainFragment();
@@ -40,12 +42,23 @@ public class TestActivity extends AppCompatActivity {
         /**
          * ShopCarFragment
          */
-        btn2_shopcar=findViewById(R.id.btn_shopcar);
-        btn2_shopcar.setOnClickListener(new View.OnClickListener() {
+        btnShopcar=findViewById(R.id.btnShopcar);
+        btnShopcar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 shopcarFragment=new ShopcarFragment();
                 getFragmentManager().beginTransaction().replace(R.id.fl_fragment,shopcarFragment).commitAllowingStateLoss();
+            }
+        });
+
+        /**
+         * FavoriteActivity收藏夹
+         */
+        btnFavorite=findViewById(R.id.btnFavorite);
+        btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,FavoriteActivity.class));
             }
         });
     }
