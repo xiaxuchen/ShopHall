@@ -15,7 +15,7 @@
 
         <!--商城里的店铺信息-->
     <GridView
-        android:id="@+id/gvMallInformtion"
+        android:id="@+id/gvMallInformation"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:numColumns="3"

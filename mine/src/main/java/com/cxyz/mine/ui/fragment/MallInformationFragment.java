@@ -1,8 +1,7 @@
-package com.cxyz.mine.fragment;
+package com.cxyz.mine.ui.fragment;
 
-import android.app.Fragment;
+
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +12,16 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.cxyz.mine.R;
-import com.cxyz.widget.HeaderBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MallinformationActivity extends Fragment {
+public class MallInformationFragment extends Fragment {
 
     private TextView tvNav;
     private Context context;
@@ -65,12 +63,12 @@ public class MallinformationActivity extends Fragment {
         for(int i = 0; i<ivShopImg.length;i++){
             Map<String,Object> map = new HashMap<String,Object>();
             map.put("images",ivShopImg[i]);
-            map.put("shopname",tvShopName[i]);
+            map.put("shopName",tvShopName[i]);
             listitemShop.add(map);
         }
         SimpleAdapter simpleAdapterShop = new SimpleAdapter(context,listitemShop,R.layout.mine_grid_item_shop,
-                new String[]{"images","shopname"},new int[]{R.id.ivShopImg,R.id.tvShopName});
-        GridView gridView = view.findViewById(R.id.gvMallInformtion);
+                new String[]{"images","shopName"},new int[]{R.id.ivShopImg,R.id.tvShopName});
+        GridView gridView = view.findViewById(R.id.gvMallInformation);
         gridView.setAdapter(simpleAdapterShop);
 
         /*广告部分的信息*/

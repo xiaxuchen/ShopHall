@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".fragment.MineActivity"></activity>
-        <activity android:name=".activity.Personalinformation" />
-        <activity android:name=".fragment.MallinformationActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".ui.activity.ShippingAddressActivity"></activity>
+        <activity android:name=".ui.activity.SetUpActivity" />
+        <activity android:name=".ui.fragment.MineFragment" />
+        <activity android:name=".ui.activity.PersonalInformation" />
+        <activity android:name=".ui.fragment.MallInformationFragment" />
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

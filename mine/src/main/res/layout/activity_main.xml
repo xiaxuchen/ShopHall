@@ -23,32 +23,43 @@
 
         tools:ignore="MissingConstraints">
         <Button
-            android:id="@+id/btn_mall"
+            android:id="@+id/btnMall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Mall"
-            android:textSize="20sp"
+            android:textSize="5sp"
             android:background="@drawable/mine_mall_ad_border"
             android:layout_marginLeft="50dp"
             tools:ignore="MissingConstraints" />
         <Button
-            android:id="@+id/btn_mine"
+            android:id="@+id/btnMine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="mine"
-            android:textSize="20sp"
+            android:textSize="5sp"
             android:layout_marginLeft="50dp"
             android:background="@drawable/mine_mall_ad_border"
             tools:ignore="MissingConstraints" />
         <Button
-            android:id="@+id/btn_personal"
+            android:id="@+id/btnPersonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="personl"
-            android:textSize="20sp"
+            android:text="person"
+            android:textSize="5sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/mine_mall_ad_border"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="address"
+            android:textSize="5sp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/mine_mall_ad_border"
@@ -78,7 +89,7 @@
             android:id="@+id/btn_personal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_header_bar_height"
-            android:text="personl"
+            android:text="person"
             tools:ignore="MissingConstraints" />
     </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
