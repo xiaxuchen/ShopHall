@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +18,7 @@ public class TestActivity extends AppCompatActivity {
     private Button btnMainFragment;
     private Button btnShopcar;
     private Button btnFavorite;
+    private Button btnOrder;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -35,7 +35,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mainFragment=new MainFragment();
-                getFragmentManager().beginTransaction().add(R.id.fl_fragment,mainFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add(R.id.fl_fragment,mainFragment).commitAllowingStateLoss();
             }
         });
 
@@ -47,7 +47,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 shopcarFragment=new ShopcarFragment();
-                getFragmentManager().beginTransaction().replace(R.id.fl_fragment,shopcarFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_fragment,shopcarFragment).commitAllowingStateLoss();
             }
         });
 
@@ -59,6 +59,16 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,FavoriteActivity.class));
+            }
+        });
+        /**
+         * OrderActivity订单界面
+         */
+        btnOrder=findViewById(R.id.btnOrder);
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,OrderActivity.class));
             }
         });
     }

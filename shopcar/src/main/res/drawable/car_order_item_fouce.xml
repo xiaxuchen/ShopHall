@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="ResourceName">
+    <!-- 获取焦点状态 -->
+    <item android:state_focused="true"
+        android:drawable="@drawable/border_corner_all_blue"/>
+
+    <!-- 按下状态 -->
+    <item android:state_pressed="true"
+        android:drawable="@color/colorPrimary"
+         />
+
+    <!-- 默认状态下 -->
+    <item android:drawable="@color/common_orange" />
+</selector>

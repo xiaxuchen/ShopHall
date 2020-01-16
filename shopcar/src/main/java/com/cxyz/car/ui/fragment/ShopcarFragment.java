@@ -1,10 +1,8 @@
 package com.cxyz.car.ui.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,6 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
@@ -105,7 +104,7 @@ public class ShopcarFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 8;
+            return listItem.size();
         }
 
         @Override
@@ -140,8 +139,6 @@ public class ShopcarFragment extends Fragment {
                         viewHolder.desc=view.findViewById(R.id.tv_shopcar_desc);
                         viewHolder.smal=view.findViewById(R.id.tv_shopcar_smal);
                         viewHolder.price=view.findViewById(R.id.tv_shopcar_store_price);
-
-
                         viewHolder.btnAdd=view.findViewById(R.id.btn_shopcar_add);
                         viewHolder.btnDescre=view.findViewById(R.id.btn_shopcar_descres);
                         viewHolder.count=view.findViewById(R.id.et_shopcar_count);

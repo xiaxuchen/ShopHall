@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.Goods;
 import com.cxyz.car.ui.adapter.FavoriteGoodsAdapter;
@@ -15,7 +16,7 @@ import com.cxyz.car.ui.adapter.FavoriteGoodsAdapter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
+@Route(path="/shopcar/FavoriteActivity",group = "shopcar")
 public class FavoriteActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Goods> listItem;
