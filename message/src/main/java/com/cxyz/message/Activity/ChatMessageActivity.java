@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
 import com.cxyz.message.adapter.MsgAdapter;
 import com.cxyz.message.bean.Msg;
@@ -18,7 +19,7 @@ import com.cxyz.widget.HeaderBar;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Route(path = "/message/ChatMessageActivity")
 public class ChatMessageActivity extends AppCompatActivity {
     private List<Msg> msgList = new ArrayList<>();
     private EditText inputText;

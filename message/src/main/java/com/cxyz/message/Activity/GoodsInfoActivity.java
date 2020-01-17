@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
 import com.cxyz.message.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.bean.Brand;
@@ -41,7 +42,7 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
+@Route(path = "/message/GoodsInfoActivity")
 public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool

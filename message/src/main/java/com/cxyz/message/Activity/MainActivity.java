@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
 import com.cxyz.message.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.bean.Brand;
@@ -42,7 +44,7 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
+@Route(path = "/message/MainActivity")
 //goodsinfoactivity
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /**
@@ -120,8 +122,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),GoodsInfoActivity.class);
-                startActivity(intent);
+              /*  Intent intent=new Intent(getApplicationContext(),GoodsInfoActivity.class);
+                startActivity(intent);*/
+                ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
             }
         });
         // 顶部tool

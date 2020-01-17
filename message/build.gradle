@@ -12,6 +12,11 @@ android {
         // 单模块调试下才有applicationId
         if(isDebug.toBoolean())
             applicationId "com.cxyz.message"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -54,4 +59,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:25.2.0'
     implementation 'com.qmuiteam:qmui:2.0.0-alpha02'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.alibaba:arouter-api:1.5.0'  //这里的版本根据github上面lastest version为准
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'    //这里的版本根据github上面lastest version为准
+    
 }
