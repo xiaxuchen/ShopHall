@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
 import com.cxyz.car.data.domain.Goods;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Route(path = "/shopcar/MainFragment",group = "shop")
 public class MainFragment extends Fragment {
 
     private GridView gridView;

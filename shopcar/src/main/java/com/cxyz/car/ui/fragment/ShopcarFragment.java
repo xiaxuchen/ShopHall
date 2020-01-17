@@ -15,12 +15,14 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Route(path="/shopcar/ShopcarFragment",group = "shopcar")
 public class ShopcarFragment extends Fragment {
 
     private Context context;//fragment依附的activity上下文
