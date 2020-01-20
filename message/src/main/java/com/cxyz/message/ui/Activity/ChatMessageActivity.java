@@ -1,4 +1,4 @@
-package com.cxyz.message.Activity;
+package com.cxyz.message.ui.Activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
-import com.cxyz.message.adapter.MsgAdapter;
-import com.cxyz.message.bean.Msg;
+import com.cxyz.message.ui.adapter.MsgAdapter;
+import com.cxyz.message.ui.adapter.entity.Msg;
 import com.cxyz.utils.ColorsUtil;
 import com.cxyz.widget.HeaderBar;
 
@@ -23,10 +23,10 @@ import java.util.List;
 public class ChatMessageActivity extends AppCompatActivity {
     private List<Msg> msgList = new ArrayList<>();
     private EditText inputText;
-    private Button send;
-    private RecyclerView msgRecyclerView;
+    private Button btSend;
+    private RecyclerView rvMsg;
     private MsgAdapter adapter;
-    private HeaderBar hbchatmestitle;
+    private HeaderBar hbChatmesTitle;
 
 
 
@@ -36,17 +36,17 @@ public class ChatMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initMsgs();
-        hbchatmestitle=findViewById(R.id.hbchatmestitle);
-        hbchatmestitle.setTitle("李明");
-        hbchatmestitle.setBackColor(ColorsUtil.BLUE_LIGHT);
+        hbChatmesTitle=findViewById(R.id.hbchatmestitle);
+        hbChatmesTitle.setTitle("李明");
+        hbChatmesTitle.setBackColor(ColorsUtil.BLUE_LIGHT);
         inputText = (EditText)findViewById(R.id.input_txet);
-        send = (Button) findViewById(R.id.send);
-        msgRecyclerView = (RecyclerView)findViewById(R.id.msg_recycle_view);
+        btSend = (Button) findViewById(R.id.send);
+        rvMsg = (RecyclerView)findViewById(R.id.msg_recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        msgRecyclerView.setLayoutManager(layoutManager);
+        rvMsg.setLayoutManager(layoutManager);
         adapter = new MsgAdapter(msgList);
-        msgRecyclerView.setAdapter(adapter);
-        send.setOnClickListener(new View.OnClickListener() {
+        rvMsg.setAdapter(adapter);
+        btSend.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -58,7 +58,7 @@ public class ChatMessageActivity extends AppCompatActivity {
                     //当有新消息，刷新RecyclerVeiw的显示
                     adapter.notifyItemInserted(msgList.size() - 1);
                     //将RecyclerView定位到最后一行
-                    msgRecyclerView.scrollToPosition(msgList.size() - 1);
+                    rvMsg.scrollToPosition(msgList.size() - 1);
                     //清空输入框内容
                     inputText.setText("");
 

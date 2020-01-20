@@ -1,4 +1,6 @@
-package com.cxyz.message.bean;
+package com.cxyz.message.protocol;
+
+import com.cxyz.message.ui.adapter.entity.Geval;
 
 import java.util.HashMap;
 

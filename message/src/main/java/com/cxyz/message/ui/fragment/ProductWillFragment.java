@@ -1,4 +1,4 @@
-package com.cxyz.message.fragment;
+package com.cxyz.message.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,30 +6,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.cxyz.message.R;
-import com.cxyz.message.bean.ViewBundle;
-import com.cxyz.message.view.ChildAutoHeightViewPager;
+import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+
 /**
- * 商品详情-图文详情-当前全部是图片
+ * 商品详情-产品实拍-当前全部是图片
  *
  * Created by 邹峰立 on 2017/2/22.
  */
-public class GraphicDetailsFragment extends Fragment {
+public class ProductWillFragment extends Fragment {
     private View view;
     private LayoutInflater mInflater;
     private LinearLayout mLinearLayout;
+    private RelativeLayout noResultLayout;
     private ChildAutoHeightViewPager viewPager;
 
-    public static GraphicDetailsFragment newInstance(ViewBundle viewBundle) {
+    public static ProductWillFragment newInstance(ViewBundle viewBundle) {
         Bundle args = new Bundle();
         args.putParcelable("viewBundle", viewBundle);
-        GraphicDetailsFragment fragment = new GraphicDetailsFragment();
+        ProductWillFragment fragment = new ProductWillFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,9 +50,9 @@ public class GraphicDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_graphic_details, container, false);
+            view = inflater.inflate(R.layout.fragment_product_will, container, false);
             if (viewPager != null)
-                viewPager.setObjectForPosition(view, 0);
+                viewPager.setObjectForPosition(view, 1);
         }
         initView();
         return view;
@@ -64,8 +69,10 @@ public class GraphicDetailsFragment extends Fragment {
         if (view != null) {
             if (mLinearLayout == null)
                 mLinearLayout = view.findViewById(R.id.linearLayout);
+            if (noResultLayout == null)
+                noResultLayout = view.findViewById(R.id.layout_noresult);
             if (mInflater == null)
-                mInflater = LayoutInflater.from(getContext());
+                mInflater = LayoutInflater.from(getActivity());
         }
     }
 
@@ -76,13 +83,18 @@ public class GraphicDetailsFragment extends Fragment {
             for (Integer value : datas) {
                 ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_imageview, mLinearLayout, false);
                 iv.setAdjustViewBounds(true);
-//                // 加载图片-一般为加载网络图片
+//                // 加载图片-一般是加载网络图片
 //                if (!TextUtils.isEmpty(value)) {}
                 Picasso.with(getActivity())
                         .load(value)
                         .into(iv);
                 mLinearLayout.addView(iv);
             }
+            mLinearLayout.setVisibility(View.VISIBLE);
+            noResultLayout.setVisibility(View.GONE);
+        } else {
+            noResultLayout.setVisibility(View.VISIBLE);
+            mLinearLayout.setVisibility(View.GONE);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.cxyz.message.adapter;
+package com.cxyz.message.ui.adapter;
 
 
 import androidx.fragment.app.Fragment;

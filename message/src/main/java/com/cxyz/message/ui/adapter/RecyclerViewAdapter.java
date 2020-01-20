@@ -1,4 +1,4 @@
-package com.cxyz.message.adapter;
+package com.cxyz.message.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.R;
 import com.cxyz.message.utils.RecyclerUtils;
-import com.cxyz.message.view.RecyclerItemView;
+import com.cxyz.message.widget.view.RecyclerItemView;
 
 import java.util.List;
 

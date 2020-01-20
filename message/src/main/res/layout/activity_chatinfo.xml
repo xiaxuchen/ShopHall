@@ -15,7 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/circleborder"
+        android:background="@drawable/circle_border"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/waterclick"
+            android:background="@drawable/water_click"
             android:layout_weight="1">
             <com.qmuiteam.qmui.widget.QMUIRadiusImageView
                 android:id="@+id/ivlogisticsinfo"
@@ -46,13 +46,13 @@
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text="测试"
-                android:background="@drawable/waterclick"></Button>-->
+                android:background="@drawable/water_click"></Button>-->
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/waterclick"
+            android:background="@drawable/water_click"
             android:layout_weight="1">
             <com.qmuiteam.qmui.widget.QMUIRadiusImageView
                 android:id="@+id/ivdiscontinfo"

@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <!--内容区-->
-        <com.cxyz.message.view.MyScrollView
+        <com.cxyz.message.widget.view.MyScrollView
             android:id="@+id/myScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,7 +82,7 @@
                                     android:textColor="@color/colorTitle"
                                     android:textSize="30sp" />
 
-                                <com.cxyz.message.view.FlowLayout
+                                <com.cxyz.message.widget.view.FlowLayout
                                     android:id="@+id/flowlayout_special_offer"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                                 android:textColor="#666666"
                                 android:text="商品特征"
                                 android:textSize="14sp" />
-                            <com.cxyz.message.view.FlowLayout
+                            <com.cxyz.message.widget.view.FlowLayout
                                 android:id="@+id/flowlayout_product_features"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
@@ -169,7 +169,7 @@
                             android:textSize="14sp" />
 
                         <!--规格集-->
-                        <com.cxyz.message.view.FlowLayout
+                        <com.cxyz.message.widget.view.FlowLayout
                             android:id="@+id/flowlayout_specifications_choice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                             android:textColor="#999999"
                             android:textSize="14sp" />
                         <!--规格集-->
-                        <com.cxyz.message.view.FlowLayout
+                        <com.cxyz.message.widget.view.FlowLayout
                             android:id="@+id/flowlayout_specifications_numberchoice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -382,7 +382,7 @@
                     </LinearLayout>
 
                     <!--底部ViewPager-->
-                    <com.cxyz.message.view.ChildAutoHeightViewPager
+                    <com.cxyz.message.widget.view.ChildAutoHeightViewPager
                         android:id="@+id/bottomvpager"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -448,7 +448,7 @@
 
             </FrameLayout>
 
-        </com.cxyz.message.view.MyScrollView>
+        </com.cxyz.message.widget.view.MyScrollView>
 
 
         <!--顶部tool-->
@@ -485,7 +485,7 @@
                 android:padding="10dp"
                 android:src="@mipmap/icon_share" />
 
-            <com.cxyz.message.view.FlowLayout
+            <com.cxyz.message.widget.view.FlowLayout
                 android:id="@+id/flowlayout_brand"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"

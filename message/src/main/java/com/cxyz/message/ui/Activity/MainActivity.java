@@ -1,7 +1,6 @@
-package com.cxyz.message.Activity;
+package com.cxyz.message.ui.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,17 +24,17 @@ import androidx.viewpager.widget.ViewPager;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
-import com.cxyz.message.adapter.VPagerFragmentAdapter;
-import com.cxyz.message.bean.Brand;
-import com.cxyz.message.bean.Specification;
-import com.cxyz.message.bean.ViewBundle;
-import com.cxyz.message.fragment.GraphicDetailsFragment;
-import com.cxyz.message.fragment.ProductEvalInfoFragment;
-import com.cxyz.message.fragment.ProductWillFragment;
+import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
+import com.cxyz.message.protocol.Brand;
+import com.cxyz.message.protocol.Specification;
+import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.fragment.GraphicDetailsFragment;
+import com.cxyz.message.ui.fragment.ProductEvalInfoFragment;
+import com.cxyz.message.ui.fragment.ProductWillFragment;
 import com.cxyz.message.utils.ClickUtil;
-import com.cxyz.message.view.ChildAutoHeightViewPager;
-import com.cxyz.message.view.FlowLayout;
-import com.cxyz.message.view.MyScrollView;
+import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
+import com.cxyz.message.widget.view.FlowLayout;
+import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.utils.ToastUtil;
 import com.squareup.picasso.Picasso;
 
@@ -389,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this, "跳转品牌页面" + value.getBrand_name(), Toast.LENGTH_SHORT).show();
                     }
                 });
-//                // 加载图片-加载网络图片-这里为了测试采用本地文件
+//                // 加载图片-加载网络                                                                                      图片-这里为了测试采用本地文件
 //                String imgPath = value.getBrand_image();
 //                if (!TextUtils.isEmpty(imgPath)) {}
 

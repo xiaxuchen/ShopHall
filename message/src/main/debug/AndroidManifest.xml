@@ -3,22 +3,22 @@
     package="com.cxyz.message">
 
     <application
-        android:name=".Activity.MyApplication"
+        android:name=".ui.Activity.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".ui.Activity.GoodsInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ChatInfoActivity"></activity>
-        <activity android:name=".Activity.GoodsInfoActivity"></activity>
-        <activity android:name=".Activity.ChatMessageActivity"></activity>
+        <activity android:name=".ui.Activity.ChatInfoActivity"></activity>
+        <activity android:name=".ui.Activity.MainActivity"></activity>
+        <activity android:name=".ui.Activity.ChatMessageActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.cxyz.message.bean;
+package com.cxyz.message.ui.adapter.entity;
 
 import java.util.ArrayList;
 

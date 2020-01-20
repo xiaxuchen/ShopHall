@@ -1,4 +1,4 @@
-package com.cxyz.message.adapter;
+package com.cxyz.message.ui.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.R;
-import com.cxyz.message.bean.Msg;
+import com.cxyz.message.ui.adapter.entity.Msg;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.cxyz.message.bean;
+package com.cxyz.message.protocol;
 
 /**
  * 商品规格

@@ -1,4 +1,4 @@
-package com.cxyz.message.fragment;
+package com.cxyz.message.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.cxyz.message.R;
-import com.cxyz.message.adapter.ProductEvalInfoLvAdapter;
-import com.cxyz.message.bean.GoodsEvaluate;
-import com.cxyz.message.bean.ViewBundle;
-import com.cxyz.message.view.ChildAutoHeightViewPager;
+import com.cxyz.message.ui.adapter.ProductEvalInfoLvAdapter;
+import com.cxyz.message.protocol.GoodsEvaluate;
+import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 
 /**
  * 评价详情列表

@@ -1,4 +1,4 @@
-package com.cxyz.message.view;
+package com.cxyz.message.widget.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

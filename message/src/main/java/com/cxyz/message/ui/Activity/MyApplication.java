@@ -1,4 +1,4 @@
-package com.cxyz.message.Activity;
+package com.cxyz.message.ui.Activity;
 
 import android.app.Application;
 

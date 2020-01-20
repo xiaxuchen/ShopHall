@@ -1,4 +1,4 @@
-package com.cxyz.message.adapter;
+package com.cxyz.message.ui.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cxyz.message.R;
-import com.cxyz.message.bean.Geval;
+import com.cxyz.message.ui.adapter.entity.Geval;
 
 import java.util.ArrayList;
 import java.util.HashMap;

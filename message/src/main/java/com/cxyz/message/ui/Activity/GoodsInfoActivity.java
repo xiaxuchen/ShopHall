@@ -1,4 +1,4 @@
-package com.cxyz.message.Activity;
+package com.cxyz.message.ui.Activity;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -21,17 +21,17 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
-import com.cxyz.message.adapter.VPagerFragmentAdapter;
-import com.cxyz.message.bean.Brand;
-import com.cxyz.message.bean.Specification;
-import com.cxyz.message.bean.ViewBundle;
-import com.cxyz.message.fragment.GraphicDetailsFragment;
-import com.cxyz.message.fragment.ProductEvalInfoFragment;
-import com.cxyz.message.fragment.ProductWillFragment;
+import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
+import com.cxyz.message.protocol.Brand;
+import com.cxyz.message.protocol.Specification;
+import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.fragment.GraphicDetailsFragment;
+import com.cxyz.message.ui.fragment.ProductEvalInfoFragment;
+import com.cxyz.message.ui.fragment.ProductWillFragment;
 import com.cxyz.message.utils.ClickUtil;
-import com.cxyz.message.view.ChildAutoHeightViewPager;
-import com.cxyz.message.view.FlowLayout;
-import com.cxyz.message.view.MyScrollView;
+import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
+import com.cxyz.message.widget.view.FlowLayout;
+import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
@@ -47,8 +47,8 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool
      */
-    private RelativeLayout toolbarLayout;
-    private FlowLayout brandFlowLayout;
+    private RelativeLayout rlToolbar;
+    private FlowLayout flBrand;
     /**
      * 顶部的ViewPager
      */
@@ -58,9 +58,9 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 筛选框
      */
-    private LinearLayout classifyLayout;
-    private TextView imgtextInfoTv, photoInfoTv, evalInfoTv;
-    private ImageView cursor;
+    private LinearLayout llClassify;
+    private TextView tvImgtextInfo, tvPhotoInfo, tvEvalInfo;
+    private ImageView ivCursor;
     // 保存筛选栏的高度
     private int classifyHeight;
     /**
@@ -84,8 +84,8 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 其他控件
      */
-    private  TextView pdescTv;
-    private ImageView backTopIv;
+    private  TextView tvPdesc;
+    private ImageView ivBackTop;
     private int vpagerTopDistance;// 记录底部ViewPager距离顶部的高度
     private FlowLayout productFeaturesFlowlayout, specialOfferFlowLayout, specificationsChoiceFlowlayout;
     /**
@@ -112,10 +112,10 @@ public class GoodsInfoActivity extends BaseActivity {
         // 顶部tool
         ImageView backImg = (ImageView) findViewById(R.id.iv_back);
         ImageView shareImg = (ImageView) findViewById(R.id.iv_share);
-        toolbarLayout = (RelativeLayout) findViewById(R.id.layout_toolbar);
-        pdescTv= (TextView) findViewById(R.id.tv_product_title);
-        pdescTv.setVisibility(View.GONE);
-        brandFlowLayout = (FlowLayout) findViewById(R.id.flowlayout_brand);
+        rlToolbar = (RelativeLayout) findViewById(R.id.layout_toolbar);
+        tvPdesc= (TextView) findViewById(R.id.tv_product_title);
+        tvPdesc.setVisibility(View.GONE);
+        flBrand = (FlowLayout) findViewById(R.id.flowlayout_brand);
         // 顶部的ViewPager
         RelativeLayout headerVpLayout = (RelativeLayout) findViewById(R.id.layout_header_vp);
         if (headerVpLayout != null) {
@@ -123,19 +123,19 @@ public class GoodsInfoActivity extends BaseActivity {
             mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);
         }
         // 筛选框
-        classifyLayout = (LinearLayout) findViewById(R.id.layout_classify);
-        classifyLayout.setVisibility(View.INVISIBLE);// 浮动栏初始化时隐藏
+        llClassify = (LinearLayout) findViewById(R.id.layout_classify);
+        llClassify.setVisibility(View.INVISIBLE);// 浮动栏初始化时隐藏
         // 获取控件大小
-        classifyLayout.post(new Runnable() {
+        llClassify.post(new Runnable() {
             @Override
             public void run() {
-                classifyHeight = classifyLayout.getHeight();
+                classifyHeight = llClassify.getHeight();
             }
         });
-        imgtextInfoTv = (TextView) findViewById(R.id.tv_info_imgtext);
-        photoInfoTv = (TextView) findViewById(R.id.tv_info_photo);
-        evalInfoTv = (TextView) findViewById(R.id.tv_info_eval);
-        cursor = (ImageView) findViewById(R.id.cursor);
+        tvImgtextInfo = (TextView) findViewById(R.id.tv_info_imgtext);
+        tvPhotoInfo = (TextView) findViewById(R.id.tv_info_photo);
+        tvEvalInfo = (TextView) findViewById(R.id.tv_info_eval);
+        ivCursor = (ImageView) findViewById(R.id.cursor);
         // 底部ViewPager
         bottomVPager = (ChildAutoHeightViewPager) findViewById(R.id.bottomvpager);
         if (mDatas == null)
@@ -154,8 +154,8 @@ public class GoodsInfoActivity extends BaseActivity {
         myScrollView = (MyScrollView) findViewById(R.id.myScrollView);
         myScrollView.smoothScrollTo(0, 0);
         // 返回顶部
-        backTopIv = (ImageView) findViewById(R.id.iv_back_top);
-        backTopIv.setVisibility(View.GONE);
+        ivBackTop = (ImageView) findViewById(R.id.iv_back_top);
+        ivBackTop.setVisibility(View.GONE);
         specialOfferFlowLayout = (FlowLayout) findViewById(R.id.flowlayout_special_offer);
         specificationsChoiceFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_specifications_choice);
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
@@ -254,29 +254,29 @@ public class GoodsInfoActivity extends BaseActivity {
         myScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
             @Override
             public void onScrollchanged(int l, int scrollY, int oldl, int oldt) {
-                vpagerTopDistance = bottomVPager.getTop() - classifyHeight - toolbarLayout.getHeight();
+                vpagerTopDistance = bottomVPager.getTop() - classifyHeight - rlToolbar.getHeight();
 
                 // 设置浮动栏
                 int translation = Math.max(scrollY, vpagerTopDistance);
-                classifyLayout.setTranslationY(translation);
-                classifyLayout.setVisibility(View.VISIBLE);
+                llClassify.setTranslationY(translation);
+                llClassify.setVisibility(View.VISIBLE);
 
                 // 设置返回顶部
                 if (scrollY >= vpagerTopDistance) {
-                    backTopIv.setVisibility(View.VISIBLE);
+                    ivBackTop.setVisibility(View.VISIBLE);
                 } else {
-                    backTopIv.setVisibility(View.GONE);
+                    ivBackTop.setVisibility(View.GONE);
                 }
 
                 // 顶部栏透明度控制
                 if (scrollY >= 0 && scrollY < 190) {
-                    toolbarLayout.getBackground().mutate().setAlpha(scrollY / 3);
-                    brandFlowLayout.setVisibility(View.VISIBLE);
-                    pdescTv.setVisibility(View.GONE);
+                    rlToolbar.getBackground().mutate().setAlpha(scrollY / 3);
+                    flBrand.setVisibility(View.VISIBLE);
+                    tvPdesc.setVisibility(View.GONE);
                 } else if (scrollY >= 190) {
-                    toolbarLayout.getBackground().mutate().setAlpha(229);
-                    brandFlowLayout.setVisibility(View.GONE);
-                    pdescTv.setVisibility(View.VISIBLE);
+                    rlToolbar.getBackground().mutate().setAlpha(229);
+                    flBrand.setVisibility(View.GONE);
+                    tvPdesc.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -290,7 +290,7 @@ public class GoodsInfoActivity extends BaseActivity {
 
             }
         });
-        backTopIv.setOnClickListener(onClickListener);
+        ivBackTop.setOnClickListener(onClickListener);
         imgcoll.setOnClickListener(new View.OnClickListener() {
             boolean click=true;
             @Override
@@ -372,9 +372,9 @@ public class GoodsInfoActivity extends BaseActivity {
     private void setBrandFlowLayout(ArrayList<Brand> brands) {
         if (brands != null && brands.size() > 0) {
             LayoutInflater mInflater = LayoutInflater.from(this);
-            brandFlowLayout.removeAllViews();
+            flBrand.removeAllViews();
             for (final Brand value : brands) {
-                ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_brand_imageview, brandFlowLayout, false);
+                ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_brand_imageview, flBrand, false);
                 iv.setTag(value.getBrand_id());
                 // 点击事件监听
                 iv.setOnClickListener(new View.OnClickListener() {
@@ -397,11 +397,11 @@ public class GoodsInfoActivity extends BaseActivity {
                         .load(value.getBrand_res())
                         .into(iv);
 
-                brandFlowLayout.addView(iv);
+                flBrand.addView(iv);
             }
-            brandFlowLayout.setVisibility(View.VISIBLE);
+            flBrand.setVisibility(View.VISIBLE);
         } else {
-            brandFlowLayout.setVisibility(View.GONE);
+            flBrand.setVisibility(View.GONE);
         }
     }
 
@@ -603,7 +603,7 @@ public class GoodsInfoActivity extends BaseActivity {
                         * bmpw)
                         + fixLeftMargin;
             }
-            cursor.setLayoutParams(params);
+            ivCursor.setLayoutParams(params);
             /**
              * 重置当前高度
              */
@@ -626,31 +626,31 @@ public class GoodsInfoActivity extends BaseActivity {
         int mScreen1_4 = outMetrics.widthPixels / 4;
         bmpw = outMetrics.widthPixels / 3;
         fixLeftMargin = (bmpw - mScreen1_4) / 2;
-        ViewGroup.LayoutParams layoutParams = cursor.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = ivCursor.getLayoutParams();
         layoutParams.width = mScreen1_4;
-        cursor.setLayoutParams(layoutParams);
+        ivCursor.setLayoutParams(layoutParams);
         /**
          * 设置左侧固定距离
          */
-        params = (LinearLayout.LayoutParams) cursor.getLayoutParams();
+        params = (LinearLayout.LayoutParams) ivCursor.getLayoutParams();
         params.leftMargin = fixLeftMargin;
-        cursor.setLayoutParams(params);
+        ivCursor.setLayoutParams(params);
     }
 
     // 改变游动条
     private void changeTextView(int position) {
-        imgtextInfoTv.setTextColor(Color.parseColor("#666666"));
-        photoInfoTv.setTextColor(Color.parseColor("#666666"));
-        evalInfoTv.setTextColor(Color.parseColor("#666666"));
+        tvImgtextInfo.setTextColor(Color.parseColor("#666666"));
+        tvPhotoInfo.setTextColor(Color.parseColor("#666666"));
+        tvEvalInfo.setTextColor(Color.parseColor("#666666"));
         switch (position) {
             case 0:
-                imgtextInfoTv.setTextColor(Color.parseColor("#FF7198"));
+                tvImgtextInfo.setTextColor(Color.parseColor("#FF7198"));
                 break;
             case 1:
-                photoInfoTv.setTextColor(Color.parseColor("#FF7198"));
+                tvPhotoInfo.setTextColor(Color.parseColor("#FF7198"));
                 break;
             case 2:
-                evalInfoTv.setTextColor(Color.parseColor("#FF7198"));
+                tvEvalInfo.setTextColor(Color.parseColor("#FF7198"));
                 break;
         }
         mCurrentIndex = position;

@@ -1,4 +1,4 @@
-package com.cxyz.message.view;
+package com.cxyz.message.widget.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
