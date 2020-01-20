@@ -30,4 +30,13 @@
     <string name="mine_setup_signout">退出登录</string>
     <string name="mine_shippong_address_backtitle">收货地址</string>
     <string name="mine_shippong_address_add">添加收货地址</string>
+    <string name="mine_chang_password_back_text">修改密码</string>
+    <string name="mine_old_password_text">旧密码</string>
+    <string name="mine_old_password_edit">请输入您的旧密码</string>
+    <string name="mine_new_password_text">新密码</string>
+    <string name="mine_new_password_edit">请输入您的新密码</string>
+    <string name="mine_confirm_password_text">确认密码</string>
+    <string name="mine_confirm_password_edit">请输入您的确认密码</string>
+    <string name="mine_confirm_password_button">修改密码</string>
+
 </resources>

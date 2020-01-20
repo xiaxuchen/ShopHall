@@ -10,8 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-
+@Route(path ="/mine/MineFragment" ,group = "mine")
 public class MineFragment extends Fragment {
 
     @Nullable

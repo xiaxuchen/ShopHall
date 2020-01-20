@@ -14,16 +14,16 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Route(path ="/mine/MallInformationFragment" ,group = "mine")
 public class MallInformationFragment extends Fragment {
 
-    private TextView tvNav;
     private Context context;
 
     @Override

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".ui.activity.ShippingAddressActivity"></activity>
+        <activity android:name=".ui.activity.ChangPasswordActivity"></activity>
+        <activity android:name=".ui.activity.ShippingAddressActivity" />
         <activity android:name=".ui.activity.SetUpActivity" />
         <activity android:name=".ui.fragment.MineFragment" />
         <activity android:name=".ui.activity.PersonalInformation" />
