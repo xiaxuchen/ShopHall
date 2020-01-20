@@ -4,15 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivitys"
+    tools:ignore="ResourceName">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/fragment"
 
+        tools:ignore="MissingConstraints">
+        <Button
+            android:id="@+id/btnMall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mall"
+            android:textSize="5sp"
+            android:background="@drawable/mine_mall_ad_border"
+            android:layout_marginLeft="50dp"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnMine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="mine"
+            android:textSize="5sp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/mine_mall_ad_border"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnPersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="person"
+            android:textSize="5sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/mine_mall_ad_border"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="address"
+            android:textSize="5sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/mine_mall_ad_border"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/fragment"
+        tools:ignore="MissingConstraints">
+        <Button
+            android:id="@+id/btn_mall"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_header_bar_height"
+            android:text="mall"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_mine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_header_bar_height"
+            android:text="mine"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_personal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_header_bar_height"
+            android:text="person"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

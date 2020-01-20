@@ -1,3 +1,42 @@
 <resources>
-    <string name="app_name">Mine</string>
+    <string name="mine_app_name">Mine</string>
+    <string name="mine_mallinformation_mall_name">华丰食品城</string>
+    <string name="mine_mallinformation_ad">来这里找实惠吧</string>
+    <string name="mine_hearderBar_title">华丰食品城</string>
+    <string name="mine_personal_img">头像</string>
+    <string name="mine_personal_account">账号</string>
+    <string name="mine_personal_name">昵称</string>
+    <string name="mine_personal_phone">手机</string>
+    <string name="mine_personal_vip">会员级别</string>
+    <string name="mine_personal_more">更多</string>
+    <string name="mine_favorites">购物车</string>
+    <string name="mine_history">浏览历史</string>
+    <string name="mine_account">账户金额</string>
+    <string name="mine_myorder">我的订单</string>
+    <string name="mine_myorder_a">待付款</string>
+    <string name="mine_myorder_b">待发货</string>
+    <string name="mine_myorder_c">待收货</string>
+    <string name="mine_myorder_d">全部订单</string>
+    <string name="mine_header_ziliao">编辑资料</string>
+    <string name="mine_setup_header_title">设置</string>
+    <string name="mine_setup_adress">收货地址</string>
+    <string name="mine_setup_password">修改密码</string>
+    <string name="mine_setup_version">检查版本V1.0</string>
+    <string name="mine_setup_feedback">意见反馈</string>
+    <string name="mine_setup_phone">客服电话：0999-888666</string>
+    <string name="mine_setup_wifi">非WiFi下省流模式</string>
+    <string name="mine_setup_history">浏览记录</string>
+    <string name="mine_setup_clear">清理缓存</string>
+    <string name="mine_setup_signout">退出登录</string>
+    <string name="mine_shippong_address_backtitle">收货地址</string>
+    <string name="mine_shippong_address_add">添加收货地址</string>
+    <string name="mine_chang_password_back_text">修改密码</string>
+    <string name="mine_old_password_text">旧密码</string>
+    <string name="mine_old_password_edit">请输入您的旧密码</string>
+    <string name="mine_new_password_text">新密码</string>
+    <string name="mine_new_password_edit">请输入您的新密码</string>
+    <string name="mine_confirm_password_text">确认密码</string>
+    <string name="mine_confirm_password_edit">请输入您的确认密码</string>
+    <string name="mine_confirm_password_button">修改密码</string>
+
 </resources>
