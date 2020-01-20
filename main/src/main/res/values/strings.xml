@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Main</string>
+    <string name="main_app_name">Main</string>
+    <string name="mainTvRegisterTxt">注册</string>
+    <string name="mainEtUsernameLabelTxt">{fa-user}</string>
+    <string name="mainItvPasswordLabelTxt">{fa-unlock-alt}</string>
+    <string name="mainEtUsernameHintTxt">手机号/邮箱</string>
+    <string name="mainEtPasswordHintTxt">请输入密码</string>
+    <string name="mainItvBackTxt">{fa-arrow-left}</string>
+    <string name="mainBtnLoginTxt">登录</string>
+    <string name="mainTvLoginTitleTxt">登录</string>
 </resources>
