@@ -14,7 +14,7 @@
         android:theme="@style/CommonAppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name="com.cxyz.shophall.ui.activity.TestActivity">
+        <activity android:name="com.cxyz.main.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

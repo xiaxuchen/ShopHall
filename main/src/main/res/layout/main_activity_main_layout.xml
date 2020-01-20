@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpContent"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
@@ -18,7 +19,7 @@
         />
 
     <RadioGroup
-        android:id="@+id/rg_main"
+        android:id="@+id/rgMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/common_white"
@@ -26,21 +27,25 @@
         android:padding="@dimen/common_margin_small"
         >
         <RadioButton
+            android:id="@+id/rbMain"
             android:text="首页"
             android:drawableTop="@drawable/main_bottom_home_icon_selector"
             style="@style/MainButtonStyle"
             />
         <RadioButton
+            android:id="@+id/rbMessage"
             android:text="消息"
             android:drawableTop="@drawable/main_bottom_message_icon_selector"
             style="@style/MainButtonStyle"
             />
         <RadioButton
+            android:id="@+id/rbShopCar"
             android:text="购物车"
             style="@style/MainButtonStyle"
             android:drawableTop="@drawable/main_bottom_shop_car_icon_selector"
             />
         <RadioButton
+            android:id="@+id/rbMine"
             android:text="个人中心"
             style="@style/MainButtonStyle"
             android:drawableTop="@drawable/main_bottom_mine_icon_selector"
