@@ -4,7 +4,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.cxyz.main.ui.activity.StoreActivity;
+
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.shophall.R;
 import com.cxyz.shophall.presenter.TestPresenter;
