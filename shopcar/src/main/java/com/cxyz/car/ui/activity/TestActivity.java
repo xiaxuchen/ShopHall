@@ -8,10 +8,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.ui.fragment.MainFragment;
 import com.cxyz.car.ui.fragment.ShopcarFragment;
 
+@Route(path="/shopcar/TestActivity",group = "shopcar")
 
 public class TestActivity extends AppCompatActivity {
 

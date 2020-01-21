@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
 import com.cxyz.car.data.domain.Goods;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Route(path="/shopcar/MainFragment",group = "shopcar")
 public class MainFragment extends Fragment {
 
     private GridView gridView;
@@ -46,7 +48,7 @@ public class MainFragment extends Fragment {
             "图片2",
             "图片3",
             "图片4"};
-    List<ImageView> imageList = new ArrayList<>();
+    List<ImageView> imageList;
 
     int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
     String[] titles=new String[]{"can1","can2","can3","can4","can5","can6"};
@@ -55,7 +57,7 @@ public class MainFragment extends Fragment {
     商品
      */
     private ListView listView;
-    private List<Goods> goodslistItem=new ArrayList<>();
+    private List<Goods> goodslistItem;
 
     private Context context;
 
@@ -88,6 +90,9 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        imageList=new ArrayList<>();
+        goodslistItem=new ArrayList<>();
 
         scrollView=view.findViewById(R.id.sv_main);
         scrollView.setOnTouchListener(new View.OnTouchListener() {

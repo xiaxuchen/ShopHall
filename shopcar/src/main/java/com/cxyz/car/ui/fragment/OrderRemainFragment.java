@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.car.ui.adapter.OrderListAdapter;
@@ -21,6 +22,7 @@ import java.util.List;
 /**
  * 待发货
  */
+@Route(path="/shopcar/OrderRemainFragment",group = "shopcar")
 public class OrderRemainFragment extends Fragment {
     private Context context;//上下文
     private View view;//依赖的布局文件
