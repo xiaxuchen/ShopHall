@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Route(path="/shopcar/MainFragment",group = "shopcar")
+@Route(path = "/shopcar/MainFragment",group = "shop")
 public class MainFragment extends Fragment {
 
     private GridView gridView;

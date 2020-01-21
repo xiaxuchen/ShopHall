@@ -22,7 +22,7 @@ import com.cxyz.car.data.domain.ShopcarGoods;
 import java.util.ArrayList;
 import java.util.List;
 
-@Route(path="/shopcarShopcarFragment/",group = "shopcar")
+@Route(path="/shopcar/ShopcarFragment",group = "shopcar")
 public class ShopcarFragment extends Fragment {
 
     private Context context;//fragment依附的activity上下文
