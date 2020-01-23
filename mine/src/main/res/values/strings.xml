@@ -38,5 +38,10 @@
     <string name="mine_confirm_password_text">确认密码</string>
     <string name="mine_confirm_password_edit">请输入您的确认密码</string>
     <string name="mine_confirm_password_button">修改密码</string>
+    <string name="mine_feedback_prompt">请选择反馈问题的类型</string>
+    <string name="mine_feedback_first_question">发货、售后等交易问题</string>
+    <string name="mine_feedback_sales">联系客服</string>
+    <string name="mine_feedback_second_question">app使用问题</string>
+    <string name="mine_feedback_app_question">功能异常和产品建议等</string>
 
 </resources>

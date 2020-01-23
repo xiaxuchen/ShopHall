@@ -13,12 +13,14 @@ import com.cxyz.mine.R;
 public class SetUpActivity extends AppCompatActivity {
     private ConstraintLayout setUpAddress;
     private ConstraintLayout setUpPassword;
+    private ConstraintLayout setUpFeedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mine_activity_setup);
         setUpAddress = findViewById(R.id.setUpAddress);
         setUpPassword = findViewById(R.id.setUpPassword);
+        setUpFeedback = findViewById(R.id.setUpFeedback);
         setUpAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +32,13 @@ public class SetUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SetUpActivity.this,ChangPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+        setUpFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SetUpActivity.this,FeedbackActivity.class);
                 startActivity(intent);
             }
         });
