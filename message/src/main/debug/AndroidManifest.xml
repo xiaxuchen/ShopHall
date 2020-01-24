@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".ui.Activity.GoodsInfoActivity">
+        <activity android:name=".ui.Activity.TestFragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,6 +19,7 @@
         <activity android:name=".ui.Activity.ChatInfoActivity"></activity>
         <activity android:name=".ui.Activity.MainActivity"></activity>
         <activity android:name=".ui.Activity.ChatMessageActivity"></activity>
+        <activity android:name=".ui.Activity.GoodsInfoActivity"></activity>
     </application>
 
 </manifest>
