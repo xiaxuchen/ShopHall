@@ -21,6 +21,7 @@ public class TestActivity extends AppCompatActivity {
     private Button btnShopcar;
     private Button btnFavorite;
     private Button btnOrder;
+    private Button btnTrack;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -71,6 +72,13 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,OrderActivity.class));
+            }
+        });
+        btnTrack=findViewById(R.id.btnTrack);
+        btnTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,TrackActivity.class));
             }
         });
     }
