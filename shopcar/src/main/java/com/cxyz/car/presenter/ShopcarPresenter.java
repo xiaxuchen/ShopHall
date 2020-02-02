@@ -14,7 +14,7 @@ public class ShopcarPresenter extends IBasePresenter<IShopCarModel, IShopcarView
     选择数据源
      */
     @Override
-    public IShopCarModel createModel() {
+    public ShopcarModelImpl createModel() {
         return new ShopcarModelImpl();
     }
     /*
