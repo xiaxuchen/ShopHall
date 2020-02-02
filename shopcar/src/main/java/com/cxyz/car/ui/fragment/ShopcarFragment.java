@@ -18,16 +18,21 @@ import androidx.fragment.app.Fragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
+import com.cxyz.car.presenter.ShopcarPresenter;
+import com.cxyz.car.presenter.view.IShopcarView;
+import com.cxyz.mvp.fragment.BaseFragment;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Route(path="/shopcar/ShopcarFragment",group = "shopcar")
-public class ShopcarFragment extends Fragment {
+public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements IShopcarView {
 
     private Context context;//fragment依附的activity上下文
     private ListView listView;
     private List<ShopcarGoods> listItem;
+
 
     /**
      * 在fragment依附到activity时保存上下文
@@ -48,11 +53,38 @@ public class ShopcarFragment extends Fragment {
     }
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.shopcar_fragment_shopcar;
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+
+    }
+
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+        //获取lsitview组件
+        listView=view.findViewById(R.id.lv_shop);
+    }
+
+    @Override
+    protected ShopcarPresenter createIPresenter() {
+        return new ShopcarPresenter();
+    }
+
+    @Override
+    protected void setListener() {
+
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         //获取lsitview组件
         listView=view.findViewById(R.id.lv_shop);
+        iPresenter.fecth();
 
 
 
@@ -92,6 +124,16 @@ public class ShopcarFragment extends Fragment {
 
         listView.setAdapter(new ShopcarAdapter(context,listItem));
 
+    }
+
+    @Override
+    public void showError(Object msg) {
+
+    }
+
+    @Override
+    public void showShopcarGoodsView(List<ShopcarGoods> shopcarGoodsList) {
+        listView.setAdapter(new ShopcarAdapter(context,shopcarGoodsList));
     }
 
 

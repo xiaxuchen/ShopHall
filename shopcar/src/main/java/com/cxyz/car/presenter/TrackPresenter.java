@@ -22,7 +22,7 @@ public class TrackPresenter extends IBasePresenter<ITrackModel, ITrackView> {
     执行业务逻辑
      */
     public void fecth() {
-        mIModle.loadData(new TrackModelImpl.OnLoadListener(){
+        mIModle.loadData(new ITrackModel.OnLoadListener(){
             @Override
             public void complete(List<TrackGoods> data,String[] date) {
                 mIView.showTrackGoodsView(data,date);

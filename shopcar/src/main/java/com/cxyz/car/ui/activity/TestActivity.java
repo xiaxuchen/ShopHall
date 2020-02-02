@@ -58,7 +58,7 @@ public class TestActivity extends AppCompatActivity {
          * FavoriteActivity收藏夹
          */
         btnFavorite=findViewById(R.id.btnFavorite);
-        btnFavorite.setOnClickListener(new View.OnClickListener() {
+        btnFavorite.setOnClickListener(new View.OnClickListener() {git
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,FavoriteActivity.class));

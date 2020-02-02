@@ -20,16 +20,11 @@ import java.util.List;
 @Route(path="/shopcar/TrackActivity",group = "shopcar")
 public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrackView {
     private RecyclerView rv_track;
-//    private String[] date;
-//    private List<TrackGoods> innerItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         iPresenter.fecth();//执行表示层事件
-
-//        rv_track.setLayoutManager(new LinearLayoutManager(this));
-//        rv_track.setAdapter(new TrackAdapter(this,date,innerItem));
     }
 
     @Override
@@ -43,13 +38,6 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     }
     @Override
     public void initData() {
-//          date=new String[]{"2019/12/12","2019/12/11","2020/12/12","2019/12/12","2019/12/02","2019/12/12","2019/12/12","2019/12/12","2019/12/12"};
-//        innerItem=new ArrayList();
-//        innerItem.add(new TrackGoods(R.drawable.car_bg1,88.00));
-//        innerItem.add(new TrackGoods(R.drawable.car_bg2,55.00));
-//        innerItem.add(new TrackGoods(R.drawable.car_bg3,99.66));
-//        innerItem.add(new TrackGoods(R.drawable.car_bg4,44.11));
-//        innerItem.add(new TrackGoods(R.drawable.car_bg2,77.88));
     }
 
     @Override

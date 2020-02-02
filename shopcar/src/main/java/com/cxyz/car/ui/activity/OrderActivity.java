@@ -22,6 +22,8 @@ import com.cxyz.car.ui.fragment.OrderPaymentFragment;
 import com.cxyz.car.ui.fragment.OrderRemainFragment;
 import com.cxyz.car.ui.fragment.OrderSendFragment;
 import com.cxyz.car.ui.fragment.OrderWaitFragment;
+import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -29,29 +31,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Route(path = "/shopcar/OrderActivity", group = "shopcar")
-public class OrderActivity extends AppCompatActivity {
+public class OrderActivity extends BaseActivity {
 
     private ViewPager vp_order;//viewpager用来承载fragment
     private TabLayout tl_nav;//导航栏
     String[] titles=new String[]{"全部","待付款","待发货","待收货","待评价"};//导航栏标题
     List<Fragment> fragmentList;
     private OrderViewpagerAdapter adapter;//viewpager适配器，关联viewoager和tablayout
-    private OrderAllFragment orderAllFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shopcar_activity_order);
         initView();//初始化控件
         initData();//初始化数据
         vp_order.setAdapter(adapter);//给viewpa设置适配器
         tl_nav.setupWithViewPager(vp_order);//tablayou与viewpager关联
 
     }
+
+    @Override
+    protected Object getContentView() {
+        return R.layout.shopcar_activity_order;
+    }
+
     /**
      * 初始化控件
      */
-    private void initView() {
+    public void initView() {
         //初始化控件
         vp_order=findViewById(R.id.vp_order);
         tl_nav=findViewById(R.id.tl_order_nav);
@@ -59,7 +65,7 @@ public class OrderActivity extends AppCompatActivity {
     /**
      * 初始化数据
      */
-    private void initData(){
+    public void initData(){
         fragmentList=new ArrayList<>();
         fragmentList.add(new OrderAllFragment());
         fragmentList.add(new OrderPaymentFragment());
@@ -68,6 +74,16 @@ public class OrderActivity extends AppCompatActivity {
         fragmentList.add(new OrderRemainFragment());
 
         adapter=new OrderViewpagerAdapter(getSupportFragmentManager(),fragmentList,titles);
+    }
+
+    @Override
+    public void setEvent() {
+
+    }
+
+    @Override
+    protected IBasePresenter createIPresenter() {
+        return null;
     }
 
 }
