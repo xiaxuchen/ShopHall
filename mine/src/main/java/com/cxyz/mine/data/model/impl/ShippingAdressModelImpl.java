@@ -1,12 +1,12 @@
 package com.cxyz.mine.data.model.impl;
 
-import com.cxyz.mine.data.model.IShippingAdressInModel;
+import com.cxyz.mine.data.model.IShippingAdressModel;
 import com.cxyz.mine.ui.adapter.entity.Adress;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShippingAdressModelImpl extends IShippingAdressInModel {
+public class ShippingAdressModelImpl extends IShippingAdressModel {
 
     @Override
     public void loadAdressData(OnloadAdressData onloadAdressData) {
