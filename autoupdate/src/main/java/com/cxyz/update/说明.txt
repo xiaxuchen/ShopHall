@@ -1,3 +1,1 @@
-1，要定义string.xml的字符
-2. 记得配置activity和service
-3  URL 链接
+自动更新组件只能进行apk的下载和安装，版本是否更新的判断还是要靠业务请求，当需要更新时启动UpdateService即可，但是要传递下载的路径

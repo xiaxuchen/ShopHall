@@ -36,6 +36,7 @@ public class SpUtil {
 
     static {
         context = ContextManager.getContext();
+        getInstance();
     }
 
     private SpUtil(Context context, String name, int mode)
