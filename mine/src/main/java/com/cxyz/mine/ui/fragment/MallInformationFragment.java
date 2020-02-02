@@ -1,12 +1,16 @@
 package com.cxyz.mine.ui.fragment;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import androidx.annotation.Nullable;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
 import com.cxyz.mine.presenter.IMallInformationView;
@@ -23,9 +27,15 @@ public class MallInformationFragment extends BaseFragment<MallInfromatonPresente
     private ListView listView;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.context = activity;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        iPresenter.fetch();
     }
 
     @Override
