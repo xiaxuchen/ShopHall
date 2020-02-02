@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.cxyz.shophall.ui.activity.RecycleViewActivity" />
-        <activity android:name="com.cxyz.shophall.ui.activity.WebViewActivity" />
 
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="true"/>

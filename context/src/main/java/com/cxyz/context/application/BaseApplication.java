@@ -10,6 +10,7 @@ import com.cxyz.context.ContextManager;
 import com.cxyz.context.starter.Starter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 夏旭晨 on 2018/10/2.
@@ -44,9 +45,12 @@ public class BaseApplication extends Application {
         load();
     }
 
+    private List<Starter> starterList;
+
     private void load() {
         try {
             ApplicationInfo appInfo= this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            starterList = new ArrayList<>();
             for (String key : appInfo.metaData.keySet()) {
                 if(key.startsWith(STARTER_NAME))
                 {
@@ -60,6 +64,7 @@ public class BaseApplication extends Application {
                             if(anInterface == Starter.class)
                             {
                                 Starter instance = (Starter)clazz.newInstance();
+                                starterList.add(instance);
                                 instance.load(this);
                                 break;
                             }
@@ -73,6 +78,13 @@ public class BaseApplication extends Application {
         }
     }
 
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        for (Starter starter : starterList) {
+            starter.onDestroy();
+        }
+    }
 
     /**
      * 初始化refresh

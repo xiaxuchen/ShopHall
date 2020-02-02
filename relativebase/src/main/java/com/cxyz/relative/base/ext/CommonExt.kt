@@ -11,7 +11,7 @@ import com.cxyz.relative.base.rx.BaseSubscriber
 import com.cxyz.utils.ImageLoaderManager
 import com.cxyz.relative.base.data.protocol.BaseResp
 import com.kotlin.base.widgets.DefaultTextWatcher
-import com.trello.rxlifecycle2.LifecycleProvider
+import com.trello.rxlifecycle3.LifecycleProvider
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.android.schedulers.AndroidSchedulers

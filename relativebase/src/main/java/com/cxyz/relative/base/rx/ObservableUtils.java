@@ -1,6 +1,6 @@
 package com.cxyz.relative.base.rx;
 
-import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle3.LifecycleProvider;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ObservableUtils {
 
-    public static void execute(Observable observable, LifecycleProvider lifecycleProvider,BaseSubscriber subscriber)
+    public static void execute(Observable observable, LifecycleProvider lifecycleProvider, BaseSubscriber subscriber)
     {
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

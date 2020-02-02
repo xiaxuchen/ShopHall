@@ -4,7 +4,7 @@ import com.cxyz.context.ContextManager;
 import com.cxyz.mvp.imodel.IBaseModel;
 import com.cxyz.mvp.iview.IBaseView;
 import com.cxyz.utils.NetWorkUtil;
-import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle3.LifecycleProvider;
 
 /**
  * Created by 夏旭晨 on 2018/9/22.
