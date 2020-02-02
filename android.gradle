@@ -18,7 +18,7 @@ android {
 //            }
 //        }
     }
-    resourcePrefix name
+    resourcePrefix name + "_"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

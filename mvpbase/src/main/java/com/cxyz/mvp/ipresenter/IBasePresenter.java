@@ -1,8 +1,10 @@
 package com.cxyz.mvp.ipresenter;
 
+import com.cxyz.context.ContextManager;
 import com.cxyz.mvp.imodel.IBaseModel;
 import com.cxyz.mvp.iview.IBaseView;
-import com.trello.rxlifecycle2.LifecycleProvider;
+import com.cxyz.utils.NetWorkUtil;
+import com.trello.rxlifecycle3.LifecycleProvider;
 
 /**
  * Created by 夏旭晨 on 2018/9/22.
@@ -42,6 +44,26 @@ public abstract class IBasePresenter<M extends IBaseModel, V extends IBaseView> 
      * @return
      */
     public abstract M createModel();
+
+    /**
+     * 检查网络是否良好
+     * @param isHint 是否回调iview
+     * @return 网络是否良好
+     */
+    protected Boolean checkNetwork(Boolean isHint){
+        boolean netWorkEnable = NetWorkUtil.isNetWorkEnable(ContextManager.getContext());
+        if(isHint && !netWorkEnable)
+            mIView.showError("网络状态异常");
+        return netWorkEnable;
+    }
+
+    /**
+     * 检查网络是否良好, 默认回调iview
+     * @return 网络是否良好
+     */
+    protected Boolean checkNetwork(){
+        return checkNetwork(true);
+    }
 
 
     /**

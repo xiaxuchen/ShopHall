@@ -1,25 +1,37 @@
 package com.cxyz.shophall.ui.activity;
 
+import android.content.Intent;
+import android.webkit.JavascriptInterface;
 import android.widget.Button;
 import android.widget.EditText;
 
+<<<<<<< HEAD
 import com.alibaba.android.arouter.launcher.ARouter;
+=======
+
+import androidx.fragment.app.Fragment;
+
+>>>>>>> dev
 import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.mvp.activity.WebViewActivity;
 import com.cxyz.shophall.R;
 import com.cxyz.shophall.presenter.TestPresenter;
 import com.cxyz.shophall.presenter.view.TestView;
+import com.cxyz.shophall.ui.HelloFragment;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
-import com.cxyz.widget.loading.LoadingCreator;
 
 // 实现TestView
 public class TestActivity extends BaseActivity<TestPresenter> implements TestView {
+
+    Fragment fragment = new HelloFragment();
 
     private Button btnLogin;
 
     private EditText etUsername;
 
     private HeaderBar headerBar;
+
 
     @Override
     protected Object getContentView() {
@@ -49,6 +61,20 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestVie
 
     }
 
+    @Override
+    protected void afterInit() {
+        super.afterInit();
+        WebViewActivity.JsInterfacesManager.getInstance().addOnceInterface("test",new WebViewActivity.AndroidInterface(){
+
+            @JavascriptInterface
+            public void toast (String text) {
+                ToastUtil.showShort(text);
+            }
+        });
+        Intent intent = new Intent(this, WebViewActivity.class);
+        intent.putExtra("url","http://www.jd.com");
+        startActivity(intent);
+    }
 
     @Override
     protected TestPresenter createIPresenter() {
@@ -58,8 +84,6 @@ public class TestActivity extends BaseActivity<TestPresenter> implements TestVie
     @Override
     public void showLoginSuccess(String data) {
         ToastUtil.showShort(data);
-        // 正常情况可以直接跳转店铺Activity
-        ARouter.getInstance().build("/main/StoreActivity").navigation();
     }
 
     @Override

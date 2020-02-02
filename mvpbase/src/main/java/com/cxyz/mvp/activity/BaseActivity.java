@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.mvp.iview.IBaseView;
 import com.cxyz.utils.ActivityStackManager;
 import com.cxyz.utils.LogUtil;
 import com.cxyz.utils.ScreenManager;
-import com.cxyz.utils.SpUtil;
 import com.cxyz.widget.loading.LoadingCreator;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 

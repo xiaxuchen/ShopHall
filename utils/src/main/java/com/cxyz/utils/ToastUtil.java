@@ -1,6 +1,8 @@
 package com.cxyz.utils;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.cxyz.context.ContextManager;
@@ -14,6 +16,8 @@ import com.cxyz.context.ContextManager;
 public class ToastUtil {
 
     private static Context context;
+
+    private static Handler handler = new Handler(Looper.getMainLooper());
 
     private ToastUtil(){}
 
@@ -37,15 +41,22 @@ public class ToastUtil {
     public static void showShort(Object text)
     {
         if(context!=null)
-            Toast.makeText(context, text.toString(), Toast.LENGTH_SHORT).show();
+        {
+            handler.post(() -> {
+                Toast.makeText(context, text.toString(), Toast.LENGTH_SHORT).show();
+            });
+        }
     }
     /***
      * 显示一个长时间的吐司
      * @param text 吐司的文本
      */
-    public static void showLong(Object text)
-    {
-        if(context!=null)
-            Toast.makeText(context, text.toString(), Toast.LENGTH_LONG).show();
+    public static void showLong(Object text) {
+        if (context != null)
+        {
+            handler.post(() -> {
+                Toast.makeText(context, text.toString(), Toast.LENGTH_LONG).show();
+            });
+        }
     }
 }

@@ -1,5 +1,80 @@
-[toc]
+## V0.2
+### WebViewActivity
+添加通用WebViewActivity,可以编写网页完成一些功能
+1. 使用方法
+```java
+ // 通过JsInterfaceManager添加Js操控的android方法，如下配置即可在js中使用window.test.toast(text)调用toast
+ WebViewActivity.JsInterfacesManager.getInstance().addOnceInterface("test",new WebViewActivity.AndroidInterface(){
 
+            @JavascriptInterface
+            public void toast (String text) {
+                ToastUtil.showShort(text);
+            }
+        });
+        // 使用Intent跳转至WebViewActivity
+        Intent intent = new Intent(this, WebViewActivity.class);
+        // 指定URL即可
+        intent.putExtra("url","https://zywisbest.utools.club/hello.html");
+        startActivity(intent);
+```
+### Starter
+添加了应用销毁的生命周期，可以做一些释放内存的操作
+### ExceptionHandlerStarter
+添加了异常处理器，可以处理没有捕捉的异常，防止应用crash
+### BaseRecycleViewAdapter
+公共的RecycleView的适配器，实现了数据的管理以及自定义了ItemClickListener,使用步骤:
+1. 继承BaseRecycleViewAdapter#ViewHolder
+```java
+  public static class StringViewHolder extends BaseRecycleViewAdapter.ViewHolder {
+
+        public TextView tvName;
+
+        public StringViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // 这里初始化View
+            tvName = (TextView)itemView.findViewById(R.id.tvName);
+        }
+
+         @Override
+         public void onBindView(int position, List<String> data) {
+             // 当适配器的onBindViewHolder触发时当前的ViewHolder的onBindView方法调用
+             // 这里更新视图，position是当前更新的视图
+             this.tvName.setText(data.get(position));
+         }
+    }
+```
+
+2. 继承BaseRecycleViewAdapter，实现以下方法:
+```java
+// 这里指定每个Item使用到的数据类型，以及ViewHolder的类型
+public class Adapter extends BaseRecycleViewAdapter<String, Adapter.StringViewHolder> {
+
+    // 重写一下即可
+    public Adapter(Context context) {
+        super(context);
+    }
+
+    @NonNull
+    @Override
+    public StringViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // 创建ViewHolder
+        return new StringViewHolder(LayoutInflater.from(context).inflate(R.layout.activity_main,parent,false));
+    }
+
+}
+```
+3. 这样ViewHolder就可以工作了
+```java
+ // 获取数据列表
+ getData();
+ // 获取Context
+ getContext();
+ // 设置数据，也可以用于更新数据 
+ setData();
+ // 设置单项点击事件
+ setOnItemClickListener();
+```
+## V0.1
 # 项目基础框架
 
 ## 专业名词

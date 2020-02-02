@@ -12,7 +12,7 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.mvp.iview.IBaseView;
 import com.cxyz.utils.LogUtil;
-import com.trello.rxlifecycle2.components.RxFragment;
+import com.trello.rxlifecycle3.components.support.RxFragment;
 
 /**
  * TODO 需要修改
