@@ -13,9 +13,15 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
+import com.cxyz.car.data.domain.Goods;
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.car.data.domain.ShopcarGoods;
+import com.cxyz.car.presenter.FavoritePresenter;
+import com.cxyz.car.presenter.OrderAllPresenter;
+import com.cxyz.car.presenter.view.IFavoriteView;
+import com.cxyz.car.presenter.view.IOrderAllView;
 import com.cxyz.car.ui.adapter.OrderListAdapter;
+import com.cxyz.mvp.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,237 +30,46 @@ import java.util.List;
  * 全部
  */
 @Route(path="/shopcar/OrderAllFragment",group = "shopcar")
-public class OrderAllFragment extends Fragment {
+public class OrderAllFragment extends BaseFragment<OrderAllPresenter> implements IOrderAllView {
     private Context context;//上下文
-    private View view;//依赖的布局文件
-    private List<OrderItem> listItem;
     private ListView listView;
 
-
-    /**
-     * 获取context
-     *
-     * @param context
-     */
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
     }
-
-    /**
-     * 加载布局文件
-     *
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.shopcar_fragment_order_all, container, false);
+    protected int getLayoutId() {
+        return R.layout.shopcar_fragment_order_all;
     }
-
+    @Override
+    protected void initData(Bundle bundle) {
+    }
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+        listView = view.findViewById(R.id.lv_order_all);
+    }
+    @Override
+    protected OrderAllPresenter createIPresenter() {
+        return new OrderAllPresenter();
+    }
+    @Override
+    protected void setListener() {
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.view = view;
-        initView();//初始化控件
-        initData();//初始化数据
-
-        listView.setAdapter(new OrderListAdapter(context, listItem));
+        iPresenter.fecth();
     }
 
-    /**
-     * 初始化控件
-     */
-    public void initView() {
-        listView = view.findViewById(R.id.lv_order_all);
+    @Override
+    public void showOrderAllItem(List<OrderItem> orderItems) {
+        listView.setAdapter(new OrderListAdapter(context,orderItems));
     }
 
-    /**
-     * 初始化数据
-     */
-    public void initData() {
-        listItem = new ArrayList<>();
-        {
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg1,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg3,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg4,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg1,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg2,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg3,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg4,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg1,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg2,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg3,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg4,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-        }
+    @Override
+    public void showError(Object msg) {
+
     }
 }

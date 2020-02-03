@@ -9,6 +9,6 @@ import java.util.List;
 public abstract class IOrderAllModel extends IBaseModel {
     public abstract void loadData(OnLoadListener onLoadListener) ;
     public interface OnLoadListener {
-        void complete(List<OrderItem> data, String[] title);
+        void complete(List<OrderItem> data);
     }
 }

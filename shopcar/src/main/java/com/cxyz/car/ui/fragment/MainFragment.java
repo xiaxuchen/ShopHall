@@ -23,8 +23,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
+import com.cxyz.car.presenter.MainPresenter;
+import com.cxyz.car.presenter.view.IMainView;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
 import com.cxyz.car.data.domain.Goods;
+import com.cxyz.mvp.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 @Route(path = "/shopcar/MainFragment",group = "shop")
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment<MainPresenter> implements IMainView {
 
     private GridView gridView;
     private ScrollView scrollView;
@@ -58,22 +61,37 @@ public class MainFragment extends Fragment {
      */
     private ListView listView;
     private List<Goods> goodslistItem;
-
     private Context context;
 
-    /**
-     * 加载fragment的布局文件
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view;
-        view = inflater.inflate(R.layout.shopcar_fragment_main,container,false);
-        return view;
+    protected int getLayoutId() {
+        return R.layout.shopcar_fragment_main;
+    }
+
+    @Override
+    protected void initData(Bundle bundle) {
+
+    }
+
+    //初始化控件
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+        scrollView=view.findViewById(R.id.sv_main);
+        gridView=view.findViewById(R.id.gv_middle_stores);
+        pointGroup = (LinearLayout) view.findViewById(R.id.ll_point_group);
+        imageDesc = (TextView) view.findViewById(R.id.tv_imagebot);
+        viewPager = (ViewPager) view.findViewById(R.id.vp_imageslide);
+        listView=view.findViewById(R.id.lv_bottom_ad);
+    }
+
+    @Override
+    protected MainPresenter createIPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
+    protected void setListener() {
+
     }
 
     /**
@@ -94,7 +112,7 @@ public class MainFragment extends Fragment {
         imageList=new ArrayList<>();
         goodslistItem=new ArrayList<>();
 
-        scrollView=view.findViewById(R.id.sv_main);
+        iPresenter.fecth();//加载底部商品列表
         scrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -104,7 +122,6 @@ public class MainFragment extends Fragment {
         });
 
         //中间商家列表  gridview   start
-        gridView=view.findViewById(R.id.gv_middle_stores);
         List<Map<String,Object>> listItem=new ArrayList<>();
         for(int i=0;i<canId.length;i++){
             Map<String,Object> map=new HashMap<>();
@@ -122,10 +139,6 @@ public class MainFragment extends Fragment {
         /**
          * 图片轮播 start
          */
-        pointGroup = (LinearLayout) view.findViewById(R.id.ll_point_group);
-        imageDesc = (TextView) view.findViewById(R.id.tv_imagebot);
-        viewPager = (ViewPager) view.findViewById(R.id.vp_imageslide);
-
         for (int i = 0; i < imageIds.length; i++) {
             //初始化图片资源
             ImageView imageView = new ImageView(context);
@@ -197,43 +210,6 @@ public class MainFragment extends Fragment {
         /**
          * 图片轮播 end
          */
-
-        /**
-         * 底部商品列表 start
-         */
-        Goods goods1=new Goods(R.drawable.car_bg1,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",999.0);
-        Goods goods2=new Goods(R.drawable.car_bg2,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",888.0);
-        Goods goods3=new Goods(R.drawable.car_bg3,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",777.0);
-        Goods goods4=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods5=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods6=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods7=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods8=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods9=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods10=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-        Goods goods11=new Goods(R.drawable.car_bg4,"炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！","装逼之人用品",555.0);
-
-
-        goodslistItem.add(goods1);
-        goodslistItem.add(goods2);
-        goodslistItem.add(goods3);
-        goodslistItem.add(goods4);
-        goodslistItem.add(goods5);
-        goodslistItem.add(goods6);
-        goodslistItem.add(goods7);
-        goodslistItem.add(goods8);
-        goodslistItem.add(goods9);
-        goodslistItem.add(goods10);
-        goodslistItem.add(goods11);
-
-
-        listView=view.findViewById(R.id.lv_bottom_ad);
-        listView.setAdapter(new ListViewAdapter(context,goodslistItem));
-        /**
-         * 底部商品列表 end
-         */
-
-
     }
 
 
@@ -249,6 +225,16 @@ public class MainFragment extends Fragment {
             }
         };
     };
+
+    @Override
+    public void showMainGoodsView(List<Goods> goodsList) {
+        listView.setAdapter(new ListViewAdapter(context,goodsList));
+    }
+
+    @Override
+    public void showError(Object msg) {
+
+    }
 
     //图片轮播适配器
     private class MyPagerAdapter extends PagerAdapter {

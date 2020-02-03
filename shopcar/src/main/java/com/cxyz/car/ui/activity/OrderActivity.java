@@ -67,11 +67,11 @@ public class OrderActivity extends BaseActivity {
      */
     public void initData(){
         fragmentList=new ArrayList<>();
-        fragmentList.add(new OrderAllFragment());
-        fragmentList.add(new OrderPaymentFragment());
-        fragmentList.add(new OrderSendFragment());
-        fragmentList.add(new OrderWaitFragment());
-        fragmentList.add(new OrderRemainFragment());
+        fragmentList.add(new OrderAllFragment());//全部 11
+        fragmentList.add(new OrderPaymentFragment());//待付款 2
+        fragmentList.add(new OrderSendFragment());//待发货  1
+        fragmentList.add(new OrderWaitFragment());//待收货  1
+        fragmentList.add(new OrderRemainFragment());//待评价  3
 
         adapter=new OrderViewpagerAdapter(getSupportFragmentManager(),fragmentList,titles);
     }

@@ -11,7 +11,7 @@ public class OrderAllModelImpl extends IOrderAllModel {
     private String[] titles;//导航栏标题
     @Override
     public void loadData(OnLoadListener onLoadListener) {
-        onLoadListener.complete(getData(),titles);
+        onLoadListener.complete(getData());
     }
 
     private List<OrderItem>  getData() {
