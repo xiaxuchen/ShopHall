@@ -12,7 +12,7 @@
         android:theme="@style/CommonAppTheme"
         android:name="com.cxyz.context.application.BaseApplication"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.StoreActivity">
+        <activity android:name=".ui.activity.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

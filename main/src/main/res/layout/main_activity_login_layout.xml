@@ -127,6 +127,7 @@
         android:layout_marginEnd="@dimen/common_margin"
         android:background="@drawable/border_bottom"
         android:hint="@string/mainEtPasswordHintTxt"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/mainGuideline5"
         app:layout_constraintEnd_toEndOf="@+id/flRoundBack"
         app:layout_constraintStart_toEndOf="@+id/mainIcontextview"
