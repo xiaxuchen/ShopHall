@@ -14,7 +14,7 @@ public class UpdateManager {
 
     private static UpdateManager updateManager;
     private ThreadPoolExecutor threadPoolExecutor;
-    private UpdateDownloadRequest request;
+    private UpdateRequest request;
 
     private UpdateManager(){
 
@@ -34,7 +34,7 @@ public class UpdateManager {
             return;
         }
         checkLocalFilePath(localPath);
-        request = new UpdateDownloadRequest(downloadUrl, localPath, listener);
+        request = new UpdateRequest(downloadUrl, localPath, listener);
         Future<?> future = threadPoolExecutor.submit(request);
     }
 

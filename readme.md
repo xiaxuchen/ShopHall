@@ -1,5 +1,27 @@
-[toc]
+## V0.2
+### WebViewActivity
+添加通用WebViewActivity,可以编写网页完成一些功能
+1. 使用方法
+```java
+ // 通过JsInterfaceManager添加Js操控的android方法，如下配置即可在js中使用window.test.toast(text)调用toast
+ WebViewActivity.JsInterfacesManager.getInstance().addOnceInterface("test",new WebViewActivity.AndroidInterface(){
 
+            @JavascriptInterface
+            public void toast (String text) {
+                ToastUtil.showShort(text);
+            }
+        });
+        // 使用Intent跳转至WebViewActivity
+        Intent intent = new Intent(this, WebViewActivity.class);
+        // 指定URL即可
+        intent.putExtra("url","https://zywisbest.utools.club/hello.html");
+        startActivity(intent);
+```
+### Starter
+添加了应用销毁的生命周期，可以做一些释放内存的操作
+### ExceptionHandlerStarter
+添加了异常处理器，可以处理没有捕捉的异常，防止应用crash
+## V0.1
 # 项目基础框架
 
 ## 专业名词
