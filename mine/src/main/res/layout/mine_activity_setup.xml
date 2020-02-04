@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         app:backText="@string/mine_setup_header_title"
-        app:background="@color/common_orange"/>
+        app:background="@color/common_colorPrimary"/>
     <View
         android:id="@+id/setUpDivider01"
         android:layout_width="match_parent"
@@ -276,7 +276,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/common_orange"
+        android:background="@color/common_colorPrimary"
         android:text="@string/mine_setup_signout"
         android:textSize="@dimen/text_large_size"
         android:textColor="@color/white"/>

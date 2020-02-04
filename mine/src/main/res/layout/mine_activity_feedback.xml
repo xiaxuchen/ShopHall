@@ -13,7 +13,7 @@
         android:layout_height="@dimen/common_line_height"
         tools:ignore="MissingConstraints"
         app:backText="意见反馈"
-        app:background="@color/common_orange"/>
+        app:background="@color/common_colorPrimary"/>
 
     <TextView
         android:id="@+id/feedbackPrompt"

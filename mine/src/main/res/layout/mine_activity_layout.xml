@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         tools:ignore="MissingConstraints"
-        android:background="@color/common_orange">
+        android:background="@color/common_colorPrimary">
         <ImageView
             android:id="@+id/mineHeaderImg"
             android:layout_width="70dp"
