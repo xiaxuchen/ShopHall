@@ -12,7 +12,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
-        app:background="@color/common_orange"
+        app:background="@color/common_colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,7 @@
         android:layout_margin="@dimen/common_margin"
         android:background="@drawable/border_bottom"
         android:hint="请输入手机号"
-        android:inputType="text"
+        android:inputType="phone"
         android:padding="@dimen/common_padding"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:layout_marginTop="148dp"
         android:background="@drawable/border_bottom"
         android:hint="验证码"
-        android:inputType="text"
+        android:inputType="number"
         android:padding="@dimen/common_padding"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,18 +93,47 @@
         android:layout_margin="@dimen/common_margin"
         android:padding="@dimen/common_padding"
         android:text="注册"
+        android:enabled="false"
+        android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:qmui_backgroundColor="@color/common_orange"
-        app:qmui_borderWidth="0dp" />
+        app:qmui_backgroundColor="@color/common_colorPrimary"
+        app:qmui_borderWidth="0dp"
+        />
 
-    <!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="我已认真阅读并同意"-->
-<!--        />-->
+    <CheckBox
+        android:id="@+id/cbAgree"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAgree"
+        app:layout_constraintEnd_toStartOf="@+id/tvAgree"
+        app:layout_constraintTop_toTopOf="@+id/tvAgree"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvAgree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="我已认真阅读并同意"
+        app:layout_constraintEnd_toStartOf="@id/tvProtocol"
+        app:layout_constraintStart_toEndOf="@id/cbAgree"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    <TextView
+        android:id="@+id/tvProtocol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="《用户服务协议》"
+        android:textColor="@color/common_colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAgree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvAgree"
+        app:layout_constraintTop_toTopOf="@+id/tvAgree" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
