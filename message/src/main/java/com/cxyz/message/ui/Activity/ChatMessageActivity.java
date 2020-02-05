@@ -19,7 +19,7 @@ import com.cxyz.widget.HeaderBar;
 
 import java.util.ArrayList;
 import java.util.List;
-@Route(path = "/message/ChatMessageActivity")
+@Route(path = "/message/ChatMessageActivity",group = "message")
 public class ChatMessageActivity extends AppCompatActivity {
     private List<Msg> msgList = new ArrayList<>();
     private EditText inputText;

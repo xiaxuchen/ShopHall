@@ -20,7 +20,7 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.ArrayList;
 import java.util.List;
-@Route(path = "/message/ChatInfoActivity")
+@Route(path = "/message/ChatInfoActivity",group = "message")
 public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局
     private RecyclerViewAdapter rvAdapter;      //item_recycler 布局的 适配器

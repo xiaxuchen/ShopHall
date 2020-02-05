@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-@Route(path = "/message/GoodsInfoActivity")
+@Route(path = "/message/GoodsInfoActivity",group = "message")
 public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool
