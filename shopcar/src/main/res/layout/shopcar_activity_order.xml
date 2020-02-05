@@ -12,7 +12,7 @@
         android:id="@+id/shopcarHeaderbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:background="@color/common_orange"
+        app:background="@color/common_colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -85,7 +85,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     tools:ignore="MissingConstraints"
-    android:background="@color/common_orange"
+    android:background="@color/common_colorPrimary"
     app:tabTextColor="@color/white"
     app:tabSelectedTextColor="@color/black"
     app:tabMode="fixed"

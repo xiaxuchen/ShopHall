@@ -9,7 +9,7 @@
     tools:ignore="ResourceName">
 <!--顶部搜索框-->
     <LinearLayout
-        android:background="@color/common_orange"
+        android:background="@color/common_colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         android:gravity="center"

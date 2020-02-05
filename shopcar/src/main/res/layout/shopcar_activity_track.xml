@@ -10,7 +10,7 @@
         android:id="@+id/hb_track_headerBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:background="@color/common_orange"
+        app:background="@color/common_colorPrimary"
         tools:ignore="MissingConstraints">
 
     </com.cxyz.widget.HeaderBar>

@@ -22,6 +22,7 @@ public class TestActivity extends AppCompatActivity {
     private Button btnFavorite;
     private Button btnOrder;
     private Button btnTrack;
+    private Button btnPreview;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -74,6 +75,9 @@ public class TestActivity extends AppCompatActivity {
                 startActivity(new Intent(TestActivity.this,OrderActivity.class));
             }
         });
+        /**
+         * TrackActivity界面浏览记录
+          */
         btnTrack=findViewById(R.id.btnTrack);
         btnTrack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,5 +85,16 @@ public class TestActivity extends AppCompatActivity {
                 startActivity(new Intent(TestActivity.this,TrackActivity.class));
             }
         });
+        /**
+         * PreviewActivity预览界面
+         */
+        btnTrack=findViewById(R.id.btnPreview);
+        btnTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,PreviewActivity.class));
+            }
+        });
+
     }
 }
