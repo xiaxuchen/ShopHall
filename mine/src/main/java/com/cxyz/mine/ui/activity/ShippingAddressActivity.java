@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
@@ -18,7 +21,7 @@ import java.util.List;
 @Route(path = "/mine/ShippingAddressActivity",group = "mine")
 public class ShippingAddressActivity extends BaseActivity<ShippingAddressPresenter> implements IShippingAddressView {
     private RecyclerView recyclerView;
-
+    private Button addAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,14 @@ public class ShippingAddressActivity extends BaseActivity<ShippingAddressPresent
     @Override
     public void initView() {
         recyclerView=findViewById(R.id.addressRecycler);
+        addAddress = findViewById(R.id.addAddress);
+        addAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShippingAddressActivity.this,AddAddressActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
