@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/etPhone"
         app:layout_constraintEnd_toEndOf="@+id/etPhone"
         app:layout_constraintTop_toTopOf="@+id/etPhone"
-        android:textColor="@color/common_orange"
+        android:textColor="@color/common_colorPrimary"
         />
 
     <EditText
