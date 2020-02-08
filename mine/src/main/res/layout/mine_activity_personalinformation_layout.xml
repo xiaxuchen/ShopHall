@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         app:backText="个人信息"
-        app:background="@color/common_orange"
+        app:background="@color/common_colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -35,7 +35,7 @@
             android:layout_height="@dimen/common_icon_height"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="270dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:background="@mipmap/mine_shopinformation_img01"
             tools:ignore="MissingConstraints" />
         <ImageView
@@ -71,7 +71,7 @@
             android:layout_height="match_parent"
             android:text="哈哈大王"
             android:layout_marginLeft="280dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
 
@@ -108,7 +108,7 @@
             android:layout_height="match_parent"
             android:text="哈哈大王"
             android:layout_marginLeft="280dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
 
@@ -145,7 +145,7 @@
             android:layout_height="match_parent"
             android:text="18879951233"
             android:layout_marginLeft="250dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
         <ImageView
@@ -181,7 +181,7 @@
             android:layout_height="match_parent"
             android:text="哈哈大王"
             android:layout_marginLeft="260dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
@@ -211,7 +211,7 @@
             android:layout_height="match_parent"
             android:text="黄金会员"
             android:layout_marginLeft="290dp"
-            android:textColor="@color/common_line"
+            android:textColor="@color/common_text_normal"
             android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
     </LinearLayout>

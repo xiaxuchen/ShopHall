@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         app:title="@string/mine_hearderBar_title"
-        app:background="@color/common_orange"/>
+        app:background="@color/common_colorPrimary"/>
 
         <!--商城里的店铺信息-->
     <GridView

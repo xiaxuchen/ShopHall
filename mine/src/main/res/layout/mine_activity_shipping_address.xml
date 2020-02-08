@@ -13,7 +13,7 @@
         android:layout_height="@dimen/common_header_bar_height"
         tools:ignore="MissingConstraints"
         app:backText="@string/mine_shippong_address_backtitle"
-        app:background="@color/common_orange"/>
+        app:background="@color/common_colorPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/addressRecycler"
@@ -26,7 +26,7 @@
         android:id="@+id/addAddress"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
-        android:background="@color/common_orange"
+        android:background="@color/common_colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/mine_shippong_address_add"
         android:textColor="@color/white"
