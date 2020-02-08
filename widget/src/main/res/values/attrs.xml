@@ -3,7 +3,7 @@
 
     <declare-styleable name="HeaderBar">
         <attr name="title" format="string" />
-        <attr name="backIcon" format="reference" />
+        <attr name="backIcon" format="string" />
         <attr name="moreIcon" format="reference" />
         <attr name="backText" format="string" />
         <attr name="moreText" format="string" />
