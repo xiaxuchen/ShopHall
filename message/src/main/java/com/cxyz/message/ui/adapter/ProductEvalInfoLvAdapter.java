@@ -63,7 +63,7 @@ public class ProductEvalInfoLvAdapter extends BaseAdapter {
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.fragment_product_evalinfo_lv_item, parent, false);
+            convertView = inflater.inflate(R.layout.message_fragment_product_evalinfo_lv_item, parent, false);
             viewHolder.picImg = convertView.findViewById(R.id.iv_pic);
             viewHolder.nameTv = convertView.findViewById(R.id.tv_nickname);
             viewHolder.evalTv = convertView.findViewById(R.id.tv_eval);

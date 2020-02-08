@@ -34,7 +34,7 @@ public class ChatMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.message_activity_main);
         initMsgs();
         hbChatmesTitle=findViewById(R.id.hbchatmestitle);
         hbChatmesTitle.setTitle("李明");

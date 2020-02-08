@@ -46,7 +46,7 @@ public class ProductEvalInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_product_evalinfo, container, false);
+            view = inflater.inflate(R.layout.message_fragment_product_evalinfo, container, false);
             if (viewPager != null)
                 viewPager.setObjectForPosition(view, 2);
         }

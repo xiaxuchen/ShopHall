@@ -23,7 +23,7 @@ import java.util.List;
 @Route(path = "/message/ChatInfoActivity",group = "message")
 public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局
-    private RecyclerViewAdapter rvAdapter;      //item_recycler 布局的 适配器
+    private RecyclerViewAdapter rvAdapter;      //message_item_recycler 布局的 适配器
 
     //设置数据
     private List<Bitmap> dataImage;    //头像（谁的头像）
@@ -34,7 +34,7 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     private QMUIRadiusImageView  ivDiscontInfo;
     @Override
     protected Object getContentView() {
-        return R.layout.activity_chatinfo;
+        return R.layout.message_activity_chatinfo;
 
     }
 

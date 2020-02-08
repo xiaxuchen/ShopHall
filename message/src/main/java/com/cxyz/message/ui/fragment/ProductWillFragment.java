@@ -50,7 +50,7 @@ public class ProductWillFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_product_will, container, false);
+            view = inflater.inflate(R.layout.message_fragment_product_will, container, false);
             if (viewPager != null)
                 viewPager.setObjectForPosition(view, 1);
         }
@@ -81,7 +81,7 @@ public class ProductWillFragment extends Fragment {
         if (datas != null && datas.size() > 0 && mInflater != null) {
             mLinearLayout.removeAllViews();
             for (Integer value : datas) {
-                ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_imageview, mLinearLayout, false);
+                ImageView iv = (ImageView) mInflater.inflate(R.layout.message_tag_imageview, mLinearLayout, false);
                 iv.setAdjustViewBounds(true);
 //                // 加载图片-一般是加载网络图片
 //                if (!TextUtils.isEmpty(value)) {}
