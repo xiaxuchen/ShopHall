@@ -32,8 +32,9 @@ public class AddAddressActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        btnAddAddress = findViewById(R.id.btnAddAddress);
 
+        //确认添加地址按钮
+        btnAddAddress = findViewById(R.id.btnAddAddress);
         btnAddAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

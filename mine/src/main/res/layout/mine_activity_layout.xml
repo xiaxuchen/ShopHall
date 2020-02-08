@@ -140,6 +140,7 @@
         </LinearLayout>
         <!-- d全部订单 -->
         <LinearLayout
+            android:id="@+id/mineOrder"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"

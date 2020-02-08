@@ -32,12 +32,14 @@ public class MainActivity extends BaseActivity {
         btnMine = findViewById(R.id.btnMine);
         mall = new MallInformationFragment();
         mine = new MineFragment();
+        //跳转到商城界面
         btnMall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment,mall).commitAllowingStateLoss();
             }
         });
+        //跳转到我的界面
         btnMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
