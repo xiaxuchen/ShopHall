@@ -3,6 +3,7 @@ package com.cxyz.mine.ui.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;

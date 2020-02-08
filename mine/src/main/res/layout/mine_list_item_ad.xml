@@ -51,7 +51,7 @@
             android:paddingLeft="5dp"
             android:layout_toRightOf="@id/ivAd"
             android:textSize="25dp"
-            android:textColor="@color/common_orange"
+            android:textColor="@color/common_colorPrimary"
             android:text=""/>
     </RelativeLayout>
         <!--<View

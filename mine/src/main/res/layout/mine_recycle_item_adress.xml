@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_margin_middle"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/common_line_half_a"
+            android:background="@color/common_divider"
             tools:ignore="MissingConstraints" />
         <TextView
             android:id="@+id/addressName"
