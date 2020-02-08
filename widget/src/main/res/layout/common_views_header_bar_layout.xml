@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:background="@color/common_colorPrimary"
+    android:padding="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,19 +12,18 @@
         android:gravity="bottom"
         >
 
-        <TextView
+        <com.joanzapata.iconify.widget.IconTextView
             android:id="@+id/title_back"
             android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:drawableLeft="@mipmap/common_title_back"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:minWidth="45dp"
             android:singleLine="true"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="@color/common_white"
             android:visibility="visible" />
 

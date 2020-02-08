@@ -24,17 +24,30 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     testImplementation 'junit:junit:4.12'
 
+    compile "com.wanjian:cockroach:0.0.5"
+
+
     implementation(project(':utils'))
     implementation(project(':mvpbase'))
+    implementation(project(':context'))
+    implementation(project(':httplib'))
 
     //rxandroid
     api "io.reactivex.rxjava2:rxandroid:${dep.rxAndroidVersion}"
     api "io.reactivex.rxjava2:rxjava:${dep.rxJavaVersion}"
     api "io.reactivex.rxjava2:rxkotlin:${dep.rxKotlinVersion}"
 
-    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    // If you want to bind to Android-specific lifecycles
+    api 'com.trello.rxlifecycle3:rxlifecycle-android:3.1.0'
+
+// If you want pre-written Activities and Fragments you can subclass as providers
+    api 'com.trello.rxlifecycle3:rxlifecycle-components:3.1.0'
+
+// If you want pre-written support preference Fragments you can subclass as providers
+    api 'com.trello.rxlifecycle3:rxlifecycle-components-preference:3.1.0'
+
+// If you want to use Android Lifecycle for providers
+    api 'com.trello.rxlifecycle3:rxlifecycle-android-lifecycle:3.1.0'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

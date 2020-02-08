@@ -42,9 +42,13 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
     private String txt_title = "",txt_more = "",txt_back = "";
 
     //返回的icon，更多的icon
-    private int backRes = R.mipmap.common_title_back,moreRes = 0;
+    private String backIcon = null;
 
-    private int background = R.color.common_primary_color;
+    public final String DEFAULT_BACK_ICON = "{fa-chevron-left}";
+
+    private int moreRes = 0;
+
+    private int background = R.color.common_colorPrimary;
 
     //相应的颜色
     private int backColor,moreColor,titleColor;
@@ -79,9 +83,18 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
         txt_title = array.getString(R.styleable.HeaderBar_title);
         txt_more = array.getString(R.styleable.HeaderBar_moreText);
         txt_back = array.getString(R.styleable.HeaderBar_backText);
-        backRes = array.getResourceId(R.styleable.HeaderBar_backIcon,backRes);
+        backIcon = array.getString(R.styleable.HeaderBar_backIcon);
         moreRes = array.getResourceId(R.styleable.HeaderBar_moreIcon,moreRes);
         background = array.getResourceId(R.styleable.HeaderBar_background,background);
+
+        if(backIcon == null) {
+            backIcon = DEFAULT_BACK_ICON;
+        }
+
+        if(txt_back == null) {
+            txt_back = "";
+        }
+
         array.recycle();
     }
 
@@ -99,13 +112,18 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
         title = findViewById(R.id.title_title);
         more = findViewById(R.id.title_more);
 
-        setBack(backRes,txt_back);
+        setBack(txt_back,backIcon);
         setMore(moreRes,txt_more);
         setTitle(txt_title);
-
         back.setOnClickListener(this);
         title.setOnClickListener(this);
         more.setOnClickListener(this);
+    }
+
+    public void setBack (String text, String icon){
+        this.txt_back = text;
+        this.backIcon = icon;
+        back.setText(icon + "  " + text);
     }
 
     public TextView getMore() {
@@ -172,32 +190,12 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
 
 
     /**
-     * 设置返回的图标和文字，如果图标资源为0则为默认
-     * @param res 资源id
-     * @param txt 文字
-     */
-    public void setBack(int res,String txt)
-    {
-        setBackText(txt);
-        setBackIcon(res);
-    }
-
-    /**
      * 设置返回的文本
      * @param txt 字符串
      */
     public void setBackText(String txt)
     {
         back.setText(txt);
-    }
-
-    /**
-     * 设置返回图标
-     * @param res 资源id
-     */
-    public void setBackIcon(int res)
-    {
-        setTextDrwLeft(back,res);
     }
 
 
@@ -265,7 +263,7 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
 //        {
 //            if(id == R.id.title_back)
 //            {
-//                if((txt_back == null || txt_back.isEmpty())&& backRes == 0)
+//                if((txt_back == null || txt_back.isEmpty())&& backIcon == 0)
 //                    return;
 //            }
 //            else if(id == R.id.title_more)
@@ -281,7 +279,7 @@ public class HeaderBar extends LinearLayout implements View.OnClickListener {
         {
             if (backClickListener != null)
             {
-                if ((txt_back != null && !txt_back.isEmpty()) || backRes != 0)
+                if ((txt_back != null && !txt_back.isEmpty()) || (!backIcon.isEmpty() && backIcon != null))
                     backClickListener.onBackClick(back);
             }
             else if(listener != null)

@@ -9,7 +9,7 @@
         android:id="@+id/topBack"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:background="@color/common_orange"
+        android:background="@color/common_colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/mainGuideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -127,6 +127,7 @@
         android:layout_marginEnd="@dimen/common_margin"
         android:background="@drawable/border_bottom"
         android:hint="@string/mainEtPasswordHintTxt"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/mainGuideline5"
         app:layout_constraintEnd_toEndOf="@+id/flRoundBack"
         app:layout_constraintStart_toEndOf="@+id/mainIcontextview"
@@ -220,11 +221,11 @@
 
 
     <TextView
-        android:id="@+id/mainTextview5"
+        android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="注册账号"
-        android:textColor="@color/common_orange"
+        android:textColor="@color/common_colorPrimary"
         android:textSize="@dimen/text_small_size"
         app:layout_constraintBottom_toTopOf="@+id/mainGuideline7"
         app:layout_constraintEnd_toStartOf="@+id/mainTextview6"
@@ -238,7 +239,7 @@
         android:layout_height="wrap_content"
         android:text="找回密码"
         android:textSize="@dimen/text_small_size"
-        app:layout_constraintBaseline_toBaselineOf="@+id/mainTextview5"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent" />

@@ -2,6 +2,7 @@ package com.cxyz.main.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.cxyz.main.R
 import com.cxyz.main.presenter.LoginPresenter
 import com.cxyz.main.presenter.view.ILoginView
@@ -15,6 +16,7 @@ import org.jetbrains.anko.dip
 import org.jetbrains.anko.px2dip
 import org.jetbrains.anko.toast
 
+@Route(path = "/main/LoginActivity")
 class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
     override fun createIPresenter(): LoginPresenter {
         return LoginPresenter()
@@ -46,6 +48,10 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
 
         btnLogin.onClick {
             iPresenter.login(etUsername.text.toString(),etPassword.text.toString())
+        }
+
+        tvRegister.onClick {
+            startActivity(RegisterActivity::class.java)
         }
     }
 
