@@ -141,10 +141,12 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        android:id="@+id/btnAddAddress"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         android:text="确认添加"
         android:textColor="@color/white"
+        android:textSize="@dimen/text_big_size"
         android:background="@color/common_colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints" />

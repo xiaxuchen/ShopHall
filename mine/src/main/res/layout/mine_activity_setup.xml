@@ -272,6 +272,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:layout_constraintBottom_toBottomOf="parent"

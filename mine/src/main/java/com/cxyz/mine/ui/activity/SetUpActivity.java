@@ -5,8 +5,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
@@ -14,6 +16,7 @@ import com.cxyz.mine.data.model.impl.ShippingAdressModelImpl;
 import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 
 @Route(path = "/mine/SetUpActivity",group = "mine")
@@ -21,7 +24,7 @@ public class SetUpActivity extends BaseActivity {
     private ConstraintLayout setUpAddress;
     private ConstraintLayout setUpPassword;
     private ConstraintLayout setUpFeedback;
-
+    private Button btnSignOut;
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_setup;
@@ -32,6 +35,7 @@ public class SetUpActivity extends BaseActivity {
         setUpAddress = findViewById(R.id.setUpAddress);
         setUpPassword = findViewById(R.id.setUpPassword);
         setUpFeedback = findViewById(R.id.setUpFeedback);
+        btnSignOut = findViewById(R.id.btnSignOut);
         setUpAddress.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +55,12 @@ public class SetUpActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
+            }
+        });
+        btnSignOut.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtil.showLong("退出成功");
             }
         });
     }
