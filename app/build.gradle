@@ -20,6 +20,7 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -48,6 +49,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     annotationProcessor "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
+    compile 'com.android.support:multidex:1.0.3'
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
