@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.model.IPreviewModel;
 import com.cxyz.car.presenter.PreviewPresenter;
@@ -16,7 +17,7 @@ import com.cxyz.car.ui.adapter.PreviewChooseAdapter;
 import com.cxyz.car.ui.fragment.ShopcarFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-
+@Route(path="/shopcar/PreviewActivity",group = "shopcar")
 public class PreviewActivity extends BaseActivity<PreviewPresenter> implements IPreviewView {
     private TextView tv_add;
     private TextView tv_descres;

@@ -23,6 +23,8 @@ public class TestActivity extends AppCompatActivity {
     private Button btnOrder;
     private Button btnTrack;
     private Button btnPreview;
+    private Button btnApi;
+    private Button btnOrderDetail;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -88,11 +90,32 @@ public class TestActivity extends AppCompatActivity {
         /**
          * PreviewActivity预览界面
          */
-        btnTrack=findViewById(R.id.btnPreview);
-        btnTrack.setOnClickListener(new View.OnClickListener() {
+        btnPreview=findViewById(R.id.btnPreview);
+        btnPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,PreviewActivity.class));
+            }
+        });
+
+        /**
+         * ApizzaActivity测试apizza
+         */
+        btnApi=findViewById(R.id.btnApi);
+        btnApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
+            }
+        });
+        /**
+         * OrderDetailActivity订单详情界面面
+         */
+        btnOrderDetail=findViewById(R.id.btnOrderDetail);
+        btnOrderDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,OrderDetailActivity.class));
             }
         });
 

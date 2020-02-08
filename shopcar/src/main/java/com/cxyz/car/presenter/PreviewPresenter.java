@@ -1,5 +1,7 @@
 package com.cxyz.car.presenter;
 
+import android.accounts.NetworkErrorException;
+
 import com.cxyz.car.data.model.IPreviewModel;
 import com.cxyz.car.data.model.impl.PreviewModelImpl;
 import com.cxyz.car.presenter.view.IPreviewView;
@@ -13,11 +15,15 @@ public class PreviewPresenter extends IBasePresenter<IPreviewModel, IPreviewView
     }
 
     public void fecth(){
-        mIModle.loadData(new IPreviewModel.OnLoadListener() {
-            @Override
-            public void complete(String[] options) {
-                mIView.showOption(options);
-            }
-        });
+        try {
+            mIModle.loadData(new IPreviewModel.OnLoadListener() {
+                @Override
+                public void complete(String[] options) {
+                    mIView.showOption(options);
+                }
+            });
+        } catch (NetworkErrorException e) {
+            e.printStackTrace();
+        }
     }
 }

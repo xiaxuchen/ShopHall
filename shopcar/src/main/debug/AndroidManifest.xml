@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cxyz.car">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="com.cxyz.context.application.BaseApplication"
         android:allowBackup="true"
@@ -17,6 +18,10 @@
         <activity android:name=".ui.activity.TrackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".ui.activity.PreviewActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.TestApizActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.OrderDetailActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".ui.activity.TestActivity"
