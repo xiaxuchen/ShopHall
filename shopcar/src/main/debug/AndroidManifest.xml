@@ -32,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.cxyz.starter.car.iconify"
+            android:value="com.cxyz.car.starter.IconifyStarter" />
     </application>
 
 </manifest>
