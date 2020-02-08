@@ -8,10 +8,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.ui.fragment.MainFragment;
 import com.cxyz.car.ui.fragment.ShopcarFragment;
 
+@Route(path="/shopcar/TestActivity",group = "shopcar")
 
 public class TestActivity extends AppCompatActivity {
 
@@ -19,6 +21,10 @@ public class TestActivity extends AppCompatActivity {
     private Button btnShopcar;
     private Button btnFavorite;
     private Button btnOrder;
+    private Button btnTrack;
+    private Button btnPreview;
+    private Button btnApi;
+    private Button btnOrderDetail;
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -71,5 +77,47 @@ public class TestActivity extends AppCompatActivity {
                 startActivity(new Intent(TestActivity.this,OrderActivity.class));
             }
         });
+        /**
+         * TrackActivity界面浏览记录
+          */
+        btnTrack=findViewById(R.id.btnTrack);
+        btnTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,TrackActivity.class));
+            }
+        });
+        /**
+         * PreviewActivity预览界面
+         */
+        btnPreview=findViewById(R.id.btnPreview);
+        btnPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,PreviewActivity.class));
+            }
+        });
+
+        /**
+         * ApizzaActivity测试apizza
+         */
+        btnApi=findViewById(R.id.btnApi);
+        btnApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
+            }
+        });
+        /**
+         * OrderDetailActivity订单详情界面面
+         */
+        btnOrderDetail=findViewById(R.id.btnOrderDetail);
+        btnOrderDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,OrderDetailActivity.class));
+            }
+        });
+
     }
 }

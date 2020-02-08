@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cxyz.car">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="com.cxyz.context.application.BaseApplication"
         android:allowBackup="true"
@@ -14,6 +15,14 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".ui.activity.OrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.TrackActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.PreviewActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.TestApizActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.OrderDetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".ui.activity.TestActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -23,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.cxyz.starter.car.iconify"
+            android:value="com.cxyz.car.starter.IconifyStarter" />
     </application>
 
 </manifest>

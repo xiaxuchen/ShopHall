@@ -11,7 +11,7 @@
         android:id="@+id/hb_favorite_headerbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:background="@color/common_orange"
+        app:background="@color/common_colorPrimary"
         app:moreText="管理"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"

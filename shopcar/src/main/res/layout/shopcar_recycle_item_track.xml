@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/tv_track_date"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ccc"
+        android:text="2020/01/14"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_track_goods"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        />
+</LinearLayout>

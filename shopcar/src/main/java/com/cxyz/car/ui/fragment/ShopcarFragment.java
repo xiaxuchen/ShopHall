@@ -1,5 +1,6 @@
 package com.cxyz.car.ui.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,87 +12,74 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
+import com.cxyz.car.presenter.ShopcarPresenter;
+import com.cxyz.car.presenter.view.IShopcarView;
+import com.cxyz.mvp.fragment.BaseFragment;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Route(path="/shopcar/ShopcarFragment",group = "shopcar")
-public class ShopcarFragment extends Fragment {
+public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements IShopcarView   {
 
     private Context context;//fragment依附的activity上下文
     private ListView listView;
-    private List<ShopcarGoods> listItem;
 
-    /**
-     * 在fragment依附到activity时保存上下文
-     * @param context
-     */
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context=context;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view;
-        view=inflater.inflate(R.layout.shopcar_fragment_shopcar,container,false);
-        return view;
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.context=activity;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        iPresenter.fecth();
+    }
+    @Override
+    protected int getLayoutId() {
+        return R.layout.shopcar_fragment_shopcar;
+    }
 
-        //获取lsitview组件
+    @Override
+    protected void initData(Bundle bundle) {
+
+    }
+
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
         listView=view.findViewById(R.id.lv_shop);
+    }
 
+    @Override
+    protected ShopcarPresenter createIPresenter() {
+        return new ShopcarPresenter();
+    }
 
+    @Override
+    protected void setListener() {
 
-        listItem=new ArrayList();
-        ShopcarGoods goods1=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg1,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods2=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg2,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods3=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg3,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods4=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg4,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods5=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg48,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods6=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg1,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods7=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg2,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods8=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg3,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods9=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg4,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        ShopcarGoods goods10=new ShopcarGoods(R.drawable.car_r,R.drawable.car_bg1,26.0,
-                "水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋",
-                "雪花35*60成人冰晶枕头送眼罩子");
-        listItem.add(goods1);listItem.add(goods2);listItem.add(goods3);listItem.add(goods4);listItem.add(goods5);listItem.add(goods6);
-        listItem.add(goods7);listItem.add(goods8);listItem.add(goods9);listItem.add(goods10);
+    }
 
-        listView.setAdapter(new ShopcarAdapter(context,listItem));
+    @Override
+    public void showError(Object msg) {
 
+    }
+
+    @Override
+    public void showShopcarGoodsView(List<ShopcarGoods> shopcarGoodsList) {
+        listView.setAdapter(new ShopcarAdapter(context,shopcarGoodsList));
     }
 
 
@@ -157,6 +145,18 @@ public class ShopcarFragment extends Fragment {
             viewHolder.logo.setImageResource(listItem.get(i).getLogo());
             viewHolder.image.setImageResource(listItem.get(i).getImage());
             viewHolder.desc.setText(listItem.get(i).getDesc());
+            viewHolder.image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                }
+            });
+            viewHolder.desc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                }
+            });
             viewHolder.smal.setText(listItem.get(i).getSmal());
             viewHolder.price.setText("￥"+listItem.get(i).getPrice());
 

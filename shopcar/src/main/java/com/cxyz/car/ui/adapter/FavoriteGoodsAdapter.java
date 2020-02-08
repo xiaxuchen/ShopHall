@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.Goods;
+import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
 
 import java.util.List;
 
@@ -20,20 +21,30 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
 
     private Context context;
     private List<Goods> listitem;
+    private BaseRecycleViewAdapter.OnItemClickListener mOnItemClickListener;
 
     public FavoriteGoodsAdapter(Context context, List<Goods> listitem) {
         this.context = context;
         this.listitem = listitem;
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(BaseRecycleViewAdapter.OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
     @NonNull
     @Override
     public LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LinearViewHolder(LayoutInflater.from(context).inflate(R.layout.shopcar_recycle_item_favorite_goods,null));
+        return new LinearViewHolder(LayoutInflater.from(context).inflate(R.layout.shopcar_recycle_item_favorite_goods, null));
     }
 
     /**
      * 这个方法给holder中的组件赋值
+     *
      * @param holder
      * @param position
      */
@@ -42,8 +53,18 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
         holder.imageView.setImageResource(listitem.get(position).getImageId());
         holder.desc.setText(listitem.get(position).getDes());
         holder.smal.setText(listitem.get(position).getSmal());
-        holder.price.setText("￥"+listitem.get(position).getPrice());
+        holder.price.setText("￥" + listitem.get(position).getPrice());
         holder.findLike.setText("找相似");
+
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = holder.getLayoutPosition();
+                    mOnItemClickListener.onItemClick(holder.itemView, position);
+                }
+            });
+        }
     }
 
     @Override
@@ -54,7 +75,7 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
     /**
      * 这个类声明和获得了adapte中view布局中的组件
      */
-    class LinearViewHolder extends RecyclerView.ViewHolder{
+    class LinearViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
         private TextView desc;
         private TextView smal;
@@ -64,11 +85,11 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
         public LinearViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView= itemView.findViewById(R.id.iv_favorite_image);
-            desc=itemView.findViewById(R.id.tv_favorite_desc);
-            smal=itemView.findViewById(R.id.tv_favorite_smal);
-            price=itemView.findViewById(R.id.tv_favorite_price);
-            findLike=itemView.findViewById(R.id.tv_favorite_findLike);
+            imageView = itemView.findViewById(R.id.iv_favorite_image);
+            desc = itemView.findViewById(R.id.tv_favorite_desc);
+            smal = itemView.findViewById(R.id.tv_favorite_smal);
+            price = itemView.findViewById(R.id.tv_favorite_price);
+            findLike = itemView.findViewById(R.id.tv_favorite_findLike);
         }
     }
 }
