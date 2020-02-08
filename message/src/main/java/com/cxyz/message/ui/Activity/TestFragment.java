@@ -1,8 +1,5 @@
 package com.cxyz.message.ui.Activity;
 
-import android.app.Application;
-
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
@@ -12,7 +9,7 @@ public class TestFragment extends BaseActivity {
 
     @Override
     protected Object getContentView() {
-        return R.layout.testfragemnt;
+        return R.layout.message_testfragemnt;
     }
 
     @Override

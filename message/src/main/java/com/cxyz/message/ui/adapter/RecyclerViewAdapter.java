@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2018/3/16 0016.
- * item_recycler.xml 的适配器
+ * message_item_recycler.xmlcler.xml 的适配器
  */
 
 public class RecyclerViewAdapter
@@ -58,7 +58,7 @@ public class RecyclerViewAdapter
 
     @Override
     public SimpleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_item_recycler, parent, false);
         return new SimpleHolder(view);
     }
 

@@ -104,7 +104,7 @@ public class GoodsInfoActivity extends BaseActivity {
     private ArrayList<String> productFeaturesList;
     @Override
     protected Object getContentView() {
-        return R.layout.activity_goodsinfo;
+        return R.layout.message_activity_goodsinfo;
     }
 
     @Override
@@ -374,7 +374,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             flBrand.removeAllViews();
             for (final Brand value : brands) {
-                ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_brand_imageview, flBrand, false);
+                ImageView iv = (ImageView) mInflater.inflate(R.layout.message_tag_brand_imageview, flBrand, false);
                 iv.setTag(value.getBrand_id());
                 // 点击事件监听
                 iv.setOnClickListener(new View.OnClickListener() {
@@ -415,7 +415,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             specificationsChoiceFlowlayout.removeAllViews();
             for (Specification value : datas) {
-                final TextView tv = (TextView) mInflater.inflate(R.layout.tag_gray_circular_textview, specificationsChoiceFlowlayout, false);
+                final TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_gray_circular_textview, specificationsChoiceFlowlayout, false);
                 tv.setTag(value.getId());
                 tv.setText(value.getText());
                 // 规格点击事件监听
@@ -460,7 +460,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             specialOfferFlowLayout.removeAllViews();
             for (String value : datas) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tag_red_circular_textview, specialOfferFlowLayout, false);
+                TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_red_circular_textview, specialOfferFlowLayout, false);
                 tv.setText(value);
                 specialOfferFlowLayout.addView(tv);
             }
@@ -477,7 +477,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             productFeaturesFlowlayout.removeAllViews();
             for (String value : datas) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tag_gray_circular_textview, productFeaturesFlowlayout, false);
+                TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_gray_circular_textview, productFeaturesFlowlayout, false);
                 tv.setText(value);
                 productFeaturesFlowlayout.addView(tv);
             }
