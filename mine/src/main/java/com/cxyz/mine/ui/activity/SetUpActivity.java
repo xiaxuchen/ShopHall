@@ -6,11 +6,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mine.data.model.impl.ShippingAdressModelImpl;
 import com.cxyz.mine.ui.fragment.MineFragment;
@@ -60,7 +63,10 @@ public class SetUpActivity extends BaseActivity {
         btnSignOut.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showLong("退出成功");
+                ARouter.getInstance().build("/main/LoginActivity").navigation();
+                Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
             }
         });
     }

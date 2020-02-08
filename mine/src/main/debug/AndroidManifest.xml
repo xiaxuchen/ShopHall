@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/CommonAppTheme">
+        android:theme="@style/CommonAppTheme"
+        android:name="com.cxyz.context.application.BaseApplication">
         <activity android:name=".ui.activity.AddAddressActivity"></activity>
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.ChangPasswordActivity" />
