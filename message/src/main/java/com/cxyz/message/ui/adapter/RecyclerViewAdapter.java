@@ -1,6 +1,7 @@
 package com.cxyz.message.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.R;
+import com.cxyz.message.ui.Activity.ChatMessageActivity;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.message.widget.view.RecyclerItemView;
 
@@ -71,15 +73,16 @@ public class RecyclerViewAdapter
         holder.layout_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"做出操作，进入新的界面或弹框", Toast.LENGTH_SHORT).show();
-                //判断是否有删除菜单打开
-                if (menuIsOpen()) {
-                    closeMenu();//关闭菜单
-                } else {
-                    //获得布局下标（点的哪一个）
-                    int subscript = holder.getLayoutPosition();
-                    onSvcl.onItemClick(view, subscript);
-                }
+//                Toast.makeText(context,"做出操作，进入新的界面或弹框", Toast.LENGTH_SHORT).show();
+//                //判断是否有删除菜单打开
+//                if (menuIsOpen()) {
+//                    closeMenu();//关闭菜单
+//                } else {
+//                    //获得布局下标（点的哪一个）
+//                    int subscript = holder.getLayoutPosition();
+//                    onSvcl.onItemClick(view, subscript);
+//                }
+                context.startActivity(new Intent(context,ChatMessageActivity.class));
             }
         });
         holder.other.setOnClickListener(new View.OnClickListener() {
