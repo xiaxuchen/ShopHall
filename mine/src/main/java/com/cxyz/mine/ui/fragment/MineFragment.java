@@ -29,7 +29,12 @@ public class MineFragment extends BaseFragment {
     private TextView personalInformation;
     //购物车
     private ConstraintLayout mineFavorite;
+    //我的订单
     private ConstraintLayout mineOrder;
+    private ConstraintLayout prePayment;
+    private ConstraintLayout delivered;
+    private ConstraintLayout received;
+    //浏览记录
     private ConstraintLayout mineHistory;
     @Override
     protected int getLayoutId() {
@@ -60,32 +65,55 @@ public class MineFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+
+
         //跳转购物车界面
-        mineHistory = view.findViewById(R.id.mineHistory);
-        mineHistory.setOnClickListener(new View.OnClickListener() {
+        mineFavorite = view.findViewById(R.id.mineFavorite);
+        mineFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation();
             }
         });
 
+        //跳转浏览记录界面
+        mineHistory = view.findViewById(R.id.mineHistory);
+        mineHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
+            }
+        });
         //跳转订单界面
-        mineFavorite = view.findViewById(R.id.mineFavorite);
-        mineFavorite.setOnClickListener(new View.OnClickListener() {
+        mineOrder = view.findViewById(R.id.mineOrder);
+        mineOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }
+        });
+        prePayment = view.findViewById(R.id.prePayment);
+        prePayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }
+        });
+        delivered = view.findViewById(R.id.delivered);
+        delivered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }
+        });
+        received = view.findViewById(R.id.received);
+        received.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
             }
         });
 
-        //跳转浏览记录界面
-        mineFavorite = view.findViewById(R.id.mineFavorite);
-        mineFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
-            }
-        });
 
     }
 
