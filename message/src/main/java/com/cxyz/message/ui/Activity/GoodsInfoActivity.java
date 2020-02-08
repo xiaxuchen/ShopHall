@@ -341,25 +341,18 @@ public class GoodsInfoActivity extends BaseActivity {
    private View.OnClickListener  onClickListener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.iv_back:// 返回
-
-                    break;
-                case R.id.iv_share:// 分享
-                    Toast.makeText(GoodsInfoActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.tv_info_imgtext:// 图文详情
-                    bottomVPager.setCurrentItem(0);
-                    break;
-                case R.id.tv_info_photo:// 产品实拍
-                    bottomVPager.setCurrentItem(1);
-                    break;
-                case R.id.tv_info_eval:// 评价详情
-                    bottomVPager.setCurrentItem(2);
-                    break;
-                case R.id.iv_back_top:// 返回顶部
-                    myScrollView.smoothScrollTo(0, vpagerTopDistance);
-                    break;
+            int id = v.getId();// 返回
+            if (id == R.id.iv_back) {
+            } else if (id == R.id.iv_share) {// 分享
+                Toast.makeText(GoodsInfoActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.tv_info_imgtext) {// 图文详情
+                bottomVPager.setCurrentItem(0);
+            } else if (id == R.id.tv_info_photo) {// 产品实拍
+                bottomVPager.setCurrentItem(1);
+            } else if (id == R.id.tv_info_eval) {// 评价详情
+                bottomVPager.setCurrentItem(2);
+            } else if (id == R.id.iv_back_top) {// 返回顶部
+                myScrollView.smoothScrollTo(0, vpagerTopDistance);
             }
         }
 

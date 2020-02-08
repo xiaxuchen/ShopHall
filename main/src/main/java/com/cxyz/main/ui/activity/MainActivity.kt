@@ -24,6 +24,8 @@ class MainActivity : BaseActivity<IBasePresenter<IBaseModel,IBaseView>>() {
 
     private lateinit var mineFragment:Fragment
 
+    private lateinit var messageFragment:Fragment
+
     override fun getContentView(): Any {
         return R.layout.main_activity_main_layout
     }
@@ -33,7 +35,8 @@ class MainActivity : BaseActivity<IBasePresenter<IBaseModel,IBaseView>>() {
         mainFragment = ARouter.getInstance().build("/shopcar/MainFragment").navigation() as Fragment
         shopCarFragment = ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation() as Fragment
         mineFragment = ARouter.getInstance().build("/mine/MineFragment").navigation() as Fragment
-        vpContent.adapter = MainPagerAdapter(supportFragmentManager, arrayOf(mainFragment,shopCarFragment,mineFragment))
+        messageFragment = ARouter.getInstance().build("/message/ChatInfoFragment").navigation() as Fragment
+        vpContent.adapter = MainPagerAdapter(supportFragmentManager, arrayOf(mainFragment,messageFragment,shopCarFragment,mineFragment))
         rbMain.isChecked = true
     }
 
@@ -48,13 +51,13 @@ class MainActivity : BaseActivity<IBasePresenter<IBaseModel,IBaseView>>() {
                     vpContent.setCurrentItem(0,true)
                 }
                 R.id.rbMessage -> {
-                    vpContent.setCurrentItem(3,true)
-                }
-                R.id.rbMine -> {
-                    vpContent.setCurrentItem(2,true)
+                    vpContent.setCurrentItem(1,true)
                 }
                 R.id.rbShopCar -> {
-                    vpContent.setCurrentItem(1,true)
+                    vpContent.setCurrentItem(2,true)
+                }
+                R.id.rbMine -> {
+                    vpContent.setCurrentItem(3,true)
                 }
             }
         }

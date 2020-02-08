@@ -3,6 +3,18 @@
     package="com.cxyz.mine">
 
     <application>
+        <activity android:name=".ui.activity.AddAddressActivity" />
+        <activity android:name=".ui.activity.FeedbackActivity" />
+        <activity android:name=".ui.activity.ChangPasswordActivity" />
+        <activity android:name=".ui.activity.ShippingAddressActivity" />
+        <activity android:name=".ui.activity.SetUpActivity" />
+        <activity android:name=".ui.fragment.MineFragment" />
+        <activity android:name=".ui.activity.PersonalInformation" />
+        <activity android:name=".ui.fragment.MallInformationFragment" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <meta-data
+            android:name="com.cxyz.starter.mine.iconify"
+            android:value="com.cxyz.mine.starter.IconifyStarter" />
     </application>
 
 </manifest>

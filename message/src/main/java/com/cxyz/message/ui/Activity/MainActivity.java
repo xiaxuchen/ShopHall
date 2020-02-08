@@ -341,26 +341,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // 点击事件监听
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_back:// 返回
-
-                break;
-            case R.id.iv_share:// 分享
-             //  Toast.makeText(MainActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
-                ToastUtil.showLong("分享功能");
-                break;
-            case R.id.tv_info_imgtext:// 图文详情
-                bottomVPager.setCurrentItem(0);
-                break;
-            case R.id.tv_info_photo:// 产品实拍
-                bottomVPager.setCurrentItem(1);
-                break;
-            case R.id.tv_info_eval:// 评价详情
-                bottomVPager.setCurrentItem(2);
-                break;
-            case R.id.iv_back_top:// 返回顶部
-                myScrollView.smoothScrollTo(0, vpagerTopDistance);
-                break;
+        int id = v.getId();// 返回
+        if (id == R.id.iv_back) {
+        } else if (id == R.id.iv_share) {// 分享
+            //  Toast.makeText(MainActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
+            ToastUtil.showLong("分享功能");
+        } else if (id == R.id.tv_info_imgtext) {// 图文详情
+            bottomVPager.setCurrentItem(0);
+        } else if (id == R.id.tv_info_photo) {// 产品实拍
+            bottomVPager.setCurrentItem(1);
+        } else if (id == R.id.tv_info_eval) {// 评价详情
+            bottomVPager.setCurrentItem(2);
+        } else if (id == R.id.iv_back_top) {// 返回顶部
+            myScrollView.smoothScrollTo(0, vpagerTopDistance);
         }
     }
 

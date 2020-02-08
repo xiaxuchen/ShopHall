@@ -3,6 +3,10 @@
     package="com.cxyz.message">
 
     <application>
+        <activity android:name=".ui.Activity.ChatInfoActivity"></activity>
+        <activity android:name=".ui.Activity.MainActivity"></activity>
+        <activity android:name=".ui.Activity.ChatMessageActivity"></activity>
+        <activity android:name=".ui.Activity.GoodsInfoActivity"></activity>
     </application>
 
 </manifest>
