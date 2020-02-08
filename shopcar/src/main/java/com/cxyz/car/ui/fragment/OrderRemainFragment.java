@@ -1,10 +1,12 @@
 package com.cxyz.car.ui.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.car.presenter.OrderRemainPresenter;
 import com.cxyz.car.presenter.view.IOrderRemainView;
+import com.cxyz.car.ui.activity.OrderDetailActivity;
 import com.cxyz.car.ui.adapter.OrderListAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 
@@ -56,7 +59,12 @@ public class OrderRemainFragment extends BaseFragment<OrderRemainPresenter> impl
 
     @Override
     protected void setListener() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(context, OrderDetailActivity.class));
+            }
+        });
     }
 
     @Override

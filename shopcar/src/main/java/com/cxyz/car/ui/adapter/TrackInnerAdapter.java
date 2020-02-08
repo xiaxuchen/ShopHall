@@ -6,10 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.TrackGoods;
 
@@ -34,6 +36,13 @@ public class TrackInnerAdapter extends RecyclerView.Adapter<TrackInnerAdapter.In
     public void onBindViewHolder(@NonNull TrackInnerAdapter.InnerHolder holder, int position) {
         holder.tv_inner_price.setText("￥"+recycleItem.get(position).getPrice());
         holder.iv_inner_goods_image.setImageResource(recycleItem.get(position).getImageId());
+        holder.iv_inner_goods_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(context, "哈哈哈", Toast.LENGTH_SHORT).show();
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
     }
 
     @Override

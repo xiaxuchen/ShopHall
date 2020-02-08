@@ -1,10 +1,12 @@
 package com.cxyz.car.ui.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.cxyz.car.presenter.FavoritePresenter;
 import com.cxyz.car.presenter.OrderAllPresenter;
 import com.cxyz.car.presenter.view.IFavoriteView;
 import com.cxyz.car.presenter.view.IOrderAllView;
+import com.cxyz.car.ui.activity.OrderDetailActivity;
 import com.cxyz.car.ui.adapter.OrderListAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 
@@ -56,6 +59,12 @@ public class OrderAllFragment extends BaseFragment<OrderAllPresenter> implements
     }
     @Override
     protected void setListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(context, OrderDetailActivity.class));
+            }
+        });
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

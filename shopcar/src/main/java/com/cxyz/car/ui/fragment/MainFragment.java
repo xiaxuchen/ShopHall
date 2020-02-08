@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,6 +24,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.presenter.MainPresenter;
 import com.cxyz.car.presenter.view.IMainView;
@@ -54,7 +57,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     List<ImageView> imageList;
 
     int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
-    String[] titles=new String[]{"can1","can2","can3","can4","can5","can6"};
+    String[] titles=new String[]{"店铺1","店铺2","店铺3","店铺4","店铺5","店铺6"};
 
     /*
     商品
@@ -91,7 +94,19 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
 
     @Override
     protected void setListener() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(context, "哈哈哈", Toast.LENGTH_SHORT).show();
+                ARouter.getInstance().build("/main/StoreActivity").navigation();
+            }
+        });
     }
 
     /**

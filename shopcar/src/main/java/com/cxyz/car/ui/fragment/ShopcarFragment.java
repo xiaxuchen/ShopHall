@@ -12,12 +12,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
 import com.cxyz.car.presenter.ShopcarPresenter;
@@ -143,6 +145,18 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             viewHolder.logo.setImageResource(listItem.get(i).getLogo());
             viewHolder.image.setImageResource(listItem.get(i).getImage());
             viewHolder.desc.setText(listItem.get(i).getDesc());
+            viewHolder.image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                }
+            });
+            viewHolder.desc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                }
+            });
             viewHolder.smal.setText(listItem.get(i).getSmal());
             viewHolder.price.setText("￥"+listItem.get(i).getPrice());
 
