@@ -3,14 +3,15 @@
     package="com.cxyz.mine">
 
     <application
+        android:name="com.cxyz.context.application.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/CommonAppTheme"
-        android:name="com.cxyz.context.application.BaseApplication">
-        <activity android:name=".ui.activity.AddAddressActivity"></activity>
+        android:theme="@style/CommonAppTheme">
+        <activity android:name=".ui.activity.AppVersionActivity"></activity>
+        <activity android:name=".ui.activity.AddAddressActivity" />
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.ChangPasswordActivity" />
         <activity android:name=".ui.activity.ShippingAddressActivity" />
@@ -25,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.cxyz.starter.mine.iconify"
             android:value="com.cxyz.mine.starter.IconifyStarter" />

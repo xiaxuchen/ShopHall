@@ -37,6 +37,7 @@ public class ShippingAddressActivity extends BaseActivity<ShippingAddressPresent
     public void initView() {
         recyclerView=findViewById(R.id.addressRecycler);
         addAddress = findViewById(R.id.addAddress);
+        //跳转到添加地址界面
         addAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

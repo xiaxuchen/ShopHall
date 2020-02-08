@@ -27,6 +27,7 @@ public class SetUpActivity extends BaseActivity {
     private ConstraintLayout setUpAddress;
     private ConstraintLayout setUpPassword;
     private ConstraintLayout setUpFeedback;
+    private ConstraintLayout setUpVersion;
     private Button btnSignOut;
     @Override
     protected Object getContentView() {
@@ -38,7 +39,9 @@ public class SetUpActivity extends BaseActivity {
         setUpAddress = findViewById(R.id.setUpAddress);
         setUpPassword = findViewById(R.id.setUpPassword);
         setUpFeedback = findViewById(R.id.setUpFeedback);
+        setUpVersion = findViewById(R.id.setUpVersion);
         btnSignOut = findViewById(R.id.btnSignOut);
+        //跳转到设置界面
         setUpAddress.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +49,7 @@ public class SetUpActivity extends BaseActivity {
                 startActivity(intentAddress);
             }
         });
+        //跳转到修改密码界面
         setUpPassword.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +57,7 @@ public class SetUpActivity extends BaseActivity {
                 startActivity(intentPassword);
             }
         });
+        //跳转到意见反馈界面
         setUpFeedback.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +65,7 @@ public class SetUpActivity extends BaseActivity {
                 startActivity(intentFeedback);
             }
         });
+        //退出登录按钮
         btnSignOut.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

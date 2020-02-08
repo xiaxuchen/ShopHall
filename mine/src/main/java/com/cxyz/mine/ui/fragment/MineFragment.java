@@ -2,6 +2,7 @@ package com.cxyz.mine.ui.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mine.ui.activity.MainActivity;
 import com.cxyz.mine.ui.activity.PersonalInformation;
@@ -25,7 +27,10 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 public class MineFragment extends BaseFragment {
     private ImageView setUp;
     private TextView personalInformation;
-
+    //购物车
+    private ConstraintLayout mineFavorite;
+    private ConstraintLayout mineOrder;
+    private ConstraintLayout mineHistory;
     @Override
     protected int getLayoutId() {
         return R.layout.mine_activity_layout;
@@ -39,6 +44,7 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         setUp = view.findViewById(R.id.setUp);
+        //跳转到设置界面
         setUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +58,32 @@ public class MineFragment extends BaseFragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), PersonalInformation.class);
                 startActivity(intent);
+            }
+        });
+        //跳转购物车界面
+        mineHistory = view.findViewById(R.id.mineHistory);
+        mineHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation();
+            }
+        });
+
+        //跳转订单界面
+        mineFavorite = view.findViewById(R.id.mineFavorite);
+        mineFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }
+        });
+
+        //跳转浏览记录界面
+        mineFavorite = view.findViewById(R.id.mineFavorite);
+        mineFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             }
         });
 
