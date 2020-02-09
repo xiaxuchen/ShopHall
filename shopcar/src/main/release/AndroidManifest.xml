@@ -3,6 +3,21 @@
     package="com.cxyz.car">
 
     <application>
+        <activity android:name=".ui.activity.FavoriteActivity"
+            />
+        <activity android:name=".ui.activity.OrderActivity"
+            />
+        <activity android:name=".ui.activity.TrackActivity"
+            />
+        <activity android:name=".ui.activity.PreviewActivity"
+            />
+        <activity android:name=".ui.activity.TestApizActivity"
+            />
+        <activity android:name=".ui.activity.OrderDetailActivity"
+            />
+        <meta-data
+            android:name="com.cxyz.starter.car.iconify"
+            android:value="com.cxyz.car.starter.IconifyStarter" />
     </application>
 
 </manifest>

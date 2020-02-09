@@ -20,16 +20,20 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
+import com.cxyz.car.data.domain.StoreItem;
 import com.cxyz.car.presenter.MainPresenter;
 import com.cxyz.car.presenter.view.IMainView;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
 import com.cxyz.car.data.domain.Goods;
+import com.cxyz.car.ui.adapter.MainRecycleAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 
 import java.util.ArrayList;
@@ -40,8 +44,11 @@ import java.util.Map;
 @Route(path = "/shopcar/MainFragment",group = "shop")
 public class MainFragment extends BaseFragment<MainPresenter> implements IMainView {
 
-    private GridView gridView;
+//    private GridView gridView;
+//    private ListView sotreListview;
     private ScrollView scrollView;
+    private RecyclerView storeView;
+
 
 
     private ViewPager viewPager;
@@ -56,8 +63,8 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             "图片4"};
     List<ImageView> imageList;
 
-    int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
-    String[] titles=new String[]{"店铺1","店铺2","店铺3","店铺4","店铺5","店铺6"};
+//    int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
+//    String[] titles=new String[]{"店铺1","店铺2","店铺3","店铺4","店铺5","店铺6"};
 
     /*
     商品
@@ -73,18 +80,17 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
 
     @Override
     protected void initData(Bundle bundle) {
-
     }
 
     //初始化控件
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         scrollView=view.findViewById(R.id.sv_main);
-        gridView=view.findViewById(R.id.gv_middle_stores);
         pointGroup = (LinearLayout) view.findViewById(R.id.ll_point_group);
         imageDesc = (TextView) view.findViewById(R.id.tv_imagebot);
         viewPager = (ViewPager) view.findViewById(R.id.vp_imageslide);
         listView=view.findViewById(R.id.lv_bottom_ad);
+        storeView=view.findViewById(R.id.rv_main_store);
     }
 
     @Override
@@ -98,13 +104,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
-            }
-        });
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(context, "哈哈哈", Toast.LENGTH_SHORT).show();
-                ARouter.getInstance().build("/main/StoreActivity").navigation();
             }
         });
     }
@@ -136,20 +135,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             }
         });
 
-        //中间商家列表  gridview   start
-        List<Map<String,Object>> listItem=new ArrayList<>();
-        for(int i=0;i<canId.length;i++){
-            Map<String,Object> map=new HashMap<>();
-            map.put("image",canId[i]);
-            map.put("name",titles[i]);
-
-            listItem.add(map);
-        }
-
-        SimpleAdapter adapter=new SimpleAdapter(context,listItem,R.layout.shopcar_list_item_main_store,new String[]{"name","image"},
-                new int[]{R.id.tv_middle_store_name,R.id.iv_middle_store_image});
-        gridView.setAdapter(adapter);
-        //中间商家列表  gridview end
 
         /**
          * 图片轮播 start
@@ -242,8 +227,12 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     };
 
     @Override
-    public void showMainGoodsView(List<Goods> goodsList) {
+    public void showMainGoodsView(List<Goods> goodsList, List<StoreItem> storeItemList) {
         listView.setAdapter(new ListViewAdapter(context,goodsList));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        storeView.setLayoutManager(linearLayoutManager);
+        storeView.setAdapter(new MainRecycleAdapter(context,storeItemList));
     }
 
     @Override

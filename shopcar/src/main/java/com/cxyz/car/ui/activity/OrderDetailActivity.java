@@ -2,11 +2,13 @@ package com.cxyz.car.ui.activity;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderDetail;
@@ -53,7 +55,7 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
         address = findViewById(R.id.tv_order_detial_address);//用户地址
         storeLogo = findViewById(R.id.iv_order_detail_storelogo);//商家logo
         storeName = findViewById(R.id.tv_order_detail_store_name);//商家名称
-        storeImage = findViewById(R.id.iv_order_detail_storelogo);//商家图片
+        storeImage = findViewById(R.id.iv_order_detail_item_image);//商家图片
         goodsTitle = findViewById(R.id.iv_order_detail_item_title);//货物名称
         goodsDesc = findViewById(R.id.iv_order_detail_item_desc);//货物描述
         totalPrice = findViewById(R.id.tv_order_detail_totalPrice);//订单总价
@@ -72,7 +74,18 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void setEvent() {
-
+        storeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
+        goodsTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
     }
 
     @Override

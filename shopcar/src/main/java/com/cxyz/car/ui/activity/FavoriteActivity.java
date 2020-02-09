@@ -51,12 +51,6 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
 
     @Override
     public void setEvent() {
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
     @Override
     protected FavoritePresenter createIPresenter() {
