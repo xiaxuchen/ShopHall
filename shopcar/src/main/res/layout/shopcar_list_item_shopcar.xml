@@ -82,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
+                android:ellipsize="end"
                 android:text="水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋"
                 android:layout_toRightOf="@+id/iv_shopcar_store_image"
                 android:layout_marginLeft="5dp"
@@ -128,12 +129,14 @@
                     android:layout_height="20dp"
                     android:background="@drawable/car_border_rectangle"
                     android:text="+"
+                    android:textAlignment="center"
                     android:textSize="15sp"
                     android:textColor="@color/black"/>
                 <EditText
                     android:id="@+id/et_shopcar_count"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
+                    android:textAlignment="center"
                     android:background="@drawable/car_border_rectangle"
                     android:gravity="center"
                     android:text="3"
@@ -147,6 +150,7 @@
                     android:textColor="@color/black"
                     android:background="@drawable/car_border_rectangle"
                     android:textSize="15sp"
+                    android:textAlignment="center"
                     android:text="-"
                     />
             </LinearLayout>

@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:background="@drawable/car_radius_border"
             android:gravity="center_vertical"

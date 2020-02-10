@@ -5,13 +5,10 @@ import android.webkit.JavascriptInterface;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< HEAD
 import com.alibaba.android.arouter.launcher.ARouter;
-=======
 
 import androidx.fragment.app.Fragment;
 
->>>>>>> dev
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.activity.WebViewActivity;
 import com.cxyz.shophall.R;

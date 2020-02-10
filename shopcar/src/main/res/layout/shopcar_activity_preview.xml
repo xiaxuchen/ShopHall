@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/tv_preview_price"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="￥8860-11970"
         android:textColor="@color/common_red"
@@ -96,22 +96,27 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_preview_choose"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        app:layout_constraintBottom_toTopOf="@id/view_top"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_prevew_color"
-        app:layout_constraintVertical_bias="0.021"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.022"
+        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/view_top"
         android:layout_width="400dp"
         android:layout_height="0.5dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="36dp"
         android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@id/view_bottom"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopcar_guideline5"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -187,7 +192,9 @@
         android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@id/view_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <View
@@ -198,12 +205,14 @@
         android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@id/btn_preview_sure"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_preview_sure"
-        android:layout_width="400dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/car_border_bg_organ"
@@ -211,6 +220,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -219,5 +229,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="132dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,17 +16,23 @@
         android:layout_marginBottom="5dp"
         android:scaleType="centerCrop"
         />
+
     <TextView
         android:id="@+id/tv_favorite_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！"
-        android:layout_toRightOf="@+id/iv_favorite_image"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#2C2828"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/iv_favorite_image"
+        android:layout_toRightOf="@+id/iv_favorite_image"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="炸天帮藤原拓海同款真狗皮大袄子一件，加绒加厚！！过冬必备！！"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tv_favorite_smal"
@@ -34,22 +40,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_favorite_desc"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/iv_favorite_image"
         android:text="6666人收藏"
-        android:textColor="#7E7777"
+        android:textColor="#A7A6A6"
         android:textSize="12sp" />
+
     <TextView
         android:id="@+id/tv_favorite_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#f00"
-        android:text="￥999.0"
-        android:layout_toRightOf="@+id/iv_favorite_image"
+        android:layout_below="@+id/tv_favorite_smal"
+        android:layout_alignStart="@+id/tv_favorite_smal"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_alignBottom="@+id/iv_favorite_image"
-        android:layout_marginBottom="15dp"
-        />
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/iv_favorite_image"
+        android:text="￥999.0"
+        android:textColor="#f00" />
+
     <TextView
         android:id="@+id/tv_favorite_findLike"
         android:layout_width="wrap_content"

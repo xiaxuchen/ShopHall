@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="350dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:background="@drawable/car_border_order_listitem">
@@ -81,12 +81,13 @@
             android:id="@+id/tv_order_smal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐"
             android:layout_below="@id/tv_order_goodsname"
             android:layout_toRightOf="@id/iv_order_image"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
-            android:maxLines="2"
             android:textColor="#ccc"
             android:textSize="12sp"/>
             <TextView
@@ -110,16 +111,17 @@
             android:layout_height="20dp"
             android:orientation="horizontal"
             android:layout_below="@id/iv_order_image"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             >
             <TextView
                 android:id="@+id/tv_order_issure"
                 android:layout_width="55dp"
+
                 android:layout_height="wrap_content"
                 android:text="保险价"
                 android:ellipsize="end"
                 android:textSize="13sp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/tv_order_issure_desc"
@@ -136,7 +138,7 @@
                 android:id="@+id/tv_order_detial"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="50dp"
                 android:text="查看详情"
                 android:textColor="@color/common_red"
                 android:textSize="12sp" />
@@ -157,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:text="运费险"
                 android:textSize="13sp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/tv_order_carriage_desc"
@@ -174,7 +176,7 @@
                 android:id="@+id/tv_order_carriage_price"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="50dp"
                 android:text="￥0.65 x 1"
                 android:textColor="@color/common_red"
                 android:textSize="12sp" />
@@ -195,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:text="保险服务"
                 android:textSize="13sp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/tv_order_insure_server_desc"
@@ -212,7 +214,7 @@
                 android:id="@+id/tv_order_insure_server_price"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="50dp"
                 android:text="￥233.65 x 1"
                 android:textColor="@color/common_red"
                 android:textSize="12sp" />
@@ -220,23 +222,23 @@
 
         <TextView
             android:id="@+id/tv_order_goodsprice"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="共1件商品 合计：￥25.00"
             android:layout_below="@id/ll_order3"
-            android:layout_marginTop="15dp"
-            android:textSize="12sp"
+            android:layout_marginTop="13dp"
+            android:text="共1件商品 合计：￥25.00"
+            android:layout_marginLeft="15dp"
             android:textColor="@color/common_red"
-            android:layout_marginLeft="230dp"
-            />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tv_order_delete"
-            android:layout_width="80dp"
-            android:layout_height="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tv_order_goodsprice"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/car_border_btn"
             android:gravity="center"
             android:paddingLeft="10dp"
@@ -246,18 +248,22 @@
 
         <TextView
             android:id="@+id/tv_order_review"
-            android:layout_width="80dp"
-            android:layout_height="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tv_order_goodsprice"
+            android:layout_alignBottom="@+id/tv_order_delete"
+            android:layout_marginStart="13dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/tv_order_delete"
             android:layout_toRightOf="@id/tv_order_delete"
             android:background="@drawable/car_border_btn"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="追加评价"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"/>
+            android:textColor="@color/black" />
     </RelativeLayout>
 
 

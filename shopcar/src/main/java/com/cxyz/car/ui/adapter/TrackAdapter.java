@@ -41,7 +41,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.InnerHolder>
     @Override
     public void onBindViewHolder(@NonNull InnerHolder holder, int position) {
         holder.tv_date.setText(date[position]);
-        holder.rv_goods.setLayoutManager(new GridLayoutManager(context, 3));
+        holder.rv_goods.setLayoutManager(new GridLayoutManager(context,2));
         holder.rv_goods.setAdapter(new TrackInnerAdapter(context, innerItem));
     }
 
