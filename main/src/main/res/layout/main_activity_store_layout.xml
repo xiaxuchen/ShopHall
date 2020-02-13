@@ -290,18 +290,18 @@
         android:id="@+id/tvStoreNotice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/tvStoreNoticeLabel"
         android:layout_marginLeft="@dimen/common_margin"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvStoreNoticeLabel"
-        android:text="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
-        android:paddingBottom="@dimen/common_padding"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/common_margin"
-        android:textColor="@color/main_white_text_color"
-        android:singleLine="false"
         android:maxLines="3"
         android:minLines="1"
-        />
+        android:paddingBottom="@dimen/common_padding"
+        android:singleLine="false"
+        android:text="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
+        android:textColor="@color/main_white_text_color"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvStoreNoticeLabel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/tvStoreNoticeLabel"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategory"

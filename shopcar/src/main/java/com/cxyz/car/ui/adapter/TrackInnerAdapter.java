@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.TrackGoods;
+import com.cxyz.utils.ScreenUtil;
+import com.qmuiteam.qmui.layout.QMUILinearLayout;
 
 import java.util.List;
 
@@ -43,6 +45,8 @@ public class TrackInnerAdapter extends RecyclerView.Adapter<TrackInnerAdapter.In
                 ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
             }
         });
+        holder.linearLayout.setRadiusAndShadow(ScreenUtil.dp2px(context,5),ScreenUtil.dp2px(context,0),0.35f);
+//        setRadiusAndShadow(ScreenUtil.dp2px(ContextManager.getContext(),3),ScreenUtil.dp2px(ContextManager.getContext(),20),0.35f)
     }
 
     @Override
@@ -53,10 +57,12 @@ public class TrackInnerAdapter extends RecyclerView.Adapter<TrackInnerAdapter.In
     public class InnerHolder extends RecyclerView.ViewHolder {
         private ImageView iv_inner_goods_image;
         private TextView tv_inner_price;
+        private QMUILinearLayout linearLayout;
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
             iv_inner_goods_image=itemView.findViewById(R.id.iv_track_inner_goodsiamge);
             tv_inner_price=itemView.findViewById(R.id.tv_track_inner_price);
+            linearLayout=itemView.findViewById(R.id.qmuiLinearLayout);
         }
     }
 }
