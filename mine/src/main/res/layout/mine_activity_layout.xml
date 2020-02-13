@@ -44,8 +44,8 @@
             app:layout_constraintLeft_toRightOf="@id/mineHeaderImg"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/common_margin_small"
-            android:text="@string/mine_header_ziliao"
-            android:padding="2dp"
+            android:text="@string/mineHeaderZiliao"
+            android:padding="3dp"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small_size"
             android:background="@drawable/mine_header_border"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@id/mineHeader"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/common_margin"
-        android:text="@string/mine_myorder"
+        android:text="@string/mineMyorder"
         android:textSize="@dimen/text_large_size"
         android:gravity="center_vertical"
         tools:ignore="MissingConstraints" />
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_a"
+                android:text="@string/mineMyorderA"
                 android:textSize="@dimen/text_middle_size"
                 />
         </LinearLayout>
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_b"
+                android:text="@string/mineMyorderB"
                 android:textSize="@dimen/text_middle_size"
                 />
         </LinearLayout>
@@ -137,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_c"
+                android:text="@string/mineMyorderC"
                 android:textSize="@dimen/text_middle_size"
                 />
         </LinearLayout>
@@ -158,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_d"
+                android:text="@string/mineMyorderD"
                 android:textSize="@dimen/text_middle_size"
                 />
         </LinearLayout>
@@ -196,7 +196,7 @@
             app:layout_constraintLeft_toLeftOf="@id/mineFavoriteImg"
             android:gravity="center"
             android:layout_marginLeft="60dp"
-            android:text="@string/mine_favorites"
+            android:text="@string/mineFavorites"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -242,7 +242,7 @@
             app:layout_constraintLeft_toLeftOf="@id/mineAccountImg"
             android:gravity="center"
             android:layout_marginLeft="60dp"
-            android:text="@string/mine_account"
+            android:text="@string/mineAccount"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -288,7 +288,7 @@
             app:layout_constraintLeft_toLeftOf="@id/mineHistoryImg"
             android:gravity="center"
             android:layout_marginLeft="60dp"
-            android:text="@string/mine_history"
+            android:text="@string/mineHistory"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView

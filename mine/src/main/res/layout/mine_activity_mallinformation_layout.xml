@@ -10,7 +10,7 @@
     <com.cxyz.widget.HeaderBar
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
-        app:title="@string/mine_hearderBar_title"
+        app:title="@string/mineHearderBarTitle"
         app:background="@color/common_colorPrimary"/>
 
         <!--商城里的店铺信息-->
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/mine_mallinformation_ad"
+        android:text="@string/mineMallinformationAd"
         android:textSize="20dp"
         android:padding="3dp"
         android:textColor="@color/common_white"

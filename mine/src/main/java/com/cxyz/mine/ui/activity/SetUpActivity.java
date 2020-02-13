@@ -29,6 +29,7 @@ public class SetUpActivity extends BaseActivity {
     private ViewGroup setUpPassword;
     private ViewGroup setUpFeedback;
     private ViewGroup setUpVersion;
+    private ViewGroup setUpHistory;
     private Button btnSignOut;
 
     @Override
@@ -42,6 +43,7 @@ public class SetUpActivity extends BaseActivity {
         setUpPassword = findViewById(R.id.setUpPassword);
         setUpFeedback = findViewById(R.id.setUpFeedback);
         setUpVersion = findViewById(R.id.setUpVersion);
+        setUpHistory = findViewById(R.id.setUpHistory);
         btnSignOut = findViewById(R.id.btnSignOut);
         Onclick onclick = new Onclick();
         //跳转到设置界面
@@ -54,6 +56,8 @@ public class SetUpActivity extends BaseActivity {
         setUpVersion.setOnClickListener(onclick);
         //退出登录按钮
         btnSignOut.setOnClickListener(onclick);
+        //跳转到浏览界面
+        setUpHistory.setOnClickListener(onclick);
     }
     public class Onclick implements View.OnClickListener{
         @Override
@@ -67,9 +71,11 @@ public class SetUpActivity extends BaseActivity {
             }else if(v.getId() == R.id.setUpFeedback){//跳转到意见反馈界面
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
-            }else if(v.getId() == R.id.setUpVersion){
+            }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
                 Intent intentVersion = new Intent(SetUpActivity.this, AppVersionActivity.class);
                 startActivity(intentVersion);
+            }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面
+                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             } else if(v.getId() == R.id.btnSignOut){//退出登录按钮
                 ARouter.getInstance().build("/main/LoginActivity").navigation();
                 Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_LONG);

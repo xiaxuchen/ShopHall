@@ -21,8 +21,15 @@
         android:layout_height="@dimen/common_line_height"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/common_margin_middle"
-        android:text="@string/mine_feedback_prompt"
+        android:text="@string/mineFeedbackPrompt"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/feedbackHeaderBar"
+        tools:ignore="MissingConstraints" />
+    <View
+        app:layout_constraintTop_toBottomOf="@id/feedbackPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
         tools:ignore="MissingConstraints" />
     <View
         android:id="@+id/feedbackDivider01"
@@ -35,21 +42,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:layout_constraintTop_toBottomOf="@id/feedbackDivider01"
-        android:background="@color/common_bg"
+        android:background="@color/white"
         tools:ignore="MissingConstraints" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/common_margin_middle"
-            android:text="@string/mine_feedback_second_question"
+            android:text="@string/mineFeedbackSecondQuestion"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             app:layout_constraintRight_toLeftOf="@id/feedbackBack02"
-            android:text="@string/mine_feedback_app_question"
+            android:text="@string/mineFeedbackAppQuestion"
             android:textColor="@color/common_text_normal"/>
 
         <ImageView
@@ -67,21 +74,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:layout_constraintTop_toBottomOf="@id/feedbackPrompt"
-        android:background="@color/common_bg"
+        android:background="@color/white"
         tools:ignore="MissingConstraints" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/common_margin_middle"
-            android:text="@string/mine_feedback_first_question"
+            android:text="@string/mineFeedbackFirstQuestion"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             app:layout_constraintRight_toLeftOf="@id/feedbackBack01"
-            android:text="@string/mine_feedback_sales"
+            android:text="@string/mineFeedbackSales"
             android:textColor="@color/common_text_normal"/>
 
         <ImageView
