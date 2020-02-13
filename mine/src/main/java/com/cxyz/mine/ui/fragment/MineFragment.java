@@ -27,15 +27,12 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 public class MineFragment extends BaseFragment {
     private ImageView setUp;
     private TextView personalInformation;
-    //购物车
-    private ConstraintLayout mineFavorite;
-    //我的订单
-    private ConstraintLayout mineOrder;
-    private ConstraintLayout prePayment;
-    private ConstraintLayout delivered;
-    private ConstraintLayout received;
-    //浏览记录
-    private ConstraintLayout mineHistory;
+    private ViewGroup mineFavorite;
+    private ViewGroup mineOrder;
+    private ViewGroup prePayment;
+    private ViewGroup delivered;
+    private ViewGroup received;
+    private ViewGroup mineHistory;
     @Override
     protected int getLayoutId() {
         return R.layout.mine_activity_layout;
@@ -48,73 +45,53 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        setUp = view.findViewById(R.id.setUp);
+        Onclick onclick = new Onclick();
         //跳转到设置界面
-        setUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SetUpActivity.class);
-                startActivity(intent);
-            }
-        });
+        setUp = view.findViewById(R.id.setUp);
+        setUp.setOnClickListener(onclick);
+        //跳转个人信息界面
         personalInformation = view.findViewById(R.id.personalInformation);
-        personalInformation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PersonalInformation.class);
-                startActivity(intent);
-            }
-        });
-
-
+        personalInformation.setOnClickListener(onclick);
         //跳转购物车界面
         mineFavorite = view.findViewById(R.id.mineFavorite);
-        mineFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation();
-            }
-        });
-
+        mineFavorite.setOnClickListener(onclick);
         //跳转浏览记录界面
         mineHistory = view.findViewById(R.id.mineHistory);
-        mineHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
-            }
-        });
+        mineHistory.setOnClickListener(onclick);
         //跳转订单界面
-        mineOrder = view.findViewById(R.id.mineOrder);
-        mineOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
-            }
-        });
         prePayment = view.findViewById(R.id.prePayment);
-        prePayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
-            }
-        });
+        prePayment.setOnClickListener(onclick);
         delivered = view.findViewById(R.id.delivered);
-        delivered.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
-            }
-        });
+        delivered.setOnClickListener(onclick);
         received = view.findViewById(R.id.received);
-        received.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        received.setOnClickListener(onclick);
+        mineOrder = view.findViewById(R.id.mineOrder);
+        mineOrder.setOnClickListener(onclick);
+    }
+
+    public class Onclick implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.setUp){//跳转到设置界面
+                Intent intent = new Intent(getContext(), SetUpActivity.class);
+                startActivity(intent);
+            }else if(v.getId() == R.id.personalInformation){//跳转个人信息界面
+                Intent intent = new Intent(getContext(), PersonalInformation.class);
+                startActivity(intent);
+            }else if(v.getId() == R.id.mineFavorite){ //跳转购物车界面
+                ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation();
+            }else if (v.getId() == R.id.mineHistory){//跳转浏览记录界面
+                ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
+            }else if (v.getId() == R.id.prePayment){//跳转订单界面
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }else if (v.getId() == R.id.delivered){
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }else if (v.getId() == R.id.received){
+                ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
+            }else if (v.getId() == R.id.mineOrder){
                 ARouter.getInstance().build("/shopcar/OrderActivity").navigation();
             }
-        });
-
-
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ import android.os.UserManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -24,11 +25,12 @@ import com.cxyz.widget.HeaderBar;
 
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
-    private ConstraintLayout setUpAddress;
-    private ConstraintLayout setUpPassword;
-    private ConstraintLayout setUpFeedback;
-    private ConstraintLayout setUpVersion;
+    private ViewGroup setUpAddress;
+    private ViewGroup setUpPassword;
+    private ViewGroup setUpFeedback;
+    private ViewGroup setUpVersion;
     private Button btnSignOut;
+
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_setup;
@@ -41,40 +43,40 @@ public class SetUpActivity extends BaseActivity {
         setUpFeedback = findViewById(R.id.setUpFeedback);
         setUpVersion = findViewById(R.id.setUpVersion);
         btnSignOut = findViewById(R.id.btnSignOut);
+        Onclick onclick = new Onclick();
         //跳转到设置界面
-        setUpAddress.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentAddress = new Intent(SetUpActivity.this, ShippingAddressActivity.class);
-                startActivity(intentAddress);
-            }
-        });
+        setUpAddress.setOnClickListener(onclick);
         //跳转到修改密码界面
-        setUpPassword.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        setUpPassword.setOnClickListener(onclick);
+        //跳转到意见反馈界面
+        setUpFeedback.setOnClickListener(onclick);
+        //跳转到app版本界面
+        setUpVersion.setOnClickListener(onclick);
+        //退出登录按钮
+        btnSignOut.setOnClickListener(onclick);
+    }
+    public class Onclick implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == R.id.setUpAddress){//跳转到设置界面
+                Intent intentPassword = new Intent(SetUpActivity.this, ShippingAddressActivity.class);
+                startActivity(intentPassword);
+            }else if(v.getId() == R.id.setUpPassword){//跳转到修改密码界面
                 Intent intentPassword = new Intent(SetUpActivity.this, ChangPasswordActivity.class);
                 startActivity(intentPassword);
-            }
-        });
-        //跳转到意见反馈界面
-        setUpFeedback.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            }else if(v.getId() == R.id.setUpFeedback){//跳转到意见反馈界面
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
-            }
-        });
-        //退出登录按钮
-        btnSignOut.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            }else if(v.getId() == R.id.setUpVersion){
+                Intent intentVersion = new Intent(SetUpActivity.this, AppVersionActivity.class);
+                startActivity(intentVersion);
+            } else if(v.getId() == R.id.btnSignOut){//退出登录按钮
                 ARouter.getInstance().build("/main/LoginActivity").navigation();
                 Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
             }
-        });
+        }
     }
 
     @Override
