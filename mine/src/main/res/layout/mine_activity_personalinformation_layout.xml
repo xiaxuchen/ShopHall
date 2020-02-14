@@ -46,19 +46,21 @@
         app:layout_constraintTop_toBottomOf="@id/divider01"
         android:background="@drawable/mine_personalinaformation_accountnumber"
         tools:ignore="MissingConstraints" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="账号"
-            android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            android:gravity="center"
+            android:text="@string/minePersonalAccount"
+            android:textColor="#3e4144"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="188828274"
-            android:textColor="@color/common_text_normal"
+            android:textColor="#858585"
             android:layout_marginRight="@dimen/common_margin"
             android:gravity="center"
             app:layout_constraintRight_toRightOf="parent"/>
@@ -77,19 +79,21 @@
         app:layout_constraintTop_toBottomOf="@id/divider02"
         android:background="@drawable/mine_personalinaformation_nickname"
         tools:ignore="MissingConstraints" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="昵称"
-            android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            android:gravity="center"
+            android:text="@string/minePersonalName"
+            android:textColor="#3e4144"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="天王盖地虎"
-            android:textColor="@color/common_text_normal"
+            android:textColor="#858585"
             android:layout_marginRight="@dimen/common_margin"
             android:gravity="center"
             app:layout_constraintRight_toRightOf="parent"/>
@@ -110,7 +114,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="手机"
+        android:text="@string/minePersonalPhone"
+        android:textColor="#3e4144"
         android:gravity="center"
         android:layout_marginLeft="@dimen/common_margin"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -119,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="18879793838"
-        android:textColor="@color/common_text_normal"
+        android:textColor="#858585"
         android:layout_marginRight="@dimen/common_margin"
         android:gravity="center"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -137,14 +142,16 @@
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/divider04"
         tools:ignore="MissingConstraints" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="会员级别"
-            android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            android:gravity="center"
+            android:text="@string/minePersonalVip"
+            android:textColor="#3e4144"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -170,7 +177,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="更多"
+            android:text="@string/minePersonalMore"
+            android:textColor="#3e4144"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
             app:layout_constraintLeft_toLeftOf="parent"
