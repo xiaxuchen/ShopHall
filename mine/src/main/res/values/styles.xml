@@ -1,3 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="QMUI.Compat" tools:ignore="ResourceName">
 
+        <!-- 重写系统 或者 QMUI 提供的 attr -->
+
+    </style>
 </resources>

@@ -22,6 +22,7 @@ import com.cxyz.mine.ui.activity.PersonalInformation;
 import com.cxyz.mine.ui.activity.SetUpActivity;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 @Route(path ="/mine/MineFragment" ,group = "mine")
 public class MineFragment extends BaseFragment {
@@ -33,6 +34,7 @@ public class MineFragment extends BaseFragment {
     private ViewGroup delivered;
     private ViewGroup received;
     private ViewGroup mineHistory;
+    private QMUIRadiusImageView imMineHeaderImg;
     @Override
     protected int getLayoutId() {
         return R.layout.mine_activity_layout;
@@ -46,6 +48,8 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         Onclick onclick = new Onclick();
+        imMineHeaderImg = view.findViewById(R.id.imMineHeaderImg);
+        imMineHeaderImg.setCircle(true);
         //跳转到设置界面
         setUp = view.findViewById(R.id.setUp);
         setUp.setOnClickListener(onclick);
