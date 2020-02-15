@@ -1,3 +1,27 @@
+## V0.2
+### WebViewActivity
+添加通用WebViewActivity,可以编写网页完成一些功能
+1. 使用方法
+```java
+ // 通过JsInterfaceManager添加Js操控的android方法，如下配置即可在js中使用window.test.toast(text)调用toast
+ WebViewActivity.JsInterfacesManager.getInstance().addOnceInterface("test",new WebViewActivity.AndroidInterface(){
+
+            @JavascriptInterface
+            public void toast (String text) {
+                ToastUtil.showShort(text);
+            }
+        });
+        // 使用Intent跳转至WebViewActivity
+        Intent intent = new Intent(this, WebViewActivity.class);
+        // 指定URL即可
+        intent.putExtra("url","https://zywisbest.utools.club/hello.html");
+        startActivity(intent);
+```
+### Starter
+添加了应用销毁的生命周期，可以做一些释放内存的操作
+### ExceptionHandlerStarter
+添加了异常处理器，可以处理没有捕捉的异常，防止应用crash
+## V0.1
 # 项目基础框架
 
 ## 专业名词
@@ -5,7 +29,6 @@
 - 配置文件
 
 AndroidManifest.xml文件
-
 
 
 ## 项目结构
@@ -30,7 +53,7 @@ AndroidManifest.xml文件
 
 ## 各模块介绍
 
-- context
+### context
 
 内含BaseApplication、ContextManager两个核心组件，ContextManager将在BaseApplication获取Context并一直持有，
 
@@ -43,15 +66,45 @@ AndroidManifest.xml文件
 
 配置以后你就可以在项目中使用ContextManager.getContext()来获取Application的上下文了
 
+#### starter(启动器)
+当你使用的框架需要使用context初始化，或者在application中初始化时，你可以使用starter
+步骤如下:
+1. 创建一个类实现com.cxyz.context.starter.Starter接口，你可以在load方法中获取到context，可以强转为Application
+2. 在manifest文件的application标签中配置meta-data标签（**请注意你当前的开发模式所对应的配置文件**），其name必须以com.cxyz.starter开头，同时为了保证其唯一，请在后面加上 **.模块名.框架名**，其value为自定义Starter的全限定名
+集成IConify示例:
+```
+package com.cxyz.main.starter;
 
+public class IconifyStarter implements Starter {
+    public void load(Context context) {
+        Iconify.with(FontAwesomeModule())
+            .with(EntypoModule())
+            .with(TypiconsModule())
+            .with(MaterialModule())
+            .with(MaterialCommunityModule())
+            .with(MeteoconsModule())
+            .with(WeathericonsModule())
+            .with(SimpleLineIconsModule())
+            .with(IoniconsModule());
 
-- utils
+    }
+}
+```
+配置文件
+```
+    <application>
+            <meta-data
+                android:name="com.cxyz.starter.main.iconify"
+                android:value="com.cxyz.main.starter.IconifyStarter" />
+        </application>
+```
+### utils
 
 其中有一些较为实用的工具类，如GsonUtil、ImageLoaderManager、
 
 SpUtil、ToastUtil、ExitActivityUtil，方法不多可以直接看源码
 
-- mvpbase 有MVP模式相关的基类、接口
+### mvpbase 有MVP模式相关的基类、接口
 
   - IBaseModel 
 
@@ -177,7 +230,7 @@ SpUtil、ToastUtil、ExitActivityUtil，方法不多可以直接看源码
 
 
 
-- joint 
+### joint 
 
 用于管理公共依赖，所有业务逻辑模块都要继承此组件
 
@@ -191,3 +244,31 @@ SpUtil、ToastUtil、ExitActivityUtil，方法不多可以直接看源码
 
 注意，集成模式和单模块模式使用的配置文件不同，单模块调试时配置文件在src/main/debug/AndroidManifest.xml，而集成模式在配置文件在src/main/release/AndroidManifest.xml中
 
+## 框架
+
+### UI框架(QMUI)
+此项目使用QMUI，你必须在配置文件配置application的theme为CommonAppTheme,如下
+```
+ <application
+        android:name="com.cxyz.context.application.BaseApplication"
+        android:theme="@style/CommonAppTheme"
+       >
+```
+配置之后你可以使用QMUI中的组件，详情参考[官网](https://qmuiteam.com/android)
+
+### 组件路由框架(ARouter)
+如果不同模块的组件需要相互跳转，只需在目标Activity上添加@Route注解标识，然后通过ARouter Api跳转即可
+目标Activity 假定为main模块下的StoreActivity
+**要求：** path必须 / + 模块名 + / + Activity名,group必须为模块名
+```
+    @Route(path = "/main/StoreActivity",group = "main")
+    class StoreActivity extends AppCompatActivity {}
+```
+跳转:
+```
+    ARouter.getInstance().build("/main/StoreActivity").navigation();
+```
+其他详细信息请参考[官方文档](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
+
+### 字体图标框架(IConify)
+iconify可以使用TextView显示图标，不需要下载图片，且图标不会失真，可以通过textSize、textColor控制颜色大小，有些图片还可以旋转，具体参考[这里](https://www.cnblogs.com/zyw-205520/p/7266225.html?utm_source=debugrun&utm_medium=referral)

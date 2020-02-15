@@ -225,9 +225,7 @@ public class FileUtil {
         Uri uri = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //判断版本是否在7.0以上
-            //todo 这里有问题，FileProvider找不到，暂时使用null代替
-            uri = null;
-                    FileProvider.getUriForFile(mContext,
+            uri = FileProvider.getUriForFile(mContext,
                             mContext.getPackageName() + ".fileprovider",
                             file);
             //添加这一句表示对目标应用临时授权该Uri所代表的文件

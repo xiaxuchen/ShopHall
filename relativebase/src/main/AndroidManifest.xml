@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cxyz.relative.base" >
+
+    <application>
+        <meta-data
+            android:name="com.cxyz.starter.relative.exception"
+            android:value="com.cxyz.relative.base.starter.ExceptionHandlerStarter" />
+    </application>
+
+</manifest>

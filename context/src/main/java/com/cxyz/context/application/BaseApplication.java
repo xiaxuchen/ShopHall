@@ -2,8 +2,15 @@ package com.cxyz.context.application;
 
 
 import android.app.Application;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
 
 import com.cxyz.context.ContextManager;
+import com.cxyz.context.starter.Starter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 夏旭晨 on 2018/10/2.
@@ -14,6 +21,8 @@ import com.cxyz.context.ContextManager;
  */
 
 public class BaseApplication extends Application {
+
+    public static final String STARTER_NAME = "com.cxyz.starter";
 
     private boolean isApplication = true;
 
@@ -32,8 +41,50 @@ public class BaseApplication extends Application {
         if(application == null && isApplication)
             application = this;
         ContextManager.setContext(getApplication());
+        // 加载启动器
+        load();
     }
 
+    private List<Starter> starterList;
+
+    private void load() {
+        try {
+            ApplicationInfo appInfo= this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            starterList = new ArrayList<>();
+            for (String key : appInfo.metaData.keySet()) {
+                if(key.startsWith(STARTER_NAME))
+                {
+                    Object value = appInfo.metaData.get(key);
+                    if(value instanceof String)
+                    {
+                        String starter = (String) value;
+                        // 从meta-date中获取自定义标签 STARTER_NAME
+                        Class<?> clazz = Class.forName(starter);
+                        for (Class<?> anInterface : clazz.getInterfaces()) {
+                            if(anInterface == Starter.class)
+                            {
+                                Starter instance = (Starter)clazz.newInstance();
+                                starterList.add(instance);
+                                instance.load(this);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        for (Starter starter : starterList) {
+            starter.onDestroy();
+        }
+    }
 
     /**
      * 初始化refresh
