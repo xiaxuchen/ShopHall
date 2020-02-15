@@ -28,14 +28,14 @@ public class MineFragment extends BaseFragment {
     private ImageView setUp;
     private TextView personalInformation;
     //购物车
-    private ConstraintLayout mineFavorite;
+    private ViewGroup mineFavorite;
     //我的订单
-    private ConstraintLayout mineOrder;
-    private ConstraintLayout prePayment;
-    private ConstraintLayout delivered;
-    private ConstraintLayout received;
+    private ViewGroup mineOrder;
+    private ViewGroup prePayment;
+    private ViewGroup delivered;
+    private ViewGroup received;
     //浏览记录
-    private ConstraintLayout mineHistory;
+    private ViewGroup mineHistory;
     @Override
     protected int getLayoutId() {
         return R.layout.mine_activity_layout;

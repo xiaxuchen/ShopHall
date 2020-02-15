@@ -22,8 +22,19 @@ android {
         }
         multiDexEnabled true
     }
+
+    signingConfigs{
+        release {
+            storeFile file("E:/ShopHall.jks")        //证书存放目录
+            storePassword "originit123321"                               //密码
+            keyAlias "ShopHall"                                                //别名
+            keyPassword "originit123321"                                //密码(就是设置证书那两个密码，建议都填一样的)
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
