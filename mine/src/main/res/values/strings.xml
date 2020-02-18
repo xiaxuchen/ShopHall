@@ -23,7 +23,8 @@
     <string name="mineSetupPassword">修改密码</string>
     <string name="mineSetupVersion">检查版本V1.0</string>
     <string name="mineSetupFeedback">意见反馈</string>
-    <string name="mineSetupPhone">客服电话：0999-888666</string>
+    <string name="mineSetupPhoneTip">客服电话</string>
+    <string name="mineSetupPhone">18879792873</string>
     <string name="mineSetupWifi">非WiFi下省流模式</string>
     <string name="mineSetupHistory">浏览记录</string>
     <string name="mineSetupClear">清理缓存</string>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -74,6 +75,7 @@ public class SetUpActivity extends BaseActivity {
             }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
                 Intent intentVersion = new Intent(SetUpActivity.this, AppVersionActivity.class);
                 startActivity(intentVersion);
+                Toast.makeText(SetUpActivity.this,"当前以是最新版本",Toast.LENGTH_SHORT).show();
             }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面
                 ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             } else if(v.getId() == R.id.btnSignOut){//退出登录按钮
