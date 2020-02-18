@@ -1,82 +1,49 @@
 package com.cxyz.car.data.domain;
 
 public class OrderItem {
-    private int logoId;//店铺logo
-    private String storeName;//店铺名称
-    private String sucess;//交易成功
-    private int imageId;//商品图片
-    private String goodName;//商品名称
-    private String goodDesc;//商品描述
 
-    private String insure;//保险价
-    private String insureDesc;//保险价描述
-    private double insurePrice;//保险价格
+    /**
+     * Storelgog : 店铺logo
+     * storeName : 中国李宁专卖店
+     * success : 交易成功
+     * goodsImage : https://g-search2.alicdn.com/img/bao/uploaded/i4/i2/2200788949915/O1CN01RLq4Y22N77Y1NLfnW_!!0-item_pic.jpg_580x580Q90.jpg_.webp
+     * goodsName : 中国李宁2019纽约时装周短袖男女同款夏季时尚休闲圆领宽松运动服
+     * goodsDesc : 20元店铺优惠券，满1000元可用
+     * insure : 保险价
+     * insureDesc : 商品降价赔付差额
+     * insurePrice : 查看详情
+     * carriage : 运费险
+     * carriageDesc : 退货可自动理赔
+     * carriagePrice : 2.22
+     * insureServer : 保险服务
+     * insureServerDecsc : 专享定制化购物保障
+     * insureServerPrice : 3.33
+     * goodsPrice : 24.66
+     */
 
-    private String carriage;//运费险
-    private String carriageDesc;//运费险描述
-    private double carriagePrice;//运费险价格
+    private String Storelgog;
+    private String storeName;
+    private String success;
+    private String goodsImage;
+    private String goodsName;
+    private String goodsDesc;
+    private String insure;
+    private String insureDesc;
+    private String insurePrice;
+    private String carriage;
+    private String carriageDesc;
+    private double carriagePrice;
+    private String insureServer;
+    private String insureServerDecsc;
+    private double insureServerPrice;
+    private double goodsPrice;
 
-    private String insureServer;//保险服务
-    private String insureServerDecsc;//保险服务描述
-    private double insureServerPrice;//保险服务价格
-
-    private double goodsPrice;//商品总价格
-
-    public OrderItem(int logoId, String storeName, String sucess, int imageId, String goodName, String goodDesc, String insure, String insureDesc, double insurePrice, String carriage, String carriageDesc, double carriagePrice, String insureServer, String insureServerDecsc, double insureServerPrice, double goodsPrice) {
-        this.logoId = logoId;
-        this.storeName = storeName;
-        this.sucess = sucess;
-        this.imageId = imageId;
-        this.goodName = goodName;
-        this.goodDesc = goodDesc;
-        this.insure = insure;
-        this.insureDesc = insureDesc;
-        this.insurePrice = insurePrice;
-        this.carriage = carriage;
-        this.carriageDesc = carriageDesc;
-        this.carriagePrice = carriagePrice;
-        this.insureServer = insureServer;
-        this.insureServerDecsc = insureServerDecsc;
-        this.insureServerPrice = insureServerPrice;
-        this.goodsPrice = goodsPrice;
+    public String getStorelgog() {
+        return Storelgog;
     }
 
-
-    @Override
-    public String toString() {
-        return "OrderItem{" +
-                "logoId=" + logoId +
-                ", storeName='" + storeName + '\'' +
-                ", sucess='" + sucess + '\'' +
-                ", imageId=" + imageId +
-                ", goodDesc='" + goodDesc + '\'' +
-                ", insure='" + insure + '\'' +
-                ", insureDesc='" + insureDesc + '\'' +
-                ", insurePrice=" + insurePrice +
-                ", carriage='" + carriage + '\'' +
-                ", carriageDesc='" + carriageDesc + '\'' +
-                ", carriagePrice=" + carriagePrice +
-                ", insureServer='" + insureServer + '\'' +
-                ", insureServerDecsc='" + insureServerDecsc + '\'' +
-                ", insureServerPrice=" + insureServerPrice +
-                ", goodsPrice=" + goodsPrice +
-                '}';
-    }
-
-    public String getGoodName() {
-        return goodName;
-    }
-
-    public void setGoodName(String goodName) {
-        this.goodName = goodName;
-    }
-
-    public int getLogoId() {
-        return logoId;
-    }
-
-    public void setLogoId(int logoId) {
-        this.logoId = logoId;
+    public void setStorelgog(String Storelgog) {
+        this.Storelgog = Storelgog;
     }
 
     public String getStoreName() {
@@ -87,28 +54,36 @@ public class OrderItem {
         this.storeName = storeName;
     }
 
-    public String getSucess() {
-        return sucess;
+    public String getSuccess() {
+        return success;
     }
 
-    public void setSucess(String sucess) {
-        this.sucess = sucess;
+    public void setSuccess(String success) {
+        this.success = success;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getGoodsImage() {
+        return goodsImage;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setGoodsImage(String goodsImage) {
+        this.goodsImage = goodsImage;
     }
 
-    public String getGoodDesc() {
-        return goodDesc;
+    public String getGoodsName() {
+        return goodsName;
     }
 
-    public void setGoodDesc(String goodDesc) {
-        this.goodDesc = goodDesc;
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
+    }
+
+    public String getGoodsDesc() {
+        return goodsDesc;
+    }
+
+    public void setGoodsDesc(String goodsDesc) {
+        this.goodsDesc = goodsDesc;
     }
 
     public String getInsure() {
@@ -127,11 +102,11 @@ public class OrderItem {
         this.insureDesc = insureDesc;
     }
 
-    public double getInsurePrice() {
+    public String getInsurePrice() {
         return insurePrice;
     }
 
-    public void setInsurePrice(double insurePrice) {
+    public void setInsurePrice(String insurePrice) {
         this.insurePrice = insurePrice;
     }
 

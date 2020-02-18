@@ -29,20 +29,20 @@
     tools:ignore="MissingConstraints">
 
     <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-        android:id="@+id/iv_track_inner_goodsiamge"
+        android:id="@+id/ivTrackInnerGoodsImage"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:background="@drawable/car_track_radius"
         android:foregroundGravity="center_horizontal"
         android:scaleType="centerCrop"
         android:src="@drawable/car_bg2"
-        app:layout_constraintBottom_toTopOf="@+id/tv_track_inner_price"
+        app:layout_constraintBottom_toTopOf="@+id/tvTrackInnerPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
     <TextView
-        android:id="@+id/tv_track_inner_price"
+        android:id="@+id/tvTrackInnerPrice"
         android:layout_width="wrap_content"
         android:layout_height="15sp"
         android:layout_marginLeft="5dp"
@@ -52,8 +52,8 @@
         android:textSize="10sp"
         android:textColor="@color/common_red"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/iv_track_inner_goodsiamge"
-        app:layout_constraintTop_toBottomOf="@+id/iv_track_inner_goodsiamge"
+        app:layout_constraintStart_toStartOf="@+id/ivTrackInnerGoodsImage"
+        app:layout_constraintTop_toBottomOf="@+id/ivTrackInnerGoodsImage"
         tools:ignore="MissingConstraints" />
 
      <CheckBox
@@ -64,10 +64,10 @@
         android:button="@null"
         android:checked="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iv_track_inner_goodsiamge"
+        app:layout_constraintEnd_toEndOf="@+id/ivTrackInnerGoodsImage"
         app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/tv_track_inner_price"
-        app:layout_constraintTop_toTopOf="@+id/tv_track_inner_price"
+        app:layout_constraintStart_toEndOf="@+id/tvTrackInnerPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvTrackInnerPrice"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

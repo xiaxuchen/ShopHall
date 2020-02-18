@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/tv_track_date"
+        android:id="@+id/tvTrackDate"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginLeft="15dp"
@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="2020/01/14"
         android:textColor="#ccc"
-        app:layout_constraintBottom_toTopOf="@+id/rv_track_goods"
+        app:layout_constraintBottom_toTopOf="@+id/rvTrackGoods"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_track_goods"
+        android:id="@+id/rvTrackGoods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

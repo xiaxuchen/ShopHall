@@ -37,7 +37,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
 
     @Override
     public void initView() {
-        rv_track=findViewById(R.id.rv_track);
+        rv_track=findViewById(R.id.rvTrack);
     }
     @Override
     public void initData() {

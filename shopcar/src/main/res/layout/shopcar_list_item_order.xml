@@ -16,7 +16,7 @@
 
 
         <ImageView
-            android:id="@+id/iv_order_logo"
+            android:id="@+id/ivOrderLogo"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="15dp"
@@ -24,27 +24,27 @@
             android:src="@drawable/car_r" />
 
         <TextView
-            android:id="@+id/tv_order_name"
+            android:id="@+id/tvOrderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="18dp"
-            android:layout_toRightOf="@id/iv_order_logo"
+            android:layout_toRightOf="@id/ivOrderLogo"
             android:text="炸天帮萍乡分帮"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/iv_order_jiantou"
+            android:id="@+id/ivOrderJianTou"
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="22dp"
-            android:layout_toRightOf="@id/tv_order_name"
+            android:layout_toRightOf="@id/tvOrderName"
             android:src="@drawable/car_back_right" />
 
         <TextView
-            android:id="@+id/tv_order_success"
+            android:id="@+id/tvOrderSuccess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -53,38 +53,39 @@
             android:text="交易成功"
             android:textColor="@color/common_red"
             android:textSize="12sp" />
-        <ImageView
-            android:id="@+id/iv_order_image"
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            app:qmui_corner_radius="8dp"
+            android:id="@+id/ivOrderImage"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:src="@drawable/car_bg2"
-            android:layout_below="@id/iv_order_logo"
+            android:layout_below="@id/ivOrderLogo"
             android:scaleType="centerCrop"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             />
 
         <TextView
-            android:id="@+id/tv_order_goodsname"
+            android:id="@+id/tvOrderGoodsName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:text="一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练"
             android:layout_marginLeft="15dp"
             android:textColor="#000"
-            android:layout_toRightOf="@id/iv_order_image"
-            android:layout_below="@id/iv_order_logo"
+            android:layout_toRightOf="@id/ivOrderImage"
+            android:layout_below="@id/ivOrderLogo"
             android:layout_marginTop="15dp"
             android:ellipsize="end"/>
 
         <TextView
-            android:id="@+id/tv_order_smal"
+            android:id="@+id/tvOrderSmal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_order_goodsname"
+            android:layout_below="@id/tvOrderGoodsName"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/iv_order_image"
+            android:layout_toRightOf="@id/ivOrderImage"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐"
@@ -92,13 +93,13 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tv_order_return"
+            android:id="@+id/tvOrderReturn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_order_smal"
+            android:layout_below="@id/tvOrderSmal"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/iv_order_image"
+            android:layout_toRightOf="@id/ivOrderImage"
             android:background="@drawable/car_border_order_return"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
@@ -111,11 +112,11 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:orientation="horizontal"
-            android:layout_below="@id/iv_order_image"
+            android:layout_below="@id/ivOrderImage"
             android:layout_marginTop="15dp"
             >
             <TextView
-                android:id="@+id/tv_order_issure"
+                android:id="@+id/tvOrderIssure"
                 android:layout_width="55dp"
 
                 android:layout_height="wrap_content"
@@ -125,7 +126,7 @@
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/tv_order_issure_desc"
+                android:id="@+id/tvOrderIssureDesc"
                 android:layout_width="120dp"
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
@@ -136,7 +137,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_order_detial"
+                android:id="@+id/tvOrderDetial"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -154,7 +155,7 @@
             android:layout_marginTop="8dp"
             >
             <TextView
-                android:id="@+id/tv_order_carriage"
+                android:id="@+id/tvOrderCarriage"
                 android:layout_width="55dp"
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
@@ -163,7 +164,7 @@
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/tv_order_carriage_desc"
+                android:id="@+id/tvOrderCarriageDesc"
                 android:layout_width="120dp"
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
@@ -174,7 +175,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_order_carriage_price"
+                android:id="@+id/tvOrderCarriagePrice"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -192,7 +193,7 @@
             android:layout_marginTop="8dp"
             >
             <TextView
-                android:id="@+id/tv_order_insure_server"
+                android:id="@+id/tvOrderInsureServer"
                 android:layout_width="55dp"
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
@@ -201,7 +202,7 @@
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/tv_order_insure_server_desc"
+                android:id="@+id/tvOrderInsureSererDesc"
                 android:layout_width="120dp"
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
@@ -212,7 +213,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_order_insure_server_price"
+                android:id="@+id/tvOrderInsureServerPrice"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -222,7 +223,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_order_goodsprice"
+            android:id="@+id/tvOrderGoodsPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_order3"
@@ -233,10 +234,10 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tv_order_delete"
+            android:id="@+id/tvOrderDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_order_goodsprice"
+            android:layout_below="@id/tvOrderGoodsPrice"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="14dp"
@@ -251,14 +252,14 @@
             android:id="@+id/tv_order_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_order_goodsprice"
-            android:layout_alignBottom="@+id/tv_order_delete"
+            android:layout_below="@id/tvOrderGoodsPrice"
+            android:layout_alignBottom="@+id/tvOrderDelete"
             android:layout_marginStart="13dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="0dp"
-            android:layout_toEndOf="@+id/tv_order_delete"
-            android:layout_toRightOf="@id/tv_order_delete"
+            android:layout_toEndOf="@+id/tvOrderDelete"
+            android:layout_toRightOf="@id/tvOrderDelete"
             android:background="@drawable/car_border_btn"
             android:gravity="center"
             android:paddingLeft="10dp"

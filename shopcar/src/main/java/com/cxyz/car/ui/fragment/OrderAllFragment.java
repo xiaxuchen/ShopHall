@@ -51,7 +51,7 @@ public class OrderAllFragment extends BaseFragment<OrderAllPresenter> implements
     }
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView = view.findViewById(R.id.lv_order_all);
+        listView = view.findViewById(R.id.lvOrderAll);
     }
     @Override
     protected OrderAllPresenter createIPresenter() {

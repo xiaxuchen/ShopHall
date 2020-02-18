@@ -55,7 +55,7 @@ public class OrderPaymentFragment extends BaseFragment<OrderPaymentPresenter> im
     }
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView = view.findViewById(R.id.lv_order_payment);
+        listView = view.findViewById(R.id.lvOrderPayment);
     }
 
     @Override

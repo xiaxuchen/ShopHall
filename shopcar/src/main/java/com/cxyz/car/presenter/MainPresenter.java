@@ -1,6 +1,7 @@
 package com.cxyz.car.presenter;
 
 import com.cxyz.car.data.domain.Goods;
+import com.cxyz.car.data.domain.MainGoods;
 import com.cxyz.car.data.domain.StoreItem;
 import com.cxyz.car.data.model.IMainModel;
 import com.cxyz.car.data.model.impl.MainModelImpl;
@@ -18,8 +19,13 @@ public class MainPresenter extends IBasePresenter<IMainModel, IMainView> {
     public void fecth(){
         mIModle.loadData(new IMainModel.OnLoadListener() {
             @Override
-            public void complete(List<Goods> goodsList, List<StoreItem> storeItemList) {
-                mIView.showMainGoodsView(goodsList,storeItemList);
+            public void complete( List<StoreItem> storeItemList) {
+                mIView.showMainGoodsView(storeItemList);
+            }
+
+            @Override
+            public void complete1(List<MainGoods> goodsList) {
+                mIView.showMainAdertis(goodsList);
             }
         });
     }

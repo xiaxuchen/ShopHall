@@ -59,8 +59,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.InnerHolder>
 
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
-            tv_date = itemView.findViewById(R.id.tv_track_date);
-            rv_goods = itemView.findViewById(R.id.rv_track_goods);
+            tv_date = itemView.findViewById(R.id.tvTrackDate);
+            rv_goods = itemView.findViewById(R.id.rvTrackGoods);
         }
     }
 }

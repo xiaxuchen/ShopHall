@@ -8,7 +8,7 @@
     tools:context=".ui.activity.FavoriteActivity">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/hb_favorite_headerbar"
+        android:id="@+id/hbFavoriteHeaderbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:background="@color/common_colorPrimary"
@@ -21,7 +21,7 @@
         tools:ignore="MissingConstraints"></com.cxyz.widget.HeaderBar>
 
     <ImageView
-        android:id="@+id/iv_favorite_search"
+        android:id="@+id/ivFavoriteSearch"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/car_search_favorite"
@@ -33,20 +33,6 @@
         app:layout_constraintVertical_bias="0.14999998"
         tools:ignore="MissingConstraints" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/shopcar_textview12"-->
-<!--        android:layout_width="64dp"-->
-<!--        android:layout_height="21dp"-->
-<!--        android:text="全部宝贝"-->
-<!--        android:textColor="#fff"-->
-<!--        android:textSize="16sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/iv_favorite_search"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/hb_favorite_headerbar"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/hb_favorite_headerbar"-->
-<!--        app:layout_constraintVertical_bias="0.96"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/shopcar_guideline4"
         android:layout_width="wrap_content"
@@ -55,12 +41,11 @@
         app:layout_constraintGuide_begin="72dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_favorite_goods"
+        android:id="@+id/rvFavoriteGoods"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/shopcar_guideline4"
         app:layout_constraintVertical_bias="0.0" />

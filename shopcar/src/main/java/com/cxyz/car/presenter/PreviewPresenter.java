@@ -2,6 +2,7 @@ package com.cxyz.car.presenter;
 
 import android.accounts.NetworkErrorException;
 
+import com.cxyz.car.data.domain.PreviewItem;
 import com.cxyz.car.data.model.IPreviewModel;
 import com.cxyz.car.data.model.impl.PreviewModelImpl;
 import com.cxyz.car.presenter.view.IPreviewView;
@@ -18,8 +19,8 @@ public class PreviewPresenter extends IBasePresenter<IPreviewModel, IPreviewView
         try {
             mIModle.loadData(new IPreviewModel.OnLoadListener() {
                 @Override
-                public void complete(String[] options) {
-                    mIView.showOption(options);
+                public void complete(PreviewItem previewItem, String[] options) {
+                    mIView.showOption(previewItem,options);
                 }
             });
         } catch (NetworkErrorException e) {

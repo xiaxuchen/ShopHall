@@ -4,15 +4,15 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_preview_option"
+        android:id="@+id/tvPreviewOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="国行/原封/未激活64G黑色"
         android:textColor="@color/black"
         android:background="@drawable/car_border_text"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:padding="5dp"
+        android:textSize="10sp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="20dp"
         />

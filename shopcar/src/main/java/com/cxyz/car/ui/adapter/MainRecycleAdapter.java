@@ -54,8 +54,8 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         TextView storeName;
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
-            storeImage=itemView.findViewById(R.id.iv_middle_store_image);
-            storeName=itemView.findViewById(R.id.tv_middle_store_name);
+            storeImage=itemView.findViewById(R.id.ivMiddleStoreImage);
+            storeName=itemView.findViewById(R.id.tvMiddleStoreName);
         }
     }
 }

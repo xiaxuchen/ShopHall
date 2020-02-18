@@ -28,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
+import com.cxyz.car.data.domain.MainGoods;
 import com.cxyz.car.data.domain.StoreItem;
 import com.cxyz.car.presenter.MainPresenter;
 import com.cxyz.car.presenter.view.IMainView;
@@ -89,12 +90,12 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     //初始化控件
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        scrollView = view.findViewById(R.id.sv_main);
-        pointGroup = (LinearLayout) view.findViewById(R.id.ll_point_group);
-        imageDesc = (TextView) view.findViewById(R.id.tv_imagebot);
-        viewPager = (ViewPager) view.findViewById(R.id.vp_imageslide);
+        scrollView = view.findViewById(R.id.svMain);
+        pointGroup = (LinearLayout) view.findViewById(R.id.llPointGroup);
+        imageDesc = (TextView) view.findViewById(R.id.tvImageBot);
+        viewPager = (ViewPager) view.findViewById(R.id.vpImagesLide);
         listView = view.findViewById(R.id.lv_bottom_ad);
-        storeView = view.findViewById(R.id.rv_main_store);
+        storeView = view.findViewById(R.id.rvMainStore);
         linearLayout=view.findViewById(R.id.qmuiMainLinearLayout);
         linearLayout.setRadiusAndShadow(ScreenUtil.dp2px(context,8),ScreenUtil.dp2px(context,0),0.35f);
     }
@@ -239,12 +240,17 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     };
 
     @Override
-    public void showMainGoodsView(List<Goods> goodsList, List<StoreItem> storeItemList) {
-        listView.setAdapter(new ListViewAdapter(context, goodsList));
+    public void showMainGoodsView(List<StoreItem> storeItemList) {
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         storeView.setLayoutManager(linearLayoutManager);
         storeView.setAdapter(new MainRecycleAdapter(context, storeItemList));
+    }
+
+    @Override
+    public void showMainAdertis(List<MainGoods> goodsList) {
+        listView.setAdapter(new ListViewAdapter(context, goodsList));
     }
 
     @Override

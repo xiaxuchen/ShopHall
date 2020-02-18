@@ -1,53 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fafafa"
     android:orientation="vertical"
-    tools:ignore="ResourceName"
-    android:background="#fafafa">
+    tools:ignore="ResourceName">
 
-    <!--    <RelativeLayout-->
-    <!--        android:id="@+id/rl_topbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentTop="true"-->
-    <!--        >-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tv_shoptitle"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="购物车"-->
-    <!--            android:textColor="#000"-->
-    <!--            android:textSize="26sp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--        <TextView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_below="@+id/tv_shoptitle"-->
-    <!--            android:layout_marginLeft="15dp"-->
-    <!--            android:text="共5件宝贝"-->
-    <!--            android:textColor="#ccc"-->
-    <!--            android:textSize="14sp"-->
-    <!--            />-->
-    <!--        -->
-    <!--    </RelativeLayout>-->
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/hb_shopcar"
+        android:id="@+id/hbShopcar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:backText="购物车"
-        app:moreText="管理" />
+        app:moreText="管理"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        tools:ignore="MissingConstraints" />
 
     <ListView
-        android:id="@+id/lv_shop"
-        android:layout_width="wrap_content"
+        android:id="@+id/lvShop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/hb_shopcar"
-        android:layout_weight="1" />
+        android:layout_below="@+id/hbShopcar"
+        android:layout_above="@id/ll_bottom"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/ll_bottom"
@@ -57,10 +35,10 @@
         android:background="@drawable/car_border_top_bottom"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        >
+        tools:ignore="MissingConstraints">
 
         <CheckBox
-            android:id="@+id/cb_selectAll"
+            android:id="@+id/cbSelectAll"
             android:layout_width="18sp"
             android:layout_height="18sp"
             android:layout_marginLeft="10dp"
@@ -75,8 +53,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="5dp"
             android:text="合计:"
-            android:textSize="12sp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="50dp"
@@ -94,4 +72,11 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcar_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="58dp" />
+
+</RelativeLayout>

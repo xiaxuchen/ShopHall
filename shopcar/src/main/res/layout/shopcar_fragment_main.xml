@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/sv_main"
+        android:id="@+id/svMain"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -53,7 +53,7 @@
             <!--广告轮播 -->
 
             <RelativeLayout
-                android:id="@+id/rl_ad"
+                android:id="@+id/rlAdvertis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -68,7 +68,7 @@
                     android:layout_marginStart="15sp"
                     android:layout_marginEnd="15sp">
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/vp_imageslide"
+                    android:id="@+id/vpImagesLide"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:layout_alignParentStart="true"
@@ -86,7 +86,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_imagebot"
+                        android:id="@+id/tvImageBot"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -94,7 +94,7 @@
                         android:textSize="14sp" />
 
                     <LinearLayout
-                        android:id="@+id/ll_point_group"
+                        android:id="@+id/llPointGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -105,18 +105,18 @@
 <!--            中间商家-->
             <androidx.recyclerview.widget.RecyclerView
                 android:foregroundGravity="center"
-                android:id="@+id/rv_main_store"
+                android:id="@+id/rvMainStore"
                 android:layout_width="match_parent"
                 android:layout_marginTop="14dp"
                 android:layout_height="120dp"
-                android:layout_below="@+id/rl_ad"
+                android:layout_below="@+id/rlAdvertis"
                 android:background="#F5F2F2"
                 />
             <ListView
                 android:id="@+id/lv_bottom_ad"
                 android:layout_width="match_parent"
                 android:layout_height="800dp"
-                android:layout_below="@id/rv_main_store"
+                android:layout_below="@id/rvMainStore"
                 android:layout_marginTop="23dp"
                 android:background="@drawable/car_border_samll" />
         </RelativeLayout>

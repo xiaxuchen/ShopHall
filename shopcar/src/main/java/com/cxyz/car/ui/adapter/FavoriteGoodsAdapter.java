@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.Goods;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
@@ -50,9 +51,9 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
      */
     @Override
     public void onBindViewHolder(@NonNull LinearViewHolder holder, int position) {
-        holder.imageView.setImageResource(listitem.get(position).getImageId());
-        holder.desc.setText(listitem.get(position).getDes());
-        holder.smal.setText(listitem.get(position).getSmal());
+        Glide.with(holder.imageView.getContext()).load(listitem.get(position).getImage()).into(holder.imageView);
+        holder.desc.setText(listitem.get(position).getTitle());//货物名称
+        holder.smal.setText(listitem.get(position).getNumber()+"人收藏");//收藏人数
         holder.price.setText("￥" + listitem.get(position).getPrice());
         holder.findLike.setText("找相似");
 
@@ -85,11 +86,11 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
         public LinearViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.iv_favorite_image);
-            desc = itemView.findViewById(R.id.tv_favorite_desc);
-            smal = itemView.findViewById(R.id.tv_favorite_smal);
-            price = itemView.findViewById(R.id.tv_favorite_price);
-            findLike = itemView.findViewById(R.id.tv_favorite_findLike);
+            imageView = itemView.findViewById(R.id.ivFavoriteImage);
+            desc = itemView.findViewById(R.id.tvFavoriteDesc);
+            smal = itemView.findViewById(R.id.tvFavoriteSmal);
+            price = itemView.findViewById(R.id.tvFavoritePrice);
+            findLike = itemView.findViewById(R.id.tvFavoriteFindLike);
         }
     }
 }

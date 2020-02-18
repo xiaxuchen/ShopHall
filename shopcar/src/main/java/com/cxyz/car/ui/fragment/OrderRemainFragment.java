@@ -49,7 +49,7 @@ public class OrderRemainFragment extends BaseFragment<OrderRemainPresenter> impl
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView = view.findViewById(R.id.lv_order_remain);
+        listView = view.findViewById(R.id.lvOrderRemain);
     }
 
     @Override

@@ -1,21 +1,21 @@
 package com.cxyz.car.data.domain;
 
 public class TrackGoods {
-    private int imageId;
+
+    /**
+     * image : https://gw.alicdn.com/bao/uploaded/i4/T1A1hCXDXgXXXXXXXX_!!0-item_pic.jpg
+     * price : 33.0
+     */
+
+    private String image;
     private double price;
 
-    public TrackGoods(int imageId, double price) {
-        this.imageId = imageId;
-        this.price = price;
+    public String getImage() {
+        return image;
     }
 
-
-    public int getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public double getPrice() {
@@ -29,8 +29,13 @@ public class TrackGoods {
     @Override
     public String toString() {
         return "TrackGoods{" +
-                "imageId=" + imageId +
+                "image='" + image + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public TrackGoods(String image, double price) {
+        this.image = image;
+        this.price = price;
     }
 }

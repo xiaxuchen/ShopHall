@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     tools:ignore="ResourceName">
 
-    <ImageView
-        android:id="@+id/iv_favorite_image"
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+        app:qmui_corner_radius="8dp"
+        android:id="@+id/ivFavoriteImage"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:background="@drawable/car_border_samll"
@@ -18,15 +20,15 @@
         />
 
     <TextView
-        android:id="@+id/tv_favorite_desc"
+        android:id="@+id/tvFavoriteDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/iv_favorite_image"
-        android:layout_toRightOf="@+id/iv_favorite_image"
+        android:layout_toEndOf="@+id/ivFavoriteImage"
+        android:layout_toRightOf="@+id/ivFavoriteImage"
         android:ellipsize="end"
         android:lines="2"
         android:maxLines="2"
@@ -35,37 +37,37 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/tv_favorite_smal"
+        android:id="@+id/tvFavoriteSmal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_favorite_desc"
+        android:layout_below="@+id/tvFavoriteDesc"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/iv_favorite_image"
-        android:text="6666人收藏"
+        android:layout_toRightOf="@+id/ivFavoriteImage"
+        android:text=""
         android:textColor="#A7A6A6"
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/tv_favorite_price"
+        android:id="@+id/tvFavoritePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_favorite_smal"
-        android:layout_alignStart="@+id/tv_favorite_smal"
+        android:layout_below="@+id/tvFavoriteSmal"
+        android:layout_alignStart="@+id/tvFavoriteSmal"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@id/iv_favorite_image"
+        android:layout_toRightOf="@id/ivFavoriteImage"
         android:text="￥999.0"
         android:textColor="#f00" />
 
     <TextView
-        android:id="@+id/tv_favorite_findLike"
+        android:id="@+id/tvFavoriteFindLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="找相似"
-        android:layout_alignBottom="@+id/iv_favorite_image"
-        android:layout_alignRight="@+id/tv_favorite_desc"
+        android:layout_alignBottom="@+id/ivFavoriteImage"
+        android:layout_alignRight="@+id/tvFavoriteDesc"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="10dp"
         android:textColor="#8B7E7E"

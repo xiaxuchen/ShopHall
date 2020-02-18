@@ -3,13 +3,16 @@ package com.cxyz.car.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
+import com.cxyz.car.data.domain.PreviewItem;
 import com.cxyz.car.data.model.IPreviewModel;
 import com.cxyz.car.presenter.PreviewPresenter;
 import com.cxyz.car.presenter.view.IPreviewView;
@@ -19,10 +22,14 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 @Route(path="/shopcar/PreviewActivity",group = "shopcar")
 public class PreviewActivity extends BaseActivity<PreviewPresenter> implements IPreviewView {
-    private TextView tv_add;
-    private TextView tv_descres;
-    private EditText et_count;
+    private TextView tv_add;//增加按钮
+    private TextView tv_descres;//减少按钮
+    private EditText et_count;//数量
     private int count = 1;
+
+    private ImageView iv_image;//商品图片
+    private TextView tv_price;//商品价格
+    private TextView tv_remain;//库存
 
     private RecyclerView rv_choose;//颜色分类
 
@@ -39,10 +46,14 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
 
     @Override
     public void initView() {
-        tv_add = findViewById(R.id.tv_preview_add);
-        tv_descres = findViewById(R.id.tv_preview_descres);
-        et_count = findViewById(R.id.et_preview_count);
-        rv_choose = findViewById(R.id.rv_preview_choose);
+        tv_add = findViewById(R.id.tvPreviewAdd);
+        tv_descres = findViewById(R.id.tvPreviewDescres);
+        et_count = findViewById(R.id.etPrevoewCount);
+        rv_choose = findViewById(R.id.rvPreviewChoose);
+
+        iv_image=findViewById(R.id.ivPreviewImage);
+        tv_price=findViewById(R.id.tvPreviewPrice);
+        tv_remain=findViewById(R.id.tvPreviewRemain);
     }
     @Override
     public void initData() {
@@ -78,7 +89,10 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
     }
 
     @Override
-    public void showOption(String[] options) {
+    public void showOption(PreviewItem previewItem, String[] options) {
         rv_choose.setAdapter(new PreviewChooseAdapter(this, options));
+        Glide.with(iv_image.getContext()).load(previewItem.getImage()).into(iv_image);
+        tv_remain.setText("库存"+previewItem.getRemain()+"件");
+        tv_price.setText("￥"+previewItem.getMinPrice()+"-"+previewItem.getMaxPrice());
     }
 }

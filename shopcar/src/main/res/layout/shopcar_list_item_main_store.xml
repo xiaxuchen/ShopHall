@@ -17,7 +17,7 @@
         android:background="@drawable/car_radius_border1"
         android:layout_marginTop="12dp">
         <ImageView
-            android:id="@+id/iv_middle_store_image"
+            android:id="@+id/ivMiddleStoreImage"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_width="105dp"
@@ -27,7 +27,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_middle_store_name"
+            android:id="@+id/tvMiddleStoreName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

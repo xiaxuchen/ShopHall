@@ -51,7 +51,7 @@ public class OrderWaitFragment extends BaseFragment<OrderWaitPresenter> implemen
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView = view.findViewById(R.id.lv_order_wait);
+        listView = view.findViewById(R.id.lvOrderWait);
     }
 
     @Override

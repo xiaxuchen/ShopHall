@@ -1,38 +1,26 @@
 package com.cxyz.car.data.domain;
 
-public class ShopcarGoods {
-
-    private String logo;
+public class MainGoods {
     private String image;
-    private double price;
     private String desc;
     private String smal;
+    private int price;
 
-    public ShopcarGoods(String logo, String image, double price, String desc, String smal) {
-        this.logo = logo;
+    public MainGoods(String image, String desc, String smal, int price) {
         this.image = image;
-        this.price = price;
         this.desc = desc;
         this.smal = smal;
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "ShopcarGoods{" +
-                "logo='" + logo + '\'' +
-                ", image='" + image + '\'' +
-                ", price=" + price +
+        return "Goods{" +
+                "image='" + image + '\'' +
                 ", desc='" + desc + '\'' +
                 ", smal='" + smal + '\'' +
+                ", price=" + price +
                 '}';
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
     }
 
     public String getImage() {
@@ -41,14 +29,6 @@ public class ShopcarGoods {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public String getDesc() {
@@ -65,5 +45,9 @@ public class ShopcarGoods {
 
     public void setSmal(String smal) {
         this.smal = smal;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

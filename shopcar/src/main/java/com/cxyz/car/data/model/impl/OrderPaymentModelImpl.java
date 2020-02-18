@@ -1,54 +1,46 @@
 package com.cxyz.car.data.model.impl;
 
-import com.cxyz.car.R;
+import android.accounts.NetworkErrorException;
+
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.car.data.model.IOrderPaymentModel;
+import com.cxyz.http.CommonOkHttpClient;
+import com.cxyz.http.listener.DisposeDataHandler;
+import com.cxyz.http.listener.DisposeDataListener;
+import com.cxyz.http.request.RequestParams;
+import com.cxyz.http.response.CheckResult;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderPaymentModelImpl extends IOrderPaymentModel {
+    private CheckResult<List<OrderItem>> checkResult;
+    private List<OrderItem> orderItemList;
     @Override
     public void loadData(OnLoadListener onloadListener) {
-        onloadListener.complete(getData());
+        RequestParams params =new RequestParams();
+        params.put("orderStatus","待付款");
+        try {
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/orderpayment",params,
+                    new DisposeDataHandler(new DisposeDataListener() {
+                        @Override
+                        public void onSuccess(Object responseObj) {
+                            String json=responseObj.toString();
+                            Gson gson=new Gson();
+                            checkResult=gson.fromJson(json,new TypeToken<CheckResult<List<OrderItem>>>(){}.getType());
+                            orderItemList=checkResult.getData();
+                            onloadListener.complete(orderItemList);
+                        }
+
+                        @Override
+                        public void onFailure(Object error) {
+
+                        }
+                    }));
+        } catch (NetworkErrorException e) {
+            e.printStackTrace();
+        }
     }
 
-    private List<OrderItem> getData() {
-        List<OrderItem> listItem = new ArrayList<>();
-        {
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "炸天帮萍乡分帮",
-                    "交易成功",
-                    R.drawable.car_bg2,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-            listItem.add(new OrderItem(R.drawable.car_r,
-                    "来福运动专营店",
-                    "交易成功",
-                    R.drawable.car_bg1,
-                    "一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练",
-                    "【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐",
-                    "保险价",
-                    "商品降价赔付差额",
-                    2.11,
-                    "运费险",
-                    "退换货可自动理赔",
-                    1.22,
-                    "保险服务",
-                    "专享定制化购物保障",
-                    2.12,
-                    25.00));
-        }
-        return listItem;
-    }
 }
