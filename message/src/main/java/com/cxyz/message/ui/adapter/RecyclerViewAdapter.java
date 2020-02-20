@@ -1,6 +1,8 @@
 package com.cxyz.message.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +15,16 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.R;
+import com.cxyz.message.ui.Activity.ChatMessageActivity;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.message.widget.view.RecyclerItemView;
+import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2018/3/16 0016.
- * item_recycler.xml 的适配器
+ * message_item_recycler.xmlcler.xml 的适配器
  */
 
 public class RecyclerViewAdapter
@@ -56,7 +60,7 @@ public class RecyclerViewAdapter
 
     @Override
     public SimpleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_item_recycler, parent, false);
         return new SimpleHolder(view);
     }
 
@@ -71,15 +75,16 @@ public class RecyclerViewAdapter
         holder.layout_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"做出操作，进入新的界面或弹框", Toast.LENGTH_SHORT).show();
-                //判断是否有删除菜单打开
-                if (menuIsOpen()) {
-                    closeMenu();//关闭菜单
-                } else {
-                    //获得布局下标（点的哪一个）
-                    int subscript = holder.getLayoutPosition();
-                    onSvcl.onItemClick(view, subscript);
-                }
+//                Toast.makeText(context,"做出操作，进入新的界面或弹框", Toast.LENGTH_SHORT).show();
+//                //判断是否有删除菜单打开
+//                if (menuIsOpen()) {
+//                    closeMenu();//关闭菜单
+//                } else {
+//                    //获得布局下标（点的哪一个）
+//                    int subscript = holder.getLayoutPosition();
+//                    onSvcl.onItemClick(view, subscript);
+//                }
+                context.startActivity(new Intent(context,ChatMessageActivity.class));
             }
         });
         holder.other.setOnClickListener(new View.OnClickListener() {
@@ -119,17 +124,21 @@ public class RecyclerViewAdapter
 
     class SimpleHolder extends  RecyclerView.ViewHolder {
 
-        public ImageView image;
+        public QMUIRadiusImageView image;
         public TextView title;
         public TextView content;
         public TextView time;
         public TextView other;
         public TextView delete;
         public LinearLayout layout_left;
+        @SuppressLint("ResourceAsColor")
         public SimpleHolder(View view) {
             super(view);
 
-            image = (ImageView) view.findViewById(R.id.image);
+            image = (QMUIRadiusImageView) view.findViewById(R.id.image);
+            image.setBorderWidth(0);
+            image.setCircle(true);
+            image.setBorderColor(android.R.color.white);
             title = (TextView) view.findViewById(R.id.title);
             content = (TextView) view.findViewById(R.id.content);
             time = (TextView) view.findViewById(R.id.time);

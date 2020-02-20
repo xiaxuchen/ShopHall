@@ -9,6 +9,7 @@ import android.util.Log;
 import com.cxyz.context.ContextManager;
 import com.cxyz.context.starter.Starter;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +39,9 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if(application == null && isApplication)
+        if(application == null && isApplication) {
             application = this;
+        }
         ContextManager.setContext(getApplication());
         // 加载启动器
         load();

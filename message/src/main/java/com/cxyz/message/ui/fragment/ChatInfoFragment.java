@@ -1,29 +1,34 @@
-package com.cxyz.message.ui.Activity;
+package com.cxyz.message.ui.fragment;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
+import com.cxyz.mvp.fragment.BaseFragment;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
-import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
 import com.cxyz.message.utils.RecyclerUtils;
-import com.cxyz.mvp.activity.BaseActivity;
-import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ColorsUtil;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.ArrayList;
 import java.util.List;
-@Route(path = "/message/ChatInfoActivity",group = "message")
-public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
+
+@Route(path = "/message/ChatInfoFragment",group = "message")
+public class ChatInfoFragment extends BaseFragment implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局
     private RecyclerViewAdapter rvAdapter;      //message_item_recycler 布局的 适配器
+
     //设置数据
     private List<Bitmap> dataImage;    //头像（谁的头像）
     private List<String> dataTitle;     //标题（谁的消息）
@@ -32,27 +37,27 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     private QMUIRadiusImageView ivLogisticsInfo;
     private QMUIRadiusImageView  ivDiscontInfo;
     @Override
-    protected Object getContentView() {
+    protected int getLayoutId() {
         return R.layout.message_activity_chatinfo;
     }
 
     @Override
-    public void initView() {
+    protected void initData(Bundle bundle) {
         recycler = (RecyclerView)findViewById(R.id.recycler);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setLayoutManager(new LinearLayoutManager(getHoldingActivity()));
+        ivLogisticsInfo= (QMUIRadiusImageView) findViewById(R.id.ivlogisticsinfo);
+        ivLogisticsInfo.setCircle(true);
+        ivLogisticsInfo.setBorderColor(ColorsUtil.WHITE);
+        ivDiscontInfo= (QMUIRadiusImageView) findViewById(R.id.ivdiscontinfo);
+        ivDiscontInfo.setCircle(true);
+        ivDiscontInfo.setBorderColor(ColorsUtil.WHITE);
         datas();//插入数据
         //更新界面
         updateInterface();
-
     }
 
     @Override
-    public void initData() {
-
-    }
-
-    @Override
-    public void setEvent() {
+    protected void initView(View view, Bundle savedInstanceState) {
 
     }
 
@@ -61,48 +66,43 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
         return null;
     }
 
-    //通过 position 区分点击了哪个 item
+    @Override
+    protected void setListener() {
+
+    }
+
+    @Override
+    public void showError(Object msg) {
+
+    }
+
     @Override
     public void onItemClick(View view, int position) {
         //在这里可以做出一些反应（跳转界面、弹出弹框之类）
         ToastUtil.showLong("你点了"+position);
     }
-
     //点击删除按钮时，根据传入的 position 调用 RecyclerAdapter 中的 removeData() 方法
     @Override
     public void onDeleteBtnCilck(View view, int position) {
         rvAdapter.removeData(position);
     }
-
     public void datas(){
         dataImage = new ArrayList<Bitmap>();    //头像（谁的头像）
         dataTitle = new ArrayList<String>();     //标题（谁的消息）
         datasContent = new ArrayList<String>();  //内容（消息内容）
         datasTime = new ArrayList<String>();     //时间（消息时间）
-/*        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));*/
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
-        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, getActivity())));
         dataTitle.add("Android开发交流群");
         dataTitle.add("R语言初级入门学习");
         dataTitle.add("刘亦菲");
@@ -140,11 +140,10 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
         datasTime.add("星期二");
         datasTime.add("星期一");
     }
-
     public void updateInterface(){
         if (rvAdapter == null) {
             //实例化 RecyclerViewAdapter 并设置数据
-            rvAdapter = new RecyclerViewAdapter(this,
+            rvAdapter = new RecyclerViewAdapter(getActivity(),
                     dataImage, dataTitle, datasContent, datasTime);
             //将适配的内容放入 mRecyclerView
             recycler.setAdapter(rvAdapter);
@@ -157,5 +156,4 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
         //设置滑动监听器 （侧滑）
         rvAdapter.setOnSlidListener(this);
     }
-
 }

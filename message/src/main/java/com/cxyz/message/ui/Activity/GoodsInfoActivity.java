@@ -1,6 +1,9 @@
 package com.cxyz.message.ui.Activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -35,6 +38,7 @@ import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,7 +46,10 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-@Route(path = "/message/GoodsInfoActivity")
+
+import static com.cxyz.context.ContextManager.getContext;
+
+@Route(path = "/message/GoodsInfoActivity",group = "message")
 public class GoodsInfoActivity extends BaseActivity {
     /**
      * 顶部tool
@@ -84,6 +91,7 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 其他控件
      */
+    private  TextView btaddshoppingcart;
     private  TextView tvPdesc;
     private ImageView ivBackTop;
     private int vpagerTopDistance;// 记录底部ViewPager距离顶部的高度
@@ -104,7 +112,7 @@ public class GoodsInfoActivity extends BaseActivity {
     private ArrayList<String> productFeaturesList;
     @Override
     protected Object getContentView() {
-        return R.layout.activity_goodsinfo;
+        return R.layout.message_activity_goodsinfo;
     }
 
     @Override
@@ -161,7 +169,19 @@ public class GoodsInfoActivity extends BaseActivity {
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
         //底部浮悬
         imgcoll=(ImageView) findViewById(R.id.imgcoll);
+        btaddshoppingcart=findViewById(R.id.btaddshoppingcart);
 
+
+        btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                startActivity(intent);
+                // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
+                ToastUtil.showShort("点击购买");
+
+            }
+        });
         initImg();
         refulashData();
 
@@ -374,7 +394,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             flBrand.removeAllViews();
             for (final Brand value : brands) {
-                ImageView iv = (ImageView) mInflater.inflate(R.layout.tag_brand_imageview, flBrand, false);
+                ImageView iv = (ImageView) mInflater.inflate(R.layout.message_tag_brand_imageview, flBrand, false);
                 iv.setTag(value.getBrand_id());
                 // 点击事件监听
                 iv.setOnClickListener(new View.OnClickListener() {
@@ -415,7 +435,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             specificationsChoiceFlowlayout.removeAllViews();
             for (Specification value : datas) {
-                final TextView tv = (TextView) mInflater.inflate(R.layout.tag_gray_circular_textview, specificationsChoiceFlowlayout, false);
+                final TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_gray_circular_textview, specificationsChoiceFlowlayout, false);
                 tv.setTag(value.getId());
                 tv.setText(value.getText());
                 // 规格点击事件监听
@@ -460,7 +480,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             specialOfferFlowLayout.removeAllViews();
             for (String value : datas) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tag_red_circular_textview, specialOfferFlowLayout, false);
+                TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_red_circular_textview, specialOfferFlowLayout, false);
                 tv.setText(value);
                 specialOfferFlowLayout.addView(tv);
             }
@@ -477,7 +497,7 @@ public class GoodsInfoActivity extends BaseActivity {
             LayoutInflater mInflater = LayoutInflater.from(this);
             productFeaturesFlowlayout.removeAllViews();
             for (String value : datas) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.tag_gray_circular_textview, productFeaturesFlowlayout, false);
+                TextView tv = (TextView) mInflater.inflate(R.layout.message_tag_gray_circular_textview, productFeaturesFlowlayout, false);
                 tv.setText(value);
                 productFeaturesFlowlayout.addView(tv);
             }
@@ -516,10 +536,10 @@ public class GoodsInfoActivity extends BaseActivity {
                 mtopVGroup.addView(mImageViews[k]);
             }
             // 初始化generalVpLayout
-            generalVpLayout.init(new HolderCreator<GoodsInfoActivity.ImageViewHolder>() {
+            generalVpLayout.init(new HolderCreator<ImageViewHolder>() {
                 @Override
-                public GoodsInfoActivity.ImageViewHolder createHolder() {
-                    return new GoodsInfoActivity.ImageViewHolder();
+                public ImageViewHolder createHolder() {
+                    return new ImageViewHolder();
                 }
             }, data)
                     // 设置轮播停顿时间
