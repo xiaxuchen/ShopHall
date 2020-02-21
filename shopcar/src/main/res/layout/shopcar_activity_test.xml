@@ -23,66 +23,66 @@
 
         <Button
             android:id="@+id/btnMainFragment"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="MainFragment"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
 
         <Button
             android:id="@+id/btnShopcar"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="ShopCar"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
 
         <Button
             android:id="@+id/btnFavorite"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="收藏夹"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
         <Button
             android:id="@+id/btnOrder"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="订单"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
         <Button
             android:id="@+id/btnTrack"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="足迹"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
         <Button
             android:id="@+id/btnPreview"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="预览"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
 <!--        <Button-->
 <!--            android:id="@+id/btnApi"-->
 <!--            android:layout_width="50dp"-->
@@ -95,14 +95,44 @@
 <!--            android:textSize="8sp" />-->
         <Button
             android:id="@+id/btnOrderDetail"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/car_border"
             android:text="订单详情"
             android:textAllCaps="false"
             android:textColor="#000"
-            android:textSize="8sp" />
+            android:textSize="5sp" />
+        <Button
+            android:id="@+id/btnStore"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="店铺"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="5sp" />
+        <Button
+            android:id="@+id/btnComments"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="评论"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="5sp" />
+        <Button
+            android:id="@+id/btnForget"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="忘记密码"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="5sp" />
 
     </LinearLayout>
 

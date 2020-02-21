@@ -22,6 +22,7 @@ public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdap
 
     private Context context;
     private List<Goods> listitem;
+
     private BaseRecycleViewAdapter.OnItemClickListener mOnItemClickListener;
 
     public FavoriteGoodsAdapter(Context context, List<Goods> listitem) {

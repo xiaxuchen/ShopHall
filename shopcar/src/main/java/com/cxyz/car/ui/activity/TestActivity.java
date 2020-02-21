@@ -17,14 +17,17 @@ import com.cxyz.car.ui.fragment.ShopcarFragment;
 
 public class TestActivity extends AppCompatActivity {
 
-    private Button btnMainFragment;
-    private Button btnShopcar;
-    private Button btnFavorite;
-    private Button btnOrder;
-    private Button btnTrack;
-    private Button btnPreview;
+    private Button btnMainFragment;//主页
+    private Button btnShopcar;//购物车
+    private Button btnFavorite;//收藏
+    private Button btnOrder;//订单
+    private Button btnTrack;//浏览记录
+    private Button btnPreview;//预览
     private Button btnApi;
-    private Button btnOrderDetail;
+    private Button btnOrderDetail;//订单详情
+    private Button btnStore;//店铺
+    private Button btnComments;//评论
+    private Button btnForget;//忘记密码
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -116,6 +119,37 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,OrderDetailActivity.class));
+            }
+        });
+
+        /**
+         * StoreActivity店铺界面
+         */
+        btnStore=findViewById(R.id.btnStore);
+        btnStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,StoreActivity.class));
+            }
+        });
+        /**
+         * CommentsActivity评论界面
+         */
+        btnComments=findViewById(R.id.btnComments);
+        btnComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,CommentsActivity.class));
+            }
+        });
+        /**
+         * ForgotActivity忘记密码界面
+         */
+        btnForget=findViewById(R.id.btnForget);
+        btnForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,ForgotActivity.class));
             }
         });
 
