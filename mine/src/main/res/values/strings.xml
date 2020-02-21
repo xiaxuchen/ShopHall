@@ -31,14 +31,11 @@
     <string name="mineSetupSignout">退出登录</string>
     <string name="mineShippongAddressBacktitle">收货地址</string>
     <string name="mineShippongAddressAdd">添加收货地址</string>
-    <string name="mineChangPasswordBackText">修改密码</string>
-    <string name="mineOldPasswordText">旧密码</string>
-    <string name="mineOldPasswordEdit">请输入您的旧密码</string>
-    <string name="mineNewPasswordText">新密码</string>
-    <string name="mineNewPasswordEdit">请输入您的新密码</string>
-    <string name="mineConfirmPasswordText">确认密码</string>
-    <string name="mineConfirmPasswordEdit">请输入您的确认密码</string>
-    <string name="mineConfirmPasswordButton">修改密码</string>
+    <string name="minePhoneEdit">输入手机号</string>
+    <string name="mineVerificationCode">输入验证码</string>
+    <string name="mineVerificationCodeBt">获取验证码</string>
+    <string name="mineNewPasswordEdit">输入新密码</string>
+    <string name="mineConfirmPasswordButton">确认修改</string>
     <string name="mineFeedbackPrompt">请选择反馈问题的类型</string>
     <string name="mineFeedbackFirstQuestion">发货、售后等交易问题</string>
     <string name="mineFeedbackSales">联系客服</string>
@@ -49,5 +46,11 @@
     <string name="mineAddAddressArea">所在地区</string>
     <string name="mineAddAddressAddress">详细地址：如街道、门牌号、小区、楼栋号、单元室等</string>
     <string name="mineAddAddressSetup">设为默认地址</string>
+    <string name="mine_">hhh</string>
+    <string name="mineWeChatPayment">微信支付</string>
+    <string name="mineArrivalTime">到账时间</string>
+    <string name="mineWithdrawalAmount">提现金额</string>
+    <string name="mineAccountBalance">账户余额</string>
+    <string name="mineWithdrawal">提现</string>
 
 </resources>

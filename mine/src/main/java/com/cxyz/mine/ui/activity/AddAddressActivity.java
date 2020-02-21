@@ -1,23 +1,16 @@
 package com.cxyz.mine.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.utils.ToastUtil;
-import com.cxyz.widget.datetime.DateTimeSheet;
-
-import java.security.PrivateKey;
-
+@Route(path = "/mine/AddAddressActivity",group = "mine")
 public class AddAddressActivity extends BaseActivity {
     private Button btnAddAddress;
     private EditText etName;
@@ -27,7 +20,7 @@ public class AddAddressActivity extends BaseActivity {
 
     @Override
     protected Object getContentView() {
-        return R.layout.mine_activity_add_address;
+        return R.layout.mine_activity_add_address_layout;
     }
 
     @Override

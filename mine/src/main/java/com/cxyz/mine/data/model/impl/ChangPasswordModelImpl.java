@@ -1,12 +1,14 @@
 package com.cxyz.mine.data.model.impl;
 
 import android.accounts.NetworkErrorException;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.cxyz.http.CommonOkHttpClient;
 import com.cxyz.http.listener.DisposeDataHandler;
 import com.cxyz.http.listener.DisposeDataListener;
 import com.cxyz.http.request.RequestParams;
+import com.cxyz.mine.R;
 import com.cxyz.mine.data.model.IChangPasswordModel;
 import com.cxyz.mine.ui.activity.ChangPasswordActivity;
 
@@ -15,7 +17,7 @@ public class ChangPasswordModelImpl extends IChangPasswordModel {
     private ChangPasswordActivity changPasswordActivity;
     @Override
     public void loadData(OnGetModel onGetModel) {
-        changPasswordActivity = new ChangPasswordActivity();
+
         try {
             RequestParams params = new RequestParams();
             params.put("password","1234566");

@@ -1,28 +1,19 @@
 package com.cxyz.mine.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.UserManager;
 import android.view.Gravity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
-import com.cxyz.mine.data.model.impl.ShippingAdressModelImpl;
-import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.utils.ToastUtil;
-import com.cxyz.widget.HeaderBar;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
@@ -31,11 +22,12 @@ public class SetUpActivity extends BaseActivity {
     private ViewGroup setUpFeedback;
     private ViewGroup setUpVersion;
     private ViewGroup setUpHistory;
+    private ViewGroup setUpClear;
     private Button btnSignOut;
 
     @Override
     protected Object getContentView() {
-        return R.layout.mine_activity_setup;
+        return R.layout.mine_activity_setup_layout;
     }
 
     @Override
@@ -46,6 +38,7 @@ public class SetUpActivity extends BaseActivity {
         setUpVersion = findViewById(R.id.setUpVersion);
         setUpHistory = findViewById(R.id.setUpHistory);
         btnSignOut = findViewById(R.id.btnSignOut);
+        setUpClear = findViewById(R.id.setUpClear);
         Onclick onclick = new Onclick();
         //跳转到设置界面
         setUpAddress.setOnClickListener(onclick);
@@ -59,6 +52,8 @@ public class SetUpActivity extends BaseActivity {
         btnSignOut.setOnClickListener(onclick);
         //跳转到浏览界面
         setUpHistory.setOnClickListener(onclick);
+        //清空缓存
+        setUpClear.setOnClickListener(onclick);
     }
     public class Onclick implements View.OnClickListener{
         @Override
@@ -79,10 +74,42 @@ public class SetUpActivity extends BaseActivity {
             }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面
                 ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             } else if(v.getId() == R.id.btnSignOut){//退出登录按钮
-                ARouter.getInstance().build("/main/LoginActivity").navigation();
-                Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                new QMUIDialog.MessageDialogBuilder(SetUpActivity.this)
+                        .setTitle("确认退出吗")
+                        .addAction("取消", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .addAction("确定", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                                ARouter.getInstance().build("/main/LoginActivity").navigation();
+                                Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER,0,0);
+                                toast.show();
+                            }
+                        })
+                        .show();
+            }else if(v.getId() == R.id.setUpClear){//清理缓存
+                new QMUIDialog.MessageDialogBuilder(SetUpActivity.this)
+                        .setTitle("确认清除所有吗？")
+                        .addAction("取消", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .addAction("确定", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                                Toast.makeText(SetUpActivity.this, "清除成功", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
             }
         }
     }

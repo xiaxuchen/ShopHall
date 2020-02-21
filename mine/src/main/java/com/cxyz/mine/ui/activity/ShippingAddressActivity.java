@@ -1,6 +1,5 @@
 package com.cxyz.mine.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +29,7 @@ public class ShippingAddressActivity extends BaseActivity<ShippingAddressPresent
 
     @Override
     protected Object getContentView() {
-        return R.layout.mine_activity_shipping_address;
+        return R.layout.mine_activity_shipping_address_layout;
     }
 
     @Override
