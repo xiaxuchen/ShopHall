@@ -1,6 +1,8 @@
 package com.cxyz.mine.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +11,27 @@ import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
+import com.cxyz.mine.presenter.IBalanceView;
+import com.cxyz.mine.presenter.view.BalancePresenter;
+import com.cxyz.mine.ui.adapter.ConsumptionAdapter;
+import com.cxyz.mine.ui.adapter.entity.Consumption;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Route(path = "/mine/BalanceActivity",group = "mine")
-public class BalanceActivity extends BaseActivity {
+public class BalanceActivity extends BaseActivity<BalancePresenter> implements IBalanceView {
     private Button btnWithdraw;
+    private RecyclerView recyclerView;
+    private List<Map<String,Consumption>> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        iPresenter.fetch();
     }
 
     @Override
@@ -27,6 +41,7 @@ public class BalanceActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        recyclerView = findViewById(R.id.recyclerViewConsumption);
         btnWithdraw = findViewById(R.id.btnWithdraw);
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +64,16 @@ public class BalanceActivity extends BaseActivity {
     }
 
     @Override
-    protected IBasePresenter createIPresenter() {
-        return null;
+    protected BalancePresenter createIPresenter() {
+        return new BalancePresenter();
+    }
+
+    @Override
+    public void showView(List<Consumption> consumptionList) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        ConsumptionAdapter adapter = new ConsumptionAdapter(this,consumptionList);
+        recyclerView.setAdapter(adapter);
     }
 }

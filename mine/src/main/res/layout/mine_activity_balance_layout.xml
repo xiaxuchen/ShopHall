@@ -63,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/btRecharge"
         tools:ignore="MissingConstraints" />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewConsumption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
