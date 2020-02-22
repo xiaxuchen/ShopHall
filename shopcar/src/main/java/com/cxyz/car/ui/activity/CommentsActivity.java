@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.CommentsItem;
 import com.cxyz.car.presenter.CommentsPresenter;
@@ -14,7 +15,7 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import java.util.List;
-
+@Route(path="/shopcar/CommentsActivity",group = "shopcar")
 public class CommentsActivity extends BaseActivity<CommentsPresenter> implements ICommentsView {
     private RecyclerView recyclerView;
 

@@ -3,10 +3,11 @@ package com.cxyz.car.ui.activity;
 import android.graphics.Paint;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-
+@Route(path="/shopcar/ForgotActivity",group = "shopcar")
 public class ForgotActivity extends BaseActivity {
     private TextView tvStoreGetVerifyCode;
     @Override

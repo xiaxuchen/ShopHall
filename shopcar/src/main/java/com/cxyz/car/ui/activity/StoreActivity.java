@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.CommentsItem;
 import com.cxyz.car.presenter.StorePresenter;
@@ -14,7 +15,7 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import java.util.List;
-
+@Route(path="/shopcar/StoreActivity",group = "shopcar")
 public class StoreActivity extends BaseActivity<StorePresenter> implements IStoreView {
     private RecyclerView recyclerView;
 
