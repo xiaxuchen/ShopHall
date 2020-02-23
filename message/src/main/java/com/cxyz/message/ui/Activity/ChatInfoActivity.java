@@ -24,7 +24,6 @@ import java.util.List;
 public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局
     private RecyclerViewAdapter rvAdapter;      //message_item_recycler 布局的 适配器
-
     //设置数据
     private List<Bitmap> dataImage;    //头像（谁的头像）
     private List<String> dataTitle;     //标题（谁的消息）
@@ -35,19 +34,12 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     @Override
     protected Object getContentView() {
         return R.layout.message_activity_chatinfo;
-
     }
 
     @Override
     public void initView() {
         recycler = (RecyclerView)findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        ivLogisticsInfo=findViewById(R.id.ivlogisticsinfo);
-        ivLogisticsInfo.setCircle(true);
-        ivLogisticsInfo.setBorderColor(ColorsUtil.WHITE);
-        ivDiscontInfo=findViewById(R.id.ivdiscontinfo);
-        ivDiscontInfo.setCircle(true);
-        ivDiscontInfo.setBorderColor(ColorsUtil.WHITE);
         datas();//插入数据
         //更新界面
         updateInterface();
@@ -87,6 +79,7 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
         dataTitle = new ArrayList<String>();     //标题（谁的消息）
         datasContent = new ArrayList<String>();  //内容（消息内容）
         datasTime = new ArrayList<String>();     //时间（消息时间）
+/*        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
@@ -97,8 +90,19 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
         dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
-        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));
+        dataImage.add(RecyclerUtils.toRoundBitmap(RecyclerUtils.bitmaps(R.mipmap.a10, this)));*/
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
+        dataImage.add(RecyclerUtils.bitmaps(R.mipmap.a10, this));
         dataTitle.add("Android开发交流群");
         dataTitle.add("R语言初级入门学习");
         dataTitle.add("刘亦菲");

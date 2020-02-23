@@ -8,15 +8,13 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
 import com.cxyz.message.ui.adapter.MsgAdapter;
 import com.cxyz.message.ui.adapter.entity.Msg;
+import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.utils.ColorsUtil;
 import com.cxyz.widget.HeaderBar;
-
 import java.util.ArrayList;
 import java.util.List;
 @Route(path = "/message/ChatMessageActivity",group = "message")
@@ -27,10 +25,6 @@ public class ChatMessageActivity extends AppCompatActivity {
     private RecyclerView rvMsg;
     private MsgAdapter adapter;
     private HeaderBar hbChatmesTitle;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +32,7 @@ public class ChatMessageActivity extends AppCompatActivity {
         initMsgs();
         hbChatmesTitle=findViewById(R.id.hbchatmestitle);
         hbChatmesTitle.setTitle("李明");
+        hbChatmesTitle.setMore(R.mipmap.message_chatmesg_gengduo,"店铺");
         hbChatmesTitle.setBackColor(ColorsUtil.BLUE_LIGHT);
         inputText = (EditText)findViewById(R.id.input_txet);
         btSend = (Button) findViewById(R.id.send);
@@ -53,7 +48,7 @@ public class ChatMessageActivity extends AppCompatActivity {
                 String content = inputText.getText().toString();
 
                 if(!"".equals(content)){
-                    Msg msg = new Msg(content,Msg.TYPE_SENT);
+                    Msg msg = new Msg(content,Msg.TYPE_SENT, RecyclerUtils.bitmaps(R.mipmap.a10, getApplicationContext()));
                     msgList.add(msg);
                     //当有新消息，刷新RecyclerVeiw的显示
                     adapter.notifyItemInserted(msgList.size() - 1);
@@ -67,12 +62,12 @@ public class ChatMessageActivity extends AppCompatActivity {
         });
     }
     private void initMsgs(){
-        Msg msg1 = new Msg("你好哇，李银河",Msg.TYPE_RECEIVED);
+        Msg msg1 = new Msg("你好哇，李银河",Msg.TYPE_RECEIVED,RecyclerUtils.bitmaps(R.mipmap.a10, this));
         msgList.add(msg1);
-        Msg msg2 = new Msg("Hi",Msg.TYPE_SENT);
+        Msg msg2 = new Msg("Hi",Msg.TYPE_SENT,RecyclerUtils.bitmaps(R.mipmap.a10, this));
         msgList.add(msg2);
         Msg msg3 = new Msg("当我跨过沉沦到一切，向着永恒开战的时候，你是我的军旗",
-                Msg.TYPE_RECEIVED);
+                Msg.TYPE_RECEIVED,RecyclerUtils.bitmaps(R.mipmap.a10, this));
         msgList.add(msg3);
     }
 

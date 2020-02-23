@@ -11,8 +11,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_margin="10dp"
-        android:background="@drawable/bg_gray_circular"
+
         >
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/left_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            ></com.qmuiteam.qmui.widget.QMUIRadiusImageView>
+
 
         <TextView
             android:id="@+id/left_msg"
@@ -20,7 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:textColor="@color/black"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_bule_circular"
             />
 
     </LinearLayout>
@@ -37,9 +47,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="18sp"
+            android:background="@drawable/bg_bule_circular"
             android:layout_margin="10dp"/>
-
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/right_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            ></com.qmuiteam.qmui.widget.QMUIRadiusImageView>
     </LinearLayout>
 
 </LinearLayout>

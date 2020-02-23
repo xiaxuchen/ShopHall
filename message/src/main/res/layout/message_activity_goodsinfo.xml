@@ -209,47 +209,6 @@
                             android:paddingLeft="8dp"
                             android:paddingRight="8dp"
                             android:paddingStart="8dp" />
-                      <!--  <RadioGroup
-                            android:id="@+id/RadioGroup_specifications_choice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                        <RadioButton
-                            android:id="@+id/radioButton1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:button="@null"
-                            android:checked="true"
-                            android:drawablePadding="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="1-10件"
-                            android:textColor="#000000"
-                            />
-
-                        <RadioButton
-                            android:id="@+id/radioButton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:drawablePadding="10dp"
-                            android:gravity="center_horizontal"
-                            android:button="@null"
-                            android:text="11-20件"
-                            android:textColor="#000000"
-                            />
-                        <RadioButton
-                            android:id="@+id/radioButton3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:button="@null"
-                            android:drawablePadding="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="20及以上"
-                            android:textColor="#000000"
-                            />
-                            ></RadioGroup>-->
 
 
 

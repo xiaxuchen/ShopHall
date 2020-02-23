@@ -1,5 +1,6 @@
 package com.cxyz.message.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +18,7 @@ import com.cxyz.message.R;
 import com.cxyz.message.ui.Activity.ChatMessageActivity;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.message.widget.view.RecyclerItemView;
+import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.List;
 
@@ -122,17 +124,21 @@ public class RecyclerViewAdapter
 
     class SimpleHolder extends  RecyclerView.ViewHolder {
 
-        public ImageView image;
+        public QMUIRadiusImageView image;
         public TextView title;
         public TextView content;
         public TextView time;
         public TextView other;
         public TextView delete;
         public LinearLayout layout_left;
+        @SuppressLint("ResourceAsColor")
         public SimpleHolder(View view) {
             super(view);
 
-            image = (ImageView) view.findViewById(R.id.image);
+            image = (QMUIRadiusImageView) view.findViewById(R.id.image);
+            image.setBorderWidth(0);
+            image.setCircle(true);
+            image.setBorderColor(android.R.color.white);
             title = (TextView) view.findViewById(R.id.title);
             content = (TextView) view.findViewById(R.id.content);
             time = (TextView) view.findViewById(R.id.time);

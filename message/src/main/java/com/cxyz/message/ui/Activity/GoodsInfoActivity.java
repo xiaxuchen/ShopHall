@@ -1,6 +1,9 @@
 package com.cxyz.message.ui.Activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -35,6 +38,7 @@ import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,6 +46,8 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
+import static com.cxyz.context.ContextManager.getContext;
+
 @Route(path = "/message/GoodsInfoActivity",group = "message")
 public class GoodsInfoActivity extends BaseActivity {
     /**
@@ -84,6 +90,7 @@ public class GoodsInfoActivity extends BaseActivity {
     /**
      * 其他控件
      */
+    private  TextView btaddshoppingcart;
     private  TextView tvPdesc;
     private ImageView ivBackTop;
     private int vpagerTopDistance;// 记录底部ViewPager距离顶部的高度
@@ -161,7 +168,19 @@ public class GoodsInfoActivity extends BaseActivity {
         productFeaturesFlowlayout = (FlowLayout) findViewById(R.id.flowlayout_product_features);
         //底部浮悬
         imgcoll=(ImageView) findViewById(R.id.imgcoll);
+        btaddshoppingcart=findViewById(R.id.btaddshoppingcart);
 
+
+        btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                startActivity(intent);
+                // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
+                ToastUtil.showShort("点击购买");
+
+            }
+        });
         initImg();
         refulashData();
 

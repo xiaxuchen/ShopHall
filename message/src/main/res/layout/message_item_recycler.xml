@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="62dp"
+    android:layout_height="70dp"
     android:background="@android:color/white"
     android:layout_marginBottom="1dp"
     tools:ignore="ResourceName">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="70dp">
 
         <LinearLayout
             android:id="@+id/slide"
@@ -41,13 +41,14 @@
             android:id="@+id/layout_left"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
             android:background="#ffffff"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView
                 android:id="@+id/image"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher"/>
 
@@ -80,7 +81,7 @@
                         android:paddingRight="10dp"
                         android:paddingTop="10dp"
                         android:textColor="#747373"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:text="11:44"/>
 
                 </LinearLayout>
@@ -100,7 +101,7 @@
         </LinearLayout>
         <View
             android:layout_width="1000dp"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_alignParentBottom="true"
             android:background="@color/qmui_config_color_gray_9"></View>
 

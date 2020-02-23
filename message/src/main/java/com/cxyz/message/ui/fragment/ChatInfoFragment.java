@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
@@ -35,8 +34,6 @@ public class ChatInfoFragment extends BaseFragment implements RecyclerViewAdapte
     private List<String> dataTitle;     //标题（谁的消息）
     private List<String> datasContent;  //内容（消息内容）
     private List<String> datasTime;     //时间（消息时间）
-    private QMUIRadiusImageView ivLogisticsInfo;
-    private QMUIRadiusImageView  ivDiscontInfo;
     @Override
     protected int getLayoutId() {
         return R.layout.message_activity_chatinfo;
@@ -46,12 +43,6 @@ public class ChatInfoFragment extends BaseFragment implements RecyclerViewAdapte
     protected void initData(Bundle bundle) {
         recycler = (RecyclerView)findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(getHoldingActivity()));
-        ivLogisticsInfo= (QMUIRadiusImageView) findViewById(R.id.ivlogisticsinfo);
-        ivLogisticsInfo.setCircle(true);
-        ivLogisticsInfo.setBorderColor(ColorsUtil.WHITE);
-        ivDiscontInfo= (QMUIRadiusImageView) findViewById(R.id.ivdiscontinfo);
-        ivDiscontInfo.setCircle(true);
-        ivDiscontInfo.setBorderColor(ColorsUtil.WHITE);
         datas();//插入数据
         //更新界面
         updateInterface();

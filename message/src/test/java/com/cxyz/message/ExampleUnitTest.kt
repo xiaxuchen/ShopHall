@@ -1,5 +1,7 @@
 package com.cxyz.message
 
+import com.cxyz.http.CommonOkHttpClient
+import com.cxyz.http.request.RequestParams
 import org.junit.Test
 
 import org.junit.Assert.*

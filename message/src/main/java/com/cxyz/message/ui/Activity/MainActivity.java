@@ -36,6 +36,7 @@ import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 import com.cxyz.message.widget.view.FlowLayout;
 import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.utils.ToastUtil;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
+
+import static com.cxyz.context.ContextManager.getContext;
+
 @Route(path = "/message/MainActivity")
 //goodsinfoactivity
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -121,9 +125,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  Intent intent=new Intent(getApplicationContext(),GoodsInfoActivity.class);
+               /* Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
                 startActivity(intent);*/
-                ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
+               // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
+
+
+
             }
         });
         // 顶部tool
