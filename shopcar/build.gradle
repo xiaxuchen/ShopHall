@@ -8,6 +8,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: rootDir.path + '/android.gradle'
 android {
+    signingConfigs {
+        Myfirst {
+            storeFile file('E:\\Program Files\\Android\\shopcar.jks')
+            storePassword '123456'
+            keyAlias = 'shopcar'
+            keyPassword '123456'
+        }
+    }
     defaultConfig {
         // 单模块调试下才有applicationId
         if (isDebug.toBoolean())

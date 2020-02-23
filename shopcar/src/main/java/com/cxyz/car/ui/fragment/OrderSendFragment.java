@@ -52,7 +52,7 @@ public class OrderSendFragment extends BaseFragment<OrderSendPresenter> implemen
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView = view.findViewById(R.id.lv_order_send);
+        listView = view.findViewById(R.id.lvOrderSend);
     }
 
     @Override

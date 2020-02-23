@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.cxyz.main.ui.widget.NoToggleViewPager
         android:id="@+id/vpContent"
         android:layout_width="match_parent"
         android:layout_height="0px"

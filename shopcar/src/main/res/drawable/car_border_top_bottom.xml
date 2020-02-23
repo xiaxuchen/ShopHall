@@ -13,7 +13,7 @@
         android:bottom="0.7dp"
         android:top="0.7dp"> <!--上下左右四个边框的宽度，为0的话就没有了-->
         <shape>
-            <solid android:color="#E9E7E7" />  <!-- 背景白色 -->
+            <solid android:color="@color/white" />  <!-- 背景白色 -->
         </shape>
     </item>
 </layer-list>

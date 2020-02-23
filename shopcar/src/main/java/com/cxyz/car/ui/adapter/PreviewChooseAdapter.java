@@ -5,6 +5,7 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,10 +41,11 @@ public class PreviewChooseAdapter extends RecyclerView.Adapter<PreviewChooseAdap
     }
 
     class InnerHolder extends RecyclerView.ViewHolder {
-        private TextView tv_option;
+        private TextView tv_option;//颜色分类
+
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
-            tv_option=itemView.findViewById(R.id.tv_preview_option);
+            tv_option=itemView.findViewById(R.id.tvPreviewOption);
         }
     }
 }

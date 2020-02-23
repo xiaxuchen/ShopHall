@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+   <com.cxyz.widget.HeaderBar
+       android:id="@+id/hbForgot"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       app:backText="忘记密码"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:ignore="MissingConstraints" />
+
+   <EditText
+       android:id="@+id/etForgotPhone"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:hint="输入手机号码"
+       android:paddingLeft="15dp"
+       android:layout_marginEnd="30dp"
+       android:layout_marginStart="30dp"
+       android:textColor="#ccc"
+       app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline6"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/hbForgot"
+       app:layout_constraintVertical_bias="0.127"
+       android:textColorHint="#ccc"
+       tools:ignore="MissingConstraints" />
+
+   <EditText
+       android:id="@+id/etForgotVerifyCode"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginEnd="30dp"
+       android:hint="输入验证码"
+       android:textColor="#ccc"
+       android:paddingLeft="15dp"
+       android:layout_marginTop="15dp"
+       app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline6"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/etForgotPhone"
+       app:layout_constraintVertical_bias="0.0"
+       android:textColorHint="#ccc"
+       tools:ignore="MissingConstraints" />
+
+   <EditText
+       android:id="@+id/etForgotNewPassword"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginEnd="30dp"
+       android:hint="输入新密码"
+       android:textColorHint="#ccc"
+       android:textColor="#ccc"
+       android:paddingLeft="15dp"
+       app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline6"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/etForgotVerifyCode"
+       app:layout_constraintVertical_bias="0.0"
+       android:layout_marginTop="15sp"
+       tools:ignore="MissingConstraints" />
+
+   <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+       android:id="@+id/qmuibtnSure"
+       android:layout_width="150dp"
+       android:layout_height="40dp"
+       android:textColor="@color/white"
+       android:text="确认修改"
+       android:textSize="18sp"
+       app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline6"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/etForgotNewPassword"
+       app:qmui_radius="10sp"
+       android:textAlignment="center"
+       app:qmui_borderColor="@color/common_orange"
+       app:qmui_backgroundColor="@color/common_orange"
+       android:gravity="center"
+       android:paddingTop="1.5dp"
+       tools:ignore="MissingConstraints" />
+
+   <TextView
+       android:id="@+id/tvStoreGetVerifyCode"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="获取验证码"
+       android:textColor="@color/common_orange"
+       app:layout_constraintBottom_toBottomOf="@+id/etForgotVerifyCode"
+       app:layout_constraintEnd_toEndOf="@+id/etForgotVerifyCode"
+       app:layout_constraintHorizontal_bias="0.893"
+       app:layout_constraintStart_toStartOf="@+id/etForgotVerifyCode"
+       app:layout_constraintTop_toTopOf="@+id/etForgotVerifyCode"
+       app:layout_constraintVertical_bias="0.461"
+       tools:ignore="MissingConstraints" />
+
+   <androidx.constraintlayout.widget.Guideline
+       android:id="@+id/shopcar_guideline6"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       app:layout_constraintGuide_begin="400dp"
+
+       />
+</androidx.constraintlayout.widget.ConstraintLayout>

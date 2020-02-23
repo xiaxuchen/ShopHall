@@ -7,28 +7,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/hb_order_detail_headerbar"
+        android:id="@+id/hbOrderDetailHeaderbar"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        app:backText="订单详情"
         android:background="@color/common_colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:text="订单详情"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="@+id/hb_order_detail_headerbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17000002"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -39,85 +27,75 @@
         app:layout_constraintGuide_begin="82dp" />
 
     <ImageView
-        android:id="@+id/shopcar_imageview"
+        android:id="@+id/shopcarImageview"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:background="@drawable/car_order_more"
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="@+id/hb_order_detail_headerbar"
+        app:layout_constraintStart_toStartOf="@+id/hbOrderDetailHeaderbar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.18"
         tools:ignore="MissingConstraints" />
 
     <View
-        android:id="@+id/view_success"
+        android:id="@+id/viewSuccess"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/common_colorPrimary"
-        app:layout_constraintTop_toBottomOf="@id/hb_order_detail_headerbar"
-        tools:ignore="MissingConstraints" />
-
-    <View
-        android:id="@+id/view_address"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_success"
+        app:layout_constraintTop_toBottomOf="@id/hbOrderDetailHeaderbar"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/iv_order_detail_address_logo"
+        android:id="@+id/ivOrderDetailAddressLogo"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="10dp"
         android:background="@drawable/car_dizhi"
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline2"
-        app:layout_constraintEnd_toEndOf="@+id/view_address"
-        app:layout_constraintEnd_toStartOf="@+id/tv_order_detial_address"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view_success"
+        app:layout_constraintStart_toStartOf="@+id/viewSuccess"
         app:layout_constraintTop_toTopOf="@+id/shopcar_guideline3"
-        app:layout_constraintVertical_bias="0.58000004"
+        app:layout_constraintVertical_bias="0.74"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_order_detial_username"
+        android:id="@+id/tvOrderDetialUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="炸天帮9527"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158"
+        app:layout_constraintTop_toTopOf="@+id/shopcar_guideline3"
+        app:layout_constraintVertical_bias="0.62"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_order_detial_address"
+        android:id="@+id/tvOrderDeatilAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="江西省 赣州市 南康区 炸天街 炸天小区 15号"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvOrderDetialUsername"
+        app:layout_constraintTop_toTopOf="@+id/shopcar_guideline3"
+        app:layout_constraintVertical_bias="0.859"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/shopcar_textview"
+        android:id="@+id/shopcarTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="交易成功"
@@ -126,13 +104,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="@+id/view_success"
+        app:layout_constraintStart_toStartOf="@+id/viewSuccess"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.102"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_order_detial_delete"
+        android:id="@+id/tvOrderDetialDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/car_border_btn"
@@ -143,15 +121,16 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view_bot"
+        app:layout_constraintTop_toTopOf="@+id/viewBot"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_order_detial_pay"
+        android:id="@+id/tvOrderDetialPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/car_border_btn"
         android:padding="5dp"
         android:paddingLeft="10dp"
@@ -160,13 +139,13 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view_bot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetialDelete"
+        app:layout_constraintTop_toTopOf="@+id/viewBot"
         tools:ignore="MissingConstraints" />
 
     <View
-        android:id="@+id/view_bot"
+        android:id="@+id/viewBot"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginBottom="50dp"
@@ -182,10 +161,10 @@
         app:layout_constraintGuide_begin="206dp" />
 
     <ScrollView
-        android:id="@+id/sv_order_detail"
+        android:id="@+id/svOrderDetail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/view_bot"
+        app:layout_constraintBottom_toTopOf="@id/viewBot"
         app:layout_constraintTop_toBottomOf="@id/shopcar_guideline2"
         app:layout_constraintVertical_weight="1"
         tools:ignore="MissingConstraints"
@@ -194,19 +173,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="@+id/view_order_detail_item"
-            app:layout_constraintTop_toBottomOf="@+id/view_order_detail_item">
+            app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
+            app:layout_constraintTop_toBottomOf="@+id/viewOrderDetailItem">
 
             <View
-                android:id="@+id/view_order_detail_item"
+                android:id="@+id/viewOrderDetailItem"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:background="@color/white"
-                tools:layout_editor_absoluteX="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="-7dp" />
 
             <ImageView
-                android:id="@+id/iv_order_detail_storelogo"
+                android:id="@+id/ivOrderDetailSoreLogo"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/car_r"
@@ -227,12 +207,12 @@
                 app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"
-                app:layout_constraintStart_toEndOf="@+id/tv_order_detail_store_name"
+                app:layout_constraintStart_toEndOf="@+id/tvOrderDetailStoreName"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
                 app:layout_constraintVertical_bias="0.06999999" />
 
             <TextView
-                android:id="@+id/tv_order_detail_store_name"
+                android:id="@+id/tvOrderDetailStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -243,58 +223,73 @@
                 app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/iv_order_detail_storelogo"
+                app:layout_constraintStart_toEndOf="@+id/ivOrderDetailSoreLogo"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
                 app:layout_constraintVertical_bias="0.01999998" />
 
-            <ImageView
-                android:id="@+id/iv_order_detail_item_image"
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+                app:qmui_corner_radius="8dp"
+                android:id="@+id/ivOrderDetailItemImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/car_bg2"
+                android:src="@drawable/car_bg2"
                 app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintHorizontal_bias="0.048 "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
                 app:layout_constraintVertical_bias="0.336" />
 
             <TextView
-                android:id="@+id/iv_order_detail_item_title"
-                android:layout_width="300dp"
+                android:id="@+id/ivOrderDetailItemTile"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="15dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="一筒包邮 耐打羽毛球正品黄金1号12只装鹅毛比赛球王飞行稳定训练"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintStart_toStartOf="@+id/iv_order_detail_item_desc"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.247" />
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/ivOrderDetailItemDesc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/ivOrderDetailItemImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.166" />
 
             <TextView
-                android:id="@+id/iv_order_detail_item_desc"
-                android:layout_width="300dp"
+                android:id="@+id/ivOrderDetailItemDesc"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
                 android:text="【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐"
                 android:textColor="#ccc"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintStart_toStartOf="@+id/iv_order_detail_item_return"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ivOrderDetailItemTile"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.446" />
+                app:layout_constraintVertical_bias="0.452" />
 
             <TextView
-                android:id="@+id/iv_order_detail_item_return"
-                android:layout_width="90dp"
+                android:id="@+id/ivOrderDetailItemReturn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/car_border_order_return"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
                 android:text="七天无理由退货"
                 android:textAlignment="center"
                 android:textColor="@color/common_red"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ivOrderDetailItemTile"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
                 app:layout_constraintVertical_bias="0.567" />
 
@@ -304,7 +299,7 @@
                 android:layout_height="wrap_content"
                 android:text="订单总价"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/view_order_detail_item"
+                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shopcar_textview2"
@@ -312,13 +307,13 @@
                 app:layout_constraintVertical_bias="0.659" />
 
             <TextView
-                android:id="@+id/tv_order_detail_totalPrice"
+                android:id="@+id/tvOrderDetailTotalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="￥25"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/view_order_detail_item"
-                app:layout_constraintStart_toStartOf="@+id/tv_order_detail_truePay"
+                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailTruePay"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.696" />
 
@@ -329,20 +324,20 @@
                 android:layout_marginEnd="140dp"
                 android:text="实付款"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/view_order_detail_item"
+                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.827" />
 
             <TextView
-                android:id="@+id/tv_order_detail_truePay"
+                android:id="@+id/tvOrderDetailTruePay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="60dp"
                 android:text="￥25"
                 android:textColor="@color/common_red"
                 android:textColorHint="@color/common_red"
-                app:layout_constraintBottom_toBottomOf="@+id/view_order_detail_item"
+                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.828" />
@@ -353,7 +348,7 @@
                 android:layout_height="15dp"
                 android:background="#F3EFEF"
                 app:layout_constraintBottom_toTopOf="@id/view_order_detail_detail"
-                app:layout_constraintTop_toBottomOf="@id/view_order_detail_item"
+                app:layout_constraintTop_toBottomOf="@id/viewOrderDetailItem"
                 tools:layout_editor_absoluteX="16dp" />
 
             <View
@@ -362,7 +357,7 @@
                 android:layout_height="280dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/view_order_detail_item" />
+                app:layout_constraintTop_toBottomOf="@id/viewOrderDetailItem" />
 
             <TextView
                 android:id="@+id/shopcar_textview4"
@@ -453,7 +448,7 @@
 
 
             <TextView
-                android:id="@+id/tv_order_detail_ordercode"
+                android:id="@+id/tvOrderDetailOrderCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="654515584641215445465"
@@ -467,44 +462,36 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/tv_order_detail_order_createtime"
+                android:id="@+id/tvOrderDetailOrderCreateTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2019-07-26 18:21:29"
                 android:textColor="#ccc"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview6"
-                app:layout_constraintStart_toStartOf="@+id/tv_order_detail_ordercode"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailOrderCode"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_textview6" />
 
             <TextView
-                android:id="@+id/tv_order_detail_order_paytime"
+                android:id="@+id/tvOrderDetailOrderPayTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2019-07-26 18:21:38"
                 android:textColor="#ccc"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview7"
-                app:layout_constraintStart_toStartOf="@+id/tv_order_detail_order_createtime"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailOrderCreateTime"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_textview7" />
 
             <TextView
-                android:id="@+id/tv_order_detail_order_closetime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ccc"
-                android:textSize="12sp"
-                android:text="2019-08-06 11:21:29"/>
-
-            <TextView
-                android:id="@+id/tv_order_detail_order_sendtime"
+                android:id="@+id/tvOrderDetailOrderCloseTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2019-07-27 11:48:57"
                 android:textColor="#ccc"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview9"
-                app:layout_constraintStart_toStartOf="@+id/tv_order_detial_phone"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailOrderSendTime"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_textview9" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -521,25 +508,44 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="233dp" />
 
-            <View
-                android:id="@+id/shopcar_view5"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:background="#F3EFEF"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="272dp" />
-
             <TextView
-                android:id="@+id/tv_order_detial_phone"
+                android:id="@+id/tvOrderDetailOrderSendTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2019-07-12 12:45:33"
                 android:textColor="#ccc"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview8"
-                app:layout_constraintStart_toStartOf="@+id/tv_order_detail_order_paytime"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailOrderPayTime"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_textview8"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/shopcar_view2"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="#F3EFEF"
+                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/shopcar_view5"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#F3EFEF"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDeatilAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopcar_guideline3"
+        app:layout_constraintVertical_bias="0.426"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

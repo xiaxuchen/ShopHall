@@ -4,108 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/common_bg"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
     tools:ignore="ResourceName">
-<!--顶部搜索框-->
+    <!--顶部搜索框-->
     <LinearLayout
-        android:background="@color/common_colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
+        android:background="@color/common_colorPrimary"
         android:gravity="center"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="300dp"
-            android:layout_height="30dp"
+            android:layout_width="296dp"
+            android:layout_height="31dp"
             android:background="@drawable/car_radius_border"
-            android:text="请输入搜索内容"
             android:gravity="center_vertical"
             android:paddingLeft="6dp"
-            android:textColor="#ccc"/>
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/car_search"
-            android:layout_marginLeft="-40dp"/>
+            android:text="请输入搜索内容"
+            android:textColor="#ccc" />
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginLeft="-40dp"
+            android:background="@drawable/car_search" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/car_sao"
-            />
+            android:background="@drawable/car_sao" />
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/sv_main"
+        android:id="@+id/svMain"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <!--广告轮播 -->
+        android:layout_weight="1">
+
         <RelativeLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:id="@+id/rl_ad"
-            >
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_imageslide"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <!--广告轮播 -->
+
+            <RelativeLayout
+                android:id="@+id/rlAdvertis"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/vp_imageslide"
-                android:background="#33F8ECEC"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/tv_imagebot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="#FF5100"
-                    android:textSize="18sp" />
-
-                <LinearLayout
-                    android:id="@+id/ll_point_group"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                >
+                <com.qmuiteam.qmui.layout.QMUILinearLayout
+                    android:id="@+id/qmuiMainLinearLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="horizontal" />
-            </LinearLayout>
+                    android:layout_marginStart="15sp"
+                    android:layout_marginEnd="15sp">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vpImagesLide"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:foregroundGravity="center" />
+                </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_alignBottom="@id/qmuiMainLinearLayout"
+                    android:background="#33F8ECEC"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvImageBot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#FF5100"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/llPointGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+<!--            中间商家-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:foregroundGravity="center"
+                android:id="@+id/rvMainStore"
+                android:layout_width="match_parent"
+                android:layout_marginTop="14dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/rlAdvertis"
+                android:background="#F5F2F2"
+                />
+            <ListView
+                android:id="@+id/lv_bottom_ad"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_below="@id/rvMainStore"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/car_border_samll" />
         </RelativeLayout>
-        <!--中间商家-->
-        <GridView
-            android:layout_below="@+id/rl_ad"
-            android:layout_gravity="center"
-            android:id="@+id/gv_middle_stores"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:horizontalSpacing="1pt"
-            android:numColumns="6"
-            android:verticalSpacing="1pt"
-            android:background="#F5F2F2"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"/>
-        <!--底部广告-->
-        <ListView
-            android:layout_below="@id/gv_middle_stores"
-            android:id="@+id/lv_bottom_ad"
-            android:layout_width="match_parent"
-            android:layout_height="800dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/car_border_samll"/>
-    </RelativeLayout>
     </ScrollView>
 </LinearLayout>

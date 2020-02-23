@@ -8,33 +8,34 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/iv_preview_chahao"
+        android:id="@+id/ivPreviewChaHao"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:background="@drawable/car_preview_chahao"
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toEndOf="@+id/iv_preview_image"
+        app:layout_constraintStart_toEndOf="@+id/ivPreviewImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.149"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/iv_preview_image"
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+        android:id="@+id/ivPreviewImage"
+        app:qmui_corner_radius="8dp"
+        android:src="@drawable/car_bg2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/car_bg2"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_preview_price"
-        android:layout_width="120dp"
+        android:id="@+id/tvPreviewPrice"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="￥8860-11970"
         android:textColor="@color/common_red"
@@ -42,14 +43,14 @@
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
-        app:layout_constraintStart_toEndOf="@+id/iv_preview_image"
+        app:layout_constraintStart_toEndOf="@+id/ivPreviewImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.27"
         tools:ignore="MissingConstraints" />
 
 
     <TextView
-        android:id="@+id/tv_preview_remain"
+        android:id="@+id/tvPreviewRemain"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="库存999件"
@@ -58,13 +59,13 @@
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
-        app:layout_constraintStart_toEndOf="@+id/iv_preview_image"
+        app:layout_constraintStart_toEndOf="@+id/ivPreviewImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.535"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_preview_choosecolor"
+        android:id="@+id/tvPreviewChooseColor"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="选择颜色分类"
@@ -73,13 +74,13 @@
         app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.165"
-        app:layout_constraintStart_toEndOf="@+id/iv_preview_image"
+        app:layout_constraintStart_toEndOf="@+id/ivPreviewImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_prevew_color"
+        android:id="@+id/tvPreviewColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -89,33 +90,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_preview_image"
+        app:layout_constraintTop_toBottomOf="@+id/ivPreviewImage"
         tools:ignore="MissingConstraints" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_preview_choose"
+        android:id="@+id/rvPreviewChoose"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        app:layout_constraintBottom_toTopOf="@id/view_top"
-        app:layout_constraintTop_toBottomOf="@+id/tv_prevew_color"
-        app:layout_constraintVertical_bias="0.021"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPreviewColor"
+        app:layout_constraintVertical_bias="0.022"
+        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/view_top"
         android:layout_width="400dp"
         android:layout_height="0.5dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="36dp"
         android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@id/view_bottom"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_preview_count"
+        android:id="@+id/tvPreviewCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="购买数量"
@@ -129,7 +134,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_preview_add"
+        android:id="@+id/tvPreviewAdd"
         android:layout_width="30dp"
         android:layout_height="20dp"
         android:layout_marginEnd="56dp"
@@ -146,7 +151,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_preview_count"
+        android:id="@+id/etPrevoewCount"
         android:layout_width="30dp"
         android:layout_height="20dp"
         android:background="@drawable/car_border_rectangle"
@@ -155,7 +160,7 @@
         android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@id/view_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/tv_preview_add"
+        app:layout_constraintEnd_toStartOf="@+id/tvPreviewAdd"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_top"
@@ -163,16 +168,16 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_preview_descres"
+        android:id="@+id/tvPreviewDescres"
         android:layout_width="30dp"
         android:layout_height="20dp"
         android:background="@drawable/car_border_rectangle"
         android:text="-"
+        android:textSize="15sp"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/view_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/et_preview_count"
+        app:layout_constraintEnd_toStartOf="@+id/etPrevoewCount"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_top"
@@ -187,7 +192,9 @@
         android:background="#ccc"
         app:layout_constraintBottom_toTopOf="@id/view_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <View
@@ -196,14 +203,16 @@
         android:layout_height="0.5dp"
         android:layout_marginBottom="5dp"
         android:background="#ccc"
-        app:layout_constraintBottom_toTopOf="@id/btn_preview_sure"
+        app:layout_constraintBottom_toTopOf="@id/btnPreviewSure"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btn_preview_sure"
-        android:layout_width="400dp"
+        android:id="@+id/btnPreviewSure"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/car_border_bg_organ"
@@ -211,6 +220,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -219,5 +229,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="132dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

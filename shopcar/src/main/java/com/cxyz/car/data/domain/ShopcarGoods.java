@@ -1,13 +1,14 @@
 package com.cxyz.car.data.domain;
 
 public class ShopcarGoods {
-    private int logo;//购物车店铺的logo
-    private int image;//商品图片
-    private Double price;//商品价格
-    private String desc;//商品描述
-    private String smal;//活动描述
 
-    public ShopcarGoods(int logo, int image, Double price, String desc, String smal) {
+    private String logo;
+    private String image;
+    private double price;
+    private String desc;
+    private String smal;
+
+    public ShopcarGoods(String logo, String image, double price, String desc, String smal) {
         this.logo = logo;
         this.image = image;
         this.price = price;
@@ -18,35 +19,35 @@ public class ShopcarGoods {
     @Override
     public String toString() {
         return "ShopcarGoods{" +
-                "logo=" + logo +
-                ", image=" + image +
+                "logo='" + logo + '\'' +
+                ", image='" + image + '\'' +
                 ", price=" + price +
                 ", desc='" + desc + '\'' +
                 ", smal='" + smal + '\'' +
                 '}';
     }
 
-    public int getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(int logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

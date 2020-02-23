@@ -7,39 +7,12 @@
     android:background="@color/common_white">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/hb_track_headerBar"
+        android:id="@+id/hbTrackHeaderBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:background="@color/common_colorPrimary"
-        tools:ignore="MissingConstraints">
-    </com.cxyz.widget.HeaderBar>
-<!--    <com.joanzapata.iconify.widget.IconTextView-->
-<!--        android:id="@+id/itvBack"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="@dimen/common_margin_middle"-->
-<!--        android:text="{fa-arrow-left}"-->
-<!--        android:textColor="@color/common_white"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.527" />-->
-
-    <TextView
-        android:id="@+id/shopcarTextview2"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="我的足迹"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/hb_track_headerBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/shopcarGuideline6"
-        app:layout_constraintVertical_bias="0.38"
-        tools:ignore="MissingConstraints" />
-
+        tools:ignore="MissingConstraints"
+        app:backText="我的足迹"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/shopcarGuideline6"
         android:layout_width="wrap_content"
@@ -48,37 +21,31 @@
         app:layout_constraintGuide_begin="0dp" />
 
     <ImageView
-        android:id="@+id/iv_track_delete"
+        android:id="@+id/ivTrackDelete"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:background="@drawable/car_track_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/hb_track_headerBar"
+        app:layout_constraintBottom_toBottomOf="@+id/hbTrackHeaderBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
-        app:layout_constraintStart_toStartOf="@+id/hb_track_headerBar"
-        app:layout_constraintTop_toTopOf="@+id/hb_track_headerBar"
-        app:layout_constraintVertical_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="@+id/hbTrackHeaderBar"
+        app:layout_constraintTop_toTopOf="@+id/hbTrackHeaderBar"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/iv_track_more"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/car_order_more"
-        app:layout_constraintBottom_toBottomOf="@+id/hb_track_headerBar"
-        app:layout_constraintEnd_toEndOf="@+id/hb_track_headerBar"
-        app:layout_constraintHorizontal_bias="0.99"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38"
-        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_track"
-        android:layout_width="410dp"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/rvTrack"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hb_track_headerBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hbTrackHeaderBar"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        android:scrollbars="vertical"
+        android:paddingVertical="10dp"
+        tools:ignore="MissingConstraints"
+        android:background="#f5f5f5"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

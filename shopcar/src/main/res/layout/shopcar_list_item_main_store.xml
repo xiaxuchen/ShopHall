@@ -9,28 +9,31 @@
     tools:ignore="ResourceName">
 
     <LinearLayout
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="125dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:background="@drawable/car_radius_border1"
         android:layout_marginTop="12dp">
         <ImageView
-            android:id="@+id/iv_middle_store_image"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
+            android:id="@+id/ivMiddleStoreImage"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="105dp"
+            android:background="@drawable/car_bg2"
+            android:layout_height="58dp"
             android:scaleType="centerCrop"
             />
 
         <TextView
-            android:id="@+id/tv_middle_store_name"
+            android:id="@+id/tvMiddleStoreName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="哈哈哈哈"
-            android:textColor="#7C7171"
             android:layout_marginTop="5dp"
-            android:textSize="8sp" />
+            android:text="来福运动专卖店"
+            android:textColor="#7C7171"
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

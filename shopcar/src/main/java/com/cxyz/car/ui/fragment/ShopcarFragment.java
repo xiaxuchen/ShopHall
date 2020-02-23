@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
 import com.cxyz.car.presenter.ShopcarPresenter;
@@ -59,7 +60,7 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        listView=view.findViewById(R.id.lv_shop);
+        listView=view.findViewById(R.id.lvShop);
     }
 
     @Override
@@ -124,14 +125,14 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
                         viewHolder=new ShopViewHolder();
                         view=LayoutInflater.from(context).inflate(R.layout.shopcar_list_item_shopcar,null);
 
-                        viewHolder.logo=view.findViewById(R.id.iv_shopcar_logo);
-                        viewHolder.image=view.findViewById(R.id.iv_shopcar_store_image);
-                        viewHolder.desc=view.findViewById(R.id.tv_shopcar_desc);
-                        viewHolder.smal=view.findViewById(R.id.tv_shopcar_smal);
-                        viewHolder.price=view.findViewById(R.id.tv_shopcar_store_price);
-                        viewHolder.btnAdd=view.findViewById(R.id.btn_shopcar_add);
-                        viewHolder.btnDescre=view.findViewById(R.id.btn_shopcar_descres);
-                        viewHolder.count=view.findViewById(R.id.et_shopcar_count);
+                        viewHolder.logo=view.findViewById(R.id.ivShopcarLogo);
+                        viewHolder.image=view.findViewById(R.id.ivShopcarStoreImage);
+                        viewHolder.desc=view.findViewById(R.id.tvShopcarDesc);
+                        viewHolder.smal=view.findViewById(R.id.tvShopcarSmal);
+                        viewHolder.price=view.findViewById(R.id.tvShopcarStorePrice);
+                        viewHolder.btnAdd=view.findViewById(R.id.btnShopcarAdd);
+                        viewHolder.btnDescre=view.findViewById(R.id.btnShopcarDescres);
+                        viewHolder.count=view.findViewById(R.id.etShopcarCount);
 
 
                         view.setTag(viewHolder);
@@ -142,8 +143,9 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             /**
              * 给五个组件添加值
              */
-            viewHolder.logo.setImageResource(listItem.get(i).getLogo());
-            viewHolder.image.setImageResource(listItem.get(i).getImage());
+//            viewHolder.image.setImageResource(listItem.get(i).getImage());
+            Glide.with(viewHolder.image.getContext()).load(listItem.get(i).getImage()).into(viewHolder.image);
+
             viewHolder.desc.setText(listItem.get(i).getDesc());
             viewHolder.image.setOnClickListener(new View.OnClickListener() {
                 @Override

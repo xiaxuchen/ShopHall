@@ -8,92 +8,45 @@
     tools:context=".ui.activity.FavoriteActivity">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/hb_favorite_headerbar"
+        android:id="@+id/hbFavoriteHeaderbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:background="@color/common_colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:moreText="管理"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="2dp">
-
-    </com.cxyz.widget.HeaderBar>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopcarGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="403dp" />
+        app:backText="全部宝贝"
+        tools:ignore="MissingConstraints"></com.cxyz.widget.HeaderBar>
 
     <ImageView
-        android:id="@+id/iv_favorite_search"
+        android:id="@+id/ivFavoriteSearch"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/car_search_favorite"
-        app:layout_constraintBottom_toTopOf="@+id/shopcarGuideline3"
-        app:layout_constraintEnd_toStartOf="@+id/shopcarGuideline"
-        app:layout_constraintStart_toStartOf="@+id/shopcarGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/shopcarGuideline4"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopcarGuideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="312dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopcarGuideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="2dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopcarGuideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="38dp" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/shopcarBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/shopcarBarrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="全部宝贝"
-        android:textColor="#fff"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/shopcarGuideline4"
+        app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/hb_favorite_headerbar"
-        app:layout_constraintTop_toTopOf="@+id/shopcarGuideline3"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.14999998"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/shopcarBarrier3"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shopcar_guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="72dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_favorite_goods"
+        android:id="@+id/rvFavoriteGoods"
         android:layout_width="match_parent"
-        android:layout_height="764dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hb_favorite_headerbar" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shopcar_guideline4"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

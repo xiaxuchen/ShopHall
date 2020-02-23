@@ -59,8 +59,8 @@ public class OrderActivity extends BaseActivity {
      */
     public void initView() {
         //初始化控件
-        vp_order=findViewById(R.id.vp_order);
-        tl_nav=findViewById(R.id.tl_order_nav);
+        vp_order=findViewById(R.id.vpOrder);
+        tl_nav=findViewById(R.id.tlOrderNav);
     }
     /**
      * 初始化数据
