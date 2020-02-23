@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.cxyz.context.starter.Starter;
@@ -53,7 +54,8 @@ public class ExceptionHandlerStarter implements Starter {
     @Override
     public void load(Context context) {
         Cockroach.install((thread, throwable) -> {
-            throwable.printStackTrace();
+            // 打印异常
+            LogUtil.e(Log.getStackTraceString(throwable));
             // 这里可以添加上传异常信息的代码
             ToastUtil.showShort("发生未知异常");
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
@@ -63,7 +65,6 @@ public class ExceptionHandlerStarter implements Starter {
             try {
                 //输出流操作,将日志保存在/bugs/目录
                 File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath(), "bugs/" + UUID.randomUUID().toString().replace('-','_')+".log");
-                LogUtil.e(tempFile.getAbsolutePath());
                 createContent(context,tempFile,throwable);
                 restart(context);
             } catch (Exception e) {

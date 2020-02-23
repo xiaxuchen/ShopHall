@@ -13,10 +13,11 @@ import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.widget.HeaderBar;
+import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 @Route(path = "/mine/PersonalInformation",group = "mine")
 public class PersonalInformation extends BaseActivity {
-
+    private QMUIRadiusImageView imProfilePicture;
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_personalinformation_layout;
@@ -24,7 +25,8 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initView() {
-
+        imProfilePicture = findViewById(R.id.imProfilePicture);
+        imProfilePicture.setCircle(true);
     }
 
     @Override

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f1f0f0"
     tools:context=".ui.fragment.MineFragment">
 
 
@@ -13,22 +14,21 @@
         android:layout_height="100dp"
         tools:ignore="MissingConstraints"
         android:background="@color/common_colorPrimary">
-        <ImageView
-            android:id="@+id/mineHeaderImg"
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/imMineHeaderImg"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:layout_constraintTop_toTopOf="@id/mineHeader"
             app:layout_constraintLeft_toLeftOf="@id/mineHeader"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/common_margin_middle"
-            android:background="@drawable/mine_header_border"
             android:src="@mipmap/mine_mall_ad_img05"
             />
         <TextView
             android:id="@+id/mineHeaderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/mineHeaderImg"
+            app:layout_constraintLeft_toRightOf="@id/imMineHeaderImg"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="@dimen/common_margin"
@@ -41,11 +41,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/mineHeaderName"
-            app:layout_constraintLeft_toRightOf="@id/mineHeaderImg"
+            app:layout_constraintLeft_toRightOf="@id/imMineHeaderImg"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/common_margin_small"
-            android:text="@string/mine_header_ziliao"
-            android:padding="2dp"
+            android:text="@string/mineHeaderZiliao"
+            android:paddingRight="@dimen/common_padding_small"
+            android:paddingLeft="@dimen/common_padding_small"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small_size"
             android:background="@drawable/mine_header_border"
@@ -60,255 +63,290 @@
             android:src="@mipmap/mine_header_setup"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/mineMyOrder"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:layout_constraintTop_toBottomOf="@id/mineHeader"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="@dimen/common_margin"
-        android:text="@string/mine_myorder"
-        android:textSize="@dimen/text_large_size"
-        android:gravity="center_vertical"
-        tools:ignore="MissingConstraints" />
     <LinearLayout
-        android:id="@+id/minePurchased"
+        android:id="@+id/mineOrders"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/mineMyOrder"
+        android:layout_height="128dp"
+        android:layout_marginTop="@dimen/common_margin_middle"
+        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginLeft="@dimen/common_margin"
+        android:orientation="vertical"
+        android:background="@drawable/mine_page_border"
+        app:layout_constraintTop_toBottomOf="@id/mineHeader"
         tools:ignore="MissingConstraints,Orientation">
-        <!-- a待付款 -->
+        <TextView
+            android:id="@+id/mineMyOrder"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="@dimen/common_margin"
+            android:text="@string/mineMyorder"
+            android:textSize="@dimen/text_large_size"
+            android:gravity="center_vertical"
+            tools:ignore="MissingConstraints" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_divider_height"
+            android:background="@color/common_divider"/>
         <LinearLayout
-            android:id="@+id/prePayment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="@dimen/common_padding">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@mipmap/mine_order_a"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_a"
-                android:textSize="@dimen/text_middle_size"
-                />
+            android:id="@+id/minePurchased"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/mineMyOrder"
+            tools:ignore="MissingConstraints,Orientation">
+            <!-- a待付款 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/prePayment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/common_padding">
+                <ImageView
+                    android:id="@+id/imPrePayment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@mipmap/mine_order_a"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/mineMyorderA"
+                    android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imPrePayment"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- b待发货 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/delivered"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/common_padding">
+                <ImageView
+                    android:id="@+id/imDelivered"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/mine_order_b"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/mineMyorderB"
+                    android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imDelivered"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- c待收货 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/received"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/common_padding">
+                <ImageView
+                    android:id="@+id/imReceived"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/mine_order_c"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/mineMyorderC"
+                    android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imReceived"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- d全部订单 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mineOrder"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/common_padding">
+                <ImageView
+                    android:id="@+id/imMineOrder"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/common_margin_middle"
+                    android:src="@mipmap/mine_order_d"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/mineMyorderD"
+                    android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imMineOrder"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-        <!-- b待发货 -->
-        <LinearLayout
-            android:id="@+id/delivered"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="@dimen/common_padding">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@mipmap/mine_order_b"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_b"
-                android:textSize="@dimen/text_middle_size"
-                />
-        </LinearLayout>
-        <!-- c待收货 -->
-        <LinearLayout
-            android:id="@+id/received"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="@dimen/common_padding">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@mipmap/mine_order_c"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_c"
-                android:textSize="@dimen/text_middle_size"
-                />
-        </LinearLayout>
-        <!-- d全部订单 -->
-        <LinearLayout
-            android:id="@+id/mineOrder"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="@dimen/common_padding">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="@dimen/common_margin_middle"
-                android:src="@mipmap/mine_order_d"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/mine_myorder_d"
-                android:textSize="@dimen/text_middle_size"
-                />
-        </LinearLayout>
-
     </LinearLayout>
-    <View
-        android:id="@+id/mineDivider"
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="@color/common_divider"
-        app:layout_constraintTop_toBottomOf="@id/minePurchased"
-        tools:ignore="MissingConstraints" />
-    <!-- 购物车 -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mineFavorite"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/common_line_height"
-        app:layout_constraintTop_toBottomOf="@id/mineDivider"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/mineFavoriteImg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="@dimen/common_margin"
-            android:layout_marginTop="@dimen/common_margin_middle"
-            android:background="@drawable/mine_favorite_border"
-            android:src="@mipmap/mine_favorite"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        android:background="@drawable/mine_page_border"
+        android:layout_marginLeft="@dimen/common_margin"
+        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_middle"
+        app:layout_constraintTop_toBottomOf="@id/mineOrders"
+        tools:ignore="Orientation">
+        <!-- 购物车 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mineFavorite"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/common_line_height"
-            app:layout_constraintLeft_toLeftOf="@id/mineFavoriteImg"
-            android:gravity="center"
-            android:layout_marginLeft="60dp"
-            android:text="@string/mine_favorites"
-            android:textSize="@dimen/text_middle_size"
-            />
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/common_margin"
-            android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@mipmap/mine_personal_back"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/mineFavoriteImg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="@dimen/common_margin"
+                android:layout_marginTop="@dimen/common_margin_middle"
+                android:background="@drawable/mine_favorite_border"
+                android:src="@mipmap/mine_favorite"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_line_height"
+                app:layout_constraintLeft_toLeftOf="@id/mineFavoriteImg"
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:text="@string/mineFavorites"
+                android:textSize="@dimen/text_middle_size"
+                />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginRight="@dimen/common_margin_small"
+                android:background="@mipmap/mine_personal_back"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_divider_height"
+            android:background="@color/common_divider"
+            app:layout_constraintTop_toBottomOf="@id/mineFavorite"
+            tools:ignore="MissingConstraints" />
+        <!-- 账户资金 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mineAccount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_line_height"
+            app:layout_constraintTop_toBottomOf="@id/mineFavorite"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/mineAccountImg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="@dimen/common_margin"
+                android:layout_marginTop="@dimen/common_margin_middle"
+                android:background="@drawable/mine_account_border"
+                android:src="@mipmap/mine_account_img"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_line_height"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:text="@string/mineAccount"
+                android:textSize="@dimen/text_middle_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/mineAccountImg" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginRight="@dimen/common_margin_small"
+                android:background="@mipmap/mine_personal_back"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_divider_height"
+            android:background="@color/common_divider"
+            app:layout_constraintTop_toBottomOf="@id/mineAccount"
+            tools:ignore="MissingConstraints" />
+        <!-- 浏览历史 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mineHistory"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_line_height"
+            app:layout_constraintTop_toBottomOf="@id/mineAccount"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/mineHistoryImg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="@dimen/common_margin"
+                android:layout_marginTop="@dimen/common_margin_middle"
+                android:background="@drawable/mine_favorite_border"
+                android:src="@mipmap/mine_history"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_line_height"
+                app:layout_constraintLeft_toLeftOf="@id/mineHistoryImg"
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:text="@string/mineHistory"
+                android:textSize="@dimen/text_middle_size"
+                />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginRight="@dimen/common_margin_small"
+                android:background="@mipmap/mine_personal_back"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_divider_height"
+            android:background="@color/common_divider"
+            app:layout_constraintTop_toBottomOf="@id/mineHistory"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/common_divider_height"
-        android:background="@color/common_divider"
-        app:layout_constraintTop_toTopOf="@id/mineFavorite"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
-        tools:ignore="MissingConstraints" />
-    <!-- 账户资金 -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mineAccount"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_line_height"
-        app:layout_constraintTop_toBottomOf="@id/mineFavorite"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/mineAccountImg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="@dimen/common_margin"
-            android:layout_marginTop="@dimen/common_margin_middle"
-            android:background="@drawable/mine_account_border"
-            android:src="@mipmap/mine_account_img"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/common_line_height"
-            app:layout_constraintLeft_toLeftOf="@id/mineAccountImg"
-            android:gravity="center"
-            android:layout_marginLeft="60dp"
-            android:text="@string/mine_account"
-            android:textSize="@dimen/text_middle_size"
-            />
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/common_margin"
-            android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@mipmap/mine_personal_back"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/common_divider_height"
-        android:background="@color/common_divider"
-        app:layout_constraintTop_toTopOf="@id/mineAccount"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
-        tools:ignore="MissingConstraints" />
-    <!-- 浏览历史 -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mineHistory"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_line_height"
-        app:layout_constraintTop_toBottomOf="@id/mineAccount"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/mineHistoryImg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="@dimen/common_margin"
-            android:layout_marginTop="@dimen/common_margin_middle"
-            android:background="@drawable/mine_favorite_border"
-            android:src="@mipmap/mine_history"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/common_line_height"
-            app:layout_constraintLeft_toLeftOf="@id/mineHistoryImg"
-            android:gravity="center"
-            android:layout_marginLeft="60dp"
-            android:text="@string/mine_history"
-            android:textSize="@dimen/text_middle_size"
-            />
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/common_margin"
-            android:layout_marginRight="@dimen/common_margin_small"
-            android:background="@mipmap/mine_personal_back"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/common_divider_height"
-        android:background="@color/common_divider"
-        app:layout_constraintTop_toTopOf="@id/mineHistory"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
-        tools:ignore="MissingConstraints" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,6 @@
 package com.cxyz.main.ui.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cxyz.main.R
@@ -14,7 +11,7 @@ import com.cxyz.mvp.ipresenter.IBasePresenter
 import com.cxyz.mvp.iview.IBaseView
 import kotlinx.android.synthetic.main.main_activity_main_layout.*
 import org.jetbrains.anko.sdk25.coroutines.onCheckedChange
-import kotlin.math.min
+
 @Route(path = "/main/MainActivity")
 class MainActivity : BaseActivity<IBasePresenter<IBaseModel,IBaseView>>() {
 
@@ -37,7 +34,6 @@ class MainActivity : BaseActivity<IBasePresenter<IBaseModel,IBaseView>>() {
         mineFragment = ARouter.getInstance().build("/mine/MineFragment").navigation() as Fragment
         messageFragment = ARouter.getInstance().build("/message/ChatInfoFragment").navigation() as Fragment
         vpContent.adapter = MainPagerAdapter(supportFragmentManager, arrayOf(mainFragment,messageFragment,shopCarFragment,mineFragment))
-        rbMain.isChecked = true
     }
 
     override fun initData() {

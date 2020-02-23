@@ -21,14 +21,14 @@
         android:id="@+id/tvBackIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="{fa-arrow-left}"
+        android:text="{fa-chevron-left}"
         android:layout_marginStart="@dimen/common_margin"
         android:layout_marginEnd="@dimen/common_margin_small"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/vHeaderBack"
         app:layout_constraintBottom_toBottomOf="@id/vHeaderBack"
-        android:textColor="@color/common_colorAccent"
+        android:textColor="@color/common_white"
         />
 
     <TextView

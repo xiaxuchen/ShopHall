@@ -3,6 +3,11 @@
     package="com.cxyz.mine">
 
     <application>
+        <activity android:name=".ui.activity.WithdrawActivity"></activity>
+        <activity android:name=".ui.activity.BalanceActivity" />
+        <activity
+            android:name=".ui.activity.AppVersionActivity"
+            android:theme="@style/QMUI.Compat" />
         <activity android:name=".ui.activity.AddAddressActivity" />
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.ChangPasswordActivity" />
@@ -11,7 +16,14 @@
         <activity android:name=".ui.fragment.MineFragment" />
         <activity android:name=".ui.activity.PersonalInformation" />
         <activity android:name=".ui.fragment.MallInformationFragment" />
-        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="com.cxyz.starter.mine.iconify"
             android:value="com.cxyz.mine.starter.IconifyStarter" />

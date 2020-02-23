@@ -71,10 +71,10 @@ public class MallInformationFragment extends BaseFragment<MallInfromatonPresente
 
     @Override
     public void showInformationView(List<Map<String, Object>> listitemShop, List<Map<String, Object>> listitemAd) {
-        SimpleAdapter simpleAdapterShop = new SimpleAdapter(context,listitemShop,R.layout.mine_grid_item_shop,
+        SimpleAdapter simpleAdapterShop = new SimpleAdapter(context,listitemShop,R.layout.mine_grid_item_shop_layout,
                 new String[]{"images","shopName"},new int[]{R.id.ivShopImg,R.id.tvShopName});
         gridView.setAdapter(simpleAdapterShop);
-        SimpleAdapter simpleAdapterAd = new SimpleAdapter(context,listitemAd,R.layout.mine_list_item_ad,
+        SimpleAdapter simpleAdapterAd = new SimpleAdapter(context,listitemAd,R.layout.mine_list_item_ad_layout,
                 new String[]{"name","image","form","context"},
                 new int[]{R.id.tvAdContent,R.id.ivAd,R.id.tvAdTitle,R.id.tvAdContents});
         listView.setAdapter(simpleAdapterAd);

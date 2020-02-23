@@ -1,5 +1,6 @@
 package com.cxyz.mine.ui.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder>{
     private List<Adress> addressList;
-
+    private Context context;
     //添加构造方法
     public AddressAdapter(List<Adress> addressList) {
         this.addressList = addressList;
@@ -24,9 +25,9 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mine_recycle_item_adress,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mine_recycle_item_adress_layout,parent,false);
         ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return  holder;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
 

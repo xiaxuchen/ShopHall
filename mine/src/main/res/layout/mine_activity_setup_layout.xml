@@ -12,7 +12,7 @@
         android:layout_height="@dimen/common_header_bar_height"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        app:backText="@string/mine_setup_header_title"
+        app:backText="@string/mineSetupHeaderTitle"
         app:background="@color/common_colorPrimary"/>
     <View
         android:id="@+id/setUpDivider01"
@@ -35,7 +35,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_adress"
+            android:text="@string/mineSetupAdress"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -69,7 +69,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_password"
+            android:text="@string/mineSetupPassword"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -103,7 +103,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_version"
+            android:text="@string/mineSetupVersion"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -130,7 +130,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_feedback"
+            android:text="@string/mineSetupFeedback"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -159,12 +159,26 @@
         app:layout_constraintTop_toBottomOf="@id/setUpFeedback"
         tools:ignore="MissingConstraints">
         <TextView
+            android:id="@+id/phoneTip"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_phone"
+            android:text="@string/mineSetupPhoneTip"
+            android:textSize="@dimen/text_middle_size"
+            />
+        <TextView
+            android:id="@+id/tvPhone"
+            android:autoLink="phone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/mineSetupPhone"
+            android:paddingLeft="@dimen/common_padding_middle"
+            android:paddingRight="200dp"
+            app:layout_constraintLeft_toRightOf="@id/phoneTip"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -199,7 +213,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_wifi"
+            android:text="@string/mineSetupWifi"
             android:textSize="@dimen/text_middle_size"
             />
         <Switch
@@ -232,7 +246,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_history"
+            android:text="@string/mineSetupHistory"
             android:textSize="@dimen/text_middle_size"
             />
         <ImageView
@@ -266,7 +280,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:gravity="center"
             android:layout_marginLeft="@dimen/common_margin"
-            android:text="@string/mine_setup_clear"
+            android:text="@string/mineSetupClear"
             android:textSize="@dimen/text_middle_size"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -277,7 +291,7 @@
         android:layout_height="@dimen/common_line_height"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/common_colorPrimary"
-        android:text="@string/mine_setup_signout"
+        android:text="@string/mineSetupSignout"
         android:textSize="@dimen/text_large_size"
         android:textColor="@color/white"/>
 

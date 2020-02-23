@@ -21,16 +21,19 @@
     <RadioGroup
         android:id="@+id/rgMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/common_white"
+        android:layout_height="55dp"
+        android:background="@color/common_colorPrimary"
         android:orientation="horizontal"
-        android:padding="@dimen/common_margin_small"
+        android:paddingTop="8dp"
+        android:paddingBottom="@dimen/common_padding_small"
         >
+
         <RadioButton
             android:id="@+id/rbMain"
             android:text="首页"
             android:drawableTop="@drawable/main_bottom_home_icon_selector"
             style="@style/MainButtonStyle"
+            android:checked="true"
             />
         <RadioButton
             android:id="@+id/rbMessage"
