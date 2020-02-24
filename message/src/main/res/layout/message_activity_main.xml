@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="发送"
-            android:background="#1EBD3D"
+            android:background="#FF6633"
             android:textColor="#fff"/>
     </LinearLayout>
 </LinearLayout>

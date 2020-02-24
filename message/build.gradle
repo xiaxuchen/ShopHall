@@ -9,6 +9,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from:rootDir.path + '/android.gradle'
 android {
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
     defaultConfig {
         // 单模块调试下才有applicationId
         if(isDebug.toBoolean())
@@ -47,10 +49,8 @@ android {
 dependencies {
     // Anko Commons
     implementation "org.jetbrains.anko:anko-commons:${dep.ankoVersion}"
-
     // Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25:${dep.ankoVersion}" // sdk15, sdk19, sdk21, sdk23 are also available
-
     // Coroutine listeners for Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25-coroutines:${dep.ankoVersion}"
     implementation(project(':joint'))
@@ -80,5 +80,4 @@ dependencies {
     implementation 'com.joanzapata.iconify:android-iconify-weathericons:2.2.2' // (v2.0)
     implementation 'com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2' // (v1.0.0)
     implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2' // (v2.0.1)
-
 }
