@@ -48,13 +48,9 @@ import java.util.Map;
 @Route(path = "/shopcar/MainFragment", group = "shop")
 public class MainFragment extends BaseFragment<MainPresenter> implements IMainView {
 
-    //    private GridView gridView;
-//    private ListView sotreListview;
     private QMUILinearLayout linearLayout;
     private ScrollView scrollView;
     private RecyclerView storeView;
-
-
     private ViewPager viewPager;
     private LinearLayout pointGroup;
     private TextView imageDesc;
@@ -67,14 +63,10 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             "图片4"};
     List<QMUIRadiusImageView> imageList;
 
-//    int[] canId={R.drawable.car_can1,R.drawable.car_can2,R.drawable.car_can3,R.drawable.car_can4,R.drawable.car_can5,R.drawable.car_can6};
-//    String[] titles=new String[]{"店铺1","店铺2","店铺3","店铺4","店铺5","店铺6"};
-
     /*
     商品
      */
     private ListView listView;
-    private List<Goods> goodslistItem;
     private Context context;
 
     @Override
@@ -113,72 +105,18 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
                 ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
             }
         });
-    }
-
-    /**
-     * 再fragment依附到activity时保存上下文
-     *
-     * @param activity
-     */
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.context = activity;
-
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        imageList = new ArrayList<>();
-        goodslistItem = new ArrayList<>();
-
-        iPresenter.fecth();//加载底部商品列表
-        scrollView.setOnTouchListener(new View.OnTouchListener() {
+        scrollView.setOnTouchListener(new View.OnTouchListener() {//设置scrollview与listview同步滑动
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 listView.dispatchTouchEvent(motionEvent);
                 return false;
             }
         });
-
-
         /**
-         * 图片轮播 start
+         * 页面切换后调用
+         * postion  新的页面位置
          */
-        for (int i = 0; i < imageIds.length; i++) {
-            //初始化图片资源
-            QMUIRadiusImageView imageView = new QMUIRadiusImageView(context);
-            imageView.setBackgroundResource(imageIds[i]);
-            imageList.add(imageView);
-            imageList.get(i).setMaxHeight(164);
-            imageList.get(i).setMaxWidth(300);
-            imageList.get(i).setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-            //添加指示点
-            ImageView point = new ImageView(context);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(21, 21);
-            params.rightMargin = 20;
-            point.setLayoutParams(params);
-            point.setBackgroundResource(R.drawable.car_point_bg);
-            if (i == 0) {
-                point.setEnabled(true);
-            } else {
-                point.setEnabled(false);
-            }
-            pointGroup.addView(point);
-        }
-
-        viewPager.setAdapter(new MainFragment.MyPagerAdapter());
-        viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % imageList.size()));
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            /**
-             * 页面切换后调用
-             * postion  新的页面位置
-             */
             @Override
             public void onPageSelected(int position) {
 
@@ -208,6 +146,51 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
 
             }
         });
+    }
+
+    /**
+     * 再fragment依附到activity时保存上下文
+     *
+     * @param activity
+     */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.context = activity;
+
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        imageList = new ArrayList<>();
+        iPresenter.fecth();//加载底部商品列表
+
+        /**
+         * 图片轮播 start
+         */
+        for (int i = 0; i < imageIds.length; i++) {
+            //初始化图片资源
+            QMUIRadiusImageView imageView = new QMUIRadiusImageView(context);
+            imageView.setBackgroundResource(imageIds[i]);
+            imageList.add(imageView);
+            //添加指示点
+            ImageView point = new ImageView(context);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(21, 21);
+            params.rightMargin = 20;
+            point.setLayoutParams(params);
+            point.setBackgroundResource(R.drawable.car_point_bg);
+            if (i == 0) {
+                point.setEnabled(true);
+            } else {
+                point.setEnabled(false);
+            }
+            pointGroup.addView(point);
+        }
+
+        viewPager.setAdapter(new MainFragment.MyPagerAdapter());
+        viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % imageList.size()));
 
         /*
          *自动循环
@@ -307,29 +290,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     public void onDestroy() {
         isRunning = false;
         super.onDestroy();
-    }
-
-
-    //    手动给listview设置高度
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
-        if (listView == null) return;
-
-        ListViewAdapter listAdapter = (ListViewAdapter) listView.getAdapter();
-        if (listAdapter == null) {
-            // pre-condition
-            return;
-        }
-
-        int totalHeight = 0;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
     }
 }
 

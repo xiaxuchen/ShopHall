@@ -133,6 +133,16 @@
             android:textAllCaps="false"
             android:textColor="#000"
             android:textSize="5sp" />
+        <Button
+            android:id="@+id/btnRecommend"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/car_border"
+            android:text="商品推荐"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="5sp" />
 
     </LinearLayout>
 

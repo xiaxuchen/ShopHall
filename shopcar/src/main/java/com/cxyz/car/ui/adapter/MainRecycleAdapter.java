@@ -39,7 +39,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         holder.storeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                ARouter.getInstance().build("/main/StoreActivity").navigation();
             }
         });
     }
