@@ -1,6 +1,6 @@
 package com.cxyz.car.presenter;
 
-import com.cxyz.car.data.domain.MainGoods;
+import com.cxyz.car.data.domain.RecommendGoods;
 import com.cxyz.car.data.model.IRecommendModel;
 import com.cxyz.car.data.model.impl.RecommendModelImpl;
 import com.cxyz.car.presenter.view.IRecommendView;
@@ -17,8 +17,8 @@ public class RecommendPresenter extends IBasePresenter<IRecommendModel, IRecomme
     public void fecth(){
         mIModle.loadData(new IRecommendModel.OnLoadListener() {
             @Override
-            public void complete(List<MainGoods> mainGoodsList) {
-                mIView.showData(mainGoodsList);
+            public void complete(List<RecommendGoods> recommendGoodsList) {
+                mIView.showData(recommendGoodsList);
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.cxyz.car.data.domain;
 
+import java.math.BigDecimal;
+
 public class OrderItem {
 
     /**
@@ -21,6 +23,8 @@ public class OrderItem {
      * goodsPrice : 24.66
      */
 
+    private Long orderItemId;//该订单条目的id
+    private String orderItemStatus;//该订单条目所属的订单类别  待付款，待收货，待发货，待评价
     private String Storelgog;
     private String storeName;
     private String success;
@@ -29,14 +33,14 @@ public class OrderItem {
     private String goodsDesc;
     private String insure;
     private String insureDesc;
-    private String insurePrice;
+    private BigDecimal insurePrice;
     private String carriage;
     private String carriageDesc;
-    private double carriagePrice;
+    private BigDecimal carriagePrice;
     private String insureServer;
     private String insureServerDecsc;
-    private double insureServerPrice;
-    private double goodsPrice;
+    private BigDecimal insureServerPrice;
+    private BigDecimal goodsPrice;
 
     public String getStorelgog() {
         return Storelgog;
@@ -102,11 +106,11 @@ public class OrderItem {
         this.insureDesc = insureDesc;
     }
 
-    public String getInsurePrice() {
+    public BigDecimal getInsurePrice() {
         return insurePrice;
     }
 
-    public void setInsurePrice(String insurePrice) {
+    public void setInsurePrice(BigDecimal insurePrice) {
         this.insurePrice = insurePrice;
     }
 
@@ -126,11 +130,11 @@ public class OrderItem {
         this.carriageDesc = carriageDesc;
     }
 
-    public double getCarriagePrice() {
+    public BigDecimal getCarriagePrice() {
         return carriagePrice;
     }
 
-    public void setCarriagePrice(double carriagePrice) {
+    public void setCarriagePrice(BigDecimal carriagePrice) {
         this.carriagePrice = carriagePrice;
     }
 
@@ -150,19 +154,19 @@ public class OrderItem {
         this.insureServerDecsc = insureServerDecsc;
     }
 
-    public double getInsureServerPrice() {
+    public BigDecimal getInsureServerPrice() {
         return insureServerPrice;
     }
 
-    public void setInsureServerPrice(double insureServerPrice) {
+    public void setInsureServerPrice(BigDecimal insureServerPrice) {
         this.insureServerPrice = insureServerPrice;
     }
 
-    public double getGoodsPrice() {
+    public BigDecimal getGoodsPrice() {
         return goodsPrice;
     }
 
-    public void setGoodsPrice(double goodsPrice) {
+    public void setGoodsPrice(BigDecimal goodsPrice) {
         this.goodsPrice = goodsPrice;
     }
 }

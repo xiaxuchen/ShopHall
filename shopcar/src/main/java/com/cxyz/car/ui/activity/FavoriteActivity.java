@@ -1,28 +1,22 @@
 package com.cxyz.car.ui.activity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.Goods;
+import com.cxyz.car.data.domain.FavoriteGoods;
 import com.cxyz.car.presenter.FavoritePresenter;
 import com.cxyz.car.presenter.view.IFavoriteView;
 import com.cxyz.car.ui.adapter.FavoriteGoodsAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 @Route(path="/shopcar/FavoriteActivity",group = "shopcar")
 public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements IFavoriteView {
@@ -58,9 +52,9 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
     }
 
     @Override
-    public void showFavoriteGoodsView(List<Goods> goodsList) {
+    public void showFavoriteGoodsView(List<FavoriteGoods> favoriteGoodsList) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        FavoriteGoodsAdapter adapter=new FavoriteGoodsAdapter(this,goodsList);
+        FavoriteGoodsAdapter adapter=new FavoriteGoodsAdapter(this, favoriteGoodsList);
 
         adapter.setOnItemClickListener(new BaseRecycleViewAdapter.OnItemClickListener() {
             @Override

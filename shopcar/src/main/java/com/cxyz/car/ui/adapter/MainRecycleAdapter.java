@@ -13,16 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.StoreItem;
+import com.cxyz.car.data.domain.StoreKindItem;
 
 import java.util.List;
 
 public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.InnerHolder> {
     private Context context;
-    private List<StoreItem> storeItemList;
-    public MainRecycleAdapter(Context context, List<StoreItem> storeItemList) {
+    private List<StoreKindItem> storeKindItemList;
+    public MainRecycleAdapter(Context context, List<StoreKindItem> storeKindItemList) {
         this.context=context;
-        this.storeItemList=storeItemList;
+        this.storeKindItemList = storeKindItemList;
     }
 
     @NonNull
@@ -33,20 +33,20 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull InnerHolder holder, int position) {
-//        holder.storeImage.setImageResource(R.drawable.car_bg2);storeItemList.get(position).getStoreImage()
-        Glide.with(holder.storeImage.getContext()).load(storeItemList.get(position).getStoreImage()).into(holder.storeImage);
-        holder.storeName.setText(storeItemList.get(position).getStoreName());
+//        holder.storeImage.setImageResource(R.drawable.car_bg2);storeKindItemList.get(position).getStoreImage()
+        Glide.with(holder.storeImage.getContext()).load(storeKindItemList.get(position).getStoreImage()).into(holder.storeImage);
+        holder.storeName.setText(storeKindItemList.get(position).getStoreName());
         holder.storeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/main/StoreActivity").navigation();
+                ARouter.getInstance().build("/mine/MallInformationFragment").navigation();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return storeItemList.size();
+        return storeKindItemList.size();
     }
 
     public class InnerHolder extends RecyclerView.ViewHolder {

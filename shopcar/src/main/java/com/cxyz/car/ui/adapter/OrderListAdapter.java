@@ -85,7 +85,7 @@ public class OrderListAdapter extends BaseAdapter {
             holder.tv_goodsdesc.setText(listItem.get(i).getGoodsDesc());
             holder.tv_insure.setText(listItem.get(i).getInsure());
             holder.tv_insure_desc.setText(listItem.get(i).getInsureDesc());
-            holder.tv_insure_detial.setText("查看详情");
+            holder.tv_insure_detial.setText("￥"+listItem.get(i).getInsurePrice());
             holder.tv_carriage.setText(listItem.get(i).getCarriage());
             holder.tv_carriage_desc.setText(listItem.get(i).getCarriageDesc());
             holder.tv_carriage_price.setText("￥"+listItem.get(i).getCarriagePrice());

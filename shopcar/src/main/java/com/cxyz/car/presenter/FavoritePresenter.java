@@ -1,7 +1,6 @@
 package com.cxyz.car.presenter;
 
-import com.cxyz.car.data.domain.Goods;
-import com.cxyz.car.data.domain.OrderItem;
+import com.cxyz.car.data.domain.FavoriteGoods;
 import com.cxyz.car.data.model.IFavoriteModel;
 import com.cxyz.car.data.model.impl.FavoriteModelImpl;
 import com.cxyz.car.presenter.view.IFavoriteView;
@@ -18,8 +17,8 @@ public class FavoritePresenter extends IBasePresenter<IFavoriteModel, IFavoriteV
     public void fecth(){
         mIModle.loadData(new IFavoriteModel.OnLoadListener() {
             @Override
-            public void complete(List<Goods> goodsList) {
-                mIView.showFavoriteGoodsView(goodsList);
+            public void complete(List<FavoriteGoods> favoriteGoodsList) {
+                mIView.showFavoriteGoodsView(favoriteGoodsList);
             }
         });
     }

@@ -27,7 +27,7 @@ public class TrackModelImpl extends ITrackModel {
         params.put("date","2019/12/12");
         params.put("itemId","001");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/track",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/track/goods",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

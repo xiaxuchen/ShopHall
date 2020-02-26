@@ -109,13 +109,13 @@ public class TestActivity extends AppCompatActivity {
         /**
          * ApizzaActivity测试apizza
          */
-//        btnApi=findViewById(R.id.btnApi);
-//        btnApi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
-//            }
-//        });
+        btnApi=findViewById(R.id.btnApi);
+        btnApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
+            }
+        });
         /**
          * OrderDetailActivity订单详情界面面
          */

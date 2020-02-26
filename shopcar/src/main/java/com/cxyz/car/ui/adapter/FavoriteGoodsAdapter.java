@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.Goods;
+import com.cxyz.car.data.domain.FavoriteGoods;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
 
 import java.util.List;
@@ -21,11 +21,11 @@ import java.util.List;
 public class FavoriteGoodsAdapter extends RecyclerView.Adapter<FavoriteGoodsAdapter.LinearViewHolder> {
 
     private Context context;
-    private List<Goods> listitem;
+    private List<FavoriteGoods> listitem;
 
     private BaseRecycleViewAdapter.OnItemClickListener mOnItemClickListener;
 
-    public FavoriteGoodsAdapter(Context context, List<Goods> listitem) {
+    public FavoriteGoodsAdapter(Context context, List<FavoriteGoods> listitem) {
         this.context = context;
         this.listitem = listitem;
     }

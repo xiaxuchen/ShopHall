@@ -27,19 +27,20 @@
                 android:background="@drawable/car_checkbox"
                 android:button="@null"
                 android:checked="false" />
-            <ImageView
-                android:id="@+id/ivShopcarLogo"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@drawable/car_r"
-                android:layout_toRightOf="@+id/cbShopcarCheckAll"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="3dp"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/ivShopcarLogo"-->
+<!--                android:layout_width="25dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:background="@drawable/car_r"-->
+<!--                android:layout_toRightOf="@+id/cbShopcarCheckAll"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginTop="3dp"/>-->
+
             <TextView
                 android:id="@+id/tvShopcarStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/ivShopcarLogo"
+                android:layout_toRightOf="@+id/cbShopcarCheckAll"
                 android:text="炸天帮萍乡分帮"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -55,118 +56,11 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"/>
         </RelativeLayout>
-<!--        下边几个-->
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvShopcarGoods"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            >
-
-            <CheckBox
-                android:id="@+id/cbShopcarCheckOne"
-                android:layout_width="15sp"
-                android:layout_height="15sp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/car_checkbox"
-                android:button="@null"
-                android:checked="false" />
-            <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-                app:qmui_corner_radius="8dp"
-                android:id="@+id/ivShopcarStoreImage"
-                android:layout_width="89dp"
-                android:layout_height="89dp"
-                android:layout_toRightOf="@+id/cbShopcarCheckOne"
-                android:scaleType="centerCrop"
-                android:layout_marginLeft="5dp"/>
-            <TextView
-                android:id="@+id/tvShopcarDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:text="水枕头冰枕头充水大号冰枕夏季承人儿童学生降温冰垫冰袋"
-                android:layout_toRightOf="@+id/ivShopcarStoreImage"
-                android:layout_marginLeft="5dp"
-                android:textColor="#000"/>
-
-            <TextView
-                android:id="@+id/tvShopcarSmal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:textSize="10sp"
-                android:text="雪花35*60成人冰晶枕头送眼罩子"
-                android:layout_toRightOf="@id/ivShopcarStoreImage"
-                android:layout_below="@id/tvShopcarDesc"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/car_border_text"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                />
-            <TextView
-                android:id="@+id/tvShopcarStorePrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/common_red"
-                android:text="￥25"
-                android:layout_below="@id/tvShopcarSmal"
-                android:layout_toRightOf="@id/ivShopcarStoreImage"
-                android:textSize="12sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tvShopcarStorePrice"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnShopcarAdd"
-                    android:layout_width="18sp"
-                    android:layout_height="15sp"
-                    android:background="@drawable/car_border_rectangle"
-                    android:text="+"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"/>
-                <EditText
-                    android:id="@+id/etShopcarCount"
-                    android:layout_width="18sp"
-                    android:layout_height="15sp"
-
-                    android:background="@drawable/car_border_rectangle"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="3"
-                    android:textColor="@color/black"
-                    android:textSize="10sp" />
-
-                <Button
-                    android:id="@+id/btnShopcarDescres"
-                    android:layout_width="18sp"
-                    android:layout_height="15sp"
-                    android:textColor="@color/black"
-                    android:background="@drawable/car_border_rectangle"
-                    android:textSize="10sp"
-                    android:text="-"
-                    />
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
 
 </LinearLayout>

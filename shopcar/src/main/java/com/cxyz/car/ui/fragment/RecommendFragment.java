@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.MainGoods;
+import com.cxyz.car.data.domain.RecommendGoods;
 import com.cxyz.car.presenter.RecommendPresenter;
 import com.cxyz.car.presenter.view.IRecommendView;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
@@ -33,8 +33,8 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
     }
 
     @Override
-    public void showData(List<MainGoods> mainGoodsList) {
-        listView.setAdapter(new ListViewAdapter(context,mainGoodsList));
+    public void showData(List<RecommendGoods> recommendGoodsList) {
+        listView.setAdapter(new ListViewAdapter(context, recommendGoodsList));
     }
 
     @Override

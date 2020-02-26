@@ -4,22 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
@@ -28,12 +23,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.MainGoods;
-import com.cxyz.car.data.domain.StoreItem;
+import com.cxyz.car.data.domain.RecommendGoods;
+import com.cxyz.car.data.domain.StoreKindItem;
 import com.cxyz.car.presenter.MainPresenter;
 import com.cxyz.car.presenter.view.IMainView;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
-import com.cxyz.car.data.domain.Goods;
 import com.cxyz.car.ui.adapter.MainRecycleAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.utils.ScreenUtil;
@@ -41,9 +35,7 @@ import com.qmuiteam.qmui.layout.QMUILinearLayout;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Route(path = "/shopcar/MainFragment", group = "shop")
 public class MainFragment extends BaseFragment<MainPresenter> implements IMainView {
@@ -223,16 +215,16 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     };
 
     @Override
-    public void showMainGoodsView(List<StoreItem> storeItemList) {
+    public void showMainGoodsView(List<StoreKindItem> storeKindItemList) {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         storeView.setLayoutManager(linearLayoutManager);
-        storeView.setAdapter(new MainRecycleAdapter(context, storeItemList));
+        storeView.setAdapter(new MainRecycleAdapter(context, storeKindItemList));
     }
 
     @Override
-    public void showMainAdertis(List<MainGoods> goodsList) {
+    public void showMainAdertis(List<RecommendGoods> goodsList) {
         listView.setAdapter(new ListViewAdapter(context, goodsList));
     }
 

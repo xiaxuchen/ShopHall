@@ -1,6 +1,11 @@
 package com.cxyz.car.data.domain;
 
-public class Goods {
+import java.math.BigDecimal;
+
+/**
+ * 收藏夹货物
+ */
+public class FavoriteGoods {
 
     /**
      * image : https://img.alicdn.com/bao/uploaded/i3/1094074180/TB12lG1cW_ST1JjSZFqXXcQxFXa_!!0-item_pic.jpg_200x200q90.jpg_.webp
@@ -9,8 +14,9 @@ public class Goods {
      * title : 大叔型男店男长袖翻领毛衣快手红人赵中阁同款青年休闲假两件毛衣
      */
 
+    private Long FavoriteGoodsId;
     private String image;
-    private double price;
+    private BigDecimal price;
     private int number;
     private String title;
 
@@ -22,11 +28,11 @@ public class Goods {
         this.image = image;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -48,7 +54,7 @@ public class Goods {
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "FavoriteGoods{" +
                 "image='" + image + '\'' +
                 ", price=" + price +
                 ", number=" + number +
@@ -56,7 +62,7 @@ public class Goods {
                 '}';
     }
 
-    public Goods(String image, double price, int number, String title) {
+    public FavoriteGoods(String image, BigDecimal price, int number, String title) {
         this.image = image;
         this.price = price;
         this.number = number;

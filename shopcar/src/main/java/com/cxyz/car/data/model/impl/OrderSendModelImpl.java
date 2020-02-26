@@ -24,7 +24,7 @@ public class OrderSendModelImpl extends IOrderSendModel {
         RequestParams params =new RequestParams();
         params.put("orderStatus","待发货");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/ordersend",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/ordersend",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

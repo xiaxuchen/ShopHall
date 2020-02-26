@@ -25,7 +25,7 @@ public class OrderWaitModelImpl extends IOrderWaitModel {
         RequestParams params =new RequestParams();
         params.put("orderStatus","待收货");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/orderwait",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/orderwait",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

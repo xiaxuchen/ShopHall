@@ -24,7 +24,7 @@ public class OrderRemainModelImpl extends IOrderRemainModel {
         RequestParams params =new RequestParams();
         params.put("orderStatus","待评价");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/orderremain",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/orderremain",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

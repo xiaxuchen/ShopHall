@@ -10,12 +10,13 @@ public class CommentsItem {
      * content : 这东西整好用，会计师的咖啡哈萨克好地方流口水的后方可撒谎的付款后开始的付款回
      */
 
-    private String userImage;
-    private String userName;
-    private String date;
-    private String commentsStatus;
-    private String content;
-    private String delete;
+    private Long commentsItemId;//评论id
+    private String userImage;//用户头像
+    private String userName;//用户名
+    private String date;//发表日期
+    private String commentsStatus;//评论类型，好评，差评
+    private String content;//评论内容
+    private String delete;//删除评论
 
     public String getDelete() {
         return delete;

@@ -3,30 +3,22 @@ package com.cxyz.car.ui.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.Goods;
 import com.cxyz.car.data.domain.OrderItem;
-import com.cxyz.car.data.domain.ShopcarGoods;
-import com.cxyz.car.presenter.FavoritePresenter;
 import com.cxyz.car.presenter.OrderAllPresenter;
-import com.cxyz.car.presenter.view.IFavoriteView;
 import com.cxyz.car.presenter.view.IOrderAllView;
 import com.cxyz.car.ui.activity.OrderDetailActivity;
 import com.cxyz.car.ui.adapter.OrderListAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
