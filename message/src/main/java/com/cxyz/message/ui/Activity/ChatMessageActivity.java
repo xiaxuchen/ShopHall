@@ -17,13 +17,15 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ColorsUtil;
 import com.cxyz.widget.HeaderBar;
+import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
+
 import java.util.ArrayList;
 import java.util.List;
 @Route(path = "/message/ChatMessageActivity",group = "message")
 public class ChatMessageActivity extends BaseActivity {
     private List<Msg> msgList = new ArrayList<>();
     private EditText inputText;
-    private Button btSend;
+    private QMUIRoundButton btSend;
     private RecyclerView rvMsg;
     private MsgAdapter adapter;
     private HeaderBar hbChatmesTitle;
@@ -40,7 +42,8 @@ public class ChatMessageActivity extends BaseActivity {
         hbChatmesTitle.setMore(R.mipmap.message_chatmesg_gengduo,"店铺");
         hbChatmesTitle.setBackColor(ColorsUtil.BLUE_LIGHT);
         inputText = (EditText)findViewById(R.id.input_txet);
-        btSend = (Button) findViewById(R.id.send);
+        btSend = (QMUIRoundButton) findViewById(R.id.send);
+        btSend.setBackgroundColor(ColorsUtil.ORANGE);
         rvMsg = (RecyclerView)findViewById(R.id.msg_recycle_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvMsg.setLayoutManager(layoutManager);

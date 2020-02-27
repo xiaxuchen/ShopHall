@@ -13,6 +13,9 @@ import com.cxyz.context.starter.Starter;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.im.android.api.JMessageClient;
+
 /**
  * Created by 夏旭晨 on 2018/10/2.
  */
@@ -39,6 +42,11 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化sdk
+        JPushInterface.setDebugMode(true);//正式版的时候设置false，关闭调试
+        JMessageClient.setDebugMode(true);
+        JMessageClient.init( this);
+        JPushInterface.init(this);
         if(application == null && isApplication) {
             application = this;
         }
