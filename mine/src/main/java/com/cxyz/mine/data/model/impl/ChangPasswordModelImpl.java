@@ -19,7 +19,7 @@ public class ChangPasswordModelImpl extends IChangPasswordModel {
         try {
             RequestParams params = new RequestParams();
             params.put("phone","18879792873");
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/lixing/password",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/password/actions/modify",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

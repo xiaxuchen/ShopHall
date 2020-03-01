@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.activity.AppVersionActivity">
+    <SearchView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
 
-    <Button
-        android:id="@+id/bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="niaho"/>
+        android:layout_height="@dimen/common_line_height"/>
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
+
+
 </LinearLayout>

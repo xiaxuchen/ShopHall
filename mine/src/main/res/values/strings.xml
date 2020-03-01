@@ -52,5 +52,11 @@
     <string name="mineWithdrawalAmount">提现金额</string>
     <string name="mineAccountBalance">账户余额</string>
     <string name="mineWithdrawal">提现</string>
+    <string name="mineSearchTip">请输入搜索内容</string>
+    <string name="mineSearchBtn">搜索</string>
+    <string name="mineSearchHistory">历史搜索</string>
+    <string name="mineSearchFind">搜索发现</string>
+    <string name="mineSearchMore">更多</string>
+
 
 </resources>

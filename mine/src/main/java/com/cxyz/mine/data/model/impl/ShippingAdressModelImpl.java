@@ -25,7 +25,7 @@ public class ShippingAdressModelImpl extends IShippingAdressModel {
 
         try {
             RequestParams params = new RequestParams();
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/lx/addaddress",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/address/obtain",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

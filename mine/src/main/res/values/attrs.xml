@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--KingoitFlowLayout ，流式布局属性设置-->
+    <declare-styleable name="mineKingoitFlowLayout">
+        <attr name="mineFlowLayoutRadius" format="dimension"/>
+        <attr name="mineFlowLayoutTextColor" format="color"/>
+        <attr name="mineFlowLayoutTextColorSelector" format="color"/>
+        <attr name="mineFlowLayoutTextSize" format="dimension"/>
+        <attr name="mineFlowLayoutLineColor" format="color"/>
+        <attr name="mineFlowLayoutLineWidth" format="dimension"/>
+        <attr name="mineFlowLayoutBackgroundColor" format="color"/>
+        <attr name="mineFlowLayoutBackgroundColorSelector" format="color"/>
+        <attr name="mineFlowLayoutDeleteBtnColor" format="color"/>
+    </declare-styleable>
+</resources>
