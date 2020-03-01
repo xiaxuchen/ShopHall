@@ -12,8 +12,8 @@
         android:id="@+id/hbOrderDetailHeaderbar"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        app:backText="订单详情"
         android:background="@color/common_colorPrimary"
+        app:backText="订单详情"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
     <View
         android:id="@+id/viewSuccess"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="30dp"
         android:background="@color/common_colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/hbOrderDetailHeaderbar"
         tools:ignore="MissingConstraints" />
@@ -94,20 +94,6 @@
         app:layout_constraintVertical_bias="0.859"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/shopcarTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="交易成功"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="@+id/viewSuccess"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102"
-        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvOrderDetialDelete"
@@ -121,9 +107,27 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewBot"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvOrderDetailComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/car_border_btn"
+        android:padding="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="追加评价"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetialPay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDetialPay"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetialPay"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -137,11 +141,11 @@
         android:paddingRight="10dp"
         android:text="结算订单"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetialDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tvOrderDetialDelete"
-        app:layout_constraintTop_toTopOf="@+id/viewBot"
+        app:layout_constraintTop_toTopOf="@+id/tvOrderDetialDelete"
         tools:ignore="MissingConstraints" />
 
     <View
@@ -179,23 +183,12 @@
             <View
                 android:id="@+id/viewOrderDetailItem"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="0dp"
                 android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/view_order_detail_detail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="-7dp" />
-
-            <ImageView
-                android:id="@+id/ivOrderDetailSoreLogo"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/car_r"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.041"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.050000012" />
+                app:layout_constraintTop_toTopOf="@+id/shopcar_view2" />
 
             <ImageView
                 android:id="@+id/shopcar_imageview2"
@@ -204,143 +197,92 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/car_back_right"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
+                app:layout_constraintBottom_toBottomOf="@+id/tvOrderDetailStoreName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toEndOf="@+id/tvOrderDetailStoreName"
                 app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.06999999" />
+                app:layout_constraintVertical_bias="0.64" />
 
             <TextView
                 android:id="@+id/tvOrderDetailStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="312dp"
                 android:text="来福运动专营店"
                 android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/ivOrderDetailSoreLogo"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.01999998" />
-
-            <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-                app:qmui_corner_radius="8dp"
-                android:id="@+id/ivOrderDetailItemImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/car_bg2"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048 "
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.336" />
-
-            <TextView
-                android:id="@+id/ivOrderDetailItemTile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="68dp"
-                android:layout_marginEnd="15dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="一筒包邮 耐打羽毛球正品黄金1号12只装鹅毛比赛球王飞行稳定训练"
-                android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/ivOrderDetailItemDesc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/ivOrderDetailItemImage"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.166" />
+                app:layout_constraintStart_toStartOf="@+id/ivOrderDetailItemImage"
+                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8" />
 
-            <TextView
-                android:id="@+id/ivOrderDetailItemDesc"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOrderDetail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐"
-                android:textColor="#ccc"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
+                android:layout_marginTop="28dp"
+                app:layout_constraintBottom_toTopOf="@+id/shopcar_textview2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/ivOrderDetailItemTile"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.452" />
-
-            <TextView
-                android:id="@+id/ivOrderDetailItemReturn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/car_border_order_return"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:text="七天无理由退货"
-                android:textAlignment="center"
-                android:textColor="@color/common_red"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/ivOrderDetailItemTile"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.567" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvOrderDetailStoreName"
+                app:layout_constraintVertical_bias="0.52" />
 
             <TextView
                 android:id="@+id/shopcar_textview3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="订单总价"
-                android:textColor="@color/black"
+                android:layout_marginBottom="5dp"
+                android:text="订单总价："
+                android:textColor="@color/common_red"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/shopcar_textview2"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline8"
-                app:layout_constraintVertical_bias="0.659" />
+                app:layout_constraintStart_toStartOf="@+id/shopcar_textview2" />
 
             <TextView
                 android:id="@+id/tvOrderDetailTotalPrice"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginStart="32dp"
                 android:text="￥25"
+                android:textSize="12sp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
-                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailTruePay"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.696" />
+                app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview2"
+                app:layout_constraintStart_toEndOf="@+id/shopcar_textview2"
+                app:layout_constraintTop_toTopOf="@+id/shopcar_textview2"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/shopcar_textview2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="140dp"
-                android:text="实付款"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="6dp"
+                android:text="实付款："
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/shopcar_textview3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.827" />
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvOrderDetail" />
 
             <TextView
                 android:id="@+id/tvOrderDetailTruePay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
                 android:text="￥25"
+                android:textSize="12sp"
                 android:textColor="@color/common_red"
                 android:textColorHint="@color/common_red"
-                app:layout_constraintBottom_toBottomOf="@+id/viewOrderDetailItem"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.828" />
+                app:layout_constraintBottom_toBottomOf="@+id/shopcar_textview3"
+                app:layout_constraintStart_toStartOf="@+id/tvOrderDetailTotalPrice"
+                app:layout_constraintTop_toTopOf="@+id/shopcar_textview3"
+                app:layout_constraintVertical_bias="0.0" />
 
             <View
                 android:id="@+id/shopcar_view3"
@@ -348,15 +290,19 @@
                 android:layout_height="15dp"
                 android:background="#F3EFEF"
                 app:layout_constraintBottom_toTopOf="@id/view_order_detail_detail"
-                app:layout_constraintTop_toBottomOf="@id/viewOrderDetailItem"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewOrderDetailItem" />
 
             <View
                 android:id="@+id/view_order_detail_detail"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
                 android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewOrderDetailItem" />
 
             <TextView
@@ -372,10 +318,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/shopcar_view3"
                 app:layout_constraintVertical_bias="0.081" />
 
+
             <TextView
                 android:id="@+id/shopcar_textview5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:text="订单编号："
                 android:textColor="#ccc"
                 android:textSize="12sp"
@@ -383,69 +331,64 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.088"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintVertical_bias="0.347" />
+                app:layout_constraintTop_toTopOf="@+id/view_order_detail_detail"
+                app:layout_constraintVertical_bias="0.022" />
 
             <TextView
                 android:id="@+id/shopcar_textview6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="320dp"
                 android:text="创建时间："
                 android:textColor="#ccc"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shopcar_textview5"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintVertical_bias="0.442" />
+                app:layout_constraintTop_toBottomOf="@+id/shopcar_textview7" />
 
             <TextView
                 android:id="@+id/shopcar_textview7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="344dp"
                 android:text="付款时间："
                 android:textColor="#ccc"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shopcar_textview6"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintVertical_bias="0.538" />
+                app:layout_constraintTop_toBottomOf="@+id/shopcar_textview9" />
 
             <TextView
                 android:id="@+id/shopcar_textview8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="344dp"
                 android:text="发货时间："
                 android:textColor="#ccc"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shopcar_textview6"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintVertical_bias="0.64" />
+                app:layout_constraintTop_toBottomOf="@+id/shopcar_textview5" />
 
             <TextView
                 android:id="@+id/shopcar_textview9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="320dp"
                 android:text="成交时间："
                 android:textColor="#ccc"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shopcar_textview8"
-                app:layout_constraintTop_toTopOf="@+id/shopcar_guideline9"
-                app:layout_constraintVertical_bias="0.726" />
-
+                app:layout_constraintTop_toBottomOf="@+id/shopcar_textview8" />
 
             <TextView
                 android:id="@+id/tvOrderDetailOrderCode"
@@ -500,13 +443,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="28dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/shopcar_guideline9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="233dp" />
 
             <TextView
                 android:id="@+id/tvOrderDetailOrderSendTime"

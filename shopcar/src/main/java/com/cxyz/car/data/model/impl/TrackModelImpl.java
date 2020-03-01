@@ -20,7 +20,6 @@ import java.util.List;
 public class TrackModelImpl extends ITrackModel {
     private CheckResult<List<TrackGoods>> checkResult;
     private List<TrackGoods> goodsList;
-    private String[] date=new String[]{"2019/12/12","2019/12/11","2020/12/12","2019/12/12","2019/12/02","2019/12/12","2019/12/12","2019/12/12","2019/12/12"};
     @Override
     public void loadData(OnLoadListener onLoadListener) {
         RequestParams params=new RequestParams();
@@ -35,7 +34,7 @@ public class TrackModelImpl extends ITrackModel {
                             Gson gson=new Gson();
                             checkResult=gson.fromJson(json,new TypeToken<CheckResult<List<TrackGoods>>>(){}.getType());
                             goodsList=checkResult.getData();
-                            onLoadListener.complete(goodsList,date);
+                            onLoadListener.complete(goodsList);
                         }
 
                         @Override

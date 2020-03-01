@@ -62,16 +62,16 @@
         android:text="￥999.0"
         android:textColor="#f00" />
 
-    <TextView
-        android:id="@+id/tvGoodsPifa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tvGoodsDesc"
-        android:layout_alignBottom="@+id/ivGoodsImage"
-        android:text="12件起批"
-        android:layout_marginBottom="15sp"
-        android:layout_marginEnd="10dp"
-        android:textColor="#8B7E7E" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvGoodsPifa"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignRight="@+id/tvGoodsDesc"-->
+<!--        android:layout_alignBottom="@+id/ivGoodsImage"-->
+<!--        android:text="12件起批"-->
+<!--        android:layout_marginBottom="15sp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:textColor="#8B7E7E" />-->
 
     <View
             android:layout_width="match_parent"

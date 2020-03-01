@@ -14,7 +14,7 @@ public class FavoriteGoods {
      * title : 大叔型男店男长袖翻领毛衣快手红人赵中阁同款青年休闲假两件毛衣
      */
 
-    private Long FavoriteGoodsId;
+    private Long favoriteGoodsId;
     private String image;
     private BigDecimal price;
     private int number;

@@ -24,8 +24,8 @@ public class TrackPresenter extends IBasePresenter<ITrackModel, ITrackView> {
     public void fecth() {
         mIModle.loadData(new ITrackModel.OnLoadListener(){
             @Override
-            public void complete(List<TrackGoods> data,String[] date) {
-                mIView.showTrackGoodsView(data,date);
+            public void complete(List<TrackGoods> data) {
+                mIView.showTrackGoodsView(data);
             }
         });
     }

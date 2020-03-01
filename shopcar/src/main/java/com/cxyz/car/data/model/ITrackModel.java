@@ -9,6 +9,6 @@ import java.util.List;
 public abstract class ITrackModel extends IBaseModel {
      public abstract void loadData(OnLoadListener onLoadListener) ;
      public interface OnLoadListener {
-        void complete(List<TrackGoods> data, String[] date);
+        void complete(List<TrackGoods> data);
     }
 }

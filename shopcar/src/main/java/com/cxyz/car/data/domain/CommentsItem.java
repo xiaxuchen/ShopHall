@@ -11,19 +11,36 @@ public class CommentsItem {
      */
 
     private Long commentsItemId;//评论id
+    private Long userId;//用户id
+    private Long storeId;//店铺id
     private String userImage;//用户头像
     private String userName;//用户名
     private String date;//发表日期
-    private String commentsStatus;//评论类型，好评，差评
+    private boolean commentsStatus;//评论类型，1好评，0差评
     private String content;//评论内容
-    private String delete;//删除评论
 
-    public String getDelete() {
-        return delete;
+    public Long getCommentsItemId() {
+        return commentsItemId;
     }
 
-    public void setDelete(String delete) {
-        this.delete = delete;
+    public void setCommentsItemId(Long commentsItemId) {
+        this.commentsItemId = commentsItemId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
     public String getUserImage() {
@@ -50,11 +67,11 @@ public class CommentsItem {
         this.date = date;
     }
 
-    public String getCommentsStatus() {
+    public boolean getCommentsStatus() {
         return commentsStatus;
     }
 
-    public void setCommentsStatus(String commentsStatus) {
+    public void setCommentsStatus(boolean commentsStatus) {
         this.commentsStatus = commentsStatus;
     }
 
@@ -77,7 +94,7 @@ public class CommentsItem {
                 '}';
     }
 
-    public CommentsItem(String userImage, String userName, String date, String commentsStatus, String content) {
+    public CommentsItem(String userImage, String userName, String date, boolean commentsStatus, String content) {
         this.userImage = userImage;
         this.userName = userName;
         this.date = date;

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_gravity="center_horizontal"
+        >
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            app:qmui_corner_radius="8dp"
+            android:id="@+id/ivOrderImage"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/car_bg2"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            />
+
+        <TextView
+            android:id="@+id/tvOrderGoodsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="一筒包邮 耐打羽毛球正品黄金一号12只装鹅毛比赛球王飞行稳定训练"
+            android:layout_marginLeft="15dp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/ivOrderImage"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tvOrderSmal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvOrderGoodsName"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/ivOrderImage"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐"
+            android:textColor="#ccc"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tvOrderGoodsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥36.00"
+            android:textColor="@color/common_red"
+            android:textSize="12sp"
+            android:layout_below="@+id/tvOrderSmal"
+            android:layout_toRightOf="@+id/ivOrderImage"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E9E6E6"/>
+</LinearLayout>

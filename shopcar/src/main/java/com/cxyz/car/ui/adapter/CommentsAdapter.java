@@ -38,8 +38,18 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.InnerH
         Glide.with(holder.ivUserImage.getContext()).load(commentsItemList.get(position).getUserImage()).into(holder.ivUserImage);
         holder.tvUserName.setText(commentsItemList.get(position).getUserName());
         holder.tvDate.setText(commentsItemList.get(position).getDate());
-        holder.tvStatus.setText(commentsItemList.get(position).getCommentsStatus());
-        holder.tvDelete.setText(commentsItemList.get(position).getDelete());
+        if (commentsItemList.get(position).getCommentsStatus()){
+            holder.tvStatus.setText("好评");
+        }else{
+            holder.tvStatus.setText("差评");
+        }
+        if(commentsItemList.get(position).getUserId()==2){//如果该条评论为当前用户，设置为可删除
+            holder.tvDelete.setVisibility(View.VISIBLE);
+            holder.tvIsMe.setVisibility(View.VISIBLE);
+        }else{
+            holder.tvDelete.setVisibility(View.GONE);
+            holder.tvIsMe.setVisibility(View.GONE);
+        }
         holder.tvDelete.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);//设置下划线
         holder.tvDelete.getPaint().setAntiAlias(true);//抗锯齿
         holder.tvContent.setText(commentsItemList.get(position).getContent());
@@ -57,6 +67,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.InnerH
         private TextView tvStatus;
         private TextView tvDelete;
         private TextView tvContent;
+        private TextView tvIsMe;
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
             ivUserImage=itemView.findViewById(R.id.ivCommentsUserImage);
@@ -65,6 +76,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.InnerH
             tvStatus=itemView.findViewById(R.id.tvCommentsStatus);
             tvDelete=itemView.findViewById(R.id.tvCommentsDelete);
             tvContent=itemView.findViewById(R.id.tvCommentsContent);
+            tvIsMe=itemView.findViewById(R.id.tvCommentsIsMe);
         }
     }
 }

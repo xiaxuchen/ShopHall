@@ -16,11 +16,13 @@ import com.cxyz.car.presenter.view.IFavoriteView;
 import com.cxyz.car.ui.adapter.FavoriteGoodsAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
+import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 
 import java.util.List;
 @Route(path="/shopcar/FavoriteActivity",group = "shopcar")
 public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements IFavoriteView {
     private RecyclerView recyclerView;
+    private QMUIPullRefreshLayout qmuiPullRefreshLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
     @Override
     public void initView() {
         recyclerView=findViewById(R.id.rvFavoriteGoods);
+        qmuiPullRefreshLayout=findViewById(R.id.qmuiPullRefreshLayoutFavorite);
     }
 
     @Override
@@ -45,6 +48,27 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
 
     @Override
     public void setEvent() {
+        qmuiPullRefreshLayout.setOnPullListener(new QMUIPullRefreshLayout.OnPullListener() {
+            @Override
+            public void onMoveTarget(int offset) {
+
+            }
+
+            @Override
+            public void onMoveRefreshView(int offset) {
+
+            }
+
+            @Override
+            public void onRefresh() {
+                qmuiPullRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run()  {
+                        qmuiPullRefreshLayout.finishRefresh();
+                    }
+                },1500);
+            }
+        });
     }
     @Override
     protected FavoritePresenter createIPresenter() {
@@ -59,7 +83,6 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
         adapter.setOnItemClickListener(new BaseRecycleViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Object item, Integer position) {
-                Toast.makeText(FavoriteActivity.this, "哈哈哈", Toast.LENGTH_SHORT).show();
                 ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
             }
         });

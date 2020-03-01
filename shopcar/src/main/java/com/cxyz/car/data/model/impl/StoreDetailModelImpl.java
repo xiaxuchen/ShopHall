@@ -1,37 +1,38 @@
 package com.cxyz.car.data.model.impl;
 
+
 import android.accounts.NetworkErrorException;
 
-import com.cxyz.car.R;
-import com.cxyz.car.data.domain.CommentsItem;
-import com.cxyz.car.data.model.IStoreModel;
+import com.cxyz.car.data.domain.StoreDetail;
+import com.cxyz.car.data.model.IStoreDetailModel;
 import com.cxyz.http.CommonOkHttpClient;
 import com.cxyz.http.listener.DisposeDataHandler;
 import com.cxyz.http.listener.DisposeDataListener;
 import com.cxyz.http.request.RequestParams;
 import com.cxyz.http.response.CheckResult;
-import com.google.gson.Gson;
+import com.cxyz.utils.GsonUtil;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.List;
+import org.json.JSONException;
 
-public class StoreModelImpl extends IStoreModel {
-    private CheckResult<List<CommentsItem>> checkResult;
-    private List<CommentsItem> commentsItemList;
+public class StoreDetailModelImpl extends IStoreDetailModel {
+    private CheckResult<StoreDetail> checkResult;
     @Override
-    public void loadData(OnLoadListener onLoadListener) {
+    public void loadData(OnLoadListener onLoadListner) {
         RequestParams params=new RequestParams();
-        params.put("goodsId","001");
+        params.put("storeId",new Long("3593873948743957"));
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/store/comments",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/sotre/detail",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {
                             String json=responseObj.toString();
-                            Gson gson=new Gson();
-                            checkResult=gson.fromJson(json,new TypeToken<CheckResult<List<CommentsItem>>>(){}.getType());
-                            commentsItemList=checkResult.getData();
-                            onLoadListener.complete(commentsItemList);
+                            try {
+                                checkResult= (CheckResult<StoreDetail>) GsonUtil.fromJson(json,new TypeToken<CheckResult<StoreDetail>>(){}.getType());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            onLoadListner.complete(checkResult);
                         }
 
                         @Override

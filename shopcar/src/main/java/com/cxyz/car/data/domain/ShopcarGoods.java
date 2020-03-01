@@ -48,7 +48,7 @@ public class ShopcarGoods {
          * goodsCount:1
          */
 
-        private int ShopcarGoodsId;//商品id
+        private int shopcarGoodsId;//商品id
         private String image;//商品图片
         private BigDecimal price;//商品价格
         private String desc;//商品名称
@@ -64,11 +64,11 @@ public class ShopcarGoods {
         }
 
         public int getShopcarGoodsId() {
-            return ShopcarGoodsId;
+            return shopcarGoodsId;
         }
 
-        public void setShopcarGoodsId(int ShopcarGoodsId) {
-            this.ShopcarGoodsId = ShopcarGoodsId;
+        public void setShopcarGoodsId(int shopcarGoodsId) {
+            this.shopcarGoodsId = shopcarGoodsId;
         }
 
         public String getImage() {

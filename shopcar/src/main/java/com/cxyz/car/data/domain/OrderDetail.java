@@ -1,50 +1,62 @@
 package com.cxyz.car.data.domain;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class OrderDetail {
-        private Long orderItemId;//订单id
-        private String orderItemStauts;//订单所属状态
-        private String addressLogo;//地址logo
-        private String username;//用户名
-        private String address;//用户地址
-        private String storeLogo;//商家logo
-        private String storeName;//商家名称
-        private String storeImage;//商家图片
-        private String goodsTitle;//货物名称
-        private String goodsDesc;//货物描述
-        private BigDecimal totalPrice;//订单总价
-        private BigDecimal truePay;//实付款
-        private String orderCode;//订单编号
-        private String CreateTime;//订单创建时间
-        private String PayTime;//付款时间
-        private String SendTime;//发货时间
-        private String CloseTime;//成交时间
 
-    public OrderDetail(String addressLogo, String username, String address, String storeLogo, String storeName, String storeImage, String goodsTitle, String goodsDesc, BigDecimal totalPrice, BigDecimal truePay, String orderCode, String createTime, String payTime, String sendTime, String closeTime) {
-        this.addressLogo = addressLogo;
-        this.username = username;
-        this.address = address;
-        this.storeLogo = storeLogo;
-        this.storeName = storeName;
-        this.storeImage = storeImage;
-        this.goodsTitle = goodsTitle;
-        this.goodsDesc = goodsDesc;
-        this.totalPrice = totalPrice;
-        this.truePay = truePay;
-        this.orderCode = orderCode;
-        CreateTime = createTime;
-        PayTime = payTime;
-        SendTime = sendTime;
-        CloseTime = closeTime;
+    /**
+     * storeId : 1
+     * orderItemId : 1
+     * orderItemStatus : 1
+     * username : 炸天帮 藤原拓海
+     * address : 江西省 赣州市 南康区 炸天街 炸天小区 15号
+     * storeName : 来福运动专营店
+     * totalPrice : 33.0
+     * truePay : 33.0
+     * orderCode : 54641548761265
+     * CreateTime : 3019-07-26 18:21:29
+     * PayTime : 3019-07-26 18:21:29
+     * SendTime : 3019-07-12 12:45:33
+     * CloseTime : 3019-07-27 11:48:57
+     * goods : [{"goodsId":1,"goodsImage":"https://img.alicdn.com/bao/uploaded/i1/TB1st38RVXXXXb5aXXXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp","goodsName":"可视对讲后方可，速度快积分，一筒包邮 耐打羽毛球正品黄金1号12只装鹅毛比赛球王飞行稳定训练","goodsDesc":"【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐","goodsPrice":"45.5"},{"goodsId":2,"goodsImage":"https://img.alicdn.com/bao/uploaded/i1/TB1st38RVXXXXb5aXXXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp","goodsName":"可视对讲后方可，速度快积分，一筒包邮 耐打羽毛球正品黄金1号12只装鹅毛比赛球王飞行稳定训练","goodsDesc":"【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐","goodsPrice":"99.5"}]
+     */
+
+    private Long storeId;
+    private Long orderItemId;
+    private int orderItemStatus;
+    private String username;
+    private String address;
+    private String storeName;
+    private String orderCode;
+    private String CreateTime;
+    private String PayTime;
+    private String SendTime;
+    private String CloseTime;
+    private List<GoodsBean> goods;
+
+    public Long getStoreId() {
+        return storeId;
     }
 
-    public String getAddressLogo() {
-        return addressLogo;
+    public void setStoreId(Long storeId) {
+        this.storeId = storeId;
     }
 
-    public void setAddressLogo(String addressLogo) {
-        this.addressLogo = addressLogo;
+    public Long getOrderItemId() {
+        return orderItemId;
+    }
+
+    public void setOrderItemId(Long orderItemId) {
+        this.orderItemId = orderItemId;
+    }
+
+    public int getOrderItemStatus() {
+        return orderItemStatus;
+    }
+
+    public void setOrderItemStatus(int orderItemStatus) {
+        this.orderItemStatus = orderItemStatus;
     }
 
     public String getUsername() {
@@ -63,60 +75,12 @@ public class OrderDetail {
         this.address = address;
     }
 
-    public String getStoreLogo() {
-        return storeLogo;
-    }
-
-    public void setStoreLogo(String storeLogo) {
-        this.storeLogo = storeLogo;
-    }
-
     public String getStoreName() {
         return storeName;
     }
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
-    }
-
-    public String getStoreImage() {
-        return storeImage;
-    }
-
-    public void setStoreImage(String storeImage) {
-        this.storeImage = storeImage;
-    }
-
-    public String getGoodsTitle() {
-        return goodsTitle;
-    }
-
-    public void setGoodsTitle(String goodsTitle) {
-        this.goodsTitle = goodsTitle;
-    }
-
-    public String getGoodsDesc() {
-        return goodsDesc;
-    }
-
-    public void setGoodsDesc(String goodsDesc) {
-        this.goodsDesc = goodsDesc;
-    }
-
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public BigDecimal getTruePay() {
-        return truePay;
-    }
-
-    public void setTruePay(BigDecimal truePay) {
-        this.truePay = truePay;
     }
 
     public String getOrderCode() {
@@ -131,31 +95,95 @@ public class OrderDetail {
         return CreateTime;
     }
 
-    public void setCreateTime(String createTime) {
-        CreateTime = createTime;
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
     }
 
     public String getPayTime() {
         return PayTime;
     }
 
-    public void setPayTime(String payTime) {
-        PayTime = payTime;
+    public void setPayTime(String PayTime) {
+        this.PayTime = PayTime;
     }
 
     public String getSendTime() {
         return SendTime;
     }
 
-    public void setSendTime(String sendTime) {
-        SendTime = sendTime;
+    public void setSendTime(String SendTime) {
+        this.SendTime = SendTime;
     }
 
     public String getCloseTime() {
         return CloseTime;
     }
 
-    public void setCloseTime(String closeTime) {
-        CloseTime = closeTime;
+    public void setCloseTime(String CloseTime) {
+        this.CloseTime = CloseTime;
+    }
+
+    public List<GoodsBean> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<GoodsBean> goods) {
+        this.goods = goods;
+    }
+
+    public static class GoodsBean {
+        /**
+         * goodsId : 1
+         * goodsImage : https://img.alicdn.com/bao/uploaded/i1/TB1st38RVXXXXb5aXXXXXXXXXXX_!!0-item_pic.jpg_200x200q90.jpg_.webp
+         * goodsName : 可视对讲后方可，速度快积分，一筒包邮 耐打羽毛球正品黄金1号12只装鹅毛比赛球王飞行稳定训练
+         * goodsDesc : 【12只装 黑羽球】金黄级 经济热销 业余娱乐推荐
+         * goodsPrice : 45.5
+         */
+
+        private Long goodsId;
+        private String goodsImage;
+        private String goodsName;
+        private String goodsDesc;
+        private BigDecimal goodsPrice;
+
+        public Long getGoodsId() {
+            return goodsId;
+        }
+
+        public void setGoodsId(Long goodsId) {
+            this.goodsId = goodsId;
+        }
+
+        public String getGoodsImage() {
+            return goodsImage;
+        }
+
+        public void setGoodsImage(String goodsImage) {
+            this.goodsImage = goodsImage;
+        }
+
+        public String getGoodsName() {
+            return goodsName;
+        }
+
+        public void setGoodsName(String goodsName) {
+            this.goodsName = goodsName;
+        }
+
+        public String getGoodsDesc() {
+            return goodsDesc;
+        }
+
+        public void setGoodsDesc(String goodsDesc) {
+            this.goodsDesc = goodsDesc;
+        }
+
+        public BigDecimal getGoodsPrice() {
+            return goodsPrice;
+        }
+
+        public void setGoodsPrice(BigDecimal goodsPrice) {
+            this.goodsPrice = goodsPrice;
+        }
     }
 }

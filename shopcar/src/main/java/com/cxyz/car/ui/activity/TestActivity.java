@@ -24,13 +24,14 @@ public class TestActivity extends AppCompatActivity {
     private Button btnFavorite;//收藏
     private Button btnOrder;//订单
     private Button btnTrack;//浏览记录
-    private Button btnPreview;//预览
-    private Button btnApi;
+//    private Button btnPreview;//预览
+//    private Button btnApi;
     private Button btnOrderDetail;//订单详情
     private Button btnStore;//店铺
     private Button btnComments;//评论
     private Button btnForget;//忘记密码
     private Button btnRecommend;//商品推荐
+    private Button btnStoreDetail;//店铺详情
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -98,24 +99,24 @@ public class TestActivity extends AppCompatActivity {
         /**
          * PreviewActivity预览界面
          */
-        btnPreview = findViewById(R.id.btnPreview);
-        btnPreview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(TestActivity.this, PreviewActivity.class));
-            }
-        });
-
-        /**
-         * ApizzaActivity测试apizza
-         */
-        btnApi=findViewById(R.id.btnApi);
-        btnApi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
-            }
-        });
+//        btnPreview = findViewById(R.id.btnPreview);
+//        btnPreview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(TestActivity.this, PreviewActivity.class));
+//            }
+//        });
+//
+//        /**
+//         * ApizzaActivity测试apizza
+//         */
+//        btnApi=findViewById(R.id.btnApi);
+//        btnApi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(TestActivity.this,TestApizActivity.class));
+//            }
+//        });
         /**
          * OrderDetailActivity订单详情界面面
          */
@@ -166,6 +167,16 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View view) {
                 recommendFragment=new RecommendFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_fragment,recommendFragment).commitAllowingStateLoss();
+            }
+        });
+        /**
+         * StoreDetailActivity店铺详情界面
+         */
+        btnStoreDetail= findViewById(R.id.btnStoreDetail);
+        btnStoreDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,StoreDetailActivity.class));
             }
         });
     }

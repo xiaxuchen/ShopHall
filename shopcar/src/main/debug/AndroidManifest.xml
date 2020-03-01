@@ -29,6 +29,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".ui.activity.ForgotActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.StoreDetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".ui.activity.TestActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

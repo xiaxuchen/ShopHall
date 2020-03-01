@@ -21,13 +21,11 @@ import java.util.List;
 public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.InnerHolder> {
 
     private Context context;
-    private String[] date;
     private List<TrackGoods> innerItem;
 
 
-    public TrackAdapter(Context context, String[] date, List innerItem) {
+    public TrackAdapter(Context context,  List innerItem) {
         this.context = context;
-        this.date = date;
         this.innerItem = innerItem;
     }
 
@@ -40,16 +38,14 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.InnerHolder>
 
     @Override
     public void onBindViewHolder(@NonNull InnerHolder holder, int position) {
-        holder.tv_date.setText(date[position]);
-//        GridLayoutManager gridLayoutManager=new GridLayoutManager(context,3);
-//        gridLayoutManager.offsetChildrenHorizontal(30);
+        holder.tv_date.setText(innerItem.get(position).getDate());
         holder.rv_goods.setLayoutManager(new GridLayoutManager(context,3));
-        holder.rv_goods.setAdapter(new TrackInnerAdapter(context, innerItem));
+        holder.rv_goods.setAdapter(new TrackInnerAdapter(context, innerItem.get(position).getGoods()));
     }
 
     @Override
     public int getItemCount() {
-        return date.length;
+        return innerItem.size();
     }
 
 
