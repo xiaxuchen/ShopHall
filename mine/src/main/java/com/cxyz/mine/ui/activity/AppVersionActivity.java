@@ -1,7 +1,6 @@
 package com.cxyz.mine.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,22 +8,29 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 @Route(path = "/mine/AppVersionActivity",group = "mine")
 public class AppVersionActivity extends AppCompatActivity {
+    private Button btn;
     private SearchView sv;
     private ListView lv;
     private  String[] s = {"aaa","bbb","dddd"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        btn = findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppVersionActivity.this,SearchResultsActivity.class);
+                startActivity(intent);
+            }
+        });
         setContentView(R.layout.mine_activity_app_version_layout);
        lv = findViewById(R.id.lv);
        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AppVersionActivity.this,

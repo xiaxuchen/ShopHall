@@ -1,38 +1,57 @@
 package com.cxyz.mine.ui.adapter.entity;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 public class Consumption {
-    private String data;
-    private String money;
 
-    public Consumption() {
+    /**
+     * balance : 868:00
+     * recording : [{"date":"2月10日11:00","money":"-100.00"},{"date":"2月10日11:00","money":"-100.00"},{"date":"2月10日11:00","money":"-100.00"},{"date":"2月10日11:00","money":"-100.00"},{"date":"2月10日11:00","money":"-100.00"}]
+     */
+
+    private BigDecimal balance;
+    private List<RecordingBean> recording;
+
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public Consumption(String data, String money) {
-        this.data = data;
-        this.money = money;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
-    public String getData() {
-        return data;
+    public List<RecordingBean> getRecording() {
+        return recording;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setRecording(List<RecordingBean> recording) {
+        this.recording = recording;
     }
 
-    public String getMoney() {
-        return money;
-    }
+    public static class RecordingBean {
+        /**
+         * date : 2月10日11:00
+         * money : -100.00
+         */
 
-    public void setMoney(String money) {
-        this.money = money;
-    }
+        private String date;
+        private BigDecimal money;
 
-    @Override
-    public String toString() {
-        return "Consumption{" +
-                "data='" + data + '\'' +
-                ", money='" + money + '\'' +
-                '}';
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public BigDecimal getMoney() {
+            return money;
+        }
+
+        public void setMoney(BigDecimal money) {
+            this.money = money;
+        }
     }
 }

@@ -51,7 +51,7 @@ public class MineFragment extends BaseFragment {
         //跳转个人信息界面
         personalInformation = view.findViewById(R.id.personalInformation);
         personalInformation.setOnClickListener(onclick);
-        //跳转购物车界面
+        //跳转收藏夹界面
         mineFavorite = view.findViewById(R.id.mineFavorite);
         mineFavorite.setOnClickListener(onclick);
         //跳转浏览记录界面
@@ -80,8 +80,8 @@ public class MineFragment extends BaseFragment {
             }else if(v.getId() == R.id.personalInformation){//跳转个人信息界面
                 Intent intent = new Intent(getContext(), PersonalInformation.class);
                 startActivity(intent);
-            }else if(v.getId() == R.id.mineFavorite){ //跳转购物车界面
-                ARouter.getInstance().build("/shopcar/ShopcarFragment").navigation();
+            }else if(v.getId() == R.id.mineFavorite){ //跳转收藏夹界面
+                ARouter.getInstance().build("/shopcar/FavoriteActivity").navigation();
             }else if (v.getId() == R.id.mineHistory){//跳转浏览记录界面
                 ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             }else if (v.getId() == R.id.prePayment){//跳转订单界面

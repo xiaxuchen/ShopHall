@@ -15,8 +15,8 @@ public class ChangPasswordPresenter extends IBasePresenter<IChangPasswordModel,I
         if (mIModle != null && mIView != null){
             mIModle.loadData(new IChangPasswordModel.OnGetModel() {
                 @Override
-                public void getModel(boolean flag) {
-                    mIView.showView(flag);
+                public void getModel(boolean passwordFlag,boolean codeFlag) {
+                    mIView.showView(passwordFlag,codeFlag);
                 }
             });
         }
