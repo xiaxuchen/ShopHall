@@ -32,6 +32,7 @@ public class TestActivity extends AppCompatActivity {
     private Button btnForget;//忘记密码
     private Button btnRecommend;//商品推荐
     private Button btnStoreDetail;//店铺详情
+    private Button btnSureOrder;//确认订单
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -177,6 +178,16 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,StoreDetailActivity.class));
+            }
+        });
+        /**
+         * SureOrderActivity确认订单姐买你
+         */
+        btnSureOrder= findViewById(R.id.btnSureOrder);
+        btnSureOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this,SureOrderActivity.class));
             }
         });
     }

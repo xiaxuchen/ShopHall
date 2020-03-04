@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.StoreDetail;
 import com.cxyz.car.presenter.StoreDetailPresenter;
@@ -20,7 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Route(path = "/shopcar/StoreDetailActivity", group = "shopcar")
 public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> implements IStoreDetailView {
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -30,7 +32,9 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     private List<StoreDetail.GoodsBean> goodsBeanList;//店铺中的货物信息
     private StoreDetail.StoreDetailBean storeDetailBean;//店铺详细信息
 
-    private ImageView ivStoreDetailFocus;
+    private ImageView qmuiIvStoreDetailStoreImageSmall;//店铺小图片
+
+   private ImageView ivStoreDetailFocus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,11 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
         categoryBeanList=storeDetail.getGoodsCategory();
         goodsBeanList=storeDetail.getGoods();
         storeDetailBean=storeDetail.getStoreDetail();
+        Glide.with(qmuiIvStoreDetailStoreImageSmall.getContext()).load(storeDetail.getStoreImage()).into(qmuiIvStoreDetailStoreImageSmall);
         for (int i = 0; i < categoryBeanList.size(); i++) {
-            fragmentList.add(new StoreDetailFragment(storeDetailBean,goodsBeanList,storeDetail));
+                fragmentList.add(new StoreDetailFragment(storeDetailBean,goodsBeanList,storeDetail));
         }
+
         viewPager.setAdapter(new StoreDetailViewPageAdapter(getSupportFragmentManager(),
                 categoryBeanList,goodsBeanList,storeDetailBean,fragmentList));//给viewpage设置适配器
         tabLayout.setupWithViewPager(viewPager);//设置tablayout与viewpage关联
@@ -63,6 +69,7 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
         tabLayout=findViewById(R.id.tlStoreDetailGoodsCategory);
         viewPager=findViewById(R.id.vpStoreDetail);
         ivStoreDetailFocus=findViewById(R.id.ivStoreDetailFocus);
+        qmuiIvStoreDetailStoreImageSmall=findViewById(R.id.qmuiIvStoreDetailStoreImageSmall);
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.StoreDetail;
@@ -19,7 +20,7 @@ import com.cxyz.utils.ScreenUtil;
 import com.qmuiteam.qmui.layout.QMUIRelativeLayout;
 
 import java.util.List;
-
+@Route(path = "/shopcar/StoreDetailFragment", group = "shopcar")
 public class StoreDetailFragment extends BaseFragment {
     private QMUIRelativeLayout qmuiRelativeLayout;//店铺详细信息的布局
     private RecyclerView recyclerView;//店铺中的货物

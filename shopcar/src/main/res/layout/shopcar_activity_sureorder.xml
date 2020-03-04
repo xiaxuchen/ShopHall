@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/shopcar_headerbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:backText="确认订单"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/rlSureOrderUserDetail"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopcar_headerbar"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/tvSureOrderUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="百世经纶·一页书"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/tvSureOrderUserPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="155xxxx7998"
+            android:textColor="#ccc"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/tvSureOrderUserName"
+            android:layout_alignBottom="@id/tvSureOrderUserName"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageView
+            android:id="@+id/ivSureOrderAddressLog"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/car_dizhi"
+            android:layout_below="@id/tvSureOrderUserName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/tvSureOrderUserAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="风月本无边，何处不容身;世事惘论量，倚剑问晴天。"
+            android:textColor="#ccc"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/tvSureOrderUserName"
+            android:layout_toRightOf="@id/ivSureOrderAddressLog"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/viewSureOrder1"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#F0EDED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlSureOrderUserDetail"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tvSureOrderStoreName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="某某旗舰店"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewSureOrder1"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tvSureOrderJainTou"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/car_back_right"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="1.5dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvSureOrderStoreName"
+        app:layout_constraintLeft_toRightOf="@id/tvSureOrderStoreName"
+        app:layout_constraintTop_toTopOf="@+id/tvSureOrderStoreName"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:id="@+id/svSureOrder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/shopcar_relativelayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSureOrderStoreName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSureOrderGoodsDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+            <RelativeLayout
+                android:id="@+id/rlSureOrderOthers"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@id/rvSureOrderGoodsDetail"
+                >
+                <TextView
+                    android:id="@+id/tvYunFei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="运费"
+                    android:textColor="#ccc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvSureOrderCarriagePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tvYunFei"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="￥69.00"
+                    android:textColor="@color/common_red"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvDingDangBeiZhu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvYunFei"
+                    android:layout_alignLeft="@id/tvYunFei"
+                    android:layout_marginTop="5dp"
+                    android:text="订单备注："
+                    android:textColor="#ccc"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvSureOrderOrderNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDingDangBeiZhu"
+                    android:layout_alignLeft="@+id/tvDingDangBeiZhu"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="今天一早做了个恶梦，梦到被老板辞退了。虽然说在我们公司，只有我辞退老板的份，没有老板辞退我这一说，但是还是被吓得 4 点多都起来了。（主要是因为我掌握着公司所有的核心源码，哈哈哈）"
+                    android:textColor="#ccc"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/shopcar_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/common_colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tvSureOrderGoodsCountAndTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共1件商品，合计：￥9999.0"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_alignBottom="@id/BtnSureOrder"
+            android:layout_toLeftOf="@id/BtnSureOrder"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="3dp"
+            />
+        <Button
+            android:id="@+id/BtnSureOrder"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:text="提交订单"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/car_btnbg_red"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
