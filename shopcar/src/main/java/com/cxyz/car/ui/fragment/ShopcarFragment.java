@@ -130,6 +130,12 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
              * 给组件添加值
              */
             viewHolder.storeName.setText(listItem.get(i).getStoreName());
+            viewHolder.storeName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+                }
+            });
             viewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
             viewHolder.recyclerView.setAdapter(new ShopcarInnerAdapter(context,listItem.get(i).getGoods()));
             return view;

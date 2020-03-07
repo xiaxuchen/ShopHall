@@ -83,7 +83,12 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void setEvent() {
-
+        storeName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+            }
+        });
     }
 
     @Override

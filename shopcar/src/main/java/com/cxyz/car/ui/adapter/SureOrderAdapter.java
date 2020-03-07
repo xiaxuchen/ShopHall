@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.SureOrder;
@@ -38,7 +39,20 @@ public class SureOrderAdapter extends RecyclerView.Adapter<SureOrderAdapter.Inne
         holder.goodsName.setText(goodsBeans.get(position).getGoodsName());
         holder.goodsDesc.setText(goodsBeans.get(position).getGoodsDesc());
         holder.goodsParameters.setText(goodsBeans.get(position).getGoodsParameters());
-        holder.goodsPrice.setText("￥"+goodsBeans.get(position).getGoodsPrice());
+        holder.goodsPrice.setText("￥" + goodsBeans.get(position).getGoodsPrice());
+
+        holder.goodsImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
+        holder.goodsName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
     }
 
     @Override

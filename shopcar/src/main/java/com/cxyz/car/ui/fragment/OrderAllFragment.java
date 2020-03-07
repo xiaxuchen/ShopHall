@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.car.presenter.OrderAllPresenter;
@@ -54,7 +55,7 @@ public class OrderAllFragment extends BaseFragment<OrderAllPresenter> implements
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(context, OrderDetailActivity.class));
+                ARouter.getInstance().build("/shopcar/OrderDetailActivity").navigation();
             }
         });
     }

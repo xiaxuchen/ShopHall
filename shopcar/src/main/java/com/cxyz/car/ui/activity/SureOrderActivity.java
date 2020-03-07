@@ -1,12 +1,14 @@
 package com.cxyz.car.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.SureOrder;
 import com.cxyz.car.presenter.SureOrderPresenter;
@@ -73,7 +75,12 @@ public class SureOrderActivity extends BaseActivity<SureOrderPresenter> implemen
 
     @Override
     public void setEvent() {
-
+        storeName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+            }
+        });
     }
 
     @Override

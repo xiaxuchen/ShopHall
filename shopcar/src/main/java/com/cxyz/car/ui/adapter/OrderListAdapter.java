@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderItem;
@@ -56,6 +57,12 @@ public class OrderListAdapter extends BaseAdapter {
             {
                 holder.recyclerView=view.findViewById(R.id.rvOrderInnerItem);
                 holder.tvStoreName=view.findViewById(R.id.tvOrderName);
+                holder.tvStoreName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+                    }
+                });
                 holder.tvSuccess=view.findViewById(R.id.tvOrderSuccess);
                 holder.tvTotalPrice=view.findViewById(R.id.tvOrderGoodsTotalPrice);
 

@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.RecommendGoods;
 import com.cxyz.car.presenter.RecommendPresenter;
@@ -59,7 +61,12 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
 
     @Override
     protected void setListener() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+            }
+        });
     }
 
     @Override
