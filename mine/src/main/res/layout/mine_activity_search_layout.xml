@@ -27,13 +27,14 @@
             android:hint="@string/mineSearchTip"
             android:textSize="15dp"
             android:textColor="#bbbbbb"
-            android:background="@drawable/mine_search_textview_bg"
+            android:background="@drawable/mine_search_text_bg"
             android:layout_marginTop="8dp"
             android:paddingLeft="@dimen/common_margin"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="55dp"
             android:layout_marginRight="75dp"/>
         <Button
+            android:id="@+id/btnSearch"
             android:layout_width="45dp"
             android:layout_height="match_parent"
             android:text="@string/mineSearchBtn"

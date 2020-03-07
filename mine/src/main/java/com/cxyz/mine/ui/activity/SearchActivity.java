@@ -1,8 +1,11 @@
 package com.cxyz.mine.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +20,7 @@ import java.util.List;
 
 @Route(path = "/mine/SearchActivity",group = "mine")
 public class SearchActivity extends BaseActivity {
+    private Button btnSearch;
     private FlowLayout flowHistory;
     private List<String> listHistory=new ArrayList<>();
     private FlowLayout flowSearchFind;
@@ -78,6 +82,14 @@ public class SearchActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        btnSearch = findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 Intent intentVersion = new Intent(SearchActivity.this,SearchResultsActivity                                                  .class);
+                startActivity(intentVersion);
+            }
+        });
     }
 
     @Override

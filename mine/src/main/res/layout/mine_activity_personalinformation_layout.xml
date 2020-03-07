@@ -144,44 +144,11 @@
         app:layout_constraintTop_toBottomOf="@id/phone"
         tools:ignore="MissingConstraints" />
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/vip"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/divider04"
-        tools:ignore="MissingConstraints" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/common_margin"
-            android:gravity="center"
-            android:text="@string/minePersonalVip"
-            android:textSize="13dp"
-            android:textColor="#3e4144"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="vip:5"
-            android:textColor="@color/common_colorPrimary"
-            android:layout_marginRight="@dimen/common_margin"
-            android:gravity="center"
-            app:layout_constraintRight_toRightOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:id="@+id/divider05"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_divider_height"
-        app:layout_constraintTop_toBottomOf="@id/vip"
-        tools:ignore="MissingConstraints" />
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/more"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/divider05"
+        app:layout_constraintTop_toBottomOf="@id/divider04"
         tools:ignore="MissingConstraints" >
         <TextView
             android:layout_width="wrap_content"
