@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.qmuiteam.qmui.layout.QMUIRelativeLayout
+    android:layout_marginStart="6dp"
+    android:layout_marginEnd="6dp"
+    android:id="@+id/qmuiRlStoreDetailGoods"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="15dp"
+    android:layout_marginBottom="15dp"
+    android:background="@color/white"
+    >
+
+    <ImageView
+        android:id="@+id/ivStoreDetailGoodsImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/car_bg3"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/tvStoreDetailGoodsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="纵深入尘埃里，雷雨大作，我也放声而歌。"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/ivStoreDetailGoodsImage"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+    <TextView
+        android:id="@+id/tvStoreDetailGoodsDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="只留针线"
+        android:layout_below="@+id/tvStoreDetailGoodsName"
+        android:textColor="@color/common_red"
+        android:textSize="11sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+    <TextView
+        android:id="@+id/tvStoreDetailGoodsPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥698.99"
+        android:textColor="@color/common_red"
+        android:textSize="11sp"
+        android:layout_below="@+id/tvStoreDetailGoodsDesc"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tvStoreDetailGoodsTradeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignTop="@+id/tvStoreDetailGoodsPrice"
+        android:text="12件起批"
+        android:textColor="#ccc"
+        android:textSize="10sp" />
+</com.qmuiteam.qmui.layout.QMUIRelativeLayout>
+</LinearLayout>

@@ -52,9 +52,9 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
         return new TrackPresenter();
     }
     @Override
-    public void showTrackGoodsView(List<TrackGoods> data,String[] date) {
+    public void showTrackGoodsView(List<TrackGoods> data) {
         rv_track.setLayoutManager(new LinearLayoutManager(this));
-        TrackAdapter adapter=new TrackAdapter(this,date,data);
+        TrackAdapter adapter=new TrackAdapter(this,data);
         rv_track.setAdapter(adapter);
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/common_bg"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
@@ -42,12 +42,12 @@
     <ScrollView
         android:id="@+id/svMain"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
             <!--广告轮播 -->
@@ -115,9 +115,10 @@
             <ListView
                 android:id="@+id/lv_bottom_ad"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
+                android:layout_height="600dp"
                 android:layout_below="@id/rvMainStore"
                 android:layout_marginTop="23dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/car_border_samll" />
         </RelativeLayout>
     </ScrollView>

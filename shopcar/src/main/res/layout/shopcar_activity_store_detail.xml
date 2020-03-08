@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F5F5">
+
+    <RelativeLayout
+        android:id="@+id/rlStoreDetailTop"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/common_colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/car_bg3"
+            app:qmui_is_circle="true" />
+
+        <TextView
+            android:id="@+id/tvStoreDetailStoreName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:text="渊亭无迹"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvStoreDetailStoreName"
+            android:layout_alignBottom="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-1dp"
+            android:layout_toEndOf="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:layout_toRightOf="@+id/qmuiIvStoreDetailStoreImageSmall"
+            android:text="{fa-star}{fa-star}{fa-star}"
+            android:textColor="@color/common_red" />
+
+        <ImageView
+            android:id="@+id/ivStoreDetailFocus"
+            android:layout_width="46dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/car_storedetail_hasaddedfoucs"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/qmuiIvStoreDetailStoreImageSmall"
+            android:layout_marginEnd="20dp"/>
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlStoreDetailGoodsCategory"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/common_colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rlStoreDetailTop"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/white"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpStoreDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlStoreDetailGoodsCategory"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="55dp"
+        android:background="#E4DFDF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivGetService"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/car_storedetail_service"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_bottom"
+        app:layout_constraintVertical_bias="0.666"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvGetService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="联系客服"
+        android:textSize="16sp"
+        android:textColor="#ccc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivGetService"
+        app:layout_constraintTop_toTopOf="@+id/ivGetService"
+        app:layout_constraintVertical_bias="0.448"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

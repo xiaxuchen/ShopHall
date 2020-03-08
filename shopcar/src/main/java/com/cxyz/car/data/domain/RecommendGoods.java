@@ -1,12 +1,18 @@
 package com.cxyz.car.data.domain;
 
-public class MainGoods {
+import java.math.BigDecimal;
+
+/**
+ * 推荐的商品
+ */
+public class RecommendGoods {
+    private Long  recommendGoodsId;
     private String image;
     private String desc;
     private String smal;
-    private int price;
+    private BigDecimal price;
 
-    public MainGoods(String image, String desc, String smal, int price) {
+    public RecommendGoods(String image, String desc, String smal, BigDecimal price) {
         this.image = image;
         this.desc = desc;
         this.smal = smal;
@@ -15,7 +21,7 @@ public class MainGoods {
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "FavoriteGoods{" +
                 "image='" + image + '\'' +
                 ", desc='" + desc + '\'' +
                 ", smal='" + smal + '\'' +
@@ -47,7 +53,11 @@ public class MainGoods {
         this.smal = smal;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

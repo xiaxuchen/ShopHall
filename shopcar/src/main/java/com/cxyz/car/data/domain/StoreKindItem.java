@@ -2,13 +2,17 @@ package com.cxyz.car.data.domain;
 
 import java.util.List;
 
-public class StoreItem {
+/**
+ * 主页的店铺分类
+ */
+public class StoreKindItem {
+        private Long storeKindId;
         private String storeImage;
         private String storeName;
 
     @Override
     public String toString() {
-        return "StoreItem{" +
+        return "StoreKindItem{" +
                 "storeImage='" + storeImage + '\'' +
                 ", storeName='" + storeName + '\'' +
                 '}';
@@ -30,7 +34,7 @@ public class StoreItem {
             this.storeName = storeName;
         }
 
-    public StoreItem(String storeImage, String storeName) {
+    public StoreKindItem(String storeImage, String storeName) {
         this.storeImage = storeImage;
         this.storeName = storeName;
     }

@@ -25,7 +25,7 @@ public class OrderDetailModelImpl extends IOrderDetailModel {
         try {
             RequestParams params =new RequestParams();
             params.put("orderId","001");
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/orderdetail",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/orderdetail",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

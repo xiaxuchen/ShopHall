@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -25,6 +27,7 @@ import com.cxyz.car.R;
 import com.cxyz.car.data.domain.ShopcarGoods;
 import com.cxyz.car.presenter.ShopcarPresenter;
 import com.cxyz.car.presenter.view.IShopcarView;
+import com.cxyz.car.ui.adapter.ShopcarInnerAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
@@ -108,15 +111,8 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             return 0;
         }
         class  ShopViewHolder {
-            private ImageView logo;
-            private ImageView image;
-            private TextView desc;
-            private TextView smal;
-            private TextView price;
-
-            private TextView count;
-            private Button btnAdd;
-            private Button btnDescre;
+            private TextView storeName;//店铺名称
+            private RecyclerView recyclerView;//用来装货物的recycleview
         }
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
@@ -124,70 +120,24 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
                     if(view==null){
                         viewHolder=new ShopViewHolder();
                         view=LayoutInflater.from(context).inflate(R.layout.shopcar_list_item_shopcar,null);
-
-                        viewHolder.logo=view.findViewById(R.id.ivShopcarLogo);
-                        viewHolder.image=view.findViewById(R.id.ivShopcarStoreImage);
-                        viewHolder.desc=view.findViewById(R.id.tvShopcarDesc);
-                        viewHolder.smal=view.findViewById(R.id.tvShopcarSmal);
-                        viewHolder.price=view.findViewById(R.id.tvShopcarStorePrice);
-                        viewHolder.btnAdd=view.findViewById(R.id.btnShopcarAdd);
-                        viewHolder.btnDescre=view.findViewById(R.id.btnShopcarDescres);
-                        viewHolder.count=view.findViewById(R.id.etShopcarCount);
-
-
+                        viewHolder.storeName=view.findViewById(R.id.tvShopcarStoreName);//店铺名称
+                        viewHolder.recyclerView=view.findViewById(R.id.rvShopcarGoods);
                         view.setTag(viewHolder);
                     }else {
                         viewHolder=(ShopViewHolder) view.getTag();
                     }
-
             /**
-             * 给五个组件添加值
+             * 给组件添加值
              */
-//            viewHolder.image.setImageResource(listItem.get(i).getImage());
-            Glide.with(viewHolder.image.getContext()).load(listItem.get(i).getImage()).into(viewHolder.image);
-
-            viewHolder.desc.setText(listItem.get(i).getDesc());
-            viewHolder.image.setOnClickListener(new View.OnClickListener() {
+            viewHolder.storeName.setText(listItem.get(i).getStoreName());
+            viewHolder.storeName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                    ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
                 }
             });
-            viewHolder.desc.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
-                }
-            });
-            viewHolder.smal.setText(listItem.get(i).getSmal());
-            viewHolder.price.setText("￥"+listItem.get(i).getPrice());
-
-                    /*
-                    购物车添加数量按钮组件
-                     */
-
-            final int[] amount = {3};
-            ShopViewHolder finalViewHolder = viewHolder;
-            viewHolder.btnAdd.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                            if (true){
-                                amount[0]++;
-                                finalViewHolder.count.setText(amount[0]+"");
-                            }
-                        }
-                    });
-            viewHolder.btnDescre.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (amount[0]>=1){
-                        amount[0]--;
-                        finalViewHolder.count.setText(amount[0]+"");
-                    }
-                }
-            });
-
+            viewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            viewHolder.recyclerView.setAdapter(new ShopcarInnerAdapter(context,listItem.get(i).getGoods()));
             return view;
         }
     }

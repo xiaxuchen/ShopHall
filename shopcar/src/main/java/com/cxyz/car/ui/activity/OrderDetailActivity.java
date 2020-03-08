@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
@@ -14,28 +17,32 @@ import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderDetail;
 import com.cxyz.car.presenter.OrderDetailPresenter;
 import com.cxyz.car.presenter.view.IOrderDetailView;
+import com.cxyz.car.ui.adapter.OrderDetailAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import org.w3c.dom.Text;
 
+import java.math.BigDecimal;
+
 @Route(path = "/shopcar/OrderDetailActivity", group = "shopcar")
 public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> implements IOrderDetailView {
-    ImageView addressLogo;
-    TextView username;
-    TextView address;
-    ImageView storeLogo;
-    TextView storeName;
-    ImageView storeImage;
-    TextView goodsTitle;
-    TextView goodsDesc;
-    TextView totalPrice;
-    TextView truePay;
-    TextView orderCode;
-    TextView CreateTime;
-    TextView PayTime;
-    TextView SendTime;
-    TextView CloseTime;
+    private RecyclerView recyclerView;
+
+    TextView username;//用户名
+    TextView address;//用户地址
+    TextView storeName;//店铺名
+    TextView totalPrice;//订单总价
+    TextView truePay;//实付款
+    TextView orderCode;//订单编号
+    TextView CreateTime;//订单创建时间
+    TextView PayTime;//订单付款时间
+    TextView SendTime;//订单发货时间
+    TextView CloseTime;//订单成交时间
+
+    TextView tvOrderDetailDelete;
+    TextView tvOrderDeatilComment;
+    TextView tvOrderDetailPay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +57,12 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void initView() {
-        addressLogo = findViewById(R.id.ivOrderDetailAddressLogo);//地址logo
+        recyclerView=findViewById(R.id.rvOrderDetail);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         username = findViewById(R.id.tvOrderDetialUsername);//用户名
         address = findViewById(R.id.tvOrderDeatilAddress);//用户地址
-        storeLogo = findViewById(R.id.ivOrderDetailSoreLogo);//商家logo
         storeName = findViewById(R.id.tvOrderDetailStoreName);//商家名称
-        storeImage = findViewById(R.id.ivOrderDetailItemImage);//商家图片
-        goodsTitle = findViewById(R.id.ivOrderDetailItemTile);//货物名称
-        goodsDesc = findViewById(R.id.ivOrderDetailItemDesc);//货物描述
         totalPrice = findViewById(R.id.tvOrderDetailTotalPrice);//订单总价
         truePay = findViewById(R.id.tvOrderDetailTruePay);//实付款
         orderCode = findViewById(R.id.tvOrderDetailOrderCode);//订单编号
@@ -65,6 +70,10 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
         PayTime = findViewById(R.id.tvOrderDetailOrderPayTime);//付款时间
         SendTime = findViewById(R.id.tvOrderDetailOrderSendTime);//发货时间
         CloseTime = findViewById(R.id.tvOrderDetailOrderCloseTime);//成交时间
+
+        tvOrderDetailDelete=findViewById(R.id.tvOrderDetialDelete);
+        tvOrderDeatilComment=findViewById(R.id.tvOrderDetailComment);
+        tvOrderDetailPay=findViewById(R.id.tvOrderDetialPay);
     }
 
     @Override
@@ -74,16 +83,10 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void setEvent() {
-        storeImage.setOnClickListener(new View.OnClickListener() {
+        storeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
-            }
-        });
-        goodsTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
             }
         });
     }
@@ -95,20 +98,27 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void showData(OrderDetail orderDetail) {
-        Glide.with(addressLogo.getContext()).load(orderDetail.getAddressLogo()).into(addressLogo);
+        recyclerView.setAdapter(new OrderDetailAdapter(this,orderDetail.getGoods()));
+
         username.setText(orderDetail.getUsername());
         address.setText(orderDetail.getAddress());
-        Glide.with(storeLogo.getContext()).load(orderDetail.getStoreLogo()).into(storeLogo);
         storeName.setText(orderDetail.getStoreName());
-        Glide.with(storeImage.getContext()).load(orderDetail.getStoreImage()).into(storeImage);
-        goodsTitle.setText(orderDetail.getGoodsTitle());
-        goodsDesc.setText(orderDetail.getGoodsDesc());
-        totalPrice.setText("￥"+orderDetail.getTotalPrice());
-        truePay.setText("￥"+orderDetail.getTruePay());
+        BigDecimal total=new BigDecimal(0);
+        for (int i = 0; i < orderDetail.getGoods().size(); i++) {
+            total=total.add(orderDetail.getGoods().get(i).getGoodsPrice());
+        }
+        totalPrice.setText("￥"+total);
+        truePay.setText("￥"+total);
         orderCode.setText(orderDetail.getOrderCode());
         CreateTime.setText(orderDetail.getCreateTime());
         PayTime.setText(orderDetail.getPayTime());
         SendTime.setText(orderDetail.getSendTime());
         CloseTime.setText(orderDetail.getCloseTime());
+
+        if (orderDetail.getOrderItemStatus()==4){
+            tvOrderDeatilComment.setVisibility(View.GONE);
+        }else{
+            tvOrderDetailPay.setVisibility(View.GONE);
+        }
     }
 }

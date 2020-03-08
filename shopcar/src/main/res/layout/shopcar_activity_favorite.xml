@@ -40,13 +40,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="72dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFavoriteGoods"
+
+    <com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout
+        android:id="@+id/qmuiPullRefreshLayoutFavorite"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/shopcar_guideline4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0" >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavoriteGoods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

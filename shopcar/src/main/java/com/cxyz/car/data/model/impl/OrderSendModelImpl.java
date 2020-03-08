@@ -13,7 +13,6 @@ import com.cxyz.http.response.CheckResult;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderSendModelImpl extends IOrderSendModel {
@@ -22,9 +21,8 @@ public class OrderSendModelImpl extends IOrderSendModel {
     @Override
     public void loadData(OnLoadListener onLoadListener) {
         RequestParams params =new RequestParams();
-        params.put("orderStatus","待发货");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/ordersend",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/ordersend",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {
@@ -34,7 +32,6 @@ public class OrderSendModelImpl extends IOrderSendModel {
                             orderItemList=checkResult.getData();
                             onLoadListener.complete(orderItemList);
                         }
-
                         @Override
                         public void onFailure(Object error) {
 

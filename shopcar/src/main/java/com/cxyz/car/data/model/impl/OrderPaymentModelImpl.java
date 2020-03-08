@@ -22,7 +22,7 @@ public class OrderPaymentModelImpl extends IOrderPaymentModel {
         RequestParams params =new RequestParams();
         params.put("orderStatus","待付款");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/orderpayment",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/order/orderpayment",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

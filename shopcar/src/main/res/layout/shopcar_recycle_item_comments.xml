@@ -78,6 +78,7 @@
         android:text="什么克鲁赛德好可怜放假哈是肯定会看闪电发货扣水电费开始的合法"
         android:textColor="@color/black"
         android:textSize="12sp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -106,6 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
+        android:text="删除"
         android:textColor="#ccc"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,5 +116,19 @@
         app:layout_constraintStart_toEndOf="@+id/tvCommentsUserName"
         app:layout_constraintTop_toTopOf="@+id/tvCommentsUserName"
         app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvCommentsIsMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="我"
+        android:textColor="#ccc"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCommentsDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCommentsDelete"
+        app:layout_constraintTop_toTopOf="@+id/tvCommentsDelete"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

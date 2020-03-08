@@ -32,7 +32,6 @@
         android:id="@+id/ivTrackInnerGoodsImage"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:background="@drawable/car_track_radius"
         android:foregroundGravity="center_horizontal"
         android:scaleType="centerCrop"
         android:src="@drawable/car_bg2"

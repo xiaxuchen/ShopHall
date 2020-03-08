@@ -5,13 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.OrderItem;
 
+import org.w3c.dom.Text;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public class OrderListAdapter extends BaseAdapter {
@@ -47,30 +55,22 @@ public class OrderListAdapter extends BaseAdapter {
             view= LayoutInflater.from(context).inflate(R.layout.shopcar_list_item_order,null);
             //找到控件
             {
-                holder.iv_logo=view.findViewById(R.id.ivOrderLogo);//店铺logo
-                holder.tv_name=view.findViewById(R.id.tvOrderName);//店铺名称
-                holder.tv_sucess=view.findViewById(R.id.tvOrderSuccess);//交易成功
-                holder.iv_goodimage=view.findViewById(R.id.ivOrderImage);//商品图片
-                holder.tv_goodsname=view.findViewById(R.id.tvOrderGoodsName);//商品名称
-                holder.tv_goodsdesc=view.findViewById(R.id.tvOrderSmal);//商品描述
+                holder.recyclerView=view.findViewById(R.id.rvOrderInnerItem);
+                holder.tvStoreName=view.findViewById(R.id.tvOrderName);
+                holder.tvStoreName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+                    }
+                });
+                holder.tvSuccess=view.findViewById(R.id.tvOrderSuccess);
+                holder.tvTotalPrice=view.findViewById(R.id.tvOrderGoodsTotalPrice);
 
-                holder.tv_insure=view.findViewById(R.id.tvOrderIssure);//保险价
-                holder.tv_insure_desc=view.findViewById(R.id.tvOrderIssureDesc);//保险价描述
-                holder.tv_insure_detial=view.findViewById(R.id.tvOrderDetial);//查看详情
+                holder.tvDelete=view.findViewById(R.id.tvOrderDelete);
+                holder.tvComment=view.findViewById(R.id.tvOrderComment);
+                holder.tvPay=view.findViewById(R.id.tvOrderPay);
 
-                holder.tv_carriage=view.findViewById(R.id.tvOrderCarriage);//运费险
-                holder.tv_carriage_desc=view.findViewById(R.id.tvOrderCarriageDesc);//运费险描述关
-                holder.tv_carriage_price=view.findViewById(R.id.tvOrderCarriagePrice);//运费险价格
-
-                holder.tv_insure_server=view.findViewById(R.id.tvOrderInsureServer);//保险服务
-                holder.tv_insure_server_desc=view.findViewById(R.id.tvOrderInsureSererDesc);//保险服务描述
-                holder.tv_insure_price=view.findViewById(R.id.tvOrderInsureServerPrice);//保险服务价格
-
-                holder.tv_goodsprice=view.findViewById(R.id.tvOrderGoodsPrice);//商品总价格
             }
-
-
-
             view.setTag(holder);
         }else{
             holder= (ViewHolder) view.getTag();
@@ -78,48 +78,34 @@ public class OrderListAdapter extends BaseAdapter {
 
         //给控件赋值
         {
-            holder.tv_name.setText(listItem.get(i).getStoreName());
-            holder.tv_sucess.setText(listItem.get(i).getSuccess());
-            Glide.with(holder.iv_goodimage.getContext()).load(listItem.get(i).getGoodsImage()).into(holder.iv_goodimage);
-            holder.tv_goodsname.setText(listItem.get(i).getGoodsName());
-            holder.tv_goodsdesc.setText(listItem.get(i).getGoodsDesc());
-            holder.tv_insure.setText(listItem.get(i).getInsure());
-            holder.tv_insure_desc.setText(listItem.get(i).getInsureDesc());
-            holder.tv_insure_detial.setText("查看详情");
-            holder.tv_carriage.setText(listItem.get(i).getCarriage());
-            holder.tv_carriage_desc.setText(listItem.get(i).getCarriageDesc());
-            holder.tv_carriage_price.setText("￥"+listItem.get(i).getCarriagePrice());
-            holder.tv_insure_server.setText(listItem.get(i).getInsureServer());
-            holder.tv_insure_server_desc.setText(listItem.get(i).getInsureServerDecsc());
-            holder.tv_insure_price.setText("￥"+listItem.get(i).getInsureServerPrice());
-
-            holder.tv_goodsprice.setText("共1件商品 合计：￥"+listItem.get(i).getGoodsPrice());
-
+            holder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            holder.recyclerView.setAdapter(new OrderInnerAdapter(context,listItem.get(i).getGoods()));
+            holder.tvStoreName.setText(listItem.get(i).getStoreName());
+            holder.tvSuccess.setText(listItem.get(i).getSuccess());
+            BigDecimal totalPrice = new BigDecimal(0);
+            for (int j = 0; j < listItem.get(i).getGoods().size(); j++) {
+                totalPrice= totalPrice.add(listItem.get(i).getGoods().get(j).getGoodsPrice());
+            }
+            holder.tvTotalPrice.setText("共"+listItem.get(i).getGoods().size()+"件商品，合计:"+totalPrice);
+            //orderStatus:该订单条目所属状态1为待收货，2待发货，3为待评价，4为待付款
+            if(listItem.get(i).getOrderItemStatus()==4){
+                holder.tvComment.setVisibility(View.GONE);
+            }else{
+                holder.tvPay.setVisibility(View.GONE);
+            }
         }
         return view;
     }
 
     class ViewHolder{
-        private ImageView iv_logo;//店铺logo
-        private TextView tv_name;//店铺名称
-        private TextView tv_sucess;//交易成功
-        private ImageView iv_goodimage;//商品图片
-        private TextView tv_goodsname;//商品名称
-        private TextView tv_goodsdesc;//商品描述
+        private RecyclerView recyclerView;
+        private TextView tvStoreName;
+        private TextView tvSuccess;
+        private TextView tvTotalPrice;
 
-        private TextView tv_insure;//保险价
-        private TextView tv_insure_desc;//保险价描述
-        private TextView tv_insure_detial;//查看详情
-
-        private TextView tv_carriage;//运费险
-        private TextView tv_carriage_desc;//运费险描述
-        private TextView tv_carriage_price;//运费险价格
-
-        private TextView tv_insure_server;//保险服务
-        private TextView tv_insure_server_desc;//保险服务描述
-        private TextView tv_insure_price;//保险服务价格
-
-        private TextView tv_goodsprice;//商品总价格
+        private TextView tvDelete;
+        private TextView tvComment;
+        private TextView tvPay;
     }
 }
 

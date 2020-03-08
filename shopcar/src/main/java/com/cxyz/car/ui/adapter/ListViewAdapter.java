@@ -10,16 +10,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
-import com.cxyz.car.data.domain.Goods;
-import com.cxyz.car.data.domain.MainGoods;
+import com.cxyz.car.data.domain.RecommendGoods;
 
 import java.util.List;
 
 public class ListViewAdapter extends BaseAdapter {
     private Context context;
-    private List<MainGoods> listItem;
+    private List<RecommendGoods> listItem;
 
-    public ListViewAdapter(Context context, List<MainGoods> listItem) {
+    public ListViewAdapter(Context context, List<RecommendGoods> listItem) {
         this.context = context;
         this.listItem = listItem;
     }

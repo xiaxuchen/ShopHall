@@ -1,6 +1,5 @@
 package com.cxyz.car.presenter.view;
 
-import com.cxyz.car.data.domain.Goods;
 import com.cxyz.car.data.domain.OrderItem;
 import com.cxyz.mvp.iview.IBaseView;
 

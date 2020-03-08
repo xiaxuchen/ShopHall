@@ -23,7 +23,7 @@ public class StoreModelImpl extends IStoreModel {
         RequestParams params=new RequestParams();
         params.put("goodsId","001");
         try {
-            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/shopcar/comments",params,
+            CommonOkHttpClient.get("http://rest.apizza.net/mock/60df82bc7ba12927750ab8c1b6537225/store/comments",params,
                     new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {
@@ -31,9 +31,6 @@ public class StoreModelImpl extends IStoreModel {
                             Gson gson=new Gson();
                             checkResult=gson.fromJson(json,new TypeToken<CheckResult<List<CommentsItem>>>(){}.getType());
                             commentsItemList=checkResult.getData();
-                            for(CommentsItem commentsItem:commentsItemList){
-                                commentsItem.setDelete("删除");
-                            }
                             onLoadListener.complete(commentsItemList);
                         }
 
