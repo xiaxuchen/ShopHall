@@ -176,7 +176,7 @@ public class GoodsInfoActivity extends BaseActivity {
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
                 startActivity(intent);
                 // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
                 ToastUtil.showShort("点击购买");
