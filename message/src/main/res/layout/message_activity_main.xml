@@ -17,22 +17,44 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <EditText
             android:id="@+id/input_txet"
+            android:background="@drawable/edittext_shape"
             android:layout_width="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请输入内容"
+            android:textSize="18sp"
+            android:paddingLeft="10dp"
+           android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:maxLines="2"
             />
-        <Button
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
             android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#FF5722"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:text="发送"
-            android:background="#1EBD3D"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:qmui_borderWidth="0px"
+            app:qmui_radiusBottomLeft="10dp"
+            app:qmui_radiusBottomRight="10dp"
+            app:qmui_radiusTopLeft="10dp"
+            app:qmui_radiusTopRight="10dp" />
     </LinearLayout>
 </LinearLayout>

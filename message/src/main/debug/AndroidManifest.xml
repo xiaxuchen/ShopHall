@@ -20,11 +20,9 @@
         <activity android:name=".ui.Activity.MainActivity"></activity>
         <activity android:name=".ui.Activity.ChatInfoActivity"></activity>
         <activity android:name=".ui.Activity.ChatMessageActivity"></activity>
-
+        <activity android:name=".ui.Activity.LoginTestActicity"></activity>
         <meta-data
             android:name="com.cxyz.starter.iconify"
             android:value="com.cxyz.message.IconifyStarter" />
     </application>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
 </manifest>

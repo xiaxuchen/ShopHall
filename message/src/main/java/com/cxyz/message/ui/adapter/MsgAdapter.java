@@ -36,8 +36,10 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder>  {
             rightMsg = view.findViewById(R.id.right_msg);
             leftImg=view.findViewById(R.id.left_img);
             leftImg.setCircle(true);
+            leftImg.setBorderWidth(0);
             righrImg=view.findViewById(R.id.right_img);
             righrImg.setCircle(true);
+            righrImg.setBorderWidth(0);
         }
     }
 

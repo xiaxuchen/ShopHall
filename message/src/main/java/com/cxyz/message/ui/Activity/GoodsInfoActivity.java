@@ -61,6 +61,8 @@ public class GoodsInfoActivity extends BaseActivity {
     private GeneralVpLayout<Integer> generalVpLayout;
     private LinearLayout mtopVGroup;
     private ImageView[] mImageViews;
+    private  ImageView  backImg;
+    private ImageView shareImg;
     /**
      * 筛选框
      */
@@ -111,14 +113,14 @@ public class GoodsInfoActivity extends BaseActivity {
     private ArrayList<String> productFeaturesList;
     @Override
     protected Object getContentView() {
-        return R.layout.message_activity_goodsinfo;
+        return R.layout.message_activity_goodsinfotest;
     }
 
     @Override
     public void initView() {
         // 顶部tool
-        ImageView backImg = (ImageView) findViewById(R.id.iv_back);
-        ImageView shareImg = (ImageView) findViewById(R.id.iv_share);
+        backImg = (ImageView) findViewById(R.id.iv_back);
+        shareImg = (ImageView) findViewById(R.id.iv_share);
         rlToolbar = (RelativeLayout) findViewById(R.id.layout_toolbar);
         tvPdesc= (TextView) findViewById(R.id.tv_product_title);
         tvPdesc.setVisibility(View.GONE);
@@ -140,8 +142,8 @@ public class GoodsInfoActivity extends BaseActivity {
             }
         });
         tvImgtextInfo = (TextView) findViewById(R.id.tv_info_imgtext);
-        tvPhotoInfo = (TextView) findViewById(R.id.tv_info_photo);
-        tvEvalInfo = (TextView) findViewById(R.id.tv_info_eval);
+        /*tvPhotoInfo = (TextView) findViewById(R.id.tv_info_photo);
+        tvEvalInfo = (TextView) findViewById(R.id.tv_info_eval);*/
         ivCursor = (ImageView) findViewById(R.id.cursor);
         // 底部ViewPager
         bottomVPager = (ChildAutoHeightViewPager) findViewById(R.id.bottomvpager);
@@ -151,8 +153,8 @@ public class GoodsInfoActivity extends BaseActivity {
         productWillFragment = ProductWillFragment.newInstance(new ViewBundle(bottomVPager));
         productEvalInfoFragment = ProductEvalInfoFragment.newInstance(new ViewBundle(bottomVPager));
         mDatas.add(graphicDetailsFragment);
-        mDatas.add(productWillFragment);
-        mDatas.add(productEvalInfoFragment);
+    //    mDatas.add(productWillFragment);
+    //    mDatas.add(productEvalInfoFragment);
         bottomAdapter = new VPagerFragmentAdapter(getSupportFragmentManager(), mDatas);
         bottomVPager.setAdapter(bottomAdapter);
         bottomVPager.setOffscreenPageLimit(mDatas.size());// 缓存
@@ -174,7 +176,7 @@ public class GoodsInfoActivity extends BaseActivity {
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
                 startActivity(intent);
                 // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
                 ToastUtil.showShort("点击购买");
@@ -232,7 +234,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 detailList.add(R.drawable.product_banner_four);
         }
         // 初始化商品实拍
-        if (willList == null)
+       /* if (willList == null)
             willList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             if (i == 0)
@@ -247,7 +249,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 willList.add(R.drawable.product_banner_three);
             else if (i == 5)
                 willList.add(R.drawable.product_banner_four);
-        }
+        }*/
         // 初始化规格
         if (specificationList == null)
             specificationList = new ArrayList<>();
@@ -269,6 +271,8 @@ public class GoodsInfoActivity extends BaseActivity {
 
     @Override
     public void setEvent() {
+        backImg.setOnClickListener(onClickListener);
+        shareImg.setOnClickListener(onClickListener);
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
         myScrollView.setOnScrollListener(new MyScrollView.OnScrollListener() {
             @Override
@@ -309,7 +313,7 @@ public class GoodsInfoActivity extends BaseActivity {
 
             }
         });
-        ivBackTop.setOnClickListener(onClickListener);
+        ivBackTop.setOnClickListener(onClickListener );
         imgcoll.setOnClickListener(new View.OnClickListener() {
             boolean click=true;
             @Override
@@ -344,7 +348,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 setSpecificationsChoiceFlowlayoutData(specificationList);
                 setProductTopViewPager(bannerList);
                 graphicDetailsFragment.setLinearLayoutData(detailList);
-                productWillFragment.setLinearLayoutData(willList);
+              //  productWillFragment.setLinearLayoutData(willList);
 
                 /**
                  * 刷新ViewPager，每一次刷新数据都要重置高度，默认显示第一页
@@ -362,14 +366,16 @@ public class GoodsInfoActivity extends BaseActivity {
         public void onClick(View v) {
             int id = v.getId();// 返回
             if (id == R.id.iv_back) {
+                ToastUtil.showLong("返回功能");
+                 getActivity().finish();
             } else if (id == R.id.iv_share) {// 分享
-                Toast.makeText(GoodsInfoActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
+                ToastUtil.showLong("分享功能");
             } else if (id == R.id.tv_info_imgtext) {// 图文详情
                 bottomVPager.setCurrentItem(0);
-            } else if (id == R.id.tv_info_photo) {// 产品实拍
+            /*} else if (id == R.id.tv_info_photo) {// 产品实拍
                 bottomVPager.setCurrentItem(1);
             } else if (id == R.id.tv_info_eval) {// 评价详情
-                bottomVPager.setCurrentItem(2);
+                bottomVPager.setCurrentItem(2);*/
             } else if (id == R.id.iv_back_top) {// 返回顶部
                 myScrollView.smoothScrollTo(0, vpagerTopDistance);
             }
@@ -592,7 +598,7 @@ public class GoodsInfoActivity extends BaseActivity {
         @Override
         public void onPageSelected(int arg0) {
             // 滑动结束
-            changeTextView(arg0);
+           // changeTextView(arg0);
         }
 
         @Override
@@ -619,7 +625,7 @@ public class GoodsInfoActivity extends BaseActivity {
             /**
              * 重置当前高度
              */
-            bottomVPager.resetHeight(positon);
+           bottomVPager.resetHeight(positon);
         }
 
         @Override
@@ -650,7 +656,7 @@ public class GoodsInfoActivity extends BaseActivity {
     }
 
     // 改变游动条
-    private void changeTextView(int position) {
+   /* private void changeTextView(int position) {
         tvImgtextInfo.setTextColor(Color.parseColor("#666666"));
         tvPhotoInfo.setTextColor(Color.parseColor("#666666"));
         tvEvalInfo.setTextColor(Color.parseColor("#666666"));
@@ -666,5 +672,5 @@ public class GoodsInfoActivity extends BaseActivity {
                 break;
         }
         mCurrentIndex = position;
-    }
+    }*/
 }

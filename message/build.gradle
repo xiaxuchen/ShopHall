@@ -9,7 +9,21 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from:rootDir.path + '/android.gradle'
 android {
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
     defaultConfig {
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a','x86', 'x86_64', 'mips', 'mips64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        applicationId "com.cxyz.shophall"//JPush 上注册的包名.
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "d03843bfe193d5c972e8cfc7", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+
         // 单模块调试下才有applicationId
         if(isDebug.toBoolean())
             applicationId "com.cxyz.message"
@@ -47,10 +61,8 @@ android {
 dependencies {
     // Anko Commons
     implementation "org.jetbrains.anko:anko-commons:${dep.ankoVersion}"
-
     // Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25:${dep.ankoVersion}" // sdk15, sdk19, sdk21, sdk23 are also available
-
     // Coroutine listeners for Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25-coroutines:${dep.ankoVersion}"
     implementation(project(':joint'))
@@ -80,5 +92,7 @@ dependencies {
     implementation 'com.joanzapata.iconify:android-iconify-weathericons:2.2.2' // (v2.0)
     implementation 'com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2' // (v1.0.0)
     implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2' // (v2.0.1)
-
+    implementation 'cn.jiguang.sdk:jpush:3.1.1'  // 此处以JPush 3.1.1 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.0.0'  // 此处以JCore 2.0.0 版本为例。
+    implementation 'cn.jiguang.sdk:jmessage:2.9.0'  // 此处以JMessage 2.9.0 版本为例。
 }

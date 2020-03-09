@@ -245,39 +245,6 @@
                             android:paddingLeft="8dp"
                             android:paddingRight="8dp"
                             android:paddingStart="8dp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="10dp"
-                            android:background="#F5F5F5" />
-                        <!--选择数量规格-->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="start|center"
-                            android:paddingBottom="3dp"
-                            android:paddingEnd="15dp"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:paddingStart="15dp"
-                            android:paddingTop="10dp"
-                            android:text="@string/specifications_choice"
-                            android:textColor="#999999"
-                            android:textSize="14sp" />
-                        <!--规格集-->
-                        <com.cxyz.message.widget.view.FlowLayout
-                            android:id="@+id/flowlayout_specifications_numberchoice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingBottom="8dp"
-                            android:paddingEnd="8dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingStart="8dp" />
-
-
-
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="10dp"
@@ -429,7 +396,7 @@
                             android:textColor="@color/colorTitle"
                             android:textSize="15sp" />
 
-                        <TextView
+                    <!--    <TextView
                             android:id="@+id/tv_info_photo"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -447,7 +414,7 @@
                             android:gravity="center"
                             android:text="@string/info_eval"
                             android:textColor="#666"
-                            android:textSize="15sp" />
+                            android:textSize="15sp" />-->
 
                     </LinearLayout>
 
@@ -456,7 +423,6 @@
                         android:id="@+id/cursor"
                         android:layout_width="fill_parent"
                         android:layout_height="2dp"
-                        android:background="@color/colorTitle"
                         android:contentDescription="@null" />
                 </LinearLayout>
 
