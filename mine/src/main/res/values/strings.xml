@@ -9,7 +9,7 @@
     <string name="minePersonalPhone">手机</string>
     <string name="minePersonalVip">会员级别</string>
     <string name="minePersonalMore">更多</string>
-    <string name="mineFavorites">购物车</string>
+    <string name="mineFavorites">收藏夹</string>
     <string name="mineHistory">浏览历史</string>
     <string name="mineAccount">账户金额</string>
     <string name="mineMyorder">我的订单</string>
@@ -52,5 +52,11 @@
     <string name="mineWithdrawalAmount">提现金额</string>
     <string name="mineAccountBalance">账户余额</string>
     <string name="mineWithdrawal">提现</string>
+    <string name="mineSearchTip">请输入搜索内容</string>
+    <string name="mineSearchBtn">搜索</string>
+    <string name="mineSearchHistory">历史搜索</string>
+    <string name="mineSearchFind">搜索发现</string>
+    <string name="mineSearchMore">更多</string>
+
 
 </resources>

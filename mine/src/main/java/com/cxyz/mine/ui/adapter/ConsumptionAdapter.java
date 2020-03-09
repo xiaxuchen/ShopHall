@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ConsumptionAdapter extends RecyclerView.Adapter<ConsumptionAdapter.MyHolder> {
     Context context;
-    private List<Consumption> list;
-    public ConsumptionAdapter(Context context,List<Consumption> list) {
+    private List<Consumption.RecordingBean> list;
+    public ConsumptionAdapter(Context context, List<Consumption.RecordingBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -41,8 +41,8 @@ public class ConsumptionAdapter extends RecyclerView.Adapter<ConsumptionAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.tvConsumptionData.setText(list.get(position).getData());
-        holder.tvConsumptionAmount.setText(list.get(position).getMoney());
+        holder.tvConsumptionData.setText(list.get(position).getDate());
+        holder.tvConsumptionAmount.setText("-"+list.get(position).getMoney()+"元");
     }
 
     @Override

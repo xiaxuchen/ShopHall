@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".ui.activity.WithdrawActivity"></activity>
+        <activity android:name=".ui.fragment.SearchResultsFilterFrament"></activity>
+        <activity android:name=".ui.fragment.SearchResultsPriceFrament" />
+        <activity android:name=".ui.fragment.SearchResultsSalesFargment" />
+        <activity android:name=".ui.fragment.SearchResultsComprehensiveFragment" />
+        <activity android:name=".ui.activity.SearchResultsActivity" />
+        <activity android:name=".ui.activity.SearchActivity" />
+        <activity android:name=".ui.activity.WithdrawActivity" />
         <activity android:name=".ui.activity.BalanceActivity" />
         <activity
             android:name=".ui.activity.AppVersionActivity"

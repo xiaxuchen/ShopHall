@@ -68,14 +68,15 @@ public class SetUpActivity extends BaseActivity {
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
             }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
-               /* Intent intentVersion = new Intent(SetUpActivity.this, AppVersionActivity.class);
+               /* Intent intentVersion = new Intent(SetUpActivity.this,SearchResultsActivity                                                  .class);
                 startActivity(intentVersion);*/
                 Toast.makeText(SetUpActivity.this,"当前以是最新版本",Toast.LENGTH_SHORT).show();
             }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面
                 ARouter.getInstance().build("/shopcar/TrackActivity").navigation();
             } else if(v.getId() == R.id.btnSignOut){//退出登录按钮
                 new QMUIDialog.MessageDialogBuilder(SetUpActivity.this)
-                        .setTitle("确认退出吗")
+                        .setMessage("确认退出吗？")
+                        .setTitle("提示")
                         .addAction("取消", new QMUIDialogAction.ActionListener() {
                             @Override
                             public void onClick(QMUIDialog dialog, int index) {
@@ -95,7 +96,8 @@ public class SetUpActivity extends BaseActivity {
                         .show();
             }else if(v.getId() == R.id.setUpClear){//清理缓存
                 new QMUIDialog.MessageDialogBuilder(SetUpActivity.this)
-                        .setTitle("确认清除所有吗？")
+                        .setTitle("提示")
+                        .setMessage("确认清除所有吗？")
                         .addAction("取消", new QMUIDialogAction.ActionListener() {
                             @Override
                             public void onClick(QMUIDialog dialog, int index) {

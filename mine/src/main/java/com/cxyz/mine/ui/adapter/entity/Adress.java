@@ -1,6 +1,8 @@
 package com.cxyz.mine.ui.adapter.entity;
 
 public class Adress {
+    //地址Id
+    private String addressId;
     //收货人
     private String name;
     //收货人电话
@@ -10,11 +12,20 @@ public class Adress {
     //收货人家庭具体地址
     private String home;
 
-    public Adress(String name, String phone, String hometown, String home) {
+    public Adress(String addressId, String name, String phone, String hometown, String home) {
+        this.addressId = addressId;
         this.name = name;
         this.phone = phone;
         this.hometown = hometown;
         this.home = home;
+    }
+
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId = addressId;
     }
 
     public String getName() {
@@ -52,7 +63,8 @@ public class Adress {
     @Override
     public String toString() {
         return "Adress{" +
-                "name='" + name + '\'' +
+                "addressId='" + addressId + '\'' +
+                ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", hometown='" + hometown + '\'' +
                 ", home='" + home + '\'' +
