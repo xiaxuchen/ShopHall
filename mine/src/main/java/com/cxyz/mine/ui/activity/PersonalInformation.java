@@ -1,15 +1,9 @@
 package com.cxyz.mine.ui.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.widget.HeaderBar;
@@ -17,6 +11,7 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 @Route(path = "/mine/PersonalInformation",group = "mine")
 public class PersonalInformation extends BaseActivity {
+    private HeaderBar personalInfoHeaderBar;//导航栏
     private QMUIRadiusImageView imProfilePicture;
     @Override
     protected Object getContentView() {
@@ -31,7 +26,13 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-
+        personalInfoHeaderBar = findViewById(R.id.PersonalInfoHeaderBar);
+        personalInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                PersonalInformation.this.finish();
+            }
+        });
     }
 
     @Override

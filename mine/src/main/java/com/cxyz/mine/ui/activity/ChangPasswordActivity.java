@@ -11,9 +11,11 @@ import com.cxyz.mine.presenter.IChangPasswordView;
 import com.cxyz.mine.presenter.view.ChangPasswordPresenter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
+import com.cxyz.widget.HeaderBar;
 
 @Route(path ="/mine/ChangPasswordActivity" ,group = "mine")
 public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> implements IChangPasswordView {
+    private HeaderBar changPasswordBar;
     private EditText etPhoneEdit;//电话输入框
     private EditText etVerificationCode;//验证码输入框
     private EditText etNewPasswordEdit;//新密码输入框
@@ -32,6 +34,13 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
 
     @Override
     public void initView() {
+        changPasswordBar = findViewById(R.id.changPasswordBar);
+        changPasswordBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                ChangPasswordActivity.this.finish();
+            }
+        });
         etPhoneEdit = findViewById(R.id.etPhoneEdit);
         etVerificationCode  = findViewById(R.id.etVerificationCode);
         etNewPasswordEdit = findViewById(R.id.etNewPasswordEdit);
@@ -86,6 +95,7 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
                             ToastUtil.showShort("新密码不能为空");
                         }else if(!etNewPasswordEdit.getText().toString().trim().isEmpty() && passwordFlag){
                             ToastUtil.showShort("修改成功");
+                            ChangPasswordActivity.this.finish();
                         }
                    }
                 }
