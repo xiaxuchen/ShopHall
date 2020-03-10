@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
 import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.protocol.Brand;
@@ -176,9 +177,9 @@ public class GoodsInfoActivity extends BaseActivity {
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
-                startActivity(intent);
-                // ARouter.getInstance().build("/message/ChatMessageActivity").navigation();
+              /*  Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
+                startActivity(intent);*/
+                ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
                 ToastUtil.showShort("点击购买");
 
             }
