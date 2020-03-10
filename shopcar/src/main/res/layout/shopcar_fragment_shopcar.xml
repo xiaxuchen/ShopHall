@@ -57,6 +57,7 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/tvShopcarTotalPrice"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -65,6 +66,7 @@
             android:textSize="12sp" />
 
         <Button
+            android:id="@+id/btnShopcarPay"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:background="@drawable/car_border_bg_organ"

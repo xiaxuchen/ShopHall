@@ -28,7 +28,7 @@
             android:layout_toRightOf="@+id/cbShopcarCheckOne"
             android:scaleType="centerCrop"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/car_bg2"/>
+            />
         <TextView
             android:id="@+id/tvShopcarGoodsDesc"
             android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import com.cxyz.car.data.domain.StoreKindItem;
 import com.cxyz.car.data.model.IMainModel;
 import com.cxyz.car.data.model.impl.MainModelImpl;
 import com.cxyz.car.presenter.view.IMainView;
+import com.cxyz.http.response.CheckResult;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class MainPresenter extends IBasePresenter<IMainModel, IMainView> {
     public void fecth(){
         mIModle.loadData(new IMainModel.OnLoadListener() {
             @Override
-            public void complete( List<StoreKindItem> storeKindItemList) {
-                mIView.showMainGoodsView(storeKindItemList);
+            public void complete( CheckResult<StoreKindItem> checkResult) {
+                mIView.showMainGoodsView(checkResult);
             }
 
             @Override
