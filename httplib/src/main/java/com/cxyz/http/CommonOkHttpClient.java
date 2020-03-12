@@ -22,6 +22,7 @@ import okhttp3.Call;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -169,6 +170,23 @@ public class CommonOkHttpClient {
     }
 
     /**
+     * put请求
+     * @param url 请求路径
+     * @param params 请求参数
+     * @param handler
+     * @return
+     * @throws NetworkErrorException 网络异常
+     */
+    public static CallController put(String url, RequestParams params, DisposeDataHandler handler) throws NetworkErrorException {
+        if(!NetWorkUtil.isNetWorkEnable(context))
+            throw new NetworkErrorException();
+        Request request = CommonRequest.createGetRequest(url, params);
+        Call call = client.newCall(request);
+        call.enqueue(new CommonJsonCallback(handler));
+        return new CallController(call);
+    }
+
+    /**
      * post方式请求网络
      * @param url 请求的地址
      * @param params 请求参数
@@ -226,6 +244,18 @@ public class CommonOkHttpClient {
                 handler.listener.onFailure("网络状态异常");
         }
         return null;
+    }
+
+    /**
+     * 自定义请求格式
+     * @param request 请求，通过{@link Request.Builder}构造请求
+     * @param handler 请求信息封装
+     * @return call 返回的数据都为默认的JSON
+     */
+    public static CallController call(Request request, DisposeDataHandler handler){
+        Call call = client.newCall(request);
+        call.enqueue(new CommonJsonCallback(handler));
+        return new CallController(call);
     }
 
 
