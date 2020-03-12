@@ -8,7 +8,7 @@
     tools:context=".ui.activity.AddAddressActivity">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/headerBar"
+        android:id="@+id/AddAddressheaderBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:background="@color/common_colorPrimary"
