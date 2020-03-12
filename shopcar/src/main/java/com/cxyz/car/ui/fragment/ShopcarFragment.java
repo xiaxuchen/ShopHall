@@ -31,6 +31,7 @@ import com.cxyz.car.ui.adapter.ShopcarInnerAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,8 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
 
     private Context context;//fragment依附的activity上下文
     private ListView listView;
+    private Button btnShopcarPay;//结算按钮
+    private TextView totalPrice;//总价格
 
     @Override
     public void onAttach(Activity activity) {
@@ -64,6 +67,8 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         listView=view.findViewById(R.id.lvShop);
+        btnShopcarPay=view.findViewById(R.id.btnShopcarPay);
+        totalPrice=view.findViewById(R.id.tvShopcarTotalPrice);
     }
 
     @Override
@@ -73,7 +78,12 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
 
     @Override
     protected void setListener() {
-
+        btnShopcarPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/shopcar/SureOrderActivity").navigation();
+            }
+        });
     }
 
     @Override
@@ -84,6 +94,13 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
     @Override
     public void showShopcarGoodsView(List<ShopcarGoods> shopcarGoodsList) {
         listView.setAdapter(new ShopcarAdapter(context,shopcarGoodsList));
+        BigDecimal total=new BigDecimal(0);
+        for (int i = 0; i < shopcarGoodsList.size(); i++) {
+            for (int j = 0; j < shopcarGoodsList.get(i).getGoods().size(); j++) {
+                total=total.add(shopcarGoodsList.get(i).getGoods().get(j).getPrice());
+            }
+        }
+        totalPrice.setText("￥"+total);
     }
 
 

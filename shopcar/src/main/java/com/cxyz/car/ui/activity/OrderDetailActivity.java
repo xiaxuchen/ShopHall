@@ -89,6 +89,18 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
                 ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
             }
         });
+        username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/mine/ShippingAddressActivity").navigation();
+            }
+        });
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/mine/ShippingAddressActivity").navigation();
+            }
+        });
     }
 
     @Override

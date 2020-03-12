@@ -34,7 +34,6 @@
         android:layout_height="110dp"
         android:foregroundGravity="center_horizontal"
         android:scaleType="centerCrop"
-        android:src="@drawable/car_bg2"
         app:layout_constraintBottom_toTopOf="@+id/tvTrackInnerPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
