@@ -145,8 +145,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 顶部的ViewPager
         RelativeLayout headerVpLayout = (RelativeLayout) findViewById(R.id.layout_header_vp);
         if (headerVpLayout != null) {
-            generalVpLayout = (GeneralVpLayout<Integer>) findViewById(R.id.generalVpLayout);
-            mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);
+           /* generalVpLayout = (GeneralVpLayout<Integer>) findViewById(R.id.generalVpLayout);
+            mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);*/
         }
         // 筛选框
         classifyLayout = (LinearLayout) findViewById(R.id.layout_classify);
