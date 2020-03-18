@@ -215,6 +215,7 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         });
         //小图的点击事件（弹出大图）
         dialog.show();
+
     }
     @Override
     public void initView() {
@@ -374,6 +375,10 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
 
     @Override
     public void setEvent() {
+
+
+
+
         backImg.setOnClickListener(onClickListener);
         shareImg.setOnClickListener(onClickListener);
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());

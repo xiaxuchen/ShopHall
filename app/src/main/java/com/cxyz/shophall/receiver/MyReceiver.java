@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.cxyz.car.ui.activity.TestActivity;
-import com.cxyz.message.ui.Activity.GoodsInfoActivity;
+
+import com.cxyz.shophall.ui.activity.TestActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -136,7 +136,7 @@ import cn.jpush.android.api.JPushInterface;
 
              } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
                  //当用户点击通知时的操作,打开自定义的Activity
-                 Intent i = new Intent(context, GoodsInfoActivity.class);
+                 Intent i = new Intent(context, TestActivity.class);
                  i.putExtras(bundle);
                  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                  context.startActivity(i);
