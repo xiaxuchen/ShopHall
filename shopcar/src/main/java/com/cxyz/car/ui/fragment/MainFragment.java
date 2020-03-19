@@ -191,8 +191,9 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             imageList.add(imageView);
             //添加指示点
             ImageView point = new ImageView(context);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(21, 21);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(15, 15);
             params.rightMargin = 20;
+            params.bottomMargin=0;
             point.setLayoutParams(params);
             point.setBackgroundResource(R.drawable.car_point_bg);
             if (i == 0) {

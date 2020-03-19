@@ -4,11 +4,13 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.StoreDetail;
@@ -34,7 +36,8 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
 
     private ImageView qmuiIvStoreDetailStoreImageSmall;//店铺小图片
 
-   private ImageView ivStoreDetailFocus;
+    private LinearLayout llGetService;//练习客服
+    private LinearLayout llStoreComment;//店铺评论
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +71,9 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     public void initView() {
         tabLayout=findViewById(R.id.tlStoreDetailGoodsCategory);
         viewPager=findViewById(R.id.vpStoreDetail);
-        ivStoreDetailFocus=findViewById(R.id.ivStoreDetailFocus);
         qmuiIvStoreDetailStoreImageSmall=findViewById(R.id.qmuiIvStoreDetailStoreImageSmall);
+        llGetService=findViewById(R.id.llgetService);
+        llStoreComment=findViewById(R.id.llStoreComment);
     }
 
     @Override
@@ -79,6 +83,18 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
 
     @Override
     public void setEvent() {
+        llGetService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/message/ChatMessageActivity").navigation();//跳到联系客服
+            }
+        });
+        llStoreComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/shopcar/StoreActivity").navigation();//跳到店铺评论
+            }
+        });
     }
     @Override
     protected StoreDetailPresenter createIPresenter() {
