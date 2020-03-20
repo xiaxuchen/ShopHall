@@ -8,7 +8,7 @@
     tools:context=".ui.activity.AddAddressActivity">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/AddAddressheaderBar"
+        android:id="@+id/ChangAddressheaderBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         app:background="@color/common_colorPrimary"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/AddAddressheaderBar"
+        app:layout_constraintTop_toBottomOf="@id/ChangAddressheaderBar"
         tools:ignore="MissingConstraints">
 
         <EditText
@@ -146,10 +146,10 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btnAddAddress"
+        android:id="@+id/btnChangAddress"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
-        android:text="确认添加"
+        android:text="确认修改"
         android:textColor="@color/white"
         android:textSize="@dimen/text_big_size"
         android:background="@color/common_colorPrimary"

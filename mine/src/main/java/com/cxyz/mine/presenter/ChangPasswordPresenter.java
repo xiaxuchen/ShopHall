@@ -1,11 +1,11 @@
-package com.cxyz.mine.presenter.view;
+package com.cxyz.mine.presenter;
 
 import com.cxyz.mine.data.model.IChangPasswordModel;
 import com.cxyz.mine.data.model.impl.ChangPasswordModelImpl;
-import com.cxyz.mine.presenter.IChangPasswordView;
+import com.cxyz.mine.presenter.view.IChangPasswordView;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
-public class ChangPasswordPresenter extends IBasePresenter<IChangPasswordModel,IChangPasswordView> {
+public class ChangPasswordPresenter extends IBasePresenter<IChangPasswordModel, IChangPasswordView> {
 
     @Override
     public ChangPasswordModelImpl createModel() {

@@ -1,8 +1,8 @@
-package com.cxyz.mine.presenter.view;
+package com.cxyz.mine.presenter;
 
 import com.cxyz.mine.data.model.impl.ShippingAdressModelImpl;
 import com.cxyz.mine.data.model.IShippingAdressModel;
-import com.cxyz.mine.presenter.IShippingAddressView;
+import com.cxyz.mine.presenter.view.IShippingAddressView;
 import com.cxyz.mine.ui.adapter.entity.Adress;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 

@@ -1,4 +1,4 @@
-package com.cxyz.mine.presenter;
+package com.cxyz.mine.presenter.view;
 
 import com.cxyz.mvp.iview.IBaseView;
 

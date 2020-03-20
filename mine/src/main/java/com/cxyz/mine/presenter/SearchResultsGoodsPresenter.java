@@ -1,8 +1,8 @@
-package com.cxyz.mine.presenter.view;
+package com.cxyz.mine.presenter;
 
 import com.cxyz.mine.data.model.ISearchResultsGoodModel;
 import com.cxyz.mine.data.model.impl.SearchResultsGoodsModelImpl;
-import com.cxyz.mine.presenter.ISearchResultsGoodView;
+import com.cxyz.mine.presenter.view.ISearchResultsGoodView;
 import com.cxyz.mine.ui.adapter.entity.SearchResultsGoods;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 

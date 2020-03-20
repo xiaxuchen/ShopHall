@@ -7,11 +7,12 @@ import com.cxyz.http.listener.DisposeDataHandler;
 import com.cxyz.http.listener.DisposeDataListener;
 import com.cxyz.http.request.RequestParams;
 import com.cxyz.http.response.CheckResult;
-import com.cxyz.mine.data.model.IAddAddressModel;
+import com.cxyz.mine.data.model.IChangAddressModel;
+import com.cxyz.mine.ui.adapter.AddressAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class AddAddressModelImpl extends IAddAddressModel {
+public class ChangAddressModelImpl extends IChangAddressModel {
     private CheckResult<Boolean> checkResult;
     private boolean flag;
     @Override
@@ -21,11 +22,11 @@ public class AddAddressModelImpl extends IAddAddressModel {
         */
         try {
             RequestParams params = new RequestParams();
-            params.put("name","李六");//收货人姓名
-            params.put("phone","18879792873");//收货人电话
-            params.put("hometown","北京.海淀区");//收货人所在地区
-            params.put("home","中国大学110栋110室");//收货人家庭具体住址
-            CommonOkHttpClient.put("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/address/add",params
+            params.put("name", AddressAdapter.addressName);//收货人姓名
+            params.put("phone",AddressAdapter.addressPhone);//收货人电话
+            params.put("hometown",AddressAdapter.addressHometown);//收货人所在地区
+            params.put("home",AddressAdapter.addressHome);//收货人家庭具体住址
+            CommonOkHttpClient.post("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/address/modify",params
                                 ,new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

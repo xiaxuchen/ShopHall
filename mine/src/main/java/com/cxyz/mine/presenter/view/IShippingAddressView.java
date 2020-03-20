@@ -1,6 +1,4 @@
-package com.cxyz.mine.presenter;
-
-import android.location.Address;
+package com.cxyz.mine.presenter.view;
 
 import com.cxyz.mine.ui.adapter.entity.Adress;
 import com.cxyz.mvp.iview.IBaseView;

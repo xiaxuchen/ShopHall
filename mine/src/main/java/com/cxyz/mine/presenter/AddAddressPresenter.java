@@ -1,8 +1,8 @@
-package com.cxyz.mine.presenter.view;
+package com.cxyz.mine.presenter;
 
 import com.cxyz.mine.data.model.IAddAddressModel;
 import com.cxyz.mine.data.model.impl.AddAddressModelImpl;
-import com.cxyz.mine.presenter.IAddAddressView;
+import com.cxyz.mine.presenter.view.IAddAddressView;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 public class AddAddressPresenter extends IBasePresenter<IAddAddressModel, IAddAddressView> {

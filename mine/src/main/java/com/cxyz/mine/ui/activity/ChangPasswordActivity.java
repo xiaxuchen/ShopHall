@@ -7,8 +7,8 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.IChangPasswordView;
-import com.cxyz.mine.presenter.view.ChangPasswordPresenter;
+import com.cxyz.mine.presenter.view.IChangPasswordView;
+import com.cxyz.mine.presenter.ChangPasswordPresenter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;

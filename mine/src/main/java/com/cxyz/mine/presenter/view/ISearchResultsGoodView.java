@@ -1,4 +1,4 @@
-package com.cxyz.mine.presenter;
+package com.cxyz.mine.presenter.view;
 
 import com.cxyz.mine.ui.adapter.entity.SearchResultsGoods;
 import com.cxyz.mvp.iview.IBaseView;

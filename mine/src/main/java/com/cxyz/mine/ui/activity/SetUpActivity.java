@@ -78,7 +78,7 @@ public class SetUpActivity extends BaseActivity {
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
             }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
-               /* Intent intentVersion = new Intent(SetUpActivity.this,SearchResultsActivity                                                  .class);
+                /*Intent intentVersion = new Intent(SetUpActivity.this, SearchActivity.class);
                 startActivity(intentVersion);*/
                 Toast.makeText(SetUpActivity.this,"当前以是最新版本",Toast.LENGTH_SHORT).show();
             }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面
