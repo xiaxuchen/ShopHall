@@ -5,10 +5,13 @@
     <application>
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
-        <activity android:name=".ui.activity.StoreActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
         <meta-data
             android:name="com.cxyz.starter.main.iconify"
             android:value="com.cxyz.main.starter.IconifyStarter" />
+        <meta-data
+            android:name="com.cxyz.starter.main.autologin"
+            android:value="com.cxyz.main.starter.AutoLoginStarter" />
     </application>
 
 </manifest>

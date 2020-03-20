@@ -75,7 +75,7 @@ public class BaseApplication extends Application {
                             {
                                 Starter instance = (Starter)clazz.newInstance();
                                 starterList.add(instance);
-                                instance.load(this);
+                                instance.load(application);
                                 break;
                             }
                         }
