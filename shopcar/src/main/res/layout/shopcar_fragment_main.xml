@@ -28,14 +28,14 @@
             android:textColor="#ccc" />
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginLeft="-40dp"
             android:background="@drawable/car_search" />
 
         <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/car_sao" />
     </LinearLayout>
