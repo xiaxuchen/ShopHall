@@ -182,7 +182,7 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
 
 
 
-    //轮播图的监听
+    //轮播图监听
     @Override
     public void OnBannerClick(int position) {
         dialog = new Dialog(getActivity(), R.style.AlertDialog_AppCompat_Light);
