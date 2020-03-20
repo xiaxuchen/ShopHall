@@ -2,6 +2,7 @@ package com.cxyz.context.application;
 
 
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -11,6 +12,8 @@ import com.cxyz.context.starter.Starter;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
@@ -30,13 +33,22 @@ public class BaseApplication extends Application {
 
     private boolean isApplication = true;
 
-    private Application application;
+    private Application application = this;
 
     public BaseApplication(){}
 
     public BaseApplication(Application application) {
         this.application = application ;
         isApplication = false;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        loadStarters();
+        for (Starter starter : starterList) {
+            starter.attachContext(base);
+        }
     }
 
     @Override
@@ -51,13 +63,15 @@ public class BaseApplication extends Application {
             application = this;
         }
         ContextManager.setContext(getApplication());
-        // 加载启动器
-        load();
+        // 执行启动器加载方法
+        for (Starter starter : starterList) {
+            starter.load(application);
+        }
     }
 
     private List<Starter> starterList;
 
-    private void load() {
+    private void loadStarters() {
         try {
             ApplicationInfo appInfo= this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             starterList = new ArrayList<>();
@@ -75,7 +89,6 @@ public class BaseApplication extends Application {
                             {
                                 Starter instance = (Starter)clazz.newInstance();
                                 starterList.add(instance);
-                                instance.load(application);
                                 break;
                             }
                         }
@@ -86,6 +99,10 @@ public class BaseApplication extends Application {
         {
             e.printStackTrace();
         }
+        // 按类名排序
+        Collections.sort(starterList,(o1, o2) -> {
+            return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
+        });
     }
 
     @Override

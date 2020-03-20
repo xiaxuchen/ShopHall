@@ -156,6 +156,7 @@ public class ExceptionHandlerStarter implements Starter {
         long now = System.currentTimeMillis();
         // 如果不超过两分钟就不重启直接杀了
         if (((now - SpUtil.getInstance().getLong(LAST_RESTART_TIME, 0))/1000/60 < 2)) {
+            LogUtil.i("kill the app in exception");
             ActivityStackManager.getActivityStackManager().exitApp();
             return;
         }
