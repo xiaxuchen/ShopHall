@@ -27,6 +27,7 @@ public class WithdrawActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        btnWithdraw = findViewById(R.id.btnWithdraw);
         withdrawHeaderBar = findViewById(R.id.withdrawHeaderBar);
         withdrawHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override

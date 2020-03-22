@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,32 +14,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.mine.R;
-import com.cxyz.mine.ui.adapter.entity.SearchResultsGoods;
+import com.cxyz.mine.ui.adapter.entity.MallAdGoods;
 import com.qmuiteam.qmui.layout.QMUIRelativeLayout;
 
 import java.util.List;
 
-public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.myHolder> {
+public class MallAdAdapter extends RecyclerView.Adapter<MallAdAdapter.myHolder> {
     Context context;
-    private List<SearchResultsGoods> searchResultsGoodsList;
-
-    public SearchResultsAdapter (Context context ,List<SearchResultsGoods> searchResultsGoodsList){
+    private List<MallAdGoods> mallAdGoodsList;
+    private QMUIRelativeLayout qmuiRlSearchResultsGoods;
+    public MallAdAdapter(Context context , List<MallAdGoods> mallAdGoodsList){
         this.context = context;
-        this.searchResultsGoodsList = searchResultsGoodsList;
+        this.mallAdGoodsList = mallAdGoodsList;
     }
+
     @NonNull
     @Override
     public myHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new SearchResultsAdapter.myHolder(LayoutInflater.from(context).inflate(R.layout.mine_recycle_item_search_results_layout, null));
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mine_recycle_item_mall_ad_layout, parent, false);
+        MallAdAdapter.myHolder vh = new MallAdAdapter.myHolder(v);
+        return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull myHolder holder, int position) {
-        Glide.with(holder.goodsImage.getContext()).load(searchResultsGoodsList.get(position).getGoodsImage()).into(holder.goodsImage);
-        holder.goodsName.setText(searchResultsGoodsList.get(position).getGoodsName());
-        holder.goodsDesc.setText(searchResultsGoodsList.get(position).getGoodsDesc());
-        holder.goodsPrice.setText("￥"+searchResultsGoodsList.get(position).getGoodsPrice());
-        holder.goodsTradeCount.setText(searchResultsGoodsList.get(position).getTradeCount()+"件起批");
+        ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        Glide.with(holder.goodsImage.getContext()).load(mallAdGoodsList.get(position).getGoodsImage()).into(holder.goodsImage);
+        holder.goodsName.setText(mallAdGoodsList.get(position).getGoodsName());
+        holder.goodsDesc.setText(mallAdGoodsList.get(position).getGoodsDesc());
+        holder.goodsPrice.setText("￥"+mallAdGoodsList.get(position).getGoodsPrice());
+        holder.goodsTradeCount.setText(mallAdGoodsList.get(position).getTradeCount()+"件起批");
 
         holder.goodsImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,17 +62,16 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     @Override
     public int getItemCount() {
-        return searchResultsGoodsList.size();
+        return mallAdGoodsList.size();
     }
 
-    public static class myHolder extends RecyclerView.ViewHolder{
+    public class myHolder extends RecyclerView.ViewHolder{
 
         private ImageView goodsImage;
         private TextView goodsName;
         private TextView goodsDesc;
         private TextView goodsPrice;
         private TextView goodsTradeCount;
-        private QMUIRelativeLayout qmuiRlSearchResultsGoods;
         public myHolder(@NonNull View itemView) {
             super(itemView);
             qmuiRlSearchResultsGoods=itemView.findViewById(R.id.qmuiRlSearchResultsGoods);

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.IShippingAddressView;
-import com.cxyz.mine.presenter.view.ShippingAddressPresenter;
+import com.cxyz.mine.presenter.view.IShippingAddressView;
+import com.cxyz.mine.presenter.ShippingAddressPresenter;
 import com.cxyz.mine.ui.adapter.AddressAdapter;
 import com.cxyz.mine.ui.adapter.entity.Adress;
 import com.cxyz.mvp.activity.BaseActivity;
@@ -76,5 +76,6 @@ public class ShippingAddressActivity extends BaseActivity<ShippingAddressPresent
         recyclerView.setLayoutManager(linearLayoutManager);
         AddressAdapter adapter = new AddressAdapter(list);
         recyclerView.setAdapter(adapter);
+
     }
 }

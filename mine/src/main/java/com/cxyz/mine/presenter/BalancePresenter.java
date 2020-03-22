@@ -1,9 +1,9 @@
-package com.cxyz.mine.presenter.view;
+package com.cxyz.mine.presenter;
 
 import com.cxyz.http.response.CheckResult;
 import com.cxyz.mine.data.model.IBalanceModel;
 import com.cxyz.mine.data.model.impl.BalanceModelImpl;
-import com.cxyz.mine.presenter.IBalanceView;
+import com.cxyz.mine.presenter.view.IBalanceView;
 import com.cxyz.mine.ui.adapter.entity.Consumption;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
