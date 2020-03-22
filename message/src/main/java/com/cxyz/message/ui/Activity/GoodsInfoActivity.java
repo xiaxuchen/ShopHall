@@ -1,10 +1,15 @@
 package com.cxyz.message.ui.Activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -24,6 +29,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.cxyz.message.R;
 import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.protocol.Brand;
@@ -41,7 +47,16 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.loader.ImageLoader;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
@@ -50,7 +65,7 @@ import cc.ibooker.zviewpagerlib.HolderCreator;
 import static com.cxyz.context.ContextManager.getContext;
 
 @Route(path = "/message/GoodsInfoActivity",group = "message")
-public class GoodsInfoActivity extends BaseActivity {
+public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener{
     /**
      * 顶部tool
      */
@@ -64,6 +79,10 @@ public class GoodsInfoActivity extends BaseActivity {
     private ImageView[] mImageViews;
     private  ImageView  backImg;
     private ImageView shareImg;
+    private Banner banner;
+    //轮播图Banner需要的图片和文字
+    private ArrayList<String> list_path;
+    private ArrayList<String> list_title;
     /**
      * 筛选框
      */
@@ -112,11 +131,92 @@ public class GoodsInfoActivity extends BaseActivity {
     private ArrayList<Specification> specificationList;
     private ArrayList<String> specialOfferList;
     private ArrayList<String> productFeaturesList;
+
+    private Dialog dialog;
+    private ImageView mImageView;
+
     @Override
     protected Object getContentView() {
         return R.layout.message_activity_goodsinfotest;
     }
+    //动态的ImageView
+    private ImageView getImageView(int i){
+        ImageView iv = new ImageView(this);
+        //宽高
+        iv.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        //设置Padding
+        iv.setPadding(20,20,20,20);
+        //imageView设置图片
+        @SuppressLint("ResourceType") InputStream is = getResources().openRawResource(bannerList.get(i));
+        Drawable drawable = BitmapDrawable.createFromStream(is, null);
+        iv.setImageDrawable(drawable);
+        return iv;
+    }
 
+    //保存图片
+    private void saveCroppedImage(Bitmap bmp) {
+        File file = new File("/sdcard/myFolder");
+        if (!file.exists())
+            file.mkdir();
+
+        file = new File("/sdcard/temp.jpg".trim());
+        String fileName = file.getName();
+        String mName = fileName.substring(0, fileName.lastIndexOf("."));
+        String sName = fileName.substring(fileName.lastIndexOf("."));
+
+        // /sdcard/myFolder/temp_cropped.jpg
+        String newFilePath = "/sdcard/myFolder" + "/" + mName + "_cropped" + sName;
+        file = new File(newFilePath);
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 50, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    //轮播图监听
+    @Override
+    public void OnBannerClick(int position) {
+        dialog = new Dialog(getActivity(), R.style.AlertDialog_AppCompat_Light);
+        mImageView = getImageView(position);
+        dialog.setContentView(mImageView);
+
+        //大图的点击事件（点击让他消失）
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        //大图的长按监听
+        mImageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //弹出的“保存图片”的Dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setItems(new String[]{getResources().getString(R.string.common_save)}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        saveCroppedImage(((BitmapDrawable) mImageView.getDrawable()).getBitmap());
+                    }
+                });
+                builder.show();
+                return true;
+            }
+        });
+        //小图的点击事件（弹出大图）
+        dialog.show();
+
+    }
     @Override
     public void initView() {
         // 顶部tool
@@ -129,8 +229,41 @@ public class GoodsInfoActivity extends BaseActivity {
         // 顶部的ViewPager
         RelativeLayout headerVpLayout = (RelativeLayout) findViewById(R.id.layout_header_vp);
         if (headerVpLayout != null) {
-            generalVpLayout = (GeneralVpLayout<Integer>) findViewById(R.id.generalVpLayout);
-            mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);
+            banner=findViewById(R.id.banner) ;
+            banner=findViewById(R.id.banner);
+            //放图片地址的集合
+            list_path = new ArrayList<>();
+            //放标题的集合
+            list_title = new ArrayList<>();
+            list_title.add("精品包装");
+            list_title.add("超值优惠");
+            list_title.add("细心呵护");
+            list_title.add("放心购买");
+            bannerList=new ArrayList<>();
+            bannerList.add(R.drawable.product_banner_five);
+            bannerList.add(R.drawable.product_banner_six);
+            bannerList.add(R.drawable.product_banner_seven);
+            bannerList.add(R.drawable.product_banner_eight);
+            //设置内置样式，共有六种可以点入方法内逐一体验使用。
+            banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
+            //设置图片加载器，图片加载器在下方
+            banner.setImageLoader(new MyLoader());
+            //设置图片网址或地址的集合
+           banner.setImages(bannerList);
+            //设置轮播的动画效果，内含多种特效，可点入方法内查找后内逐一体验
+            banner.setBannerAnimation(Transformer.Default);
+            //设置轮播图的标题集合
+            banner.setBannerTitles(list_title);
+            //设置轮播间隔时间
+            banner.setDelayTime(3000);
+            //设置是否为自动轮播，默认是“是”。
+            banner.isAutoPlay(true);
+            //设置指示器的位置，小点点，左中右。
+            banner.setIndicatorGravity(BannerConfig.CENTER)
+                    //以上内容都可写成链式布局，这是轮播图的监听。比较重要。方法在下面。
+                    .setOnBannerListener((OnBannerListener) this)
+                    //必须最后调用的方法，启动轮播图。
+                    .start();
         }
         // 筛选框
         llClassify = (LinearLayout) findViewById(R.id.layout_classify);
@@ -143,8 +276,6 @@ public class GoodsInfoActivity extends BaseActivity {
             }
         });
         tvImgtextInfo = (TextView) findViewById(R.id.tv_info_imgtext);
-        /*tvPhotoInfo = (TextView) findViewById(R.id.tv_info_photo);
-        tvEvalInfo = (TextView) findViewById(R.id.tv_info_eval);*/
         ivCursor = (ImageView) findViewById(R.id.cursor);
         // 底部ViewPager
         bottomVPager = (ChildAutoHeightViewPager) findViewById(R.id.bottomvpager);
@@ -204,19 +335,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 brand.setBrand_res(R.drawable.brand_test_two);
             brandList.add(brand);
         }
-        // 初始化顶部轮播
-        if (bannerList == null)
-            bannerList = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            if (i == 0)
-                bannerList.add(R.drawable.product_banner_five);
-            else if (i == 1)
-                bannerList.add(R.drawable.product_banner_six);
-            else if (i == 2)
-                bannerList.add(R.drawable.product_banner_seven);
-            else if (i == 3)
-                bannerList.add(R.drawable.product_banner_eight);
-        }
+
         // 初始化商品详情
         if (detailList == null)
             detailList = new ArrayList<>();
@@ -234,23 +353,7 @@ public class GoodsInfoActivity extends BaseActivity {
             else if (i == 5)
                 detailList.add(R.drawable.product_banner_four);
         }
-        // 初始化商品实拍
-       /* if (willList == null)
-            willList = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
-            if (i == 0)
-                willList.add(R.drawable.product_detail_three);
-            else if (i == 1)
-                willList.add(R.drawable.product_detail_four);
-            else if (i == 2)
-                willList.add(R.drawable.product_banner_one);
-            else if (i == 3)
-                willList.add(R.drawable.product_banner_two);
-            else if (i == 4)
-                willList.add(R.drawable.product_banner_three);
-            else if (i == 5)
-                willList.add(R.drawable.product_banner_four);
-        }*/
+
         // 初始化规格
         if (specificationList == null)
             specificationList = new ArrayList<>();
@@ -272,6 +375,10 @@ public class GoodsInfoActivity extends BaseActivity {
 
     @Override
     public void setEvent() {
+
+
+
+
         backImg.setOnClickListener(onClickListener);
         shareImg.setOnClickListener(onClickListener);
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
@@ -343,11 +450,11 @@ public class GoodsInfoActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                setBrandFlowLayout(brandList);
+              /*  setBrandFlowLayout(brandList);*/
                 setSpecialOfferFlowLayoutData(specialOfferList);
                 setProductFeaturesFlowlayoutData(productFeaturesList);
                 setSpecificationsChoiceFlowlayoutData(specificationList);
-                setProductTopViewPager(bannerList);
+               /* setProductTopViewPager(bannerList);*/
                 graphicDetailsFragment.setLinearLayoutData(detailList);
               //  productWillFragment.setLinearLayoutData(willList);
 
@@ -357,7 +464,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 bottomAdapter.reflashData(mDatas);
                 bottomVPager.resetHeight(0);
             }
-        }, 3000);
+        }, 2000);
     }
     /**
      * 设置监听
@@ -373,10 +480,6 @@ public class GoodsInfoActivity extends BaseActivity {
                 ToastUtil.showLong("分享功能");
             } else if (id == R.id.tv_info_imgtext) {// 图文详情
                 bottomVPager.setCurrentItem(0);
-            /*} else if (id == R.id.tv_info_photo) {// 产品实拍
-                bottomVPager.setCurrentItem(1);
-            } else if (id == R.id.tv_info_eval) {// 评价详情
-                bottomVPager.setCurrentItem(2);*/
             } else if (id == R.id.iv_back_top) {// 返回顶部
                 myScrollView.smoothScrollTo(0, vpagerTopDistance);
             }
@@ -399,12 +502,13 @@ public class GoodsInfoActivity extends BaseActivity {
                 iv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        ToastUtil.showShort("商品详情");
                         // 防止连续点击
                         if (ClickUtil.isFastClick())
                             return;
 //                        // 跳转到品牌商品列表
-//                        Intent intent = new Intent(MainActivity.this, BrandActivity.class);
-                        Toast.makeText(GoodsInfoActivity.this, "跳转品牌页面" + value.getBrand_name(), Toast.LENGTH_SHORT).show();
+//
+
                     }
                 });
 //                // 加载图片-加载网络图片-这里为了测试采用本地文件
@@ -441,6 +545,7 @@ public class GoodsInfoActivity extends BaseActivity {
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         // 防止连续点击
                         if (ClickUtil.isFastClick()) {
                             return;
@@ -506,64 +611,7 @@ public class GoodsInfoActivity extends BaseActivity {
         }
     }
 
-    /**
-     * 设置商品详情轮播
-     *
-     * @param data 数据源
-     */
-    private void setProductTopViewPager(ArrayList<Integer> data) {
-        if (data != null && data.size() > 0) {
-            generalVpLayout.setVisibility(View.VISIBLE);
-            // 初始化指示器
-            // 对imageViews进行填充
-            if (mImageViews == null)
-                mImageViews = new ImageView[data.size()];
-            mtopVGroup.removeAllViews();
-            // 小图标
-            for (int k = 0; k < data.size(); k++) {
-                LinearLayout.LayoutParams dotParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                dotParams.setMargins(0, 0, 20, 0);
-                dotParams.gravity = Gravity.CENTER_VERTICAL;
-                ImageView mImageView = new ImageView(GoodsInfoActivity.this);
-                mImageView.setLayoutParams(dotParams);
-                mImageViews[k] = mImageView;
-                if (k == 0) {
-                    mImageViews[k].setBackgroundResource(R.mipmap.icon_focusdot);
-                } else {
-                    mImageViews[k].setBackgroundResource(R.mipmap.icon_defaultdot);
-                }
-                mtopVGroup.addView(mImageViews[k]);
-            }
-            // 初始化generalVpLayout
-            generalVpLayout.init(new HolderCreator<ImageViewHolder>() {
-                @Override
-                public ImageViewHolder createHolder() {
-                    return new ImageViewHolder();
-                }
-            }, data)
-                    // 设置轮播停顿时间
-                    .setDuration(5000)
-                    // 设置指示器是否可见
-                    .setPointViewVisible(false)
-                    // 开启轮播
-                    .start();
-            // ViewPager状态改变监听
-            generalVpLayout.setOnViewPagerChangeListener(new GeneralVpLayout.OnViewPagerChangeListener() {
-                @Override
-                public void onPageSelected(int position) {
-                    // 修改指示器
-                    for (int i = 0; i < mImageViews.length; i++) {
-                        mImageViews[position].setBackgroundResource(R.mipmap.icon_focusdot);
-                        if (position != i) {
-                            mImageViews[i].setBackgroundResource(R.mipmap.icon_defaultdot);
-                        }
-                    }
-                }
-            });
-        } else {
-            generalVpLayout.setVisibility(View.GONE);
-        }
-    }
+
 
     // 自定义你的Holder，实现更多复杂的界面，不一定是图片翻页，其他任何控件翻页亦可。
     private class ImageViewHolder implements Holder<Integer> {
@@ -655,23 +703,16 @@ public class GoodsInfoActivity extends BaseActivity {
         params.leftMargin = fixLeftMargin;
         ivCursor.setLayoutParams(params);
     }
+    private class MyLoader extends ImageLoader {
+        @Override
+        public void displayImage(Context context, Object path, ImageView imageView) {
+            //加载方形图片
+            Glide.with(context).load((Integer) path).into(imageView);
+            //加载圆角图片
+         /*   Picasso.with(context).load(String.valueOf(path)).transform(new CircleCornerForm(50
+            )).error(R.drawable.beauty).into(imageView);*/
 
-    // 改变游动条
-   /* private void changeTextView(int position) {
-        tvImgtextInfo.setTextColor(Color.parseColor("#666666"));
-        tvPhotoInfo.setTextColor(Color.parseColor("#666666"));
-        tvEvalInfo.setTextColor(Color.parseColor("#666666"));
-        switch (position) {
-            case 0:
-                tvImgtextInfo.setTextColor(Color.parseColor("#FF7198"));
-                break;
-            case 1:
-                tvPhotoInfo.setTextColor(Color.parseColor("#FF7198"));
-                break;
-            case 2:
-                tvEvalInfo.setTextColor(Color.parseColor("#FF7198"));
-                break;
         }
-        mCurrentIndex = position;
-    }*/
+    }
+
 }

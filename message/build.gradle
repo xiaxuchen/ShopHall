@@ -94,4 +94,8 @@ dependencies {
     implementation 'cn.jiguang.sdk:jpush:3.1.1'  // 此处以JPush 3.1.1 版本为例。
     implementation 'cn.jiguang.sdk:jcore:2.0.0'  // 此处以JCore 2.0.0 版本为例。
     implementation 'cn.jiguang.sdk:jmessage:2.9.0'  // 此处以JMessage 2.9.0 版本为例。
+    implementation 'com.youth.banner:banner:1.4.10'//轮播图
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'//静态图片动画效果
+    implementation 'com.github.florent37:diagonallayout:1.0.9'//切角图片
+    implementation 'com.github.bumptech.glide:glide:4.3.1' //glide插件
 }

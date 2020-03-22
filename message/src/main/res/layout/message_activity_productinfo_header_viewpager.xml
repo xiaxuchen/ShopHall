@@ -5,13 +5,13 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <!-- 商品详情页，头部商品详情轮播 -->
+   <!-- &lt;!&ndash; 商品详情页，头部商品详情轮播 &ndash;&gt;
     <cc.ibooker.zviewpagerlib.GeneralVpLayout
         android:id="@+id/generalVpLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!--点游标-->
+    &lt;!&ndash;点游标&ndash;&gt;
     <LinearLayout
         android:id="@+id/viewGroup"
         android:layout_width="wrap_content"
@@ -20,6 +20,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal" />-->
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </com.youth.banner.Banner>
 
 </RelativeLayout>

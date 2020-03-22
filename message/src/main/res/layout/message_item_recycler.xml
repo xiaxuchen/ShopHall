@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="80dp"
     android:background="@android:color/white"
     android:layout_marginBottom="1dp"
     tools:ignore="ResourceName">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="80dp">
 
         <LinearLayout
             android:id="@+id/slide"
@@ -42,19 +42,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:background="#ffffff"
+            android:background="#fafafa"
             android:orientation="horizontal">
 
             <com.qmuiteam.qmui.widget.QMUIRadiusImageView
                 android:id="@+id/image"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher"/>
 
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -70,7 +72,7 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textColor="#000000"
                         android:text="android开发交流群" />
 
@@ -92,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#747373"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="广州-悠悠哉：RecyclerView很容易" />
 
             </LinearLayout>
@@ -101,9 +103,9 @@
         </LinearLayout>
         <View
             android:layout_width="1000dp"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/qmui_config_color_gray_9"></View>
+            android:background="#f3f3f3"></View>
 
     </RelativeLayout>
 
