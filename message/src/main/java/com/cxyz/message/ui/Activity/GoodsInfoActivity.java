@@ -171,10 +171,12 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 50, fos);
+            ToastUtil.showShort("保存成功");
             fos.flush();
             fos.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
+            ToastUtil.showShort("保存失败");
             e.printStackTrace();
         }
 
