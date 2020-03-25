@@ -32,20 +32,32 @@
         app:layout_constraintTop_toTopOf="@+id/hbTrackHeaderBar"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/tvTrackLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="你Y的还没登录呢，点击这里转到登录界面..."
+        android:textColor="#B8B0B0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivTrackDelete"
+        app:layout_constraintStart_toStartOf="@+id/hbTrackHeaderBar"
+        app:layout_constraintTop_toBottomOf="@+id/hbTrackHeaderBar"
+        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
         android:id="@+id/rvTrack"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="#f5f5f5"
+        android:paddingVertical="10dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hbTrackHeaderBar"
-        app:layout_constraintVertical_bias="0.0"
-        android:scrollbars="vertical"
-        android:paddingVertical="10dp"
-        tools:ignore="MissingConstraints"
-        android:background="#f5f5f5"
-        />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

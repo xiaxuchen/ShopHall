@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -20,6 +21,7 @@ import com.cxyz.car.ui.adapter.StoreDetailViewPageAdapter;
 import com.cxyz.car.ui.fragment.StoreDetailFragment;
 import com.cxyz.http.response.CheckResult;
 import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.relative.base.manager.UserManager;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -86,7 +88,12 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
         llGetService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/message/ChatMessageActivity").navigation();//跳到联系客服
+                //判断用户是否登录
+                if (!UserManager.getInstance().isLogin()) {
+                    Toast.makeText(StoreDetailActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
+                }else{
+                    ARouter.getInstance().build("/message/ChatMessageActivity").navigation();//跳到联系客服
+                }
             }
         });
         llStoreComment.setOnClickListener(new View.OnClickListener() {

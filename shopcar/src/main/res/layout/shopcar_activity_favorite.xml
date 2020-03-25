@@ -20,6 +20,18 @@
         app:backText="全部宝贝"
         tools:ignore="MissingConstraints"></com.cxyz.widget.HeaderBar>
 
+    <TextView
+        android:id="@+id/tvFavoriteLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你Y的还没登录呢，点击这里转到登录界面..."
+        android:textColor="#B8B0B0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/hbFavoriteHeaderbar"
+        app:layout_constraintStart_toStartOf="@+id/hbFavoriteHeaderbar"
+        app:layout_constraintTop_toBottomOf="@+id/hbFavoriteHeaderbar"
+        android:layout_marginTop="50dp"
+        tools:ignore="MissingConstraints" />
     <ImageView
         android:id="@+id/ivFavoriteSearch"
         android:layout_width="25dp"

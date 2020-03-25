@@ -20,6 +20,18 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvShopcarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你Y的还没登录呢，点击这里转到登录界面..."
+        android:textColor="#B8B0B0"
+        android:layout_below="@+id/hbShopcar"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginTop="50dp"
+        android:textSize="18sp"
+        />
 
     <ListView
         android:id="@+id/lvShop"
