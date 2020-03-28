@@ -16,6 +16,9 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 
+/**
+ * 添加地址界面
+ */
 @Route(path = "/mine/AddAddressActivity",group = "mine")
 public class AddAddressActivity extends BaseActivity<AddAddressPresenter> implements IAddAddressView {
     private HeaderBar AddAddressheaderBar;//导航栏
@@ -39,12 +42,6 @@ public class AddAddressActivity extends BaseActivity<AddAddressPresenter> implem
     @Override
     public void initView() {
         AddAddressheaderBar = findViewById(R.id.AddAddressheaderBar);
-        AddAddressheaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
-            @Override
-            public void onBackClick(View v) {
-                AddAddressActivity.this.finish();
-            }
-        });
         btnAddAddress = findViewById(R.id.btnAddAddress);
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
@@ -59,7 +56,12 @@ public class AddAddressActivity extends BaseActivity<AddAddressPresenter> implem
 
     @Override
     public void setEvent() {
-
+        AddAddressheaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                AddAddressActivity.this.finish();
+            }
+        });
     }
 
     @Override

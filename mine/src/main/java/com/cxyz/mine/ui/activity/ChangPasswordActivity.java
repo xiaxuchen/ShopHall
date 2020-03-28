@@ -13,6 +13,9 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 
+/**
+ * 修改密码界面
+ */
 @Route(path ="/mine/ChangPasswordActivity" ,group = "mine")
 public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> implements IChangPasswordView {
     private HeaderBar changPasswordBar;
@@ -35,12 +38,6 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
     @Override
     public void initView() {
         changPasswordBar = findViewById(R.id.changPasswordBar);
-        changPasswordBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
-            @Override
-            public void onBackClick(View v) {
-                ChangPasswordActivity.this.finish();
-            }
-        });
         etPhoneEdit = findViewById(R.id.etPhoneEdit);
         etVerificationCode  = findViewById(R.id.etVerificationCode);
         etNewPasswordEdit = findViewById(R.id.etNewPasswordEdit);
@@ -55,7 +52,12 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
 
     @Override
     public void setEvent() {
-
+        changPasswordBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                ChangPasswordActivity.this.finish();
+            }
+        });
     }
 
     @Override

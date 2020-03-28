@@ -57,13 +57,13 @@ public class MallShopAdpter extends RecyclerView.Adapter<MallShopAdpter.myHolder
         holder.shopImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build(" /main/StoreActivity").navigation();
+                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
             }
         });
         holder.shopName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build(" /main/StoreActivity").navigation();
+                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
             }
         });
 

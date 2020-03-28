@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.ui.activity.MallInformationActivity;
+import com.cxyz.mine.ui.activity.SearchActivity;
+import com.cxyz.mine.ui.fragment.LoginMineFragment;
 import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
@@ -15,7 +17,9 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 public class MainActivity extends BaseActivity {
     private Button btnMine;
     private Button btnMall;
+    private Button btnSearch;
     private MineFragment mine;
+    private LoginMineFragment loginMineFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +28,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected Object getContentView() {
-        return R.layout.activity_main_layout;
+        return R.layout.mine_activity_main_layout;
     }
 
     @Override
@@ -39,11 +43,20 @@ public class MainActivity extends BaseActivity {
         });
         btnMine = findViewById(R.id.btnMine);
         mine = new MineFragment();
+        loginMineFragment = new LoginMineFragment();
         //跳转到我的界面
         btnMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment,mine).commitAllowingStateLoss();
+            }
+        });
+        btnSearch = findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -55,6 +68,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setEvent() {
+
 
     }
 

@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.view.ISearchView;
 import com.cxyz.mine.presenter.SearchPresenter;
+import com.cxyz.mine.presenter.view.ISearchView;
 import com.cxyz.mine.ui.adapter.SearchFindAdapter;
 import com.cxyz.mine.ui.adapter.SearchHistroyAdapter;
 import com.cxyz.mine.ui.adapter.entity.SearchHistory;
@@ -22,6 +22,9 @@ import com.cxyz.mvp.activity.BaseActivity;
 
 import java.util.List;
 
+/**
+ * 设置界面
+ */
 @Route(path = "/mine/SearchActivity",group = "mine")
 public class SearchActivity extends BaseActivity<SearchPresenter> implements ISearchView {
     private Context context;
@@ -43,13 +46,6 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
     @Override
     public void initView() {
         btnSearch = findViewById(R.id.btnSearch);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 Intent intentVersion = new Intent(SearchActivity.this,SearchResultsActivity                                                  .class);
-                startActivity(intentVersion);
-            }
-        });
         rvHistory = findViewById(R.id.rvHistory);
         rvSearchFind = findViewById(R.id.rvSearchFind);
     }
@@ -61,7 +57,13 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
 
     @Override
     public void setEvent() {
-
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentVersion = new Intent(SearchActivity.this,SearchResultsActivity                                                  .class);
+                startActivity(intentVersion);
+            }
+        });
     }
 
     @Override

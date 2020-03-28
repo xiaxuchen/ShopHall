@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.view.IMallView;
 import com.cxyz.mine.presenter.MallPresenter;
+import com.cxyz.mine.presenter.view.IMallView;
 import com.cxyz.mine.ui.adapter.MallAdAdapter;
 import com.cxyz.mine.ui.adapter.MallShopAdpter;
 import com.cxyz.mine.ui.adapter.entity.MallAdGoods;
@@ -21,6 +21,10 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.widget.HeaderBar;
 
 import java.util.List;
+
+/**
+ * 商成信息界面
+ */
 @Route(path ="/mine/MallInformationActivity" ,group = "mine")
 public class MallInformationActivity extends BaseActivity<MallPresenter> implements IMallView {
     private Context context;
@@ -42,12 +46,6 @@ public class MallInformationActivity extends BaseActivity<MallPresenter> impleme
     @Override
     public void initView() {
         mallInfoHeaderBar = findViewById(R.id.mallInfoHeaderBar);
-        mallInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
-            @Override
-            public void onBackClick(View v) {
-                MallInformationActivity.this.finish();
-            }
-        });
         rvMallAd = findViewById(R.id.rvMallAd);
         rvMallShop = findViewById(R.id.rvMallShop);
     }
@@ -59,7 +57,12 @@ public class MallInformationActivity extends BaseActivity<MallPresenter> impleme
 
     @Override
     public void setEvent() {
-
+        mallInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                MallInformationActivity.this.finish();
+            }
+        });
     }
 
     @Override

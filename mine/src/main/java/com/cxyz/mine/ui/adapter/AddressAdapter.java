@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,7 @@ import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import java.util.List;
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder>{
-    private List<Adress> addressList;
+    public static List<Adress> addressList;
     private Context context;
     public static String addressName;
     public static String addressPhone;
@@ -67,38 +68,40 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
                 }
             });
 
-            tvDeleteAddress.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new QMUIDialog.MessageDialogBuilder(v.getContext())
-                            .setMessage("确认删除吗？")
-                            .setTitle("提示")
-                            .addAction("取消", new QMUIDialogAction.ActionListener() {
-                                @Override
-                                public void onClick(QMUIDialog dialog, int index) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .addAction("确定", new QMUIDialogAction.ActionListener() {
-                                @Override
-                                public void onClick(QMUIDialog dialog, int index) {
-                                    dialog.dismiss();
-                                    ToastUtil.showShort("删除成功");
-                                }
-                            })
-                            .show();
-                }
-            });
+
         }
     }
 
     @Override
     public void onBindViewHolder( ViewHolder holder, int position) {
+        ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
         holder.tvAddressName.setText(addressList.get(position).getName());
         holder.tvAddressPhone.setText(addressList.get(position).getPhone());
         holder.tvAddressHometown.setText(addressList.get(position).getHometown());
         holder.tvAddressHome.setText(addressList.get(position).getHome());
-
+        holder.tvDeleteAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new QMUIDialog.MessageDialogBuilder(v.getContext())
+                        .setMessage("确认删除吗？")
+                        .setTitle("提示")
+                        .addAction("取消", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .addAction("确定", new QMUIDialogAction.ActionListener() {
+                            @Override
+                            public void onClick(QMUIDialog dialog, int index) {
+                                dialog.dismiss();
+                                ToastUtil.showShort("删除成功");
+                            }
+                        })
+                        .show();
+            }
+        });
 
     }
 
