@@ -42,11 +42,11 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //初始化sdk
+     /*   //初始化sdk
         JPushInterface.setDebugMode(true);//正式版的时候设置false，关闭调试
         JMessageClient.setDebugMode(true);
         JMessageClient.init( this);
-        JPushInterface.init(this);
+        JPushInterface.init(this);*/
         if(application == null && isApplication) {
             application = this;
         }
