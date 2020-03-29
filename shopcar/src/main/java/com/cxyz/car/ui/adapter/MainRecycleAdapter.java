@@ -40,13 +40,13 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         holder.storeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/mine/MallInformationActivity").navigation();
+                ARouter.getInstance().build("/mine/MallInformationFragment").navigation();
             }
         });
         holder.storeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/mine/MallInformationActivity").navigation();
+                ARouter.getInstance().build("/mine/MallInformationFragment").navigation();
             }
         });
     }
