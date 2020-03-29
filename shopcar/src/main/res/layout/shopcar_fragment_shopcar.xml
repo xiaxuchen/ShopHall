@@ -24,7 +24,7 @@
         android:id="@+id/tvShopcarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="你Y的还没登录呢，点击这里转到登录界面..."
+        android:text="您还没登录呢，点击这里转到登录界面..."
         android:textColor="#B8B0B0"
         android:layout_below="@+id/hbShopcar"
         android:layout_marginStart="20sp"

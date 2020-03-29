@@ -4,7 +4,7 @@
     tools:ignore="ResourceName">
     <item>
         <shape>
-            <solid android:color="#A5A3A3" /><!-- 连框颜色值 -->
+            <solid android:color="#C7C4C4" /><!-- 连框颜色值 -->
 
         </shape>
     </item>

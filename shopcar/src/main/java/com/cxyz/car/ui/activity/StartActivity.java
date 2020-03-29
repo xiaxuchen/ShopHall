@@ -72,7 +72,7 @@ public class StartActivity extends BaseActivity {
         @Override
         public void onFinish() {
             //如果未点击，跳转到指定页面
-            ARouter.getInstance().build("/shopcar/FavoriteActivity").navigation();
+            ARouter.getInstance().build("/main/MainActivity").navigation();
             finish();
         }
     }
