@@ -357,9 +357,6 @@
                             android:layout_height="40dp"
                             android:background="@android:color/transparent"
                             android:visibility="invisible" />
-
-
-
                     </LinearLayout>
 
                     <!--底部ViewPager-->
