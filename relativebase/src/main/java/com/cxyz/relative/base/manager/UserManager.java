@@ -1,12 +1,6 @@
 package com.cxyz.relative.base.manager;
 
-import android.accounts.NetworkErrorException;
-import android.content.Intent;
-
 import com.cxyz.relative.base.data.protocol.User;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by 夏旭晨 on 2018/10/5.
@@ -16,12 +10,21 @@ public class UserManager {
 
     private User u;
 
+    private Boolean isUpdate;
+
+    public void setOnUpdateListener(){
+        isUpdate = true;
+    }
+
     public User getUser() {
         return u;
     }
 
     public void setUser(User user) {
-        this.u = user;
+        if (u.equals(user)){
+            this.u = user;
+            setOnUpdateListener();
+        }
     }
 
     /**
@@ -41,6 +44,13 @@ public class UserManager {
         return getUser() != null;
     }
 
+    /**
+     * 是否更新
+     * @return
+     */
+    public Boolean OnUserUpdate(){
+        return isUpdate;
+    }
     public static UserManager getInstance()
     {
         return InnerClass.userManager;
