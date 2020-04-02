@@ -1,6 +1,6 @@
 package com.cxyz.relative.base.data.protocol;
 
-public class User{
+public class User {
     //用户id
     private String id;
     //姓名
