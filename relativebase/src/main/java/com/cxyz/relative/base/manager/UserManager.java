@@ -13,7 +13,6 @@ import java.util.Set;
 public class UserManager {
 
     private User u;
-
     private Set<UpdateListener> listeners  = new HashSet<UpdateListener>();
 
     /**
