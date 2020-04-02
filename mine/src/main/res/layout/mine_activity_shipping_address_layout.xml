@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context=".ui.activity.ShippingAddressActivity"
+    tools:ignore="ResourceName">
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/shippingAddressHearderBaar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_bar_height"
+        tools:ignore="MissingConstraints"
+        app:backText="@string/mineShippongAddressBacktitle"
+        app:background="@color/common_colorPrimary"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/addressRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/shippingAddressHearderBaar"
+        />
+
+    <Button
+        android:id="@+id/addAddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        android:background="@color/common_colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/mineShippongAddressAdd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_size"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

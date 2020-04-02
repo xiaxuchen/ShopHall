@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.WithdrawActivity">
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/withdrawHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        tools:ignore="MissingConstraints"
+        app:title="提现"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/WeChatPayment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/withdrawHeaderBar"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin"
+            android:gravity="center"
+            android:text="@string/mineWeChatPayment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/mine_personal_back"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_marginRight="@dimen/common_margin_middle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/divider01"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        app:layout_constraintTop_toBottomOf="@id/WeChatPayment"
+        android:background="@color/common_divider"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/ArrivalTime"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/mineArrivalTime"
+        android:gravity="bottom"
+        app:layout_constraintTop_toBottomOf="@id/divider01"
+        android:paddingLeft="@dimen/common_padding"
+        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/WithdrawalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        android:paddingLeft="@dimen/common_padding"
+        app:layout_constraintTop_toBottomOf="@id/ArrivalTime"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/WithdrawalAmounts"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="@string/mineWithdrawalAmount"
+            app:layout_constraintBottom_toBottomOf="parent"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="888.0"
+            android:textColor="@color/common_colorPrimary"
+            android:layout_marginLeft="@dimen/common_margin"
+            app:layout_constraintLeft_toRightOf="@id/WithdrawalAmounts"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/AccountBalance"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        android:paddingLeft="@dimen/common_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WithdrawalAmount"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/AccountBalances"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="@string/mineAccountBalance" />
+
+        <TextView
+            android:id="@+id/Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/common_margin"
+            android:gravity="bottom"
+            android:text="888.0"
+            android:textColor="@color/common_colorPrimary"
+            app:layout_constraintLeft_toRightOf="@id/AccountBalances" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnWithdraw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        android:text="@string/mineWithdrawal"
+        android:textSize="@dimen/text_big_size"
+        android:textColor="@color/white"
+        android:background="@color/common_colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

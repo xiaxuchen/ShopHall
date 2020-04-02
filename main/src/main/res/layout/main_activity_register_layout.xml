@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_white"
+    >
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_bar_height"
+        app:background="@color/common_colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="注册" />
+
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:background="@drawable/border_bottom"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        android:padding="@dimen/common_padding"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <TextView
+        android:id="@+id/tvGetVerifyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取验证码"
+        app:layout_constraintBottom_toBottomOf="@+id/etPhone"
+        app:layout_constraintEnd_toEndOf="@+id/etPhone"
+        app:layout_constraintTop_toTopOf="@+id/etPhone"
+        android:textColor="@color/common_colorPrimary"
+        />
+
+    <EditText
+        android:id="@+id/etVerifyCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/border_bottom"
+        android:hint="验证码"
+        android:inputType="number"
+        android:padding="@dimen/common_padding"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:background="@drawable/border_bottom"
+        android:hint="设置密码,6-20位"
+        android:inputType="textPassword"
+        android:padding="@dimen/common_padding"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etVerifyCode" />
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:id="@+id/tvShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="{fa-eye-slash}"
+        android:textColor="@color/common_divider"
+        app:layout_constraintBottom_toBottomOf="@+id/etPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etPassword"
+        app:layout_constraintTop_toTopOf="@+id/etPassword"
+        android:textSize="@dimen/text_large_size"
+        />
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:padding="@dimen/common_padding"
+        android:text="注册"
+        android:enabled="false"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:qmui_backgroundColor="@color/common_colorPrimary"
+        app:qmui_borderWidth="0dp"
+        />
+
+    <CheckBox
+        android:id="@+id/cbAgree"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAgree"
+        app:layout_constraintEnd_toStartOf="@+id/tvAgree"
+        app:layout_constraintTop_toTopOf="@+id/tvAgree"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvAgree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="我已认真阅读并同意"
+        app:layout_constraintEnd_toStartOf="@id/tvProtocol"
+        app:layout_constraintStart_toEndOf="@id/cbAgree"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    <TextView
+        android:id="@+id/tvProtocol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="《用户服务协议》"
+        android:textColor="@color/common_colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAgree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvAgree"
+        app:layout_constraintTop_toTopOf="@+id/tvAgree" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

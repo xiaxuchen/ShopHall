@@ -27,8 +27,8 @@
         android:text="您还没登录呢，点击这里转到登录界面..."
         android:textColor="#B8B0B0"
         android:layout_below="@+id/hbShopcar"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="50dp"
         android:textSize="18sp"
         />

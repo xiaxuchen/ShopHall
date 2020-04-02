@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context=".ui.activity.FeedbackActivity">
+
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/feedbackHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        tools:ignore="MissingConstraints"
+        app:backText="意见反馈"
+        app:background="@color/common_colorPrimary"/>
+
+    <TextView
+        android:id="@+id/feedbackPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/common_margin_middle"
+        android:text="@string/mineFeedbackPrompt"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/feedbackHeaderBar"
+        tools:ignore="MissingConstraints" />
+    <View
+        app:layout_constraintTop_toBottomOf="@id/feedbackPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        tools:ignore="MissingConstraints" />
+    <View
+        android:id="@+id/feedbackDivider01"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/common_divider_height"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/feedbackSalesQuestion"
+        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/feedbackDivider01"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/common_margin_middle"
+            android:text="@string/mineFeedbackSecondQuestion"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            app:layout_constraintRight_toLeftOf="@id/feedbackBack02"
+            android:text="@string/mineFeedbackAppQuestion"
+            android:textColor="@color/common_text_normal"/>
+
+        <ImageView
+            android:id="@+id/feedbackBack02"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_marginRight="@dimen/common_margin_middle"
+            android:src="@mipmap/mine_personal_back"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/feedbackSalesQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        app:layout_constraintTop_toBottomOf="@id/feedbackPrompt"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/common_margin_middle"
+            android:text="@string/mineFeedbackFirstQuestion"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            app:layout_constraintRight_toLeftOf="@id/feedbackBack01"
+            android:text="@string/mineFeedbackSales"
+            android:textColor="@color/common_text_normal"/>
+
+        <ImageView
+            android:id="@+id/feedbackBack01"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_marginRight="@dimen/common_margin_middle"
+            android:src="@mipmap/mine_personal_back"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="@dimen/common_margin_middle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
