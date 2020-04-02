@@ -2,6 +2,10 @@ package com.cxyz.relative.base.manager;
 
 import com.cxyz.relative.base.data.protocol.User;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * Created by 夏旭晨 on 2018/10/5.
  * 用户信息管理类，使用单例模式进行管理
@@ -10,20 +14,35 @@ public class UserManager {
 
     private User u;
 
-    private Boolean isUpdate;
+    private Set<UpdateListener> listeners  = new HashSet<UpdateListener>();
 
-    public void setOnUpdateListener(){
-        isUpdate = true;
+    /**
+     * 设置监听
+     * @param updateListener
+     */
+    public synchronized void setOnUpdateListener(UpdateListener updateListener){
+        listeners.add(updateListener);
     }
 
+    /**
+     * 移除监听
+     * @param updateListener
+     */
+    public synchronized void removeOnUpdateListenner(UpdateListener updateListener){
+        listeners.remove(updateListener);
+    }
     public User getUser() {
         return u;
     }
 
-    public void setUser(User user) {
-        if (u.equals(user)){
+    public synchronized void setUser(User user) {
+        if (!u.equals(user)){
+            Iterator<UpdateListener> it = listeners.iterator();
+            while (it.hasNext()) {
+                UpdateListener updateListener = it.next();
+                updateListener.OnUpdate(u,user);
+            }
             this.u = user;
-            setOnUpdateListener();
         }
     }
 
@@ -44,13 +63,6 @@ public class UserManager {
         return getUser() != null;
     }
 
-    /**
-     * 是否更新
-     * @return
-     */
-    public Boolean OnUserUpdate(){
-        return isUpdate;
-    }
     public static UserManager getInstance()
     {
         return InnerClass.userManager;
