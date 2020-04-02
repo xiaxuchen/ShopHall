@@ -52,6 +52,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     annotationProcessor "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
     implementation 'com.android.support:design:27.1.1'
-    implementation 'com.github.bumptech.glide:glide:4.3.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
 }
