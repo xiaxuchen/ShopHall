@@ -48,7 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.cxyz.shophall.ui.activity.RecycleViewActivity" />
 
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="true"/>
