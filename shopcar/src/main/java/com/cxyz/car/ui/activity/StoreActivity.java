@@ -1,6 +1,11 @@
 package com.cxyz.car.ui.activity;
 
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,11 +18,16 @@ import com.cxyz.car.presenter.view.IStoreView;
 import com.cxyz.car.ui.adapter.CommentsAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
+import com.cxyz.relative.base.manager.UserManager;
 
 import java.util.List;
 @Route(path="/shopcar/StoreActivity",group = "shopcar")
 public class StoreActivity extends BaseActivity<StorePresenter> implements IStoreView {
     private RecyclerView recyclerView;
+    private Button btnStoreSendComment;
+    private TextView tvStoreInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,8 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     @Override
     public void initView() {
         recyclerView=findViewById(R.id.rvStore);
+        btnStoreSendComment=findViewById(R.id.btnStoreSendComment);
+        tvStoreInput=findViewById(R.id.tvStoreInput);
     }
 
     @Override
@@ -42,7 +54,26 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
 
     @Override
     public void setEvent() {
-
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
+        btnStoreSendComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tvStoreInput.getText()==null||tvStoreInput.equals("")){
+                    Toast.makeText(StoreActivity.this, "评论内容不能为空", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    //判断用户是否登录
+                    if (!UserManager.getInstance().isLogin()) {
+                        Toast.makeText(StoreActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -54,5 +85,16 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     public void showStoreComments(List<CommentsItem> commentsItemList) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new CommentsAdapter(this,commentsItemList));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
     }
 }
