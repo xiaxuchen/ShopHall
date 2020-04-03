@@ -7,13 +7,18 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.IChangPasswordView;
-import com.cxyz.mine.presenter.view.ChangPasswordPresenter;
+import com.cxyz.mine.presenter.view.IChangPasswordView;
+import com.cxyz.mine.presenter.ChangPasswordPresenter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
+import com.cxyz.widget.HeaderBar;
 
+/**
+ * 修改密码界面
+ */
 @Route(path ="/mine/ChangPasswordActivity" ,group = "mine")
 public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> implements IChangPasswordView {
+    private HeaderBar changPasswordBar;
     private EditText etPhoneEdit;//电话输入框
     private EditText etVerificationCode;//验证码输入框
     private EditText etNewPasswordEdit;//新密码输入框
@@ -32,6 +37,7 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
 
     @Override
     public void initView() {
+        changPasswordBar = findViewById(R.id.changPasswordBar);
         etPhoneEdit = findViewById(R.id.etPhoneEdit);
         etVerificationCode  = findViewById(R.id.etVerificationCode);
         etNewPasswordEdit = findViewById(R.id.etNewPasswordEdit);
@@ -46,7 +52,12 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
 
     @Override
     public void setEvent() {
-
+        changPasswordBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                ChangPasswordActivity.this.finish();
+            }
+        });
     }
 
     @Override
@@ -86,6 +97,7 @@ public class ChangPasswordActivity extends BaseActivity<ChangPasswordPresenter> 
                             ToastUtil.showShort("新密码不能为空");
                         }else if(!etNewPasswordEdit.getText().toString().trim().isEmpty() && passwordFlag){
                             ToastUtil.showShort("修改成功");
+                            ChangPasswordActivity.this.finish();
                         }
                    }
                 }
