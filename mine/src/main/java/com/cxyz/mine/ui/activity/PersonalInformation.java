@@ -9,6 +9,7 @@ import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
@@ -23,7 +24,7 @@ public class PersonalInformation extends BaseActivity {
     private TextView tvPsnAccount;//用户账号
     private TextView tvPsnName;//用户昵称
     private TextView tvPsnPhone;//用户手机号码
-    UserManager userManager = new UserManager();
+    private UserManager userManager = new UserManager();
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_personalinformation_layout;
@@ -41,7 +42,16 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        UserManager userManager = new UserManager();
+        userManager.setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                imProfilePicture.setImageURI(Uri.parse(newUser.getPhoto()));
+                tvPsnAccount.setText(newUser.getId());
+                tvPsnName.setText(newUser.getName());
+                tvPsnPhone.setText(newUser.getPhone());
+                return null;
+            }
+        });
         User user = userManager.getUser();
         boolean isLogin = userManager.isLogin();
         if (isLogin){
@@ -58,6 +68,12 @@ public class PersonalInformation extends BaseActivity {
         personalInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override
             public void onBackClick(View v) {
+                userManager.removeOnUpdateListenner(new UpdateListener() {
+                    @Override
+                    public User OnUpdate(User oldUser, User newUser) {
+                        return null;
+                    }
+                });
                 PersonalInformation.this.finish();
             }
         });

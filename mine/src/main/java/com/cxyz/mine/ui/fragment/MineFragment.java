@@ -21,6 +21,7 @@ import com.cxyz.mine.ui.activity.SetUpActivity;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
@@ -58,7 +59,14 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData(Bundle bundle) {
-        UserManager userManager = new UserManager();
+        userManager.setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                tvUserName.setText(newUser.getName());
+                imMineHeaderImg.setImageURI(Uri.parse(newUser.getPhoto()));
+                return null;
+            }
+        });
         boolean isLogin = userManager.isLogin();
         User user = userManager.getUser();
         if (isLogin){
