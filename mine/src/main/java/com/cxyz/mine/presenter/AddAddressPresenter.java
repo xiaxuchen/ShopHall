@@ -6,6 +6,7 @@ import com.cxyz.mine.presenter.view.IAddAddressView;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 public class AddAddressPresenter extends IBasePresenter<IAddAddressModel, IAddAddressView> {
+
     @Override
     public AddAddressModelImpl createModel() {
         return new AddAddressModelImpl();

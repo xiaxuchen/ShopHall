@@ -13,7 +13,7 @@ import java.util.Set;
 public class UserManager {
 
     private User u;
-    private Set<UpdateListener> listeners = new HashSet<UpdateListener>();
+    private Set<UpdateListener> listeners  = new HashSet<UpdateListener>();
 
     /**
      * 设置监听

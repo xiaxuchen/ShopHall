@@ -59,6 +59,8 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData(Bundle bundle) {
+        boolean isLogin = userManager.isLogin();
+        User user = userManager.getUser();
         userManager.setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
@@ -67,8 +69,6 @@ public class MineFragment extends BaseFragment {
                 return null;
             }
         });
-        boolean isLogin = userManager.isLogin();
-        User user = userManager.getUser();
         if (isLogin){
             tvUserName.setText(user.getName());
             imMineHeaderImg.setImageURI(Uri.parse(user.getPhoto()));
