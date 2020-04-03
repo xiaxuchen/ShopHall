@@ -19,6 +19,8 @@ import com.cxyz.car.ui.adapter.TrackAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 
 import java.util.ArrayList;
@@ -54,6 +56,12 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     @Override
     public void setEvent() {
 
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
             rv_track.setVisibility(View.INVISIBLE);
@@ -79,5 +87,16 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
         rv_track.setLayoutManager(new LinearLayoutManager(this));
         TrackAdapter adapter=new TrackAdapter(this,data);
         rv_track.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
     }
 }

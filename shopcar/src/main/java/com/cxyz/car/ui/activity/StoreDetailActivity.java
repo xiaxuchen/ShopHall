@@ -21,6 +21,8 @@ import com.cxyz.car.ui.adapter.StoreDetailViewPageAdapter;
 import com.cxyz.car.ui.fragment.StoreDetailFragment;
 import com.cxyz.http.response.CheckResult;
 import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.google.android.material.tabs.TabLayout;
 
@@ -85,6 +87,12 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
 
     @Override
     public void setEvent() {
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
         llGetService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,5 +114,16 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     @Override
     protected StoreDetailPresenter createIPresenter() {
         return new StoreDetailPresenter();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
     }
 }

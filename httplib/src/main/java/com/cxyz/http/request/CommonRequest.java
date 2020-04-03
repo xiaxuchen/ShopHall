@@ -34,6 +34,25 @@ public class CommonRequest {
 
         return new Request.Builder().get().url(urlBuilder.substring(0,urlBuilder.length()-1).toString()).build();
     }
+
+    /**
+     *
+     * @param url
+     * @param params
+     * @return 返回一个创建好的发送GET请求的Request对象
+     */
+    public static Request createDeleteRequest(String url,RequestParams params){
+        StringBuilder urlBuilder = new StringBuilder(url).append("?");
+        if(params != null)
+        {
+            for(Map.Entry<String,String> entry:params.urlParams.entrySet())
+            {
+                urlBuilder.append(entry.getKey()+"="+entry.getValue()+"&");
+            }
+        }
+
+        return new Request.Builder().delete().url(urlBuilder.substring(0,urlBuilder.length()-1).toString()).build();
+    }
     /**
      *
      * @param url
@@ -53,6 +72,27 @@ public class CommonRequest {
         }
         body = builder.build();
         return new Request.Builder().post(body).url(url).build();
+    }
+
+    /**
+     *
+     * @param url
+     * @param params
+     * @return 返回一个创建好的发送POST请求的Request对象
+     */
+    public static Request createPutRequest(String url,RequestParams params)
+    {
+        FormBody body = null;
+        FormBody.Builder builder = new FormBody.Builder();
+        if(params != null)
+        {
+            for(Map.Entry<String,String> entry:params.urlParams.entrySet())
+            {
+                builder.add(entry.getKey(),entry.getValue());
+            }
+        }
+        body = builder.build();
+        return new Request.Builder().put(body).url(url).build();
     }
 
     private static final MediaType FILE_TYPE = MediaType.parse("application/octet-stream");

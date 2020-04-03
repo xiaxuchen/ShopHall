@@ -32,6 +32,8 @@ import com.cxyz.car.presenter.view.IShopcarView;
 import com.cxyz.car.ui.adapter.ShopcarInnerAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 
 import java.math.BigDecimal;
@@ -94,6 +96,12 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             }
         });
 
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
             listView.setVisibility(View.INVISIBLE);//如果已登录,列表设置显示
@@ -104,6 +112,7 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             isLogin.setVisibility(View.VISIBLE);
             llBottom.setVisibility(View.INVISIBLE);
         }
+
 
         isLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,6 +195,14 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         }
     }
 
-
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
+    }
 }

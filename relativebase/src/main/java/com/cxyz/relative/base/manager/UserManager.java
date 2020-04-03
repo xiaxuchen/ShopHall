@@ -1,12 +1,10 @@
 package com.cxyz.relative.base.manager;
 
-import android.accounts.NetworkErrorException;
-import android.content.Intent;
-
 import com.cxyz.relative.base.data.protocol.User;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by 夏旭晨 on 2018/10/5.
@@ -15,13 +13,36 @@ import java.util.Map;
 public class UserManager {
 
     private User u;
+    private Set<UpdateListener> listeners = new HashSet<UpdateListener>();
 
+    /**
+     * 设置监听
+     * @param updateListener
+     */
+    public synchronized void setOnUpdateListener(UpdateListener updateListener){
+        listeners.add(updateListener);
+    }
+
+    /**
+     * 移除监听
+     * @param updateListener
+     */
+    public synchronized void removeOnUpdateListenner(UpdateListener updateListener){
+        listeners.remove(updateListener);
+    }
     public User getUser() {
         return u;
     }
 
-    public void setUser(User user) {
-        this.u = user;
+    public synchronized void setUser(User user) {
+        if (!u.equals(user)){
+            Iterator<UpdateListener> it = listeners.iterator();
+            while (it.hasNext()) {
+                UpdateListener updateListener = it.next();
+                updateListener.OnUpdate(u,user);
+            }
+            this.u = user;
+        }
     }
 
     /**

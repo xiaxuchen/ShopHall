@@ -19,6 +19,8 @@ import com.cxyz.car.presenter.view.IFavoriteView;
 import com.cxyz.car.ui.adapter.FavoriteGoodsAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 
@@ -77,6 +79,12 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
                 },1500);
             }
         });
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
             recyclerView.setVisibility(View.INVISIBLE);
@@ -110,5 +118,16 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
             }
         });
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
     }
 }

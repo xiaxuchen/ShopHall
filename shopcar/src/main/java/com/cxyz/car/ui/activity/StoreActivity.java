@@ -18,6 +18,8 @@ import com.cxyz.car.presenter.view.IStoreView;
 import com.cxyz.car.ui.adapter.CommentsAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 
 import java.util.List;
@@ -52,6 +54,12 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
 
     @Override
     public void setEvent() {
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
         btnStoreSendComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,5 +85,16 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     public void showStoreComments(List<CommentsItem> commentsItemList) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new CommentsAdapter(this,commentsItemList));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
     }
 }
