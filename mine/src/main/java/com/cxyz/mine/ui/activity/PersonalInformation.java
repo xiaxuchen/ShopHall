@@ -9,6 +9,7 @@ import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
@@ -41,8 +42,17 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        UserManager userManager = new UserManager();
         User user = userManager.getUser();
+        userManager.setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                imProfilePicture.setImageURI(Uri.parse(newUser.getPhoto()));
+                tvPsnAccount.setText(newUser.getId());
+                tvPsnName.setText(newUser.getName());
+                tvPsnPhone.setText(newUser.getPhone());
+                return null;
+            }
+        });
         boolean isLogin = userManager.isLogin();
         if (isLogin){
             imProfilePicture.setImageURI(Uri.parse(user.getPhoto()));
@@ -59,6 +69,12 @@ public class PersonalInformation extends BaseActivity {
             @Override
             public void onBackClick(View v) {
                 PersonalInformation.this.finish();
+                userManager.removeOnUpdateListenner(new UpdateListener() {
+                    @Override
+                    public User OnUpdate(User oldUser, User newUser) {
+                        return null;
+                    }
+                });
             }
         });
     }

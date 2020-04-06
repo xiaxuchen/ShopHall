@@ -3,7 +3,8 @@
     package="com.cxyz.mine">
 
     <application>
-        <activity android:name=".ui.activity.MallInformationActivity"></activity>
+        <activity android:name=".ui.fragment.LoginMineFragment"></activity>
+        <activity android:name=".ui.activity.MallInformationActivity" />
         <activity android:name=".ui.fragment.SearchResultsFilterFrament" />
         <activity android:name=".ui.fragment.SearchResultsPriceFrament" />
         <activity android:name=".ui.fragment.SearchResultsSalesFargment" />
@@ -12,8 +13,7 @@
         <activity android:name=".ui.activity.SearchActivity" />
         <activity android:name=".ui.activity.WithdrawActivity" />
         <activity android:name=".ui.activity.BalanceActivity" />
-        <activity
-            android:name=".ui.activity.AppVersionActivity"
+        <activity android:name=".ui.activity.AppVersionActivity"
             android:theme="@style/QMUI.Compat" />
         <activity android:name=".ui.activity.AddAddressActivity" />
         <activity android:name=".ui.activity.FeedbackActivity" />
@@ -23,8 +23,7 @@
         <activity android:name=".ui.fragment.MineFragment" />
         <activity android:name=".ui.activity.PersonalInformation" />
         <activity android:name=".ui.activity.ChangAddressActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <meta-data
             android:name="com.cxyz.starter.mine.iconify"
