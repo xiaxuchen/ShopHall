@@ -12,18 +12,21 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
-    private ViewGroup setUpAddress;
-    private ViewGroup setUpPassword;
-    private ViewGroup setUpFeedback;
-    private ViewGroup setUpVersion;
-    private ViewGroup setUpHistory;
-    private ViewGroup setUpClear;
-    private Button btnSignOut;
+
+    private HeaderBar setUpHeaderBar;//导航栏
+    private ViewGroup setUpAddress;//设置地址按钮
+    private ViewGroup setUpPassword;//设置密码按钮
+    private ViewGroup setUpFeedback;//意见反馈按钮
+    private ViewGroup setUpVersion;//app版本按钮
+    private ViewGroup setUpHistory;//浏览记录按钮
+    private ViewGroup setUpClear;//清理缓存按钮
+    private Button btnSignOut;//退出登录按钮
 
     @Override
     protected Object getContentView() {
@@ -32,6 +35,13 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        setUpHeaderBar = findViewById(R.id.setUpHeaderBar);
+        setUpHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                SetUpActivity.this.finish();
+            }
+        });
         setUpAddress = findViewById(R.id.setUpAddress);
         setUpPassword = findViewById(R.id.setUpPassword);
         setUpFeedback = findViewById(R.id.setUpFeedback);
@@ -68,7 +78,7 @@ public class SetUpActivity extends BaseActivity {
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
             }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
-               /* Intent intentVersion = new Intent(SetUpActivity.this,SearchResultsActivity                                                  .class);
+                /*Intent intentVersion = new Intent(SetUpActivity.this, SearchActivity.class);
                 startActivity(intentVersion);*/
                 Toast.makeText(SetUpActivity.this,"当前以是最新版本",Toast.LENGTH_SHORT).show();
             }else if (v.getId() == R.id.setUpHistory){//跳转到浏览记录界面

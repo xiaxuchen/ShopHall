@@ -8,12 +8,23 @@ import com.cxyz.relative.base.data.protocol.User;
  */
 public class UserManager {
 
+    // 加密的key
+    public static final String GEN_KEY = "safhihwehvsjalw45sfsd52";
+
     private User u;
 
+    /**
+     * 获取用户信息
+     * @return
+     */
     public User getUser() {
         return u;
     }
 
+    /**
+     *  设置用户信息，登录时进行
+     * @param user 用户信息
+     */
     public void setUser(User user) {
         this.u = user;
     }

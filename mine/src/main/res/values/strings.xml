@@ -1,7 +1,7 @@
 <resources>
     <string name="mine_app_name">Mine</string>
     <string name="mineMallinformationMallName">华丰食品城</string>
-    <string name="mineMallinformationAd">来这里找实惠吧</string>
+    <string name="mineMallinformationAd">来这里找实惠吧!</string>
     <string name="mineHearderBarTitle">华丰食品城</string>
     <string name="minePersonalImg">头像</string>
     <string name="minePersonalAccount">账号</string>

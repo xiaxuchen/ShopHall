@@ -13,19 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.http.response.CheckResult;
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.IBalanceView;
-import com.cxyz.mine.presenter.view.BalancePresenter;
+import com.cxyz.mine.presenter.view.IBalanceView;
+import com.cxyz.mine.presenter.BalancePresenter;
 import com.cxyz.mine.ui.adapter.ConsumptionAdapter;
 import com.cxyz.mine.ui.adapter.entity.Consumption;
 import com.cxyz.mvp.activity.BaseActivity;
+import com.cxyz.widget.HeaderBar;
 
 import java.util.List;
 
 @Route(path = "/mine/BalanceActivity",group = "mine")
 public class BalanceActivity extends BaseActivity<BalancePresenter> implements IBalanceView {
     private Context context;
-    private Button btnWithdraw;
-    private TextView tvBalance;
+    private HeaderBar balanceHeaderBar;//导航栏
+    private Button btnWithdraw;//充值按钮
+    private TextView tvBalance;//
     private RecyclerView recyclerView;
     private Consumption consumption;
     private List<Consumption.RecordingBean> recordingBeans;
@@ -43,6 +45,13 @@ public class BalanceActivity extends BaseActivity<BalancePresenter> implements I
 
     @Override
     public void initView() {
+        balanceHeaderBar = findViewById(R.id.balanceHeaderBar);
+        balanceHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                BalanceActivity.this.finish();
+            }
+        });
         recyclerView = findViewById(R.id.recyclerViewConsumption);
         btnWithdraw = findViewById(R.id.btnWithdraw);
         tvBalance = findViewById(R.id.tvBalance);

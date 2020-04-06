@@ -1,16 +1,10 @@
 package com.cxyz.main.data.api
 
-import com.cxyz.http.CommonOkHttpClient
-import com.cxyz.http.listener.DisposeDataHandler
 import com.cxyz.http.request.RequestParams
-import com.cxyz.joint.net.listener.CommonDataListener
 import com.cxyz.main.data.api.const.USER_LOGIN
 import com.cxyz.main.data.api.const.USER_VERIFY_CODE
-import com.cxyz.main.data.protocol.User
 import com.cxyz.main.ext.createObservable
-import com.cxyz.relative.base.data.protocol.BaseResp
-import com.cxyz.relative.base.ext.convert
-import com.google.gson.reflect.TypeToken
+import com.cxyz.relative.base.data.protocol.User
 import io.reactivex.Observable
 
 object UserApi {

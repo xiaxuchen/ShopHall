@@ -81,6 +81,24 @@ public class SureOrderActivity extends BaseActivity<SureOrderPresenter> implemen
                 ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
             }
         });
+        userName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/mine/ShippingAddressActivity").navigation();
+            }
+        });
+        userAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/mine/ShippingAddressActivity").navigation();
+            }
+        });
+        userPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/mine/ShippingAddressActivity").navigation();
+            }
+        });
     }
 
     @Override

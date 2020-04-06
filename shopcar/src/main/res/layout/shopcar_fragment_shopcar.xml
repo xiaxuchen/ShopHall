@@ -12,8 +12,10 @@
         android:id="@+id/hbShopcar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:backText="购物车"
+        app:backText=""
         app:moreText="管理"
+        app:backIcon=""
+        app:title="购物车"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -46,37 +48,40 @@
             android:button="@null"
             android:textAllCaps="true"
             android:textColor="#000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="全选"
+            android:textColor="#2E2D2D"
+            android:layout_marginLeft="6dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="5dp"
             android:text="合计:"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textColor="#2E2D2D"
+            android:textSize="12sp"
+            android:layout_marginStart="120dp"
+            />
 
         <TextView
-            android:layout_width="50dp"
+            android:id="@+id/tvShopcarTotalPrice"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
             android:text="￥666.0"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
             android:textColor="@color/common_red"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <Button
-            android:layout_width="80dp"
-            android:layout_height="35dp"
+            android:id="@+id/btnShopcarPay"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
             android:background="@drawable/car_border_bg_organ"
             android:text="结算"
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            />
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/shopcar_guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="58dp" />
-
 </RelativeLayout>

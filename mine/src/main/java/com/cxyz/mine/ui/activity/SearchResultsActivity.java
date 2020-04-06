@@ -1,6 +1,8 @@
 package com.cxyz.mine.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Route(path = "/mine/SearchResultsActivity",group = "mine")
 public class SearchResultsActivity extends  BaseActivity {
+    private ImageView imSeatchBack;//顶部导航栏返回按钮
     private TabLayout   tlCommodityNav;//设置导航标题栏
     private ViewPager vpCommodity;//设置Fargment的ViewPager容器
     private String[] titles = {"综合","销量","价格","筛选"};//导航栏个标题名
@@ -41,6 +44,13 @@ public class SearchResultsActivity extends  BaseActivity {
 
     @Override
     public void initView() {
+        imSeatchBack = findViewById(R.id.imSeatchBack);
+        imSeatchBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchResultsActivity.this.finish();
+            }
+        });
         tlCommodityNav = findViewById(R.id.tlCommodityNav);
         vpCommodity = findViewById(R.id.vpCommodity);
     }

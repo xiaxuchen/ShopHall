@@ -19,10 +19,11 @@ import java.util.List;
 
 public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.InnerHolder> {
     private Context context;
-    private List<StoreKindItem> storeKindItemList;
-    public MainRecycleAdapter(Context context, List<StoreKindItem> storeKindItemList) {
-        this.context=context;
-        this.storeKindItemList = storeKindItemList;
+    private List<StoreKindItem.StoreKindItemListBean> storeKindItemListBeans;
+
+    public MainRecycleAdapter(Context context, List<StoreKindItem.StoreKindItemListBean> storeKindItemListBeans) {
+        this.context = context;
+        this.storeKindItemListBeans = storeKindItemListBeans;
     }
 
     @NonNull
@@ -34,25 +35,25 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
     @Override
     public void onBindViewHolder(@NonNull InnerHolder holder, int position) {
 //        holder.storeImage.setImageResource(R.drawable.car_bg2);storeKindItemList.get(position).getStoreImage()
-        Glide.with(holder.storeImage.getContext()).load(storeKindItemList.get(position).getStoreImage()).into(holder.storeImage);
-        holder.storeName.setText(storeKindItemList.get(position).getStoreName());
+        Glide.with(holder.storeImage.getContext()).load(storeKindItemListBeans.get(position).getStoreImage()).into(holder.storeImage);
+        holder.storeName.setText(storeKindItemListBeans.get(position).getStoreName());
         holder.storeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+                ARouter.getInstance().build("/mine/MallInformationActivity").navigation();
             }
         });
         holder.storeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/shopcar/StoreDetailActivity").navigation();
+                ARouter.getInstance().build("/mine/MallInformationActivity").navigation();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return storeKindItemList.size();
+        return storeKindItemListBeans.size();
     }
 
     public class InnerHolder extends RecyclerView.ViewHolder {
