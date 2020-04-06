@@ -59,15 +59,18 @@
             android:textColor="#3e4144"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
+
         <TextView
+            android:id="@+id/tvPsnAccount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="188828274"
-            android:textSize="15dp"
-            android:textColor="#858585"
             android:layout_marginRight="@dimen/common_margin"
             android:gravity="center"
-            app:layout_constraintRight_toRightOf="parent"/>
+            android:text="188828274"
+            android:textColor="#858585"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
         android:id="@+id/divider02"
@@ -94,15 +97,18 @@
             android:textColor="#3e4144"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
+
         <TextView
+            android:id="@+id/tvPsnName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="天王盖地虎"
-            android:textSize="15dp"
-            android:textColor="#858585"
             android:layout_marginRight="@dimen/common_margin"
             android:gravity="center"
-            app:layout_constraintRight_toRightOf="parent"/>
+            android:text="天王盖地虎"
+            android:textColor="#858585"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
         android:id="@+id/divider03"
@@ -128,6 +134,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
     <TextView
+        android:id="@+id/tvPsnPhone"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="18879793838"

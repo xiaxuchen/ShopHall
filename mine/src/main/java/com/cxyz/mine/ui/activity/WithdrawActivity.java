@@ -11,6 +11,9 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 
+/**
+ * 提现界面
+ */
 @Route(path = "/mine/WithdrawActivity",group = "mine")
 public class WithdrawActivity extends BaseActivity {
     private HeaderBar withdrawHeaderBar;//导航栏
@@ -29,6 +32,15 @@ public class WithdrawActivity extends BaseActivity {
     public void initView() {
         btnWithdraw = findViewById(R.id.btnWithdraw);
         withdrawHeaderBar = findViewById(R.id.withdrawHeaderBar);
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void setEvent() {
         withdrawHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override
             public void onBackClick(View v) {
@@ -41,16 +53,6 @@ public class WithdrawActivity extends BaseActivity {
                 ToastUtil.showShort("提现成功");
             }
         });
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
-    @Override
-    public void setEvent() {
-
     }
 
     @Override

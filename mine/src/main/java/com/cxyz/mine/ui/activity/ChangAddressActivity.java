@@ -17,6 +17,9 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
 
+/**
+ * 修改地址界面
+ */
 @Route(path = "/mine/ChangAddressActivity",group = "mine")
 public class ChangAddressActivity extends BaseActivity<ChangAddressPresenter> implements IChangAddressView {
     private HeaderBar ChangAddressheaderBar;//导航栏
@@ -40,12 +43,6 @@ public class ChangAddressActivity extends BaseActivity<ChangAddressPresenter> im
     @Override
     public void initView() {
         ChangAddressheaderBar = findViewById(R.id.ChangAddressheaderBar);
-        ChangAddressheaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
-            @Override
-            public void onBackClick(View v) {
-                ChangAddressActivity.this.finish();
-            }
-        });
         btnChangAddress = findViewById(R.id.btnChangAddress);
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
@@ -63,7 +60,12 @@ public class ChangAddressActivity extends BaseActivity<ChangAddressPresenter> im
 
     @Override
     public void setEvent() {
-
+        ChangAddressheaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                ChangAddressActivity.this.finish();
+            }
+        });
     }
 
     @Override

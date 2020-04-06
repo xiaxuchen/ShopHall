@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
 import com.cxyz.utils.ToastUtil;
+
+/**
+ * app版本界面
+ */
 @Route(path = "/mine/AppVersionActivity",group = "mine")
 public class AppVersionActivity extends AppCompatActivity {
     private Button btn;

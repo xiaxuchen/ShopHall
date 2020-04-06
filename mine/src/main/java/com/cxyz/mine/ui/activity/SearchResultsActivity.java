@@ -20,6 +20,10 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * 搜索结果界面
+ */
 @Route(path = "/mine/SearchResultsActivity",group = "mine")
 public class SearchResultsActivity extends  BaseActivity {
     private ImageView imSeatchBack;//顶部导航栏返回按钮
@@ -45,12 +49,6 @@ public class SearchResultsActivity extends  BaseActivity {
     @Override
     public void initView() {
         imSeatchBack = findViewById(R.id.imSeatchBack);
-        imSeatchBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SearchResultsActivity.this.finish();
-            }
-        });
         tlCommodityNav = findViewById(R.id.tlCommodityNav);
         vpCommodity = findViewById(R.id.vpCommodity);
     }
@@ -68,7 +66,12 @@ public class SearchResultsActivity extends  BaseActivity {
 
     @Override
     public void setEvent() {
-
+        imSeatchBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchResultsActivity.this.finish();
+            }
+        });
     }
 
     @Override

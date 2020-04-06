@@ -2,6 +2,7 @@ package com.cxyz.car.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -30,6 +32,9 @@ import com.cxyz.car.presenter.view.IShopcarView;
 import com.cxyz.car.ui.adapter.ShopcarInnerAdapter;
 import com.cxyz.mvp.fragment.BaseFragment;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
+import com.cxyz.relative.base.manager.UserManager;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -42,6 +47,8 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
     private ListView listView;
     private Button btnShopcarPay;//结算按钮
     private TextView totalPrice;//总价格
+    private TextView isLogin;//是否登录提示
+    private LinearLayout llBottom;//底部结算部分
 
     @Override
     public void onAttach(Activity activity) {
@@ -69,6 +76,10 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         listView=view.findViewById(R.id.lvShop);
         btnShopcarPay=view.findViewById(R.id.btnShopcarPay);
         totalPrice=view.findViewById(R.id.tvShopcarTotalPrice);
+        isLogin=view.findViewById(R.id.tvShopcarLogin);
+        llBottom=view.findViewById(R.id.ll_bottom);
+        isLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+        isLogin.getPaint().setAntiAlias(true);//抗锯齿
     }
 
     @Override
@@ -82,6 +93,31 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             @Override
             public void onClick(View view) {
                 ARouter.getInstance().build("/shopcar/SureOrderActivity").navigation();
+            }
+        });
+
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
+        //判断用户是否登录
+        if (UserManager.getInstance().isLogin()) {
+            listView.setVisibility(View.INVISIBLE);//如果已登录,列表设置显示
+            isLogin.setVisibility(View.GONE);//登录提示设置为不显示
+            llBottom.setVisibility(View.INVISIBLE);//底部结算部分设置为显示
+        }else{
+            listView.setVisibility(View.GONE);
+            isLogin.setVisibility(View.VISIBLE);
+            llBottom.setVisibility(View.INVISIBLE);
+        }
+
+
+        isLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build("/main/LoginActivity").navigation();
             }
         });
     }
@@ -159,6 +195,14 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         }
     }
 
-
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        });
+    }
 }
