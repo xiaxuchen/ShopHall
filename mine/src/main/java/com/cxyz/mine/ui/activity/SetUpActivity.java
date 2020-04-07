@@ -13,6 +13,7 @@ import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
@@ -23,7 +24,8 @@ import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
  */
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
-    private boolean isLogin;
+    private UserManager userManager = UserManager.getInstance();
+    private boolean isLogin = userManager.isLogin();
     private User user;
     private HeaderBar setUpHeaderBar;//导航栏
     private ViewGroup setUpAddress;//设置地址按钮
@@ -70,6 +72,14 @@ public class SetUpActivity extends BaseActivity {
             }else if(v.getId() == R.id.setUpFeedback){//跳转到意见反馈界面
                 Intent intentFeedback = new Intent(SetUpActivity.this, FeedbackActivity.class);
                 startActivity(intentFeedback);
+                userManager.setOnUpdateListener(new UpdateListener() {
+                    @Override
+                    public User OnUpdate(User oldUser, User newUser) {
+                        user = newUser;
+                        return newUser;
+                    }
+                });
+                System.out.println(user);
             }else if(v.getId() == R.id.setUpVersion){//跳转到版本界面
                 /*Intent intentVersion = new Intent(SetUpActivity.this, SearchActivity.class);
                 startActivity(intentVersion);*/
@@ -121,7 +131,7 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        UserManager userManager = new UserManager();
+        UserManager userManager = UserManager.getInstance();
         isLogin = userManager.isLogin();
         user = userManager.getUser();
     }

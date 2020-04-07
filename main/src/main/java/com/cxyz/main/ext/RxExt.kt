@@ -8,13 +8,17 @@ import com.cxyz.relative.base.data.protocol.BaseResp
 import com.cxyz.relative.base.ext.convert
 import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
+import java.lang.reflect.Type
 
-inline fun <T> createObservable (url:String, requestParams: RequestParams): Observable<T> {
+inline fun <reified T> createObservable (url:String, requestParams: RequestParams,
+                                         type: Type = (object :
+    TypeToken<BaseResp<Any>>(){}).type): Observable<T> {
     return Observable.create<BaseResp<T>> {
         CommonOkHttpClient.post(
             url,
             requestParams,
-            DisposeDataHandler(CommonDataListener(it), object : TypeToken<BaseResp<T>>() {}.type)
+            // Kotlin泛型传入问题，这里不会变成User，她是有这个特性的
+            DisposeDataHandler(CommonDataListener(it),type)
         )
     }.convert()
 }

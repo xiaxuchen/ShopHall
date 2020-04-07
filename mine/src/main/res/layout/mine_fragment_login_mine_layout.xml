@@ -8,7 +8,7 @@
     tools:ignore="ResourceName">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mineHeader"
+        android:id="@+id/mineLoginHeader"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         tools:ignore="MissingConstraints"
@@ -45,7 +45,7 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
-        android:id="@+id/mineOrders"
+        android:id="@+id/mineLoginOrders"
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:layout_marginTop="@dimen/common_margin_middle"
@@ -53,10 +53,10 @@
         android:layout_marginLeft="@dimen/common_margin"
         android:orientation="vertical"
         android:background="@drawable/mine_page_border"
-        app:layout_constraintTop_toBottomOf="@id/mineHeader"
+        app:layout_constraintTop_toBottomOf="@id/mineLoginHeader"
         tools:ignore="MissingConstraints,Orientation">
         <TextView
-            android:id="@+id/mineMyOrder"
+            android:id="@+id/mineLoginMyOrder"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             app:layout_constraintTop_toBottomOf="parent"
@@ -71,21 +71,21 @@
             android:layout_height="@dimen/common_divider_height"
             android:background="@color/common_divider"/>
         <LinearLayout
-            android:id="@+id/minePurchased"
+            android:id="@+id/mineLoginPurchased"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/mineMyOrder"
+            app:layout_constraintTop_toBottomOf="@id/mineLoginMyOrder"
             tools:ignore="MissingConstraints,Orientation">
             <!-- a待付款 -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/prePayment"
+                android:id="@+id/preLoginPayment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
                 <ImageView
-                    android:id="@+id/imPrePayment"
+                    android:id="@+id/imLoginPrePayment"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -97,7 +97,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderA"
                     android:textSize="@dimen/text_middle_size"
-                    app:layout_constraintTop_toBottomOf="@id/imPrePayment"
+                    app:layout_constraintTop_toBottomOf="@id/imLoginPrePayment"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     />
@@ -110,7 +110,7 @@
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
                 <ImageView
-                    android:id="@+id/imDelivered"
+                    android:id="@+id/imLoginDelivered"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@mipmap/mine_order_b"
@@ -124,20 +124,20 @@
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderB"
                     android:textSize="@dimen/text_middle_size"
-                    app:layout_constraintTop_toBottomOf="@id/imDelivered"
+                    app:layout_constraintTop_toBottomOf="@id/imLoginDelivered"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- c待收货 -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/received"
+                android:id="@+id/receivedLogin"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
                 <ImageView
-                    android:id="@+id/imReceived"
+                    android:id="@+id/imLoginReceived"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@mipmap/mine_order_c"
@@ -149,14 +149,14 @@
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderC"
                     android:textSize="@dimen/text_middle_size"
-                    app:layout_constraintTop_toBottomOf="@id/imReceived"
+                    app:layout_constraintTop_toBottomOf="@id/imLoginReceived"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- d全部订单 -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/mineOrder"
+                android:id="@+id/mineLoginOrder"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -192,7 +192,7 @@
         android:layout_marginLeft="@dimen/common_margin"
         android:layout_marginRight="@dimen/common_margin"
         android:layout_marginTop="@dimen/common_margin_middle"
-        app:layout_constraintTop_toBottomOf="@id/mineOrders"
+        app:layout_constraintTop_toBottomOf="@id/mineLoginOrders"
         tools:ignore="Orientation">
         <!-- 购物车 -->
         <androidx.constraintlayout.widget.ConstraintLayout
