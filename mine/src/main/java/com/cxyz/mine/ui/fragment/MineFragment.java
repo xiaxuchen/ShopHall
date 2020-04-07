@@ -30,10 +30,10 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
  */
 @Route(path ="/mine/MineFragment" ,group = "mine")
 public class MineFragment extends BaseFragment {
-    private Boolean isLogin = UserManager.getInstance().isLogin();
-    private User user = UserManager.getInstance().getUser();
-    private ConstraintLayout notLogin;//为登录视图
-
+    private ConstraintLayout mineHeader;
+    private ConstraintLayout mineLoginHeader;
+    private UserManager userManager = UserManager.getInstance();
+    private Boolean isLogin = userManager.isLogin();
     private ImageView setUp;//设置按钮
     private TextView personalInformation;//编辑资料按钮
     private ViewGroup prePayment;//待付款按钮
@@ -48,11 +48,9 @@ public class MineFragment extends BaseFragment {
     //为登录时界面按钮
     private ImageView setUpLogin;
     private QMUIRadiusImageView qmuiIvAvatar;
-    private LinearLayout mineLoginOrders;
+    private LinearLayout minePurchased;
     private ConstraintLayout minePurchased2;
     private TextView tvLogin;
-
-
     @Override
     protected int getLayoutId() {
             return R.layout.mine_activity_layout;
@@ -60,49 +58,39 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData(Bundle bundle) {
+        userManager.setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                tvUserName.setText(newUser.getName());
+                imMineHeaderImg.setImageURI(Uri.parse(newUser.getPhoto()));
+                return null;
 
+            }
+        });
     }
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        notLogin = view.findViewById(R.id.notLogin);
-        // 这里的话我建议直接改两个fragment看看，不同状态下切换Fragment我之前就是这样说的
-        // 或者就都在一个布局里面，显示隐藏 就这样，自己搞，ok你和李民康讨论讨论好
-        // 设计模式要多了解点，不能我说学啥就学啥 嗯嗯，我告诉你们有设计模式，你们就可以自己去看那些东西了，上次我还讲了
-        // 一些书籍，翻记录 好，要注意一点，不要为了设计模式而设计模式，每一个模式都有应用的场景，比如刚刚的单例
-        // 第一点这个对象完全不需要多个，一个app同一时间只有一个用户会登录，切换也是一个用户
-        // 然后如果是写静态类的话，会一开始就占用内存，当然这个类其实不占用什么内存，但是也是相当于小优化把
-        // 剩下的你自己去看吧好
-            imMineHeaderImg = view.findViewById(R.id.imMineHeaderImg);
-            imMineHeaderImg.setCircle(true);
-            tvUserName = view.findViewById(R.id.tvUserName);
-            setUp = view.findViewById(R.id.setUp);
-            personalInformation = view.findViewById(R.id.personalInformation);
-            mineFavorite = view.findViewById(R.id.mineFavorite);
-            mineHistory = view.findViewById(R.id.mineHistory);
-            mineAccount = view.findViewById(R.id.mineAccount);
-            prePayment = view.findViewById(R.id.prePayment);
-            delivered = view.findViewById(R.id.delivered);
-            received = view.findViewById(R.id.received);
-            mineOrder = view.findViewById(R.id.mineOrder);
+        mineLoginHeader = view.findViewById(R.id.mineLoginHeader);
+        mineHeader = view.findViewById(R.id.mineHeader);
 
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                // 要在这里去更新整个布局，在这里判断，你可以抽出一个方法
-                tvUserName.setText(newUser.getName());
-                imMineHeaderImg.setImageURI(Uri.parse(newUser.getHeadImage()));
-                return null;
-            }
-        });
-        if (isLogin){
-            tvUserName.setText(user.getName());
-            imMineHeaderImg.setImageURI(Uri.parse(user.getHeadImage()));
-        }
+        imMineHeaderImg = view.findViewById(R.id.imMineHeaderImg);
+        imMineHeaderImg.setCircle(true);
+        tvUserName = view.findViewById(R.id.tvUserName);
+        setUp = view.findViewById(R.id.setUp);
+        personalInformation = view.findViewById(R.id.personalInformation);
+        mineFavorite = view.findViewById(R.id.mineFavorite);
+        mineHistory = view.findViewById(R.id.mineHistory);
+        mineAccount = view.findViewById(R.id.mineAccount);
+        prePayment = view.findViewById(R.id.prePayment);
+        delivered = view.findViewById(R.id.delivered);
+        received = view.findViewById(R.id.received);
+        mineOrder = view.findViewById(R.id.mineOrder);
+
         /**
          * 未登录是界面
          */
-        OnclickLogin onclicklogin = new OnclickLogin();
+
         //头像设置
         qmuiIvAvatar = view.findViewById(R.id.qmuiIvAvatar);
         qmuiIvAvatar.setCircle(true);
@@ -110,30 +98,15 @@ public class MineFragment extends BaseFragment {
         qmuiIvAvatar.setBorderWidth(10);
         //跳转到设置界面
         setUpLogin = view.findViewById(R.id.setUpLogin);
-        setUpLogin.setOnClickListener( onclicklogin);
         //跳转登录界面
         tvLogin = view.findViewById(R.id.tvLogin);
-        mineLoginOrders = view.findViewById(R.id.mineLoginOrders);
+        minePurchased = view.findViewById(R.id.minePurchased);
         minePurchased2 = view.findViewById(R.id.minePurchased2);
-        mineLoginOrders.setOnClickListener( onclicklogin);
-        minePurchased2.setOnClickListener( onclicklogin);
-        tvLogin.setOnClickListener(onclicklogin);
-        qmuiIvAvatar.setOnClickListener( onclicklogin);
+        if(isLogin){
+            mineLoginHeader.setVisibility(View.GONE);
+        }else {
+           mineHeader.setVisibility(View.GONE);
 
-        updateViews();
-    }
-
-    /**
-     * 根据当前用户状态去更新视图
-     * 能懂吗？
-     */
-    public void updateViews () {
-        // 然后这里拿到UserManager里面的信息
-        if (UserManager.getInstance().isLogin()) {
-            // 。。。
-            notLogin.setVisibility(View.GONE);
-        } else {
-            // 。。。
         }
     }
 
@@ -161,6 +134,14 @@ public class MineFragment extends BaseFragment {
             }else if(v.getId() == R.id.mineAccount){ //跳转到我的资产界面
                 Intent intent = new Intent(getContext(), BalanceActivity.class);
                 startActivity(intent);
+            }else if(v.getId() == R.id.setUpLogin) {//跳转到设置界面
+                Intent intent = new Intent(getContext(), SetUpActivity.class);
+                startActivity(intent);
+            }else if(v.getId() ==R.id.minePurchased ||
+                    v.getId() == R.id.minePurchased2 ||
+                    v.getId() == R.id.tvLogin ||
+                    v.getId() == R.id.qmuiIvAvatar){
+                ARouter.getInstance().build("/main/LoginActivity").navigation();
             }
         }
     }
@@ -174,7 +155,6 @@ public class MineFragment extends BaseFragment {
             if (v.getId() == R.id.setUpLogin) {//跳转到设置界面
                 Intent intent = new Intent(getContext(), SetUpActivity.class);
                 startActivity(intent);
-                System.out.println(isLogin);
             }else if(v.getId() ==R.id.minePurchased ||
                     v.getId() == R.id.minePurchased2 ||
                     v.getId() == R.id.tvLogin ||
@@ -191,24 +171,26 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void setListener() {
-        if (isLogin){
-            Onclick onclick = new Onclick();
-            //跳转到设置界面
-            setUp.setOnClickListener(onclick);
-            //跳转个人信息界面
-            personalInformation.setOnClickListener(onclick);
-            //跳转收藏夹界面
-            mineFavorite.setOnClickListener(onclick);
-            //跳转浏览记录界面
-            mineHistory.setOnClickListener(onclick);
-            //跳转到我的资产界面
-            mineAccount.setOnClickListener(onclick);
-            //跳转订单界面
-            prePayment.setOnClickListener(onclick);
-            delivered.setOnClickListener(onclick);
-            received.setOnClickListener(onclick);
-            mineOrder.setOnClickListener(onclick);
-        }
+        Onclick onclick = new Onclick();
+            if(isLogin){
+                setUp.setOnClickListener(onclick);//跳转到设置界面
+                personalInformation.setOnClickListener(onclick);//跳转个人信息界面
+                mineFavorite.setOnClickListener(onclick);//跳转收藏夹界面
+                mineHistory.setOnClickListener(onclick);//跳转浏览记录界面
+                mineAccount.setOnClickListener(onclick); //跳转到我的资产界面
+                //跳转订单界面
+                prePayment.setOnClickListener(onclick);
+                delivered.setOnClickListener(onclick);
+                received.setOnClickListener(onclick);
+                mineOrder.setOnClickListener(onclick);
+            }else {
+               // OnclickLogin onclicklogin = new OnclickLogin();
+                setUpLogin.setOnClickListener(onclick);
+                minePurchased.setOnClickListener(onclick);
+                minePurchased2.setOnClickListener(onclick);
+                tvLogin.setOnClickListener(onclick);
+                qmuiIvAvatar.setOnClickListener(onclick);
+            }
     }
 
     @Override

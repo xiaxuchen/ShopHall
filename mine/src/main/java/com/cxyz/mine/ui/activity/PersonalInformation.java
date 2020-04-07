@@ -19,12 +19,13 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
  */
 @Route(path = "/mine/PersonalInformation",group = "mine")
 public class PersonalInformation extends BaseActivity {
+    private UserManager userManager = UserManager.getInstance();
+    private boolean isLogin = userManager.isLogin();
     private HeaderBar personalInfoHeaderBar;//导航栏
     private QMUIRadiusImageView imProfilePicture;//用户头像
     private TextView tvPsnAccount;//用户账号
     private TextView tvPsnName;//用户昵称
     private TextView tvPsnPhone;//用户手机号码
-    private UserManager userManager =UserManager.getInstance();
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_personalinformation_layout;
@@ -42,24 +43,16 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        User user = userManager.getUser();
         userManager.setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
-                imProfilePicture.setImageURI(Uri.parse(newUser.getHeadImage()));
+                imProfilePicture.setImageURI(Uri.parse(newUser.getPhoto()));
                 tvPsnAccount.setText(newUser.getId());
                 tvPsnName.setText(newUser.getName());
                 tvPsnPhone.setText(newUser.getPhone());
                 return null;
             }
         });
-        boolean isLogin = userManager.isLogin();
-        if (isLogin){
-            imProfilePicture.setImageURI(Uri.parse(user.getHeadImage()));
-            tvPsnAccount.setText(user.getId());
-            tvPsnName.setText(user.getName());
-            tvPsnPhone.setText(user.getPhone());
-        }
 
     }
 
@@ -68,13 +61,13 @@ public class PersonalInformation extends BaseActivity {
         personalInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override
             public void onBackClick(View v) {
+                PersonalInformation.this.finish();
                 userManager.removeOnUpdateListenner(new UpdateListener() {
                     @Override
                     public User OnUpdate(User oldUser, User newUser) {
                         return null;
                     }
                 });
-                PersonalInformation.this.finish();
             }
         });
     }
