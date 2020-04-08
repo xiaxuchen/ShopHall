@@ -29,7 +29,7 @@ public class StartActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 myCount.cancel();//点击之后取消倒计时
-                ARouter.getInstance().build("/shopcar/FavoriteActivity").navigation();
+                ARouter.getInstance().build("/shopcar/MainActivity").navigation();
                 finish();
             }
         });
