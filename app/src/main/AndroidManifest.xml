@@ -41,14 +41,14 @@
             android:exported="false">
         </receiver>
 
-        <activity android:name="com.cxyz.main.ui.activity.MainActivity">
+        <activity android:name="com.cxyz.car.ui.activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name="com.cxyz.main.ui.activity.MainActivity"/>
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="true"/>
 

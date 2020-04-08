@@ -13,7 +13,8 @@
         <activity android:name=".ui.activity.ForgotActivity"/>
         <activity android:name=".ui.activity.StoreActivity"/>
         <activity android:name=".ui.activity.SureOrderActivity"/>
-        <activity android:name=".ui.activity.StartActivity"/>
+        <activity android:name=".ui.activity.StartActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <meta-data
             android:name="com.cxyz.starter.car.iconify"
             android:value="com.cxyz.car.starter.IconifyStarter" />

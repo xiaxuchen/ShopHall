@@ -92,6 +92,7 @@ public class SetUpActivity extends BaseActivity {
                                 Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER,0,0);
                                 toast.show();
+                                UserManager.getInstance().logout();
                             }
                         })
                         .show();
