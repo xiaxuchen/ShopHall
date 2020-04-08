@@ -33,7 +33,6 @@ public class MineFragment extends BaseFragment {
     private ConstraintLayout mineHeader;
     private ConstraintLayout mineLoginHeader;
     private UserManager userManager = UserManager.getInstance();
-    private Boolean isLogin = userManager.isLogin();
     private ImageView setUp;//设置按钮
     private TextView personalInformation;//编辑资料按钮
     private ViewGroup prePayment;//待付款按钮
@@ -53,20 +52,12 @@ public class MineFragment extends BaseFragment {
     private TextView tvLogin;
     @Override
     protected int getLayoutId() {
-            return R.layout.mine_activity_layout;
+        return R.layout.mine_activity_layout;
     }
 
     @Override
     protected void initData(Bundle bundle) {
-        userManager.setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                tvUserName.setText(newUser.getName());
-                imMineHeaderImg.setImageURI(Uri.parse(newUser.getPhoto()));
-                return null;
 
-            }
-        });
     }
 
     @Override
@@ -102,14 +93,30 @@ public class MineFragment extends BaseFragment {
         tvLogin = view.findViewById(R.id.tvLogin);
         minePurchased = view.findViewById(R.id.minePurchased);
         minePurchased2 = view.findViewById(R.id.minePurchased2);
-        if(isLogin){
+
+        if(userManager.isLogin()){
             mineLoginHeader.setVisibility(View.GONE);
         }else {
-           mineHeader.setVisibility(View.GONE);
+            mineHeader.setVisibility(View.GONE);
+        }
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                updateViews();
+                return null;
+
+            }
+        });
+        updateViews();
+    }
+    public void updateViews(){
+        if (userManager.isLogin()){
+            tvUserName.setText(userManager.getUser().getName());
+            imMineHeaderImg.setImageURI(Uri.parse(userManager.getUser().getHeadImage()));
+        }else{
 
         }
     }
-
     public class Onclick implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -146,24 +153,6 @@ public class MineFragment extends BaseFragment {
         }
     }
 
-    /**
-     * 未登录是的跳转设置
-     */
-    public class OnclickLogin implements View.OnClickListener{
-        @Override
-        public void onClick(View v) {
-            if (v.getId() == R.id.setUpLogin) {//跳转到设置界面
-                Intent intent = new Intent(getContext(), SetUpActivity.class);
-                startActivity(intent);
-            }else if(v.getId() ==R.id.minePurchased ||
-                    v.getId() == R.id.minePurchased2 ||
-                    v.getId() == R.id.tvLogin ||
-                    v.getId() == R.id.qmuiIvAvatar){
-                ARouter.getInstance().build("/main/LoginActivity").navigation();
-            }
-        }
-    }
-
     @Override
     protected IBasePresenter createIPresenter() {
         return null;
@@ -171,26 +160,27 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void setListener() {
-        Onclick onclick = new Onclick();
-            if(isLogin){
-                setUp.setOnClickListener(onclick);//跳转到设置界面
-                personalInformation.setOnClickListener(onclick);//跳转个人信息界面
-                mineFavorite.setOnClickListener(onclick);//跳转收藏夹界面
-                mineHistory.setOnClickListener(onclick);//跳转浏览记录界面
-                mineAccount.setOnClickListener(onclick); //跳转到我的资产界面
-                //跳转订单界面
-                prePayment.setOnClickListener(onclick);
-                delivered.setOnClickListener(onclick);
-                received.setOnClickListener(onclick);
-                mineOrder.setOnClickListener(onclick);
-            }else {
-               // OnclickLogin onclicklogin = new OnclickLogin();
-                setUpLogin.setOnClickListener(onclick);
-                minePurchased.setOnClickListener(onclick);
-                minePurchased2.setOnClickListener(onclick);
-                tvLogin.setOnClickListener(onclick);
-                qmuiIvAvatar.setOnClickListener(onclick);
-            }
+        if(userManager.isLogin()){
+            Onclick onclick = new Onclick();
+            setUp.setOnClickListener(onclick);//跳转到设置界面
+            personalInformation.setOnClickListener(onclick);//跳转个人信息界面
+            mineFavorite.setOnClickListener(onclick);//跳转收藏夹界面
+            mineHistory.setOnClickListener(onclick);//跳转浏览记录界面
+            mineAccount.setOnClickListener(onclick); //跳转到我的资产界面
+            //跳转订单界面
+            prePayment.setOnClickListener(onclick);
+            delivered.setOnClickListener(onclick);
+            received.setOnClickListener(onclick);
+            mineOrder.setOnClickListener(onclick);
+        }else {
+            Onclick onclick = new Onclick();
+            // OnclickLogin onclicklogin = new OnclickLogin();
+            setUpLogin.setOnClickListener(onclick);
+            minePurchased.setOnClickListener(onclick);
+            minePurchased2.setOnClickListener(onclick);
+            tvLogin.setOnClickListener(onclick);
+            qmuiIvAvatar.setOnClickListener(onclick);
+        }
     }
 
     @Override

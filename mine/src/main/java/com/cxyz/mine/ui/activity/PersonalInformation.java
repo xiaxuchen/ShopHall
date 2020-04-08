@@ -19,8 +19,6 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
  */
 @Route(path = "/mine/PersonalInformation",group = "mine")
 public class PersonalInformation extends BaseActivity {
-    private UserManager userManager = UserManager.getInstance();
-    private boolean isLogin = userManager.isLogin();
     private HeaderBar personalInfoHeaderBar;//导航栏
     private QMUIRadiusImageView imProfilePicture;//用户头像
     private TextView tvPsnAccount;//用户账号
@@ -43,26 +41,31 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        userManager.setOnUpdateListener(new UpdateListener() {
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
-                imProfilePicture.setImageURI(Uri.parse(newUser.getPhoto()));
-                tvPsnAccount.setText(newUser.getId());
-                tvPsnName.setText(newUser.getName());
-                tvPsnPhone.setText(newUser.getPhone());
+                updateViews();
                 return null;
             }
         });
-
+        updateViews();
     }
 
+    public void updateViews(){
+        if (UserManager.getInstance().isLogin()){
+            imProfilePicture.setImageURI(Uri.parse(UserManager.getInstance().getUser().getHeadImage()));
+            tvPsnAccount.setText(UserManager.getInstance().getUser().getId());
+            tvPsnName.setText(UserManager.getInstance().getUser().getName());
+            tvPsnPhone.setText(UserManager.getInstance().getUser().getPhone());
+        }
+    }
     @Override
     public void setEvent() {
         personalInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override
             public void onBackClick(View v) {
                 PersonalInformation.this.finish();
-                userManager.removeOnUpdateListenner(new UpdateListener() {
+                UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
                     @Override
                     public User OnUpdate(User oldUser, User newUser) {
                         return null;

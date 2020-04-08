@@ -13,7 +13,6 @@ import java.util.Set;
 public class UserManager {
 
     private User u;
-    public boolean iss;
     // 加密的key
     public static final String GEN_KEY = "safhihwehvsjalw45sfsd52";
     private Set<UpdateListener> listeners = new HashSet<>();
@@ -56,9 +55,6 @@ public class UserManager {
         }
     }
 
-    public boolean isIs() {
-        return iss;
-    }
 
     /**
      * 登出
