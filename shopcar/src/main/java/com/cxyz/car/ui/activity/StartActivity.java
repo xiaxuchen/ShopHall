@@ -1,6 +1,5 @@
 package com.cxyz.car.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.car.R;
-import com.cxyz.car.ui.fragment.MainFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 
@@ -29,7 +27,7 @@ public class StartActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 myCount.cancel();//点击之后取消倒计时
-                ARouter.getInstance().build("/shopcar/FavoriteActivity").navigation();
+                ARouter.getInstance().build("/shopcar/MainActivity").navigation();
                 finish();
             }
         });

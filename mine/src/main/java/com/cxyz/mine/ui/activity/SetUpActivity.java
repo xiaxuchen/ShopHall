@@ -12,7 +12,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.relative.base.data.protocol.User;
 import com.cxyz.relative.base.manager.UserManager;
 import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
@@ -23,8 +22,7 @@ import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
  */
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
-    private boolean isLogin;
-    private User user;
+    private boolean isLogin = UserManager.getInstance().isLogin();
     private HeaderBar setUpHeaderBar;//导航栏
     private ViewGroup setUpAddress;//设置地址按钮
     private ViewGroup setUpPassword;//设置密码按钮
@@ -94,6 +92,7 @@ public class SetUpActivity extends BaseActivity {
                                 Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER,0,0);
                                 toast.show();
+                                UserManager.getInstance().logout();
                             }
                         })
                         .show();
@@ -121,9 +120,8 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        UserManager userManager = new UserManager();
-        isLogin = userManager.isLogin();
-        user = userManager.getUser();
+
+
     }
 
     @Override

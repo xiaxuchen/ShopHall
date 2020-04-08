@@ -34,12 +34,14 @@ public class AesUtil {
     }
 
     @SuppressLint("DeletedProvider")
+    // 改了哪
+
     private static byte[] getRawKey(byte[] seed) throws Exception {
         KeyGenerator kgen = KeyGenerator.getInstance(Algorithm);
         // SHA1PRNG 强随机种子算法, 要区别Android 4.2.2以上版本的调用方法
         SecureRandom sr = null;
         if (android.os.Build.VERSION.SDK_INT >= 17) {
-            sr = SecureRandom.getInstance("SHA1PRNG", "Crypto");
+            sr = SecureRandom.getInstance("SHA1PRNG", new CryptoProvider());
         } else {
             sr = SecureRandom.getInstance("SHA1PRNG");
         }

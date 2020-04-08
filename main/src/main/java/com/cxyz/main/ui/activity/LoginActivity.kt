@@ -8,6 +8,7 @@ import com.cxyz.relative.base.data.protocol.User
 import com.cxyz.relative.base.ext.onClick
 import com.cxyz.relative.base.manager.UserManager
 import com.cxyz.utils.AesUtil
+import com.cxyz.utils.LogUtil
 import com.cxyz.utils.SpUtil
 import kotlinx.android.synthetic.main.main_activity_login_layout.*
 import org.jetbrains.anko.dip
@@ -55,6 +56,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
     override fun setEvent() {
         itvBack.onClick {
             this.onBackPressed()
+            LogUtil.d_withoutPre("jjjjjjjjjjjjjj")
         }
 
         btnLogin.onClick {
