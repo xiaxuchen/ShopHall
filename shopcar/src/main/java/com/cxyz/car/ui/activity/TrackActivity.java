@@ -64,7 +64,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
         });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
-            rv_track.setVisibility(View.INVISIBLE);
+            rv_track.setVisibility(View.VISIBLE);
             tvTrackLogin.setVisibility(View.GONE);
         }else{
             rv_track.setVisibility(View.GONE);

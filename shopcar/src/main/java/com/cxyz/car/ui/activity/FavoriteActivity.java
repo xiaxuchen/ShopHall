@@ -87,7 +87,7 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
         });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
-            recyclerView.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
             tvFavriteLogin.setVisibility(View.GONE);
         }else{
             recyclerView.setVisibility(View.GONE);
