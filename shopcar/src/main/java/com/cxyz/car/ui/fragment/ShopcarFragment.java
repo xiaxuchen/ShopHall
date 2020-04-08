@@ -104,9 +104,9 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         });
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
-            listView.setVisibility(View.INVISIBLE);//如果已登录,列表设置显示
+            listView.setVisibility(View.VISIBLE);//如果已登录,列表设置显示
             isLogin.setVisibility(View.GONE);//登录提示设置为不显示
-            llBottom.setVisibility(View.INVISIBLE);//底部结算部分设置为显示
+            llBottom.setVisibility(View.VISIBLE);//底部结算部分设置为显示
         }else{
             listView.setVisibility(View.GONE);
             isLogin.setVisibility(View.VISIBLE);
