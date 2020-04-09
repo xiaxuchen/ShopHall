@@ -2,7 +2,7 @@ package com.cxyz.mvp.ipresenter;
 
 import com.cxyz.mvp.imodel.IBaseModel;
 import com.cxyz.mvp.iview.IBaseView;
-import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle3.LifecycleProvider;
 
 /**
  * Created by 夏旭晨 on 2018/9/22.
