@@ -15,7 +15,7 @@ import com.cxyz.utils.LogUtil;
 import com.cxyz.utils.ScreenManager;
 import com.cxyz.utils.SpUtil;
 import com.cxyz.widget.loading.LoadingCreator;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
