@@ -7,15 +7,25 @@
     tools:context=".MainActivity"
     tools:ignore="ResourceName">
 
+    <com.cxyz.widget.HeaderBar
+        android:id="@+id/ChangAddressheaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_line_height"
+        app:background="#671111"
+        app:title="添加收货地址"
+        tools:ignore="MissingConstraints" />
+
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="43dp" />
 
     <Button
         android:id="@+id/butMine"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="55dp"
         android:text="mine"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

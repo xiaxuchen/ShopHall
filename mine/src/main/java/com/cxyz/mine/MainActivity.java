@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
         btnMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment,).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment,mine).commitAllowingStateLoss();
             }
         });
     }
