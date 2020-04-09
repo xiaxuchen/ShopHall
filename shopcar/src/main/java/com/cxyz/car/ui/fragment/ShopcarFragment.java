@@ -78,7 +78,7 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         totalPrice=view.findViewById(R.id.tvShopcarTotalPrice);
         isLogin=view.findViewById(R.id.tvShopcarLogin);
         llBottom=view.findViewById(R.id.ll_bottom);
-        isLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+//        isLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         isLogin.getPaint().setAntiAlias(true);//抗锯齿
     }
 
