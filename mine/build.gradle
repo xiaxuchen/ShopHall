@@ -6,11 +6,11 @@ if (isDebug.toBoolean()) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from:rootDir.path + '/android.gradle'
+apply from: rootDir.path + '/android.gradle'
 android {
     defaultConfig {
         // 单模块调试下才有applicationId
-        if(isDebug.toBoolean())
+        if (isDebug.toBoolean())
             applicationId "com.cxyz.mine"
         javaCompileOptions {
             annotationProcessorOptions {
