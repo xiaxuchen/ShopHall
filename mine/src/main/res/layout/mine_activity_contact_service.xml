@@ -27,8 +27,6 @@
             android:textSize="15dp"
             android:layout_centerInParent="true"
             />
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

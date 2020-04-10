@@ -7,13 +7,7 @@
     tools:context=".MainActivity"
     tools:ignore="ResourceName">
 
-    <com.cxyz.widget.HeaderBar
-        android:id="@+id/ChangAddressheaderBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/common_line_height"
-        app:background="#671111"
-        app:title="添加收货地址"
-        tools:ignore="MissingConstraints" />
+
 
     <FrameLayout
         android:id="@+id/fragment"
