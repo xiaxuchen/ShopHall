@@ -3,6 +3,18 @@
     package="com.cxyz.mine">
 
     <application>
+        <activity android:name=".activity.ContactServiceActivity"></activity>
+        <activity android:name=".activity.PersonalInfo" />
+        <activity android:name=".activity.SetUpActivity" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".fragment.MineFragment" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
