@@ -34,6 +34,7 @@ public class PersonalInformation extends BaseActivity {
         personalInfoHeaderBar = findViewById(R.id.PersonalInfoHeaderBar);
         imProfilePicture = findViewById(R.id.imProfilePicture);
         imProfilePicture.setCircle(true);
+        imProfilePicture.setBorderColor(0xFF6633);
         tvPsnAccount = findViewById(R.id.tvPsnAccount);
         tvPsnName = findViewById(R.id.tvPsnName);
         tvPsnPhone = findViewById(R.id.tvPsnPhone);

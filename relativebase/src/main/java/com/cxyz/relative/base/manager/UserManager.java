@@ -45,13 +45,20 @@ public class UserManager {
     }
 
     public synchronized void setUser(User user) {
+        User oldUser = this.u;
         if (u == null || !u.equals(user)){
+            this.u = user;
             Iterator<UpdateListener> it = listeners.iterator();
             while (it.hasNext()) {
                 UpdateListener updateListener = it.next();
-                updateListener.OnUpdate(u,user);
+                updateListener.OnUpdate(oldUser,u);
             }
-            this.u = user;
+            /*Handler mainHandler = new Handler(Looper.getMainLooper());
+            mainHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                }
+            });*/
         }
     }
 
