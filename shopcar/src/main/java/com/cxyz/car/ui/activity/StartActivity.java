@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -16,12 +17,14 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 
 @Route(path="/shopcar/StartActivity",group = "shopcar")
 public class StartActivity extends BaseActivity {
-    private ImageView imageView;
     private Button btnTiaoGuo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_AppCompat_Light_NoActionBar);
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         MyCount myCount=new MyCount(5000,1000);
         myCount.start();
 //        点击跳过
@@ -42,7 +45,6 @@ public class StartActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        imageView=findViewById(R.id.btnStartImage);
         btnTiaoGuo=findViewById(R.id.btnStartTiaoGuo);
     }
 

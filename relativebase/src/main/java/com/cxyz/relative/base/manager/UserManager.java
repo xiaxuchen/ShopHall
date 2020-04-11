@@ -25,7 +25,7 @@ public class UserManager {
 
     /**
      * 移除监听
-     * @param updateListener
+     * @param
      */
     public synchronized void removeOnUpdateListenner(UpdateListener updateListener){
         listeners.remove(updateListener);
@@ -38,10 +38,11 @@ public class UserManager {
         if (!u.equals(user)){
             Iterator<UpdateListener> it = listeners.iterator();
             while (it.hasNext()) {
+                this.u = user;
                 UpdateListener updateListener = it.next();
                 updateListener.OnUpdate(u,user);
             }
-            this.u = user;
+
         }
     }
 
