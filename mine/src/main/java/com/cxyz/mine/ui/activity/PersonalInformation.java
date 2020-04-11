@@ -24,7 +24,6 @@ public class PersonalInformation extends BaseActivity {
     private TextView tvPsnAccount;//用户账号
     private TextView tvPsnName;//用户昵称
     private TextView tvPsnPhone;//用户手机号码
-    UserManager userManager = new UserManager();
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_personalinformation_layout;
@@ -35,6 +34,7 @@ public class PersonalInformation extends BaseActivity {
         personalInfoHeaderBar = findViewById(R.id.PersonalInfoHeaderBar);
         imProfilePicture = findViewById(R.id.imProfilePicture);
         imProfilePicture.setCircle(true);
+        imProfilePicture.setBorderColor(0xFF6633);
         tvPsnAccount = findViewById(R.id.tvPsnAccount);
         tvPsnName = findViewById(R.id.tvPsnName);
         tvPsnPhone = findViewById(R.id.tvPsnPhone);
@@ -42,34 +42,31 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        User user = userManager.getUser();
-        userManager.setOnUpdateListener(new UpdateListener() {
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
-                imProfilePicture.setImageURI(Uri.parse(newUser.getPhoto()));
-                tvPsnAccount.setText(newUser.getId());
-                tvPsnName.setText(newUser.getName());
-                tvPsnPhone.setText(newUser.getPhone());
+                updateViews();
                 return null;
             }
         });
-        boolean isLogin = userManager.isLogin();
-        if (isLogin){
-            imProfilePicture.setImageURI(Uri.parse(user.getPhoto()));
-            tvPsnAccount.setText(user.getId());
-            tvPsnName.setText(user.getName());
-            tvPsnPhone.setText(user.getPhone());
-        }
-
+        updateViews();
     }
 
+    public void updateViews(){
+        if (UserManager.getInstance().isLogin()){
+            imProfilePicture.setImageURI(Uri.parse(UserManager.getInstance().getUser().getHeadImage()));
+            tvPsnAccount.setText(UserManager.getInstance().getUser().getId());
+            tvPsnName.setText(UserManager.getInstance().getUser().getName());
+            tvPsnPhone.setText(UserManager.getInstance().getUser().getPhone());
+        }
+    }
     @Override
     public void setEvent() {
         personalInfoHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
             @Override
             public void onBackClick(View v) {
                 PersonalInformation.this.finish();
-                userManager.removeOnUpdateListenner(new UpdateListener() {
+                UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
                     @Override
                     public User OnUpdate(User oldUser, User newUser) {
                         return null;
