@@ -17,14 +17,14 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 @Route(path="/shopcar/StartActivity",group = "shopcar")
 public class StartActivity extends BaseActivity {
     private ImageView imageView;
-//    private Button btnTiaoGuo;
+    private Button btnTiaoGuo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyCount myCount=new MyCount(5000,1000);
         myCount.start();
-        //点击跳过
+//        点击跳过
 //        btnTiaoGuo.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -43,7 +43,7 @@ public class StartActivity extends BaseActivity {
     @Override
     public void initView() {
         imageView=findViewById(R.id.btnStartImage);
-//        btnTiaoGuo=findViewById(R.id.btnStartTiaoGuo);
+        btnTiaoGuo=findViewById(R.id.btnStartTiaoGuo);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class StartActivity extends BaseActivity {
         }
         @Override
         public void onTick(long l) {
-//            btnTiaoGuo.setText("点击跳过 "+l/1000+"s");
+            btnTiaoGuo.setText(""+l/1000+"s");
         }
         @Override
         public void onFinish() {
