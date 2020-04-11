@@ -57,6 +57,7 @@ public class SetUpActivity extends BaseActivity {
                     startActivity(intentPassword);
                 }else {
                     ARouter.getInstance().build("/main/LoginActivity").navigation();
+                    SetUpActivity.this.finish();
                 }
             }else if(v.getId() == R.id.setUpPassword){//跳转到修改密码界面
                 if (isLogin) {
@@ -92,6 +93,7 @@ public class SetUpActivity extends BaseActivity {
                                 Toast toast = Toast.makeText(SetUpActivity.this,"退出成功",Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER,0,0);
                                 toast.show();
+                                UserManager.getInstance().setUser(null);
                                 UserManager.getInstance().logout();
                             }
                         })

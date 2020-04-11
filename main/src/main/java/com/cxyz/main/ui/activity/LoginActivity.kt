@@ -34,6 +34,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
         SpUtil.getInstance().putString("password",AesUtil.encrypt(UserManager.GEN_KEY,loginPassword))
         loginUserName = ""
         loginPassword = ""
+        this.finish()
     }
 
     override fun showError(msg: Any?) {
@@ -63,9 +64,8 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
             // 登录前设置一下登录的用户名和密码以便保存在sp
             loginUserName = etUsername.text.toString()
             loginPassword = etPassword.text.toString()
-            iPresenter.login(loginUserName,loginPassword)
+            iPresenter.login(loginUserName, loginPassword)
         }
-
         tvRegister.onClick {
             startActivity(RegisterActivity::class.java)
         }

@@ -94,29 +94,29 @@ public class MineFragment extends BaseFragment {
         minePurchased = view.findViewById(R.id.minePurchased);
         minePurchased2 = view.findViewById(R.id.minePurchased2);
 
-        if(userManager.isLogin()){
-            mineLoginHeader.setVisibility(View.GONE);
-        }else {
-            mineHeader.setVisibility(View.GONE);
-        }
         UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
                 updateViews();
                 return null;
-
             }
         });
+        if(userManager.isLogin()){
+            mineLoginHeader.setVisibility(View.GONE);
+        }else {
+            mineHeader.setVisibility(View.GONE);
+        }
         updateViews();
     }
+
     public void updateViews(){
         if (userManager.isLogin()){
             tvUserName.setText(userManager.getUser().getName());
             imMineHeaderImg.setImageURI(Uri.parse(userManager.getUser().getHeadImage()));
         }else{
-
         }
     }
+
     public class Onclick implements View.OnClickListener{
         @Override
         public void onClick(View v) {

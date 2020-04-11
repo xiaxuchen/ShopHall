@@ -312,7 +312,7 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
             public void onClick(View view) {
               /*  Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
                 startActivity(intent);*/
-                ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
+                ARouter.getInstance().build("/shopcar/PreviewActivity").navigation();
                 ToastUtil.showShort("点击购买");
 
             }
