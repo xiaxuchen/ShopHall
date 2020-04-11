@@ -10,13 +10,20 @@ public class User {
     //电话号码
     private String phone;
     //照片的url
-    private String photo;
+    private String headImage;
 
     /**
      * 登录标识
      */
     private String token;
 
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage;
+    }
 
     public String getId() {
         return id;
@@ -50,14 +57,6 @@ public class User {
         this.phone = phone;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
     public String getToken() {
         return token;
     }
@@ -73,7 +72,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", phone='" + phone + '\'' +
-                ", photo='" + photo + '\'' +
                 ", token='" + token + '\'' +
                 '}';
     }
