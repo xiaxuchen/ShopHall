@@ -15,7 +15,7 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 @Route(path="/shopcar/StartActivity",group = "shopcar")
 public class StartActivity extends BaseActivity {
     private ImageView imageView;
-//    private Button btnTiaoGuo;
+    private Button btnTiaoGuo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +23,14 @@ public class StartActivity extends BaseActivity {
         MyCount myCount=new MyCount(5000,1000);
         myCount.start();
         //点击跳过
-//        btnTiaoGuo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myCount.cancel();//点击之后取消倒计时
-//                ARouter.getInstance().build("/shopcar/MainActivity").navigation();
-//                finish();
-//            }
-//        });
+        btnTiaoGuo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myCount.cancel();//点击之后取消倒计时
+                ARouter.getInstance().build("/main/MainActivity").navigation();
+                finish();
+            }
+        });
     }
 
     @Override
@@ -41,7 +41,7 @@ public class StartActivity extends BaseActivity {
     @Override
     public void initView() {
         imageView=findViewById(R.id.btnStartImage);
-//        btnTiaoGuo=findViewById(R.id.btnStartTiaoGuo);
+        btnTiaoGuo=findViewById(R.id.btnStartTiaoGuo);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class StartActivity extends BaseActivity {
         }
         @Override
         public void onTick(long l) {
-//            btnTiaoGuo.setText("点击跳过 "+l/1000+"s");
+            btnTiaoGuo.setText("点击跳过 "+l/1000+"s");
         }
         @Override
         public void onFinish() {
