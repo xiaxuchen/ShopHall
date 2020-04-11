@@ -47,7 +47,7 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
         recyclerView=findViewById(R.id.rvFavoriteGoods);
         qmuiPullRefreshLayout=findViewById(R.id.qmuiPullRefreshLayoutFavorite);
         tvFavriteLogin=findViewById(R.id.tvFavoriteLogin);
-        tvFavriteLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+//        tvFavriteLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvFavriteLogin.getPaint().setAntiAlias(true);//抗锯齿
     }
 

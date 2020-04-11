@@ -46,7 +46,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     public void initView() {
         rv_track=findViewById(R.id.rvTrack);
         tvTrackLogin=findViewById(R.id.tvTrackLogin);
-        tvTrackLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+//        tvTrackLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvTrackLogin.getPaint().setAntiAlias(true);//抗锯齿
     }
     @Override

@@ -21,16 +21,20 @@
         android:layout_alignParentLeft="true"
         tools:ignore="MissingConstraints" />
     <TextView
+        android:gravity="center"
         android:id="@+id/tvShopcarLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="您还没登录呢，点击这里转到登录界面..."
-        android:textColor="#B8B0B0"
+        android:textColor="@color/white"
         android:layout_below="@+id/hbShopcar"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginTop="50dp"
         android:textSize="18sp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/car_notlogin"
         />
 
     <ListView

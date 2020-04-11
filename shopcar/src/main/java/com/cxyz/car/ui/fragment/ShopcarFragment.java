@@ -78,7 +78,7 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         totalPrice=view.findViewById(R.id.tvShopcarTotalPrice);
         isLogin=view.findViewById(R.id.tvShopcarLogin);
         llBottom=view.findViewById(R.id.ll_bottom);
-        isLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+//        isLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         isLogin.getPaint().setAntiAlias(true);//抗锯齿
     }
 
@@ -99,19 +99,20 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
         UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
+                //判断用户是否登录
+                if (UserManager.getInstance().isLogin()) {
+                    listView.setVisibility(View.VISIBLE);//如果已登录,列表设置显示
+                    isLogin.setVisibility(View.GONE);//登录提示设置为不显示
+                    llBottom.setVisibility(View.VISIBLE);//底部结算部分设置为显示
+                }else{
+                    listView.setVisibility(View.GONE);
+                    isLogin.setVisibility(View.VISIBLE);
+                    llBottom.setVisibility(View.INVISIBLE);
+                }
                 return null;
             }
         });
-        //判断用户是否登录
-        if (UserManager.getInstance().isLogin()) {
-            listView.setVisibility(View.VISIBLE);//如果已登录,列表设置显示
-            isLogin.setVisibility(View.GONE);//登录提示设置为不显示
-            llBottom.setVisibility(View.VISIBLE);//底部结算部分设置为显示
-        }else{
-            listView.setVisibility(View.GONE);
-            isLogin.setVisibility(View.VISIBLE);
-            llBottom.setVisibility(View.INVISIBLE);
-        }
+
 
 
         isLogin.setOnClickListener(new View.OnClickListener() {
