@@ -43,6 +43,8 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     private LinearLayout llGetService;//练习客服
     private LinearLayout llStoreComment;//店铺评论
 
+    private UpdateListener updateListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,13 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
         qmuiIvStoreDetailStoreImageSmall=findViewById(R.id.qmuiIvStoreDetailStoreImageSmall);
         llGetService=findViewById(R.id.llgetService);
         llStoreComment=findViewById(R.id.llStoreComment);
+
+        updateListener=new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return null;
+            }
+        };
     }
 
     @Override
@@ -87,12 +96,7 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
 
     @Override
     public void setEvent() {
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().setOnUpdateListener(updateListener);
         llGetService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,11 +123,6 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().setOnUpdateListener(updateListener);
     }
 }

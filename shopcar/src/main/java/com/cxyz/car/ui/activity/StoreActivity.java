@@ -28,6 +28,7 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     private RecyclerView recyclerView;
     private Button btnStoreSendComment;
     private TextView tvStoreInput;
+    private UpdateListener updateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +55,7 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
 
     @Override
     public void setEvent() {
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().setOnUpdateListener(updateListener);
         btnStoreSendComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,11 +86,6 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().setOnUpdateListener(updateListener);
     }
 }

@@ -30,6 +30,7 @@ import java.util.List;
 public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrackView {
     private RecyclerView rv_track;
     private TextView tvTrackLogin;
+    private UpdateListener updateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,13 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
         tvTrackLogin=findViewById(R.id.tvTrackLogin);
 //        tvTrackLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvTrackLogin.getPaint().setAntiAlias(true);//抗锯齿
+
+        updateListener=new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                return  null;
+            }
+        };
     }
     @Override
     public void initData() {
@@ -56,12 +64,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     @Override
     public void setEvent() {
 
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().setOnUpdateListener(updateListener);
         //判断用户是否登录
         if (UserManager.getInstance().isLogin()) {
             rv_track.setVisibility(View.VISIBLE);
@@ -92,11 +95,6 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().removeOnUpdateListenner(updateListener);
     }
 }

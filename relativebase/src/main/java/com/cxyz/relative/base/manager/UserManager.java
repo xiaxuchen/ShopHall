@@ -13,8 +13,10 @@ import java.util.Set;
 public class UserManager {
 
     private User u;
+    public static final String GEN_KEY = "safhihwehvsjalw45sfsd52";
     private Set<UpdateListener> listeners = new HashSet<UpdateListener>();
 
+    private UserManager () { }
     /**
      * 设置监听
      * @param updateListener
@@ -25,7 +27,7 @@ public class UserManager {
 
     /**
      * 移除监听
-     * @param
+     * @param updateListener
      */
     public synchronized void removeOnUpdateListenner(UpdateListener updateListener){
         listeners.remove(updateListener);
@@ -35,14 +37,14 @@ public class UserManager {
     }
 
     public synchronized void setUser(User user) {
-        if (!u.equals(user)){
+        User oldUser = this.u;
+        if (u == null || !u.equals(user)){
+            this.u = user;
             Iterator<UpdateListener> it = listeners.iterator();
             while (it.hasNext()) {
-                this.u = user;
                 UpdateListener updateListener = it.next();
-                updateListener.OnUpdate(u,user);
+                updateListener.OnUpdate(oldUser,u);
             }
-
         }
     }
 

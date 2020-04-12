@@ -18,8 +18,26 @@ import java.io.File;
 
 public class UpdateService extends Service {
     public static  final int REQUEST_INSTALL = 0;
+    /**
+     * 下载的apk路径
+     */
     private String apkUrl;
+    /**
+     * 文件路径
+     */
     private String filePath;
+    /**
+     * 下载的大图标
+     */
+    private int icon;
+    /**
+     * 下载的小图标
+     */
+    private int smallIcon;
+    /**
+     * App的名字
+     */
+    private String appName;
     private NotificationManager notificationManager;
     private Notification notification;
 
@@ -29,7 +47,7 @@ public class UpdateService extends Service {
     public void onCreate() {
         Log.e("tag", "UpdateService onCreate()");
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        filePath = Environment.getExternalStorageDirectory()+"/AppUpdate/untilchecked.apk";
+        filePath = Environment.getExternalStorageDirectory() + "/" + BuildConfig.APPLICATION_ID.replace(".","") + "/AppUpdate/base.apk";
     }
 
     @Override
@@ -37,15 +55,41 @@ public class UpdateService extends Service {
         Log.e("tag", "UpdateService onStartCommand()");
         if(intent==null){
             notifyUser(getString(R.string.autoupdate_Update_download_failed), getString(R.string.autoupdate_Update_download_failed), 0);
-
             stopSelf();
-
         }
-        apkUrl = intent.getStringExtra("apkUrl");
+        getIntentParams(intent);
         notifyUser(getString(R.string.autoupdate_update_download_start), getString(R.string.autoupdate_update_download_start), 0);
         startDownload();
         return super.onStartCommand(intent, flags, startId);
     }
+
+    /**
+     * 从intent中获取参数
+     * @param intent
+     */
+    private void getIntentParams(Intent intent) {
+        // 获取下载路径
+        apkUrl = intent.getStringExtra("apkUrl");
+        // 尝试获取下载文件放置路径
+        String path = intent.getStringExtra("filePath");
+        if (path != null) {
+            filePath = Environment.getExternalStorageDirectory() + path;
+        }
+        // 获取图标
+        icon = intent.getIntExtra("icon",R.mipmap.logo);
+        smallIcon = intent.getIntExtra("smallIcon",R.mipmap.logo);
+        String name = intent.getStringExtra("appName");
+        if (name != null) {
+            appName = name;
+        } else {
+            try {
+                appName = (String) BuildConfig.class.getField("APP_NAME").get(null);
+            } catch (Exception e) {
+                throw new IllegalStateException("使用自动更新组件必须传递appName参数，或者在BuildConfig类中定义");
+            }
+        }
+    }
+
     private void startDownload() {
         UpdateManager.getInstance().startDownloads(apkUrl, filePath, new UpdateDownloadListener() {
             @Override
@@ -85,9 +129,9 @@ public class UpdateService extends Service {
      */
     private void notifyUser(String result, String msg, int progress){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.mipmap.logo)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.logo))
-                .setContentTitle(getString(R.string.app_name));
+        builder.setSmallIcon(smallIcon)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), icon))
+                .setContentTitle(appName);
         if(progress>0 && progress<=100){
 
             builder.setProgress(100,progress,false);

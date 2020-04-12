@@ -50,6 +50,8 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
     private TextView isLogin;//是否登录提示
     private LinearLayout llBottom;//底部结算部分
 
+    private UpdateListener updateListener;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -96,23 +98,23 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
             }
         });
 
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+        updateListener=new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
-                //判断用户是否登录
-                if (newUser!=null) {
-                    listView.setVisibility(View.VISIBLE);//如果已登录,列表设置显示
-                    isLogin.setVisibility(View.GONE);//登录提示设置为不显示
-                    llBottom.setVisibility(View.VISIBLE);//底部结算部分设置为显示
-                }else{
-                    listView.setVisibility(View.GONE);
-                    isLogin.setVisibility(View.VISIBLE);
-                    llBottom.setVisibility(View.INVISIBLE);
-                }
                 return null;
             }
-        });
-
+        };
+        UserManager.getInstance().setOnUpdateListener(updateListener);
+        //判断用户是否登录
+        if (UserManager.getInstance().isLogin()) {
+            listView.setVisibility(View.VISIBLE);//如果已登录,列表设置显示
+            isLogin.setVisibility(View.GONE);//登录提示设置为不显示
+            llBottom.setVisibility(View.VISIBLE);//底部结算部分设置为显示
+        }else{
+            listView.setVisibility(View.GONE);
+            isLogin.setVisibility(View.VISIBLE);
+            llBottom.setVisibility(View.INVISIBLE);
+        }
 
 
         isLogin.setOnClickListener(new View.OnClickListener() {
@@ -199,11 +201,6 @@ public class ShopcarFragment extends BaseFragment<ShopcarPresenter> implements I
     @Override
     public void onDestroy() {
         super.onDestroy();
-        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        UserManager.getInstance().removeOnUpdateListenner(updateListener);
     }
 }
