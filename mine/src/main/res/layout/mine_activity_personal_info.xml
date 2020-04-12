@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f9"
-    tools:context=".activity.PersonalInfo">
+    tools:context=".activity.PersonalInfoActivity">
 
     <RelativeLayout
         android:id="@+id/PersonalInfoHeaderBar"
@@ -41,12 +41,12 @@
             android:id="@+id/imProfilePicture"
             android:layout_width="63dp"
             android:layout_height="63dp"
+            android:src="@mipmap/mine_user"
             android:layout_centerInParent="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf ="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:background="#FFEB3B"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
@@ -59,6 +59,7 @@
         android:id="@+id/accountNumber"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/divider01"
         tools:ignore="MissingConstraints" >
 
@@ -96,6 +97,7 @@
         android:id="@+id/nickname"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/divider02"
         tools:ignore="MissingConstraints" >
 
@@ -235,6 +237,7 @@
         app:layout_constraintTop_toBottomOf="@id/divider06"
         tools:ignore="MissingConstraints" />
     <Button
+        android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="退出登录"

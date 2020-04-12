@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-
+@Route(path ="/mine/SetUpActivity" ,group = "mine")
 public class SetUpActivity extends AppCompatActivity {
 
     @Override

@@ -16,7 +16,7 @@
             android:id="@+id/qmuiIvAvatar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@color/common_blue"
+            android:src="@mipmap/mine_user"
             android:layout_marginLeft="@dimen/common_margin"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -180,6 +180,7 @@
         tools:ignore="MissingConstraints"
         app:layout_constraintTop_toBottomOf="@id/tvTask">
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ToBeUploaded"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -210,6 +211,7 @@
                 app:layout_constraintRight_toRightOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ToBeFilled"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -240,6 +242,7 @@
                 app:layout_constraintRight_toRightOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ReportToBeFilled"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -429,9 +432,12 @@
                 android:layout_marginLeft="20dp"
                 >
                 <TextView
+                    android:id="@+id/tvOneClickApplication"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="一键申请"
+                    android:textSize="15dp"
+                    android:textColor="#3e4144"
                     android:gravity="center_vertical"
                     />
                 <ImageView
@@ -457,6 +463,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="资金提现"
+                    android:textSize="15dp"
+                    android:textColor="#3e4144"
                     android:gravity="center_vertical"
                     />
                 <ImageView
@@ -484,6 +492,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="资金日志"
+                    android:textSize="15dp"
+                    android:textColor="#3e4144"
                     app:layout_constraintStart_toStartOf="@+id/mineView" />
                 <ImageView
                     android:layout_width="15dp"
@@ -502,6 +512,7 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/OrderManagement"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="20dp"
@@ -509,7 +520,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="账号管理"
+                    android:text="下单管理"
+                    android:textSize="15dp"
+                    android:textColor="#3e4144"
                     android:gravity="center_vertical"
                     />
                 <ImageView
@@ -531,9 +544,12 @@
                 android:layout_marginLeft="20dp"
                 >
                 <TextView
+                    android:id="@+id/tvCustomerService"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="联系客服"
+                    android:textSize="15dp"
+                    android:textColor="#3e4144"
                     android:gravity="center_vertical"
                     />
                 <ImageView
@@ -556,9 +572,12 @@
             android:layout_marginLeft="20dp"
             >
             <TextView
+                android:id="@+id/tvUserHelp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="用户帮助"
+                android:textSize="15dp"
+                android:textColor="#3e4144"
                 android:gravity="center_vertical"
                 />
             <ImageView

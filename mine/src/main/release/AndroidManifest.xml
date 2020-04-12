@@ -4,9 +4,9 @@
 
     <application>
         <activity android:name=".activity.ContactServiceActivity"></activity>
-        <activity android:name=".activity.PersonalInfo" />
+        <activity android:name=".activity.PersonalInfoActivity" />
         <activity android:name=".activity.SetUpActivity" />
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".activity.LoginActivity" />
         <activity android:name=".fragment.MineFragment" />
         <activity android:name=".MainActivity">
             <intent-filter>

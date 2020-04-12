@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegisterActivity">
+
+    <RelativeLayout
+        android:id="@+id/RegisterHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="#fd4369"
+        android:gravity="center_vertical"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@mipmap/mine_back_lift" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/RegisterHeaderBar"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/imUserName"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/mine_register_user"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="@id/mineGuideline2"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline3"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
+            android:hint="用户名"
+            android:textColorHint="#a9a9a9"
+            android:background="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/imUserName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mineGuideline3"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imPassword"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@mipmap/mine_register_password"
+            app:layout_constraintLeft_toLeftOf="@id/mineGuideline2"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
+            android:hint="密码"
+            android:textColorHint="#a9a9a9"
+            android:background="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mineGuideline"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imConfirmPassword"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@mipmap/mine_register_password_e"
+            app:layout_constraintLeft_toLeftOf="@id/mineGuideline2"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline6"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
+            android:hint="确认密码"
+            android:textColorHint="#a9a9a9"
+            android:background="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/imUserName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mineGuideline6"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imPhone"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@mipmap/mine_register_password_e"
+            app:layout_constraintLeft_toLeftOf="@id/mineGuideline2"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline7"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
+            android:hint="手机"
+            android:textColorHint="#a9a9a9"
+            android:background="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/imUserName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mineGuideline7"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imEmail"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:src="@mipmap/mine_register_phone"
+            app:layout_constraintLeft_toLeftOf="@id/mineGuideline2"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline9"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
+            android:hint="邮箱"
+            android:textColorHint="#a9a9a9"
+            android:background="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/imUserName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mineGuideline9"
+            tools:ignore="MissingConstraints" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="注册"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            app:qmui_backgroundColor="#fd4369"
+            app:qmui_radius="14dp"
+            app:qmui_borderColor="#fd4369"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline10"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="如果你注册，表明你以同意"
+            android:textColor="#c8c8c8"
+            android:textSize="12dp"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《网络服务使用协议》"
+            android:textColor="#252424"
+            android:textSize="12dp"
+            app:layout_constraintTop_toTopOf="@id/mineGuideline4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="384dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="109dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="564dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="548dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="171dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="235dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="298dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="365dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mineGuideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="438dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
