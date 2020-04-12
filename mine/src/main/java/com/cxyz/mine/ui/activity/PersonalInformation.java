@@ -24,6 +24,7 @@ public class PersonalInformation extends BaseActivity {
     private TextView tvPsnAccount;//用户账号
     private TextView tvPsnName;//用户昵称
     private TextView tvPsnPhone;//用户手机号码
+    private UpdateListener updateListener;
     @Override
     protected Object getContentView() {
         return R.layout.mine_activity_personalinformation_layout;
@@ -42,14 +43,14 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+        updateListener = new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
                 updateViews();
                 return null;
             }
-        });
-        updateViews();
+        };
+        UserManager.getInstance().setOnUpdateListener(updateListener);
     }
 
     public void updateViews(){
@@ -66,12 +67,7 @@ public class PersonalInformation extends BaseActivity {
             @Override
             public void onBackClick(View v) {
                 PersonalInformation.this.finish();
-                UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
-                    @Override
-                    public User OnUpdate(User oldUser, User newUser) {
-                        return null;
-                    }
-                });
+                UserManager.getInstance().removeOnUpdateListenner(updateListener);
             }
         });
     }
@@ -80,4 +76,6 @@ public class PersonalInformation extends BaseActivity {
     protected IBasePresenter createIPresenter() {
         return null;
     }
+
+
 }

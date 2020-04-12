@@ -13,11 +13,12 @@
         android:background="@color/common_colorPrimary"
         tools:ignore="MissingConstraints" >
         <ImageView
+            android:id="@+id/imSearchBack"
             android:layout_width="25dp"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:src="@mipmap/common_title_back"
-            android:layout_marginTop="@dimen/common_margin"
             android:layout_marginLeft="@dimen/common_margin_middle"
+            android:layout_marginTop="@dimen/common_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
         <!--顶部搜索框-->
@@ -26,7 +27,7 @@
             android:layout_height="@dimen/common_header_bar_height"
             android:background="@color/common_colorPrimary"
             android:gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginRight="70dp"
             android:orientation="horizontal">
 
@@ -36,7 +37,7 @@
                 android:layout_height="31dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/mine_radius_border"

@@ -97,4 +97,6 @@ public class MallInformationActivity extends BaseActivity<MallPresenter> impleme
         MallAdAdapter adAdapter = new MallAdAdapter(context,mallAdGoodsList);
         rvMallAd.setAdapter(adAdapter);
     }
+
+
 }

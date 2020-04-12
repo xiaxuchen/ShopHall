@@ -18,16 +18,17 @@
     <!--商城里的店铺信息-->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             tools:ignore="Orientation">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMallShop"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/common_margin_middle"
                 android:layout_marginRight="@dimen/common_margin_small"
                 android:layout_marginLeft="@dimen/common_margin_small"
