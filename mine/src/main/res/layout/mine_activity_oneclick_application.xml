@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f9"
+    tools:context=".activity.OneClickApplicationActivity">
+
+    <RelativeLayout
+        android:id="@+id/OneClickApplicationHB"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="#fd4369"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@mipmap/mine_back_lift" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="一键申请"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvOneClickApplicationTip"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text="一键申请后，请确认当天有空闲时间去接受任务。我们将以短信或者人工的方式通知您开始任务，请留意。"
+        android:textSize="15dp"
+        android:textColor="#3e4144"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="@id/mineGuideline13"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider01"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvOneClickApplicationTip"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tvOrderMethod"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/divider01"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:text="下单方式"
+            android:textSize="15dp"
+            android:textColor="#3e4144"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <RadioGroup
+            android:layout_width="200dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="115dp"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="手机端"
+                android:textSize="15dp"
+                android:textColor="#3e4144" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="电脑"
+                android:textSize="15dp"
+                android:textColor="#3e4144" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="手机、电脑均可"
+                android:textSize="15dp"
+                android:textColor="#3e4144" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider02"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderMethod"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvOrderNumber"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="下单号"
+        android:textSize="15dp"
+        android:textColor="#3e4144"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider02"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="115dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/mineGuideline11"
+        app:layout_constraintTop_toBottomOf="@id/divider02"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider03"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderNumber"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvApplicationsNumber"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="申请数量"
+        android:textSize="15dp"
+        android:textColor="#3e4144"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider03"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="115dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/mineGuideline11"
+        app:layout_constraintTop_toBottomOf="@id/divider03"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider04"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvApplicationsNumber"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvBiggestAd"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="最高广告费"
+        android:textSize="15dp"
+        android:textColor="#3e4144"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider04"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="115dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/mineGuideline11"
+        app:layout_constraintTop_toBottomOf="@id/divider04"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider05"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/common_divider"
+        app:layout_constraintTop_toBottomOf="@id/tvBiggestAd"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvBiggestPrice"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:text="最高价格"
+        android:textSize="15dp"
+        android:textColor="#3e4144"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider05"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="115dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/mineGuideline11"
+        app:layout_constraintTop_toBottomOf="@id/divider05"
+        tools:ignore="MissingConstraints" />
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="开始一键申请"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        app:qmui_backgroundColor="#fd4369"
+        app:qmui_radius="20dp"
+        app:qmui_borderColor="#fd4369"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintTop_toTopOf="@id/mineGuideline14"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mineGuideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="63dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mineGuideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="115dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mineGuideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="475dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
