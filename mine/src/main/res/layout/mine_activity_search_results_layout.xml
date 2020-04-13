@@ -31,7 +31,7 @@
             android:layout_marginRight="60dp"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/tvMainSearch"
                 android:layout_width="match_parent"
                 android:layout_height="31dp"
@@ -43,8 +43,9 @@
                 android:background="@drawable/mine_radius_border"
                 android:gravity="center_vertical"
                 android:paddingLeft="6dp"
-                android:text="请输入搜索内容"
-                android:textColor="#ccc" />
+                android:hint="请输入搜索内容"
+                android:textColorHint="#ccc"
+                android:textColor="#3e4144" />
 
             <ImageView
                 android:layout_width="22dp"

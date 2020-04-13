@@ -175,13 +175,11 @@ public class MineFragment extends BaseFragment {
 
     public void updateViews(){
         if (UserManager.getInstance().isLogin()){
-            System.out.println("1"+UserManager.getInstance().isLogin());
             mineLoginHeader.setVisibility(View.GONE);
             mineHeader.setVisibility(View.VISIBLE);
             tvUserName.setText(UserManager.getInstance().getUser().getName());
             imMineHeaderImg.setImageURI(Uri.parse(UserManager.getInstance().getUser().getHeadImage()));
         }else{
-            System.out.println("2"+UserManager.getInstance().isLogin());
             mineLoginHeader.setVisibility(View.VISIBLE);
             mineHeader.setVisibility(View.GONE);
         }
