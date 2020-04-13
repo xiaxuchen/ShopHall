@@ -23,24 +23,24 @@
 
            <TextView
                android:id="@+id/tvMallShopName"
-               android:layout_width="wrap_content"
-               android:layout_height="40dp"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
                android:text="啦啦啦啦"
-               android:textSize="20dp"
+               android:textSize="17dp"
                android:gravity="center"
                android:layout_marginLeft="@dimen/common_margin_small"
-               android:textColor="@color/common_colorPrimary"
+               android:textColor="#3e4144"
                android:layout_below="@id/ivMallShopImage"
                tools:ignore="MissingConstraints"
               />
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@mipmap/mine_mall_shop_img"
             android:layout_below="@id/ivMallShopImage"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/common_margin_small"
+            android:layout_marginRight="@dimen/common_margin_middle"
             />
 
     </com.qmuiteam.qmui.layout.QMUIRelativeLayout>

@@ -43,6 +43,7 @@ public class PersonalInformation extends BaseActivity {
 
     @Override
     public void initData() {
+        UserManager.getInstance().setOnUpdateListener(updateListener);
         updateListener = new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
@@ -50,7 +51,6 @@ public class PersonalInformation extends BaseActivity {
                 return null;
             }
         };
-        UserManager.getInstance().setOnUpdateListener(updateListener);
     }
 
     public void updateViews(){
@@ -76,6 +76,5 @@ public class PersonalInformation extends BaseActivity {
     protected IBasePresenter createIPresenter() {
         return null;
     }
-
 
 }
