@@ -344,26 +344,31 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
             detailList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             if (i == 0)
-                detailList.add(R.drawable.product_detail_one);
+                detailList.add(R.drawable.productinfo0);
             else if (i == 1)
-                detailList.add(R.drawable.product_detail_two);
+                detailList.add(R.drawable.productinfo1);
             else if (i == 2)
-                detailList.add(R.drawable.product_banner_one);
+                detailList.add(R.drawable.productinfo2);
             else if (i == 3)
-                detailList.add(R.drawable.product_banner_two);
+                detailList.add(R.drawable.productinfo3);
             else if (i == 4)
-                detailList.add(R.drawable.product_banner_three);
+                detailList.add(R.drawable.productinfo5);
             else if (i == 5)
-                detailList.add(R.drawable.product_banner_four);
+                detailList.add(R.drawable.productinfo4);
         }
 
         // 初始化规格
         if (specificationList == null)
             specificationList = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+     /*   for (int i = 0; i < 7; i++) {
             Specification specification = new Specification(i, "N" + i + "码", null);
             specificationList.add(specification);
-        }
+        }*/
+        specificationList.add(new Specification(1, "S码", null));
+        specificationList.add(new Specification(2, "M码", null));
+        specificationList.add(new Specification(3, "L码", null));
+        specificationList.add(new Specification(4, "XL码", null));
+        specificationList.add(new Specification(5, "XXL码", null));
         // 初始化优惠
         if (specialOfferList == null)
             specialOfferList = new ArrayList<>();
@@ -371,17 +376,18 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         // 初始化商品特征
         if (productFeaturesList == null)
             productFeaturesList = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+       /* for (int i = 0; i < 7; i++) {
             productFeaturesList.add("商品特征" + i);
-        }
+        }*/
+        productFeaturesList.add("整夜干爽");
+        productFeaturesList.add("高弹力腰围");
+        productFeaturesList.add("棉柔舒适");
+        productFeaturesList.add("纤薄透气");
+        productFeaturesList.add("侧漏边条");
     }
 
     @Override
     public void setEvent() {
-
-
-
-
         backImg.setOnClickListener(onClickListener);
         shareImg.setOnClickListener(onClickListener);
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());
