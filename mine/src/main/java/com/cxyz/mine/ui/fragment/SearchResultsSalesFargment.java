@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.mine.R;
-import com.cxyz.mine.presenter.ISearchResultsGoodView;
-import com.cxyz.mine.presenter.view.SearchResultsGoodsPresenter;
+import com.cxyz.mine.presenter.view.ISearchResultsGoodView;
+import com.cxyz.mine.presenter.SearchResultsGoodsPresenter;
 import com.cxyz.mine.ui.adapter.SearchResultsAdapter;
 import com.cxyz.mine.ui.adapter.entity.SearchResultsGoods;
 import com.cxyz.mvp.fragment.BaseFragment;

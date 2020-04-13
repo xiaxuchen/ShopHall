@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ResourceName">
+    <!--    主题颜色背景经颜色-->
+        <solid android:color="#f2f2f2"/>
+
+    <!-- 连框宽度和颜色值 -->
+    <stroke
+        android:width="0.8dp"
+        android:color="@color/common_orange"
+        />
+    <corners android:radius="8.5dp"/>
+</shape>

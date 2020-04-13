@@ -4,13 +4,13 @@
     tools:ignore="ResourceName">
     <item>
         <shape>
-            <solid android:color="#A5A3A3" /><!-- 连框颜色值 -->
+            <solid android:color="#C7C4C4" /><!-- 连框颜色值 -->
 
         </shape>
     </item>
     <!-- 主体背景颜色值 -->
     <item
-        android:bottom="0.7dp"
+        android:bottom="0dp"
         android:top="0.7dp"> <!--上下左右四个边框的宽度，为0的话就没有了-->
         <shape>
             <solid android:color="@color/white" />  <!-- 背景白色 -->

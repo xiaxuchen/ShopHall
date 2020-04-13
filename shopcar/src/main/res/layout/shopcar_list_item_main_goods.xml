@@ -12,9 +12,8 @@
             android:id="@+id/ivGoodsImage"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:background="@drawable/car_border_samll"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:scaleType="centerCrop"
             />
@@ -28,8 +27,9 @@
         android:ellipsize="end"
         android:layout_toRightOf="@+id/ivGoodsImage"
         android:textSize="14sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#2C2828"
         />
 
@@ -54,29 +54,16 @@
         android:layout_below="@+id/tvGoodsSmal"
         android:layout_alignStart="@+id/tvGoodsDesc"
         android:layout_alignBottom="@+id/ivGoodsImage"
-        android:layout_marginStart="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="14dp"
-        android:layout_marginBottom="15dp"
         android:layout_toRightOf="@+id/ivGoodsImage"
         android:text="￥999.0"
         android:textColor="#f00" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvGoodsPifa"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignRight="@+id/tvGoodsDesc"-->
-<!--        android:layout_alignBottom="@+id/ivGoodsImage"-->
-<!--        android:text="12件起批"-->
-<!--        android:layout_marginBottom="15sp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:textColor="#8B7E7E" />-->
-
     <View
             android:layout_width="match_parent"
             android:layout_height="0.2dp"
-            android:background="#C7C0C0"
+            android:background="#ECE8E8"
             android:layout_marginTop="140dp"
            />
 
