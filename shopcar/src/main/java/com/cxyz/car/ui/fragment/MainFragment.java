@@ -2,6 +2,7 @@ package com.cxyz.car.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -188,6 +189,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             QMUIRadiusImageView imageView = new QMUIRadiusImageView(context);
 //            Glide.with(imageView.getContext()).load(goodsImageListBeans.get(i).getGoodsImage()).into(imageView);
             imageView.setImageResource(imageIds[i]);
+            imageView.setBorderColor(Color.TRANSPARENT);
             imageList.add(imageView);
             //添加指示点
             ImageView point = new ImageView(context);
