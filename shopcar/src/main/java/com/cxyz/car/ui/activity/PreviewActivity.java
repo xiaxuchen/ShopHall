@@ -57,11 +57,14 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
     }
     @Override
     public void initData() {
-        rv_choose.setLayoutManager(new GridLayoutManager(this, 2));
+        rv_choose.setLayoutManager(new GridLayoutManager(this, 1));
     }
 
     @Override
     public void setEvent() {
+        /*
+        给购物数量加减按钮添加点击加减事件
+         */
         tv_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +84,7 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
                 }
             }
         });
+
     }
 
     @Override

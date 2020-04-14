@@ -24,7 +24,7 @@ public class TestActivity extends AppCompatActivity {
     private Button btnFavorite;//收藏
     private Button btnOrder;//订单
     private Button btnTrack;//浏览记录
-//    private Button btnPreview;//预览
+    private Button btnPreview;//预览
 //    private Button btnApi;
     private Button btnOrderDetail;//订单详情
     private Button btnStore;//店铺
@@ -101,13 +101,13 @@ public class TestActivity extends AppCompatActivity {
         /**
          * PreviewActivity预览界面
          */
-//        btnPreview = findViewById(R.id.btnPreview);
-//        btnPreview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(TestActivity.this, PreviewActivity.class));
-//            }
-//        });
+        btnPreview = findViewById(R.id.btnPreview);
+        btnPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestActivity.this, PreviewActivity.class));
+            }
+        });
 //
 //        /**
 //         * ApizzaActivity测试apizza
