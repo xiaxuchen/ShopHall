@@ -3,12 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="ResourceName">
 <!--    主题颜色背景经颜色-->
-    <solid android:color="@color/white"/>
+    <solid android:color="#F5F5F5"/>
 
     <!-- 连框宽度和颜色值 -->
     <stroke
         android:width="0.5dp"
-        android:color="@color/white"
+        android:color="#E4DEDE"
         />
 </shape>
-<!--E4DEDE-->

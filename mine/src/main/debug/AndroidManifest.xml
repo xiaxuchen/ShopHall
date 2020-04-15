@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CommonAppTheme">
-        <activity android:name=".ui.fragment.LoginMineFragment"></activity>
-        <activity android:name=".ui.activity.MallInformationActivity" />
-        <activity android:name=".ui.fragment.SearchResultsFilterFrament" />
+        <activity android:name=".ui.fragment.SearchResultsFilterFrament"></activity>
         <activity android:name=".ui.fragment.SearchResultsPriceFrament" />
         <activity android:name=".ui.fragment.SearchResultsSalesFargment" />
         <activity android:name=".ui.fragment.SearchResultsComprehensiveFragment" />
@@ -32,7 +30,7 @@
         <activity android:name=".ui.activity.SetUpActivity" />
         <activity android:name=".ui.fragment.MineFragment" />
         <activity android:name=".ui.activity.PersonalInformation" />
-        <activity android:name=".ui.activity.ChangAddressActivity" />
+        <activity android:name=".ui.fragment.MallInformationFragment" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

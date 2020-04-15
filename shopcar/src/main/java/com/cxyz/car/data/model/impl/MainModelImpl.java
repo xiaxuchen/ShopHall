@@ -5,7 +5,6 @@ import android.accounts.NetworkErrorException;
 import com.cxyz.car.data.domain.RecommendGoods;
 import com.cxyz.car.data.domain.StoreKindItem;
 import com.cxyz.car.data.model.IMainModel;
-import com.cxyz.car.ui.fragment.MainFragment;
 import com.cxyz.http.CommonOkHttpClient;
 import com.cxyz.http.listener.DisposeDataHandler;
 import com.cxyz.http.listener.DisposeDataListener;
@@ -20,7 +19,8 @@ import java.util.List;
  * 主页的店铺分类和广告推荐信息
  */
 public class MainModelImpl extends IMainModel {
-    private CheckResult<StoreKindItem> checkResult;
+    private CheckResult<List<StoreKindItem>> checkResult;
+    private List<StoreKindItem> storeKindItemList;//店铺分类信息
     private List<RecommendGoods> goodsList;//广告推荐信息
     private CheckResult<List<RecommendGoods>> mainGoodsList;
     @Override
@@ -33,9 +33,10 @@ public class MainModelImpl extends IMainModel {
                         public void onSuccess(Object responseObj) {
                             String json=responseObj.toString();
                             Gson gson=new Gson();
-                            checkResult=gson.fromJson(json,new TypeToken<CheckResult<StoreKindItem>>(){}.getType());
+                            checkResult=gson.fromJson(json,new TypeToken<CheckResult<List<StoreKindItem>>>(){}.getType());
+                            storeKindItemList =checkResult.getData();
                             try {
-                                onLoadListener.complete(checkResult);
+                                onLoadListener.complete(storeKindItemList);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

@@ -13,21 +13,13 @@ public class StoreDetail {
      * storeDetail : {"storeOwnerName":"御命丹心·君奉天","storeOwnerPhone":"155xxxx7998","storeAddress":"苦境 十三区","storeQualification":"3星","storeMainProduct":"狗皮大衣","storeNotice":"正天地所不正，判黑白所不判，犯人鬼所不犯，破日月所不破。儒法无情，法儒无私。"}
      * goods : [{"goodsId":1,"goodsCategoryId":1,"goodsImage":"https://img.alicdn.com/imgextra/i1/14747704/O1CN01rOkvVL26mTr73TcrR_!!0-saturn_solar.jpg_220x220.jpg_.webp","goodsName":"江声岳色，万仞峥嵘剑长歌；青冥浩荡，天涯孤舠尽折蒿，云辟千层巅，还看一山高。","goodsDesc":"睥睨寰宇荡红尘·万里天剑尽苍穹","goodsPrice":"66.55","tradeCount":12},{"goodsId":1,"goodsCategoryId":1,"goodsImage":"https://img.alicdn.com/imgextra/i1/14747704/O1CN01rOkvVL26mTr73TcrR_!!0-saturn_solar.jpg_220x220.jpg_.webp","goodsName":"江声岳色，万仞峥嵘剑长歌；青冥浩荡，天涯孤舠尽折蒿，云辟千层巅，还看一山高。","goodsDesc":"睥睨寰宇荡红尘·万里天剑尽苍穹","goodsPrice":"66.55","tradeCount":12},{"goodsId":1,"goodsCategoryId":1,"goodsImage":"https://img.alicdn.com/imgextra/i1/14747704/O1CN01rOkvVL26mTr73TcrR_!!0-saturn_solar.jpg_220x220.jpg_.webp","goodsName":"江声岳色，万仞峥嵘剑长歌；青冥浩荡，天涯孤舠尽折蒿，云辟千层巅，还看一山高。","goodsDesc":"睥睨寰宇荡红尘·万里天剑尽苍穹","goodsPrice":"66.55","tradeCount":12},{"goodsId":1,"goodsCategoryId":1,"goodsImage":"https://img.alicdn.com/imgextra/i1/14747704/O1CN01rOkvVL26mTr73TcrR_!!0-saturn_solar.jpg_220x220.jpg_.webp","goodsName":"江声岳色，万仞峥嵘剑长歌；青冥浩荡，天涯孤舠尽折蒿，云辟千层巅，还看一山高。","goodsDesc":"睥睨寰宇荡红尘·万里天剑尽苍穹","goodsPrice":"66.55","tradeCount":12}]
      */
-    private Long serviceId;//店铺客服id
+
     private Long storeId;//店铺id
     private String storeImage;//店铺图片
     private String storeName;//店铺名称
     private StoreDetailBean storeDetail;//店铺详细信息
     private List<GoodsCategoryBean> goodsCategory;//商品分类信息
     private List<GoodsBean> goods;//商品信息
-
-    public Long getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(Long serviceId) {
-        this.serviceId = serviceId;
-    }
 
     public Long getStoreId() {
         return storeId;

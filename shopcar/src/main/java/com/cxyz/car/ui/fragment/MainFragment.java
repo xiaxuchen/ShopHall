@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -23,7 +22,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.RecommendGoods;
 import com.cxyz.car.data.domain.StoreKindItem;
@@ -31,9 +29,7 @@ import com.cxyz.car.presenter.MainPresenter;
 import com.cxyz.car.presenter.view.IMainView;
 import com.cxyz.car.ui.adapter.ListViewAdapter;
 import com.cxyz.car.ui.adapter.MainRecycleAdapter;
-import com.cxyz.http.response.CheckResult;
 import com.cxyz.mvp.fragment.BaseFragment;
-import com.cxyz.utils.ImageLoaderManager;
 import com.cxyz.utils.ScreenUtil;
 import com.qmuiteam.qmui.layout.QMUILinearLayout;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
@@ -50,16 +46,14 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     private ViewPager viewPager;
     private LinearLayout pointGroup;
     private TextView imageDesc;
-    int[] imageIds = {R.drawable.car_bg3, R.drawable.car_bg3, R.drawable.car_bg3, R.drawable.car_bg3};
+    int[] imageIds = {R.drawable.car_bg1, R.drawable.car_bg2, R.drawable.car_bg3, R.drawable.car_bg4};
     protected int lastPointPosition = 0;
     private boolean isRunning = false;
     private final String[] imageDescriptions = {"图片1",
             "图片2",
             "图片3",
             "图片4"};
-    private List<StoreKindItem.GoodsImageListBean> goodsImageListBeans;//轮播图片
     List<QMUIRadiusImageView> imageList;
-    private TextView tvMainSearch;//搜索框
 
     /*
     商品
@@ -80,7 +74,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     //初始化控件
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        tvMainSearch=findViewById(R.id.tvMainSearch);
         scrollView = view.findViewById(R.id.svMain);
         pointGroup = (LinearLayout) view.findViewById(R.id.llPointGroup);
         imageDesc = (TextView) view.findViewById(R.id.tvImageBot);
@@ -98,13 +91,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
 
     @Override
     protected void setListener() {
-        tvMainSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build("/mine/SearchActivity").navigation();
-            }
-        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -122,11 +108,12 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
          * 页面切换后调用
          * postion  新的页面位置
          */
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+
                 position = position % imageList.size();
+
                 // 设置文字描述内容
                 imageDesc.setText(imageDescriptions[position]);
                 // 改变指示点的状态
@@ -148,12 +135,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
              */
             @Override
             public void onPageScrollStateChanged(int arg0) {
-            }
-        });
-        viewPager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build("/message/GoodsInfoActivity").navigation();
+
             }
         });
     }
@@ -167,33 +149,28 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.context = activity;
+
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        iPresenter.fecth();//加载底部商品列表
 
         imageList = new ArrayList<>();
-        lunbo(goodsImageListBeans);
+        iPresenter.fecth();//加载底部商品列表
 
-
-    }
-    public void lunbo(List<StoreKindItem.GoodsImageListBean> goodsImageListBeans){
         /**
          * 图片轮播 start
          */
         for (int i = 0; i < imageIds.length; i++) {
             //初始化图片资源
             QMUIRadiusImageView imageView = new QMUIRadiusImageView(context);
-//            Glide.with(imageView.getContext()).load(goodsImageListBeans.get(i).getGoodsImage()).into(imageView);
-            imageView.setImageResource(imageIds[i]);
+            imageView.setBackgroundResource(imageIds[i]);
             imageList.add(imageView);
             //添加指示点
             ImageView point = new ImageView(context);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(15, 15);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(21, 21);
             params.rightMargin = 20;
-            params.bottomMargin=0;
             point.setLayoutParams(params);
             point.setBackgroundResource(R.drawable.car_point_bg);
             if (i == 0) {
@@ -203,8 +180,10 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             }
             pointGroup.addView(point);
         }
+
         viewPager.setAdapter(new MainFragment.MyPagerAdapter());
         viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % imageList.size()));
+
         /*
          *自动循环
          *1.定时器
@@ -218,28 +197,35 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
          * 图片轮播 end
          */
     }
-    @Override
-    public void showMainGoodsView(CheckResult<StoreKindItem> checkResult) {
-        this.goodsImageListBeans=checkResult.getData().getGoodsImageList();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        storeView.setLayoutManager(linearLayoutManager);
-        storeView.setAdapter(new MainRecycleAdapter(context, checkResult.getData().getStoreKindItemList()));
-    }
+
+
     // 判断是否执行动画
+
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             // 滑动到下一页
             viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+
             if (isRunning) {
                 handler.sendEmptyMessageDelayed(0, 4000);
             }
         }
+
+        ;
     };
+
+    @Override
+    public void showMainGoodsView(List<StoreKindItem> storeKindItemList) {
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        storeView.setLayoutManager(linearLayoutManager);
+        storeView.setAdapter(new MainRecycleAdapter(context, storeKindItemList));
+    }
+
     @Override
     public void showMainAdertis(List<RecommendGoods> goodsList) {
         listView.setAdapter(new ListViewAdapter(context, goodsList));
-        setListViewHeight(listView);
     }
 
     @Override
@@ -267,6 +253,10 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
         public Object instantiateItem(ViewGroup container, int position) {
             // 给container添加内容
             container.addView(imageList.get(position % imageList.size()));
+//            imageList.get(position).setMaxHeight(164);
+//            imageList.get(position).setMaxWidth(332);
+//            imageList.get(position).setScaleType(ImageView.ScaleType.CENTER_CROP);
+
             return imageList.get(position % imageList.size());
         }
 
@@ -293,23 +283,11 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
         isRunning = false;
         super.onDestroy();
     }
-    /**
-     * 动态计算listview高度
-     */
-    public void setListViewHeight(ListView listView){
-        ListAdapter adapter=listView.getAdapter();
-        if(adapter==null) return;
-        int totalHeight=0;
-        for (int i = 0; i < adapter.getCount(); i++) {
-            View listItem=adapter.getView(i,null,listView);
-            listItem.measure(0,0);
-            totalHeight+=listItem.getMeasuredHeight();
-            ViewGroup.LayoutParams params=listView.getLayoutParams();
-            params.height=totalHeight+ (listView.getDividerHeight() * (adapter.getCount() - 1));
-            listView.setLayoutParams(params);
-        }
-    }
 }
+
+
+
+
 
 
 

@@ -2,11 +2,13 @@ package com.cxyz.main.presenter
 
 import com.cxyz.main.data.model.ILoginModel
 import com.cxyz.main.data.model.impl.LoginModelImpl
+import com.cxyz.main.data.protocol.User
 import com.cxyz.main.presenter.view.ILoginView
 import com.cxyz.mvp.ipresenter.IBasePresenter
-import com.cxyz.relative.base.data.protocol.User
+import com.cxyz.mvp.iview.IBaseView
 import com.cxyz.relative.base.ext.execute
 import com.cxyz.relative.base.rx.BaseSubscriber
+import com.cxyz.utils.ToastUtil
 
 class LoginPresenter:IBasePresenter<ILoginModel,ILoginView>() {
     override fun createModel(): ILoginModel {
@@ -20,8 +22,10 @@ class LoginPresenter:IBasePresenter<ILoginModel,ILoginView>() {
             return
         mIView.showLoadingView()
         mIModle.verifyUser(username,password).execute(object :BaseSubscriber<User>(mIView){
-            override fun onNext(user: User) {
-                mIView.loginSuccess(user)
+            override fun onNext(t: User) {
+                // TODO 这里之后要保存用户信息
+                ToastUtil.showShort(t.toString())
+                mIView.loginSuccess()
             }
         },lifecycleProvider)
     }

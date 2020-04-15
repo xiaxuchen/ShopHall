@@ -25,7 +25,7 @@ public class AddAddressModelImpl extends IAddAddressModel {
             params.put("phone","18879792873");//收货人电话
             params.put("hometown","北京.海淀区");//收货人所在地区
             params.put("home","中国大学110栋110室");//收货人家庭具体住址
-            CommonOkHttpClient.put("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/address/add",params
+            CommonOkHttpClient.post("http://rest.apizza.net/mock/230ac06df6f24f16acec6dcbbc686092/user/address/add",params
                                 ,new DisposeDataHandler(new DisposeDataListener() {
                         @Override
                         public void onSuccess(Object responseObj) {

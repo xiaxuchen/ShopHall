@@ -21,7 +21,7 @@ import java.util.List;
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.myHolder> {
     Context context;
     private List<SearchResultsGoods> searchResultsGoodsList;
-
+    private QMUIRelativeLayout qmuiRlSearchResultsGoods;
     public SearchResultsAdapter (Context context ,List<SearchResultsGoods> searchResultsGoodsList){
         this.context = context;
         this.searchResultsGoodsList = searchResultsGoodsList;
@@ -59,14 +59,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         return searchResultsGoodsList.size();
     }
 
-    public static class myHolder extends RecyclerView.ViewHolder{
+    public class myHolder extends RecyclerView.ViewHolder{
 
         private ImageView goodsImage;
         private TextView goodsName;
         private TextView goodsDesc;
         private TextView goodsPrice;
         private TextView goodsTradeCount;
-        private QMUIRelativeLayout qmuiRlSearchResultsGoods;
         public myHolder(@NonNull View itemView) {
             super(itemView);
             qmuiRlSearchResultsGoods=itemView.findViewById(R.id.qmuiRlSearchResultsGoods);

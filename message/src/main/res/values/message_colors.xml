@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary" >#008577</color>
-    <color name="colorPrimaryDark" >#00574B</color>
-    <color name="colorAccent" >#D81B60</color>
-    <color name="colorTitle" >#FF7198</color>
-    <color name="colorSomber" >#555555</color>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorTitle">#FF7198</color>
+    <color name="colorSomber">#555555</color>
+    <color name="light_blue2">#503097e6</color>
+    <color name="light_blue1">#3097e6</color>
+    <color name="white">#ffffff</color>
+    <color name="light_gray_2">#f0f2f6</color>
+    <color name="zz_half_transparent">#7f000000</color>
+    <color name="click_bg">#d9d9d9</color>
+    <color name="dark_gray_1">#051b28</color>
+    <color name="zz_divider">#e6e6e6</color>
+    <color name="text_color3">#909090</color>
+    <color name="button_bg">#e83060</color>
+    <color name="button_bg_press">#88e83060</color>
 </resources>

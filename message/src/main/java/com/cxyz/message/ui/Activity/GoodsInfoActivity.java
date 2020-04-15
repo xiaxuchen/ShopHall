@@ -62,6 +62,8 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
+
+
 import static com.cxyz.context.ContextManager.getContext;
 
 @Route(path = "/message/GoodsInfoActivity",group = "message")
@@ -310,12 +312,12 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
-                startActivity(intent);*/
-            /*    ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
-                ToastUtil.showShort("点击购买");*/
-                ARouter.getInstance().build("/shopcar/PreviewActivity").navigation();
                 ToastUtil.showShort("点击购买");
+                Intent intent=new Intent(getApplicationContext(),ServiceChatActivity.class);
+                startActivity(intent);
+              //  ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
+
+
             }
         });
         initImg();
@@ -343,32 +345,29 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         if (detailList == null)
             detailList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
+
             if (i == 0)
-                detailList.add(R.drawable.productinfo0);
+                detailList.add(R.drawable.product_detail_one);
             else if (i == 1)
-                detailList.add(R.drawable.productinfo1);
+                detailList.add(R.drawable.product_detail_two);
             else if (i == 2)
-                detailList.add(R.drawable.productinfo2);
+                detailList.add(R.drawable.product_banner_one);
             else if (i == 3)
-                detailList.add(R.drawable.productinfo3);
+                detailList.add(R.drawable.product_banner_two);
             else if (i == 4)
-                detailList.add(R.drawable.productinfo5);
+                detailList.add(R.drawable.product_banner_three);
             else if (i == 5)
-                detailList.add(R.drawable.productinfo4);
+                detailList.add(R.drawable.product_banner_four);
         }
+
 
         // 初始化规格
         if (specificationList == null)
             specificationList = new ArrayList<>();
-     /*   for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             Specification specification = new Specification(i, "N" + i + "码", null);
             specificationList.add(specification);
-        }*/
-        specificationList.add(new Specification(1, "S码", null));
-        specificationList.add(new Specification(2, "M码", null));
-        specificationList.add(new Specification(3, "L码", null));
-        specificationList.add(new Specification(4, "XL码", null));
-        specificationList.add(new Specification(5, "XXL码", null));
+        }
         // 初始化优惠
         if (specialOfferList == null)
             specialOfferList = new ArrayList<>();
@@ -376,18 +375,17 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         // 初始化商品特征
         if (productFeaturesList == null)
             productFeaturesList = new ArrayList<>();
-       /* for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             productFeaturesList.add("商品特征" + i);
-        }*/
-        productFeaturesList.add("整夜干爽");
-        productFeaturesList.add("高弹力腰围");
-        productFeaturesList.add("棉柔舒适");
-        productFeaturesList.add("纤薄透气");
-        productFeaturesList.add("侧漏边条");
+        }
     }
 
     @Override
     public void setEvent() {
+
+
+
+
         backImg.setOnClickListener(onClickListener);
         shareImg.setOnClickListener(onClickListener);
         bottomVPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) new BottomPageChangeListener());

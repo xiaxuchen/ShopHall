@@ -17,6 +17,7 @@
             android:id="@+id/ivSearchResultsGoodsImage"
             android:layout_width="match_parent"
             android:layout_height="180dp"
+            android:src="@drawable/mine_car_bg3"
             android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/tvSearchResultsGoodsName"

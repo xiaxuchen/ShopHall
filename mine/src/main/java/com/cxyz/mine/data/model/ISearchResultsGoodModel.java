@@ -9,6 +9,6 @@ public abstract class ISearchResultsGoodModel extends IBaseModel {
     public abstract void loadData(OnGetModel onGetModel);
 
     public interface  OnGetModel{
-        public abstract void getModel(List<SearchResultsGoods> searchResultsGoodsList);
+        public abstract void getModel(List<SearchResultsGoods> SearchResultsGoodsList);
     }
 }

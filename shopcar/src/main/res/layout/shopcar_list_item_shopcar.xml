@@ -27,6 +27,14 @@
                 android:background="@drawable/car_checkbox"
                 android:button="@null"
                 android:checked="false" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivShopcarLogo"-->
+<!--                android:layout_width="25dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:background="@drawable/car_r"-->
+<!--                android:layout_toRightOf="@+id/cbShopcarCheckAll"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginTop="3dp"/>-->
 
             <TextView
                 android:id="@+id/tvShopcarStoreName"

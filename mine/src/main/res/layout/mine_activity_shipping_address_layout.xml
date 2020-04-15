@@ -8,7 +8,7 @@
     tools:context=".ui.activity.ShippingAddressActivity"
     tools:ignore="ResourceName">
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/shippingAddressHearderBaar"
+        android:id="@+id/setup_header_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         tools:ignore="MissingConstraints"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/shippingAddressHearderBaar"
+        app:layout_constraintTop_toBottomOf="@id/setup_header_bar"
         />
 
     <Button

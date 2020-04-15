@@ -5,26 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/common_bg"
     >
     <!--导航栏部分-->
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/mallInfoHeaderBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         app:title="@string/mineHearderBarTitle"
         app:background="@color/common_colorPrimary"/>
 
-    <!--商城里的店铺信息-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMallShop"
+        <!--商城里的店铺信息-->
+    <GridView
+        android:id="@+id/gvMallInformation"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="@dimen/common_margin_middle"
-        android:layout_marginRight="@dimen/common_margin_small"
-        android:layout_marginLeft="@dimen/common_margin_small"
-
-        />
+        android:numColumns="3"
+        android:background="@color/common_gray"/>
     <!--广告部分-->
     <TextView
         android:layout_width="match_parent"
@@ -32,12 +27,12 @@
         android:gravity="center"
         android:text="@string/mineMallinformationAd"
         android:textSize="20dp"
-        android:textColor="@color/common_colorPrimary"
         android:padding="3dp"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMallAd"
+        android:textColor="@color/common_white"
+        android:background="@drawable/mine_mall_ad_border_samll"/>
+    <ListView
+        android:id="@+id/lvMallAd"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="250dp"
+        android:background="@color/common_gray"/>
 </LinearLayout>

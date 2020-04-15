@@ -15,8 +15,8 @@ import com.google.gson.reflect.TypeToken;
 import java.util.List;
 
 public class ShippingAdressModelImpl extends IShippingAdressModel {
-    public static List<Adress> adressList ;
-    private   CheckResult<List<Adress>> checkResult;
+    private  List<Adress> adressList ;
+    private CheckResult<List<Adress>> checkResult;
     @Override
     public void loadAdressData(OnloadAdressData onloadAdressData) {
         /*

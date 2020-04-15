@@ -7,131 +7,88 @@
     android:background="#f1f0f0"
     tools:context=".ui.fragment.MineFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mineHeader"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/common_colorPrimary"
-        tools:ignore="MissingConstraints">
-
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints"
+        android:background="@color/common_colorPrimary">
         <com.qmuiteam.qmui.widget.QMUIRadiusImageView
             android:id="@+id/imMineHeaderImg"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="@dimen/common_margin_middle"
-            android:layout_marginTop="20dp"
-            android:src="@mipmap/mine_mall_ad_img05"
+            app:layout_constraintTop_toTopOf="@id/mineHeader"
             app:layout_constraintLeft_toLeftOf="@id/mineHeader"
-            app:layout_constraintTop_toTopOf="@id/mineHeader" />
-
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:src="@mipmap/mine_mall_ad_img05"
+            />
         <TextView
-            android:id="@+id/tvUserName"
+            android:id="@+id/mineHeaderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:text="天王盖地"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large_size"
             app:layout_constraintLeft_toRightOf="@id/imMineHeaderImg"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="@dimen/common_margin"
+            android:text="天王盖地"
+            android:textSize="@dimen/text_large_size"
+            android:textColor="@color/white"
+            />
         <TextView
             android:id="@+id/personalInformation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mineHeaderName"
+            app:layout_constraintLeft_toRightOf="@id/imMineHeaderImg"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/common_margin_small"
-            android:background="@drawable/mine_header_border"
-            android:paddingLeft="@dimen/common_padding_small"
-            android:paddingTop="3dp"
-            android:paddingRight="@dimen/common_padding_small"
-            android:paddingBottom="3dp"
             android:text="@string/mineHeaderZiliao"
+            android:paddingRight="@dimen/common_padding_small"
+            android:paddingLeft="@dimen/common_padding_small"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small_size"
-            app:layout_constraintLeft_toRightOf="@id/imMineHeaderImg"
-            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
-
+            android:background="@drawable/mine_header_border"
+            />
         <ImageView
             android:id="@+id/setUp"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:padding="@dimen/common_padding_middle"
             android:src="@mipmap/mine_header_setup"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mineLoginHeader"
-        android:layout_width="match_parent"
-        android:layout_height="105dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/common_colorPrimary"
-        tools:ignore="MissingConstraints">
-
-        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
-            android:id="@+id/qmuiIvAvatar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:src="@mipmap/mine_login_avatar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="登录/注册"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/qmuiIvAvatar" />
-
-        <ImageView
-            android:id="@+id/setUpLogin"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:padding="@dimen/common_padding_middle"
-            android:src="@mipmap/mine_header_setup"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
         android:id="@+id/mineOrders"
         android:layout_width="match_parent"
         android:layout_height="128dp"
-        android:layout_marginLeft="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_middle"
         android:layout_marginRight="@dimen/common_margin"
-        android:background="@drawable/mine_page_border"
+        android:layout_marginLeft="@dimen/common_margin"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@id/mine_guideline"
+        android:background="@drawable/mine_page_border"
+        app:layout_constraintTop_toBottomOf="@id/mineHeader"
         tools:ignore="MissingConstraints,Orientation">
-
         <TextView
             android:id="@+id/mineMyOrder"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="@dimen/common_margin"
-            android:gravity="center_vertical"
             android:text="@string/mineMyorder"
             android:textSize="@dimen/text_large_size"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
+            android:gravity="center_vertical"
             tools:ignore="MissingConstraints" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_divider_height"
-            android:background="@color/common_divider" />
-
+            android:background="@color/common_divider"/>
         <LinearLayout
             android:id="@+id/minePurchased"
             android:layout_width="match_parent"
@@ -144,121 +101,115 @@
                 android:id="@+id/prePayment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
-
                 <ImageView
                     android:id="@+id/imPrePayment"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/mine_order_a"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent" />
-
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@mipmap/mine_order_a"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderA"
                     android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imPrePayment"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imPrePayment" />
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- b待发货 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/delivered"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
-
                 <ImageView
                     android:id="@+id/imDelivered"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@mipmap/mine_order_b"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintRight_toRightOf="parent"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderB"
                     android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imDelivered"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imDelivered" />
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- c待收货 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/received"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
-
                 <ImageView
                     android:id="@+id/imReceived"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@mipmap/mine_order_c"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent" />
-
+                    app:layout_constraintRight_toRightOf="parent"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderC"
                     android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imReceived"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imReceived" />
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- d全部订单 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mineOrder"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="@dimen/common_padding">
-
                 <ImageView
                     android:id="@+id/imMineOrder"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="@dimen/common_margin_middle"
-                    android:layout_marginTop="5dp"
                     android:src="@mipmap/mine_order_d"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintRight_toRightOf="parent"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:gravity="center_horizontal"
                     android:text="@string/mineMyorderD"
                     android:textSize="@dimen/text_middle_size"
+                    app:layout_constraintTop_toBottomOf="@id/imMineOrder"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imMineOrder" />
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/minePurchased2"
         android:layout_width="match_parent"
         android:layout_height="550dp"
-        android:layout_marginLeft="@dimen/common_margin"
-        android:layout_marginTop="@dimen/common_margin_middle"
-        android:layout_marginRight="@dimen/common_margin"
         android:background="@drawable/mine_page_border"
+        android:layout_marginLeft="@dimen/common_margin"
+        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_middle"
         app:layout_constraintTop_toBottomOf="@id/mineOrders"
         tools:ignore="Orientation">
         <!-- 购物车 -->
@@ -268,40 +219,37 @@
             android:layout_height="@dimen/common_line_height"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
-
             <ImageView
                 android:id="@+id/mineFavoriteImg"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginLeft="@dimen/common_margin"
                 android:layout_marginTop="@dimen/common_margin_middle"
                 android:background="@drawable/mine_favorite_border"
-                android:padding="5dp"
                 android:src="@mipmap/mine_favorite"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/common_line_height"
-                android:layout_marginLeft="40dp"
+                app:layout_constraintLeft_toLeftOf="@id/mineFavoriteImg"
                 android:gravity="center"
+                android:layout_marginLeft="40dp"
                 android:text="@string/mineFavorites"
                 android:textSize="@dimen/text_middle_size"
-                app:layout_constraintLeft_toLeftOf="@id/mineFavoriteImg" />
-
+                />
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="@dimen/common_margin"
                 android:layout_marginRight="@dimen/common_margin_small"
                 android:background="@mipmap/mine_personal_back"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_divider_height"
@@ -315,18 +263,17 @@
             android:layout_height="@dimen/common_line_height"
             app:layout_constraintTop_toBottomOf="@id/mineFavorite"
             tools:ignore="MissingConstraints">
-
             <ImageView
                 android:id="@+id/mineAccountImg"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginLeft="@dimen/common_margin"
                 android:layout_marginTop="@dimen/common_margin_middle"
                 android:background="@drawable/mine_account_border"
-                android:padding="5dp"
                 android:src="@mipmap/mine_account_img"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
             <TextView
@@ -338,18 +285,16 @@
                 android:textSize="@dimen/text_middle_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/mineAccountImg" />
-
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="@dimen/common_margin"
                 android:layout_marginRight="@dimen/common_margin_small"
                 android:background="@mipmap/mine_personal_back"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_divider_height"
@@ -363,40 +308,37 @@
             android:layout_height="@dimen/common_line_height"
             app:layout_constraintTop_toBottomOf="@id/mineAccount"
             tools:ignore="MissingConstraints">
-
             <ImageView
                 android:id="@+id/mineHistoryImg"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:padding="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginLeft="@dimen/common_margin"
                 android:layout_marginTop="@dimen/common_margin_middle"
                 android:background="@drawable/mine_favorite_border"
-                android:padding="5dp"
                 android:src="@mipmap/mine_history"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/common_line_height"
-                android:layout_marginLeft="40dp"
+                app:layout_constraintLeft_toLeftOf="@id/mineHistoryImg"
                 android:gravity="center"
+                android:layout_marginLeft="40dp"
                 android:text="@string/mineHistory"
                 android:textSize="@dimen/text_middle_size"
-                app:layout_constraintLeft_toLeftOf="@id/mineHistoryImg" />
-
+                />
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="@dimen/common_margin"
                 android:layout_marginRight="@dimen/common_margin_small"
                 android:background="@mipmap/mine_personal_back"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_divider_height"
@@ -405,11 +347,6 @@
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mine_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="115dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

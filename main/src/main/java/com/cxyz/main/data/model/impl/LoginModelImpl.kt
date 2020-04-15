@@ -1,8 +1,9 @@
 package com.cxyz.main.data.model.impl
 
 import com.cxyz.main.data.api.UserApi
+import com.cxyz.main.data.api.UserApi.login
 import com.cxyz.main.data.model.ILoginModel
-import com.cxyz.relative.base.data.protocol.User
+import com.cxyz.main.data.protocol.User
 import io.reactivex.Observable
 
 class LoginModelImpl : ILoginModel() {

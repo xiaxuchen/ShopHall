@@ -25,7 +25,6 @@ import java.util.List;
 public class OrderListAdapter extends BaseAdapter {
     private Context context;
     private List<OrderItem> listItem;
-    private TextView tvOrderPay;//结算订单按钮
 
     public OrderListAdapter(Context context, List listItem) {
         this.context = context;
@@ -94,12 +93,6 @@ public class OrderListAdapter extends BaseAdapter {
             }else{
                 holder.tvPay.setVisibility(View.GONE);
             }
-            holder.tvPay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ARouter.getInstance().build("/shopcar/SureOrderActivity").navigation();
-                }
-            });
         }
         return view;
     }

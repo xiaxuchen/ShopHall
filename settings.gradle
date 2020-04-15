@@ -1,2 +1,2 @@
 include ':app', ':utils', ':autoupdate', ':httplib', ':context', ':mvpbase', ':joint', ':widget', ':main', ':message', ':mine', ':shopcar', 'relativebase'
-rootProject.name = 'ShopHall'
+rootProject.name='ShopHall'

@@ -7,7 +7,7 @@
     tools:context=".ui.activity.BalanceActivity">
 
     <com.cxyz.widget.HeaderBar
-        android:id="@+id/balanceHeaderBar"
+        android:id="@+id/balanceBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_line_height"
         tools:ignore="MissingConstraints" />
@@ -19,7 +19,7 @@
         android:textSize="48dp"
         android:textColor="@color/common_colorPrimary"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/balanceHeaderBar"
+        app:layout_constraintTop_toBottomOf="@id/balanceBar"
         tools:ignore="MissingConstraints" />
     <LinearLayout
         android:id="@+id/btRecharge"

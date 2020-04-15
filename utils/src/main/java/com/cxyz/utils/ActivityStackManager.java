@@ -96,7 +96,6 @@ public class ActivityStackManager {
             assert manager != null;
             manager.killBackgroundProcesses(context.getPackageName());
         }
-        android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);
     }
 }

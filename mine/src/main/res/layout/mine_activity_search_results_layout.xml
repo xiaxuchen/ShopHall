@@ -14,7 +14,7 @@
         tools:ignore="MissingConstraints" >
 
         <ImageView
-            android:id="@+id/imSeatchBack"
+            android:id="@+id/mine_imageview"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="@dimen/common_margin_middle"

@@ -44,24 +44,16 @@ android {
         }
     }
 
-    //分包2（高版本的gradle）
-    dexOptions {
-        javaMaxHeapSize "4g"
-        preDexLibraries = false
-        additionalParameters = ['--multi-dex', '--main-dex-list=' + project.rootDir.absolutePath + '/app/maindexlist.txt', '--minimal-main-dex',
-                                '--set-max-idx-number=1000']
-    }
-
     buildTypes {
         release {
-//            multiDexKeepFile file('maindexlist.txt')
+            multiDexKeepFile file('multidex-config.txt')
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-//        debug {
-//            multiDexKeepFile file('maindexlist.txt')
-//        }
+        debug {
+            multiDexKeepFile file('multidex-config.txt')
+        }
     }
     resourcePrefix ''
 }
@@ -85,7 +77,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     annotationProcessor "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
     compile 'com.android.support:multidex:1.0.3'
-    compile 'com.android.support:multidex-instrumentation:1.0.3'
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //极光推送

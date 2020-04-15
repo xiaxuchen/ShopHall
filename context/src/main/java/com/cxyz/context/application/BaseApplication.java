@@ -5,15 +5,21 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cxyz.context.ContextManager;
+import com.cxyz.context.greendao.DaoMaster;
+import com.cxyz.context.greendao.DaoSession;
 import com.cxyz.context.starter.Starter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
+
+import org.greenrobot.greendao.AbstractDaoSession;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
@@ -28,12 +34,20 @@ import cn.jpush.im.android.api.JMessageClient;
  */
 
 public class BaseApplication extends Application {
+    private static BaseApplication instance;
+    private DaoSession daoSession;
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
+    public static BaseApplication getInstance() {
+        return instance;
+    }
 
     public static final String STARTER_NAME = "com.cxyz.starter";
 
     private boolean isApplication = true;
 
-    private Application application = this;
+    private Application application;
 
     public BaseApplication(){}
 
@@ -43,35 +57,24 @@ public class BaseApplication extends Application {
     }
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        loadStarters();
-        for (Starter starter : starterList) {
-            starter.attachContext(base);
-        }
-    }
-
-    @Override
     public void onCreate() {
         super.onCreate();
-     /*   //初始化sdk
-        JPushInterface.setDebugMode(true);//正式版的时候设置false，关闭调试
-        JMessageClient.setDebugMode(true);
-        JMessageClient.init( this);
-        JPushInterface.init(this);*/
+        DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(this, "chat-message", null);
+        SQLiteDatabase db = mHelper.getWritableDatabase();
+        daoSession = new DaoMaster(db).newSession();
+        instance = this;
+        initImageLoader(this);
         if(application == null && isApplication) {
             application = this;
         }
         ContextManager.setContext(getApplication());
-        // 执行启动器加载方法
-        for (Starter starter : starterList) {
-            starter.load(application);
-        }
+        // 加载启动器
+        load();
     }
 
     private List<Starter> starterList;
 
-    private void loadStarters() {
+    private void load() {
         try {
             ApplicationInfo appInfo= this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             starterList = new ArrayList<>();
@@ -89,6 +92,7 @@ public class BaseApplication extends Application {
                             {
                                 Starter instance = (Starter)clazz.newInstance();
                                 starterList.add(instance);
+                                instance.load(this);
                                 break;
                             }
                         }
@@ -99,10 +103,6 @@ public class BaseApplication extends Application {
         {
             e.printStackTrace();
         }
-        // 按类名排序
-        Collections.sort(starterList,(o1, o2) -> {
-            return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
-        });
     }
 
     @Override
@@ -139,6 +139,18 @@ public class BaseApplication extends Application {
     public Application getApplication() {
         return application;
     }
+    /**
+     * 初始化ImageLoader
+     */
+    public static void initImageLoader(Context context) {
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                context)
+                .threadPoolSize(3).threadPriority(Thread.NORM_PRIORITY - 2)
+                //.memoryCache(new WeakMemoryCache())
+                .denyCacheImageMultipleSizesInMemory()
+                .tasksProcessingOrder(QueueProcessingType.LIFO)
+                .build();
+        ImageLoader.getInstance().init(config);}
 }
 
 

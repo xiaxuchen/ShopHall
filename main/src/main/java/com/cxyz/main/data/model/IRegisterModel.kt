@@ -1,5 +1,6 @@
 package com.cxyz.main.data.model
 
+import com.cxyz.main.data.protocol.User
 import com.cxyz.mvp.imodel.IBaseModel
 import io.reactivex.Observable
 
@@ -17,5 +18,5 @@ abstract class IRegisterModel: IBaseModel() {
      * @param password 密码
      * @param verifyCode 验证码
      */
-    abstract fun register(phone:String ,password:String ,verifyCode: String): Observable<Any>
+    abstract fun register(phone:String ,password:String ,verifyCode: String):Observable<Any>
 }

@@ -82,8 +82,8 @@
         android:layout_marginLeft="@dimen/common_margin"
         tools:ignore="MissingConstraints">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHistory"
+        <com.cxyz.mine.ui.view.FlowLayout
+            android:id="@+id/flowHistory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -117,8 +117,8 @@
         android:layout_marginRight="@dimen/common_margin"
         android:layout_marginLeft="@dimen/common_margin"
         tools:ignore="MissingConstraints">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSearchFind"
+        <com.cxyz.mine.ui.view.FlowLayout
+            android:id="@+id/flowSearchFind"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"

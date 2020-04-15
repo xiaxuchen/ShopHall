@@ -33,7 +33,6 @@ public class TestActivity extends AppCompatActivity {
     private Button btnRecommend;//商品推荐
     private Button btnStoreDetail;//店铺详情
     private Button btnSureOrder;//确认订单
-    private Button btnStart;//闪屏界面
 
     private MainFragment mainFragment;
     private ShopcarFragment shopcarFragment;
@@ -189,17 +188,6 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TestActivity.this,SureOrderActivity.class));
-            }
-        });
-
-        /**
-         * StartActivity闪屏界面
-         */
-        btnStart=findViewById(R.id.btnStart);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(TestActivity.this,StartActivity.class));
             }
         });
     }
