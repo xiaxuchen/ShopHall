@@ -46,13 +46,15 @@ public class UpdateManager {
         Log.e("tag", path);
         File dir = new File(path.substring(0, path.lastIndexOf("/")+1));
         if(!dir.exists()){
-            dir.mkdirs();
+
+            dir.mkdir();
         }
         File file = new File(path);
         if(!file.exists()){
             try{
                 file.createNewFile();
             }catch (Exception e){
+
             }
         }
     }

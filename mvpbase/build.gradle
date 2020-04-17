@@ -21,9 +21,14 @@ dependencies {
     implementation(project(':httplib'))
     implementation(project(':utils'))
     implementation(project(':widget'))
+    implementation(project(':context'))
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.just.agentweb:agentweb:4.1.2' // (必选)
+    implementation 'com.just.agentweb:filechooser:4.1.2'// (可选)
+    implementation 'com.download.library:Downloader:4.1.2'// (可选)
 
 
     api 'com.trello.rxlifecycle3:rxlifecycle:3.1.0'

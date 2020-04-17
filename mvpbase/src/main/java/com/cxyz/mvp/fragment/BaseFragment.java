@@ -77,12 +77,14 @@ public abstract class BaseFragment<p extends IBasePresenter> extends RxFragment 
             iPresenter.setLifecycleProvider(this);
         }
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if(activity instanceof BaseActivity)
             this.mActivity = (BaseActivity) activity;
     }
+
 
 
     @Override
