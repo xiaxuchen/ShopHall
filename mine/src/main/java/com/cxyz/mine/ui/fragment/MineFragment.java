@@ -30,6 +30,8 @@ import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
  */
 @Route(path ="/mine/MineFragment" ,group = "mine")
 public class MineFragment extends BaseFragment {
+    private UpdateListener updateListener;
+
     private ConstraintLayout mineHeader;
     private ConstraintLayout mineLoginHeader;
     private ImageView setUp;//设置按钮
@@ -164,13 +166,15 @@ public class MineFragment extends BaseFragment {
         tvLogin.setOnClickListener(onclick);
         qmuiIvAvatar.setOnClickListener(onclick);
 
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+        updateListener=new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
                 updateViews();
                 return null;
             }
-        });
+        };
+        UserManager.getInstance().setOnUpdateListener(updateListener);
+        updateViews();
     }
 
     public void updateViews(){
@@ -188,5 +192,11 @@ public class MineFragment extends BaseFragment {
     @Override
     public void showError(Object msg) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        UserManager.getInstance().removeOnUpdateListenner(updateListener);
     }
 }

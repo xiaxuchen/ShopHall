@@ -12,8 +12,8 @@
         android:id="@+id/mineHeader"
         android:layout_width="match_parent"
         android:layout_height="105dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/common_colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <com.qmuiteam.qmui.widget.QMUIRadiusImageView
@@ -69,8 +69,8 @@
         android:id="@+id/mineLoginHeader"
         android:layout_width="match_parent"
         android:layout_height="105dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/common_colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <com.qmuiteam.qmui.widget.QMUIRadiusImageView
@@ -406,13 +406,13 @@
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/mine_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="115dp" />
-
+        app:layout_constraintGuide_begin="118dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
