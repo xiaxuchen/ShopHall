@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mine.presenter.SearchPresenter;
 import com.cxyz.mine.presenter.view.ISearchView;
@@ -29,6 +31,7 @@ import java.util.List;
 public class SearchActivity extends BaseActivity<SearchPresenter> implements ISearchView {
     private Context context;
     private Button btnSearch;
+    private ImageView imSearchBack;
     private RecyclerView rvHistory;
     private RecyclerView rvSearchFind;
     @Override
@@ -45,6 +48,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
 
     @Override
     public void initView() {
+        imSearchBack = findViewById(R.id.imSearchBack);
         btnSearch = findViewById(R.id.btnSearch);
         rvHistory = findViewById(R.id.rvHistory);
         rvSearchFind = findViewById(R.id.rvSearchFind);
@@ -62,6 +66,13 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
             public void onClick(View v) {
                 Intent intentVersion = new Intent(SearchActivity.this,SearchResultsActivity                                                  .class);
                 startActivity(intentVersion);
+            }
+        });
+
+        imSearchBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/MainFragment").navigation();
             }
         });
     }

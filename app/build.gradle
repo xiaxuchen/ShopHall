@@ -14,7 +14,7 @@ sourceSets{
 
 android {
     defaultConfig {
-        applicationId rootProject.ext.applicationId
+        applicationId "com.cxyz.shophall"
         ndk {
             //选择要添加的对应cpu类型的.so库。
             abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'
@@ -64,16 +64,6 @@ android {
 //        }
     }
     resourcePrefix ''
-
-    sourceSets {
-        main {
-            if (!isDebug.toBoolean()) {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            }
-        }
-    }
 }
 
 dependencies {

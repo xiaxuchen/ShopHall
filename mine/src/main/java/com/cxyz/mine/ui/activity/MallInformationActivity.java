@@ -3,6 +3,7 @@ package com.cxyz.mine.ui.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridLayout;
 
@@ -79,8 +80,9 @@ public class MallInformationActivity extends BaseActivity<MallPresenter> impleme
     @SuppressLint("WrongConstant")
     @Override
     public void showData(List<Shop> shopList) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,2);
+        MyGridLayoutManager gridLayoutManager = new MyGridLayoutManager(context,2);
         gridLayoutManager.setOrientation(GridLayout.VERTICAL );
+        gridLayoutManager.setScrollEnabled(false);
         //设置布局管理器， 参数gridLayoutManager对象
         rvMallShop.setLayoutManager(gridLayoutManager);
         MallShopAdpter adapter = new MallShopAdpter(context,shopList);
@@ -92,9 +94,27 @@ public class MallInformationActivity extends BaseActivity<MallPresenter> impleme
     public void showAdData(List<MallAdGoods> mallAdGoodsList) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context,3);
         gridLayoutManager.setOrientation(GridLayout.VERTICAL );
-
         rvMallAd.setLayoutManager(gridLayoutManager);
         MallAdAdapter adAdapter = new MallAdAdapter(context,mallAdGoodsList);
         rvMallAd.setAdapter(adAdapter);
+    }
+    public class MyGridLayoutManager extends GridLayoutManager {
+        private boolean isScrollEnabled = true;
+        public MyGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+            super(context, attrs, defStyleAttr, defStyleRes);
+        }
+        public MyGridLayoutManager(Context context, int spanCount) {
+            super(context, spanCount);
+        }
+        public MyGridLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
+            super(context, spanCount, orientation, reverseLayout);
+        }
+        public void setScrollEnabled(boolean flag) {
+            this.isScrollEnabled = flag;
+        }
+        @Override
+        public boolean canScrollVertically() {
+            return isScrollEnabled && super.canScrollVertically();
+        }
     }
 }

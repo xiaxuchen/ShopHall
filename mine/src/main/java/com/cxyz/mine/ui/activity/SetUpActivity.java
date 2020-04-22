@@ -12,6 +12,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.mine.R;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.relative.base.data.protocol.User;
+import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
 import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
@@ -22,7 +24,6 @@ import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
  */
 @Route(path = "/mine/SetUpActivity",group = "mine")
 public class SetUpActivity extends BaseActivity {
-    private boolean isLogin = UserManager.getInstance().isLogin();
     private HeaderBar setUpHeaderBar;//导航栏
     private ViewGroup setUpAddress;//设置地址按钮
     private ViewGroup setUpPassword;//设置密码按钮
@@ -52,14 +53,15 @@ public class SetUpActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.setUpAddress){//跳转到设置界面
-                if (isLogin) {
+                if (UserManager.getInstance().isLogin()) {
                     Intent intentPassword = new Intent(SetUpActivity.this, ShippingAddressActivity.class);
                     startActivity(intentPassword);
                 }else {
                     ARouter.getInstance().build("/main/LoginActivity").navigation();
+                    SetUpActivity.this.finish();
                 }
             }else if(v.getId() == R.id.setUpPassword){//跳转到修改密码界面
-                if (isLogin) {
+                if (UserManager.getInstance().isLogin()) {
                     Intent intentPassword = new Intent(SetUpActivity.this, ChangPasswordActivity.class);
                     startActivity(intentPassword);
                 }else {
@@ -147,6 +149,14 @@ public class SetUpActivity extends BaseActivity {
         setUpHistory.setOnClickListener(onclick);
         //清空缓存
         setUpClear.setOnClickListener(onclick);
+
+        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+            @Override
+            public User OnUpdate(User oldUser, User newUser) {
+                UserManager.getInstance().isLogin();
+                return null;
+            }
+        });
     }
 
     @Override

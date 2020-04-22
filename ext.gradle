@@ -18,8 +18,4 @@ ext{
            routerVersion : "1.4.0",
            routerAnnotationProcessor : "1.2.1"]
     tinkerEnable = true
-    // 应用名称
-    appName = "批发商城APP"
-    // 应用id
-    applicationId = "com.cxyz.shophall"
 }

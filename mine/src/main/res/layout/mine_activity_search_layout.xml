@@ -13,26 +13,48 @@
         android:background="@color/common_colorPrimary"
         tools:ignore="MissingConstraints" >
         <ImageView
+            android:id="@+id/imSearchBack"
             android:layout_width="25dp"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:src="@mipmap/common_title_back"
-            android:layout_marginTop="@dimen/common_margin"
             android:layout_marginLeft="@dimen/common_margin_middle"
+            android:layout_marginTop="@dimen/common_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
-        <AutoCompleteTextView
-            android:id="@+id/autoTvSearch"
+        <!--顶部搜索框-->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/mineSearchTip"
-            android:textSize="15dp"
-            android:textColor="#bbbbbb"
-            android:background="@drawable/mine_search_text_bg"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="@dimen/common_margin"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginRight="75dp"/>
+            android:layout_height="@dimen/common_header_bar_height"
+            android:background="@color/common_colorPrimary"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="70dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etMainSearch"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/mine_radius_border"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:hint="请输入搜索内容"
+                android:textColorHint="#ccc"
+                android:textColor="#3e4144" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_toRightOf="@+id/tvMainSearch"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="-40dp"
+                android:background="@mipmap/mine_search" />
+        </RelativeLayout>
         <Button
             android:id="@+id/btnSearch"
             android:layout_width="45dp"
