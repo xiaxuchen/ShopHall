@@ -2,15 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/pbg14">
 
-    <ImageView
-        android:id="@+id/btnStartImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/pbg14"
-        android:scaleType="centerCrop"
-        />
 
     <Button
         android:id="@+id/btnStartTiaoGuo"
@@ -20,7 +13,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/black"
-        android:text="点击跳过"
+        android:text=""
         android:background="@drawable/car_border_btn"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"/>

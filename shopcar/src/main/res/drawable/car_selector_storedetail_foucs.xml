@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
     <item android:drawable="@drawable/car_storedetail_addfoucs"
-        android:state_pressed="false"
-        android:state_activated="false"
-        android:state_active="false"
-        android:state_focused="false"
+        android:state_checked="true"
         />
     <item android:drawable="@drawable/car_storedetail_hasaddedfoucs"
-        android:state_pressed="true"
-        android:state_active="true"
-        android:state_activated="true"
-        android:state_focused="true"
+        android:state_checked="false"
         />
 </selector>

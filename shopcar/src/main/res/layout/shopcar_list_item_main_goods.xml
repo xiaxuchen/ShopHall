@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
-    tools:ignore="ResourceName">
+    tools:ignore="ResourceName"
+    android:background="@color/white">
 
         <com.qmuiteam.qmui.widget.QMUIRadiusImageView
             app:qmui_corner_radius="10dp"
@@ -16,6 +17,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:scaleType="centerCrop"
+            app:qmui_border_color="#ffffffff"
             />
     <TextView
         android:id="@+id/tvGoodsDesc"
@@ -54,10 +56,8 @@
         android:layout_below="@+id/tvGoodsSmal"
         android:layout_alignStart="@+id/tvGoodsDesc"
         android:layout_alignBottom="@+id/ivGoodsImage"
-        android:layout_marginStart="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="14dp"
-        android:layout_marginBottom="15dp"
         android:layout_toRightOf="@+id/ivGoodsImage"
         android:text="￥999.0"
         android:textColor="#f00" />

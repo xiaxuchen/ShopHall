@@ -12,11 +12,11 @@
         android:id="@+id/ivFavoriteImage"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:background="@drawable/car_border_samll"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:scaleType="centerCrop"
+        app:qmui_border_color="#ffffffff"
         />
 
     <TextView

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f2f2f2">
+    android:background="@color/white">
 
     <RelativeLayout
         android:id="@+id/rlStoreDetailTop"
@@ -57,10 +57,11 @@
             android:layout_width="46dp"
             android:layout_height="20dp"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/car_storedetail_hasaddedfoucs"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@id/qmuiIvStoreDetailStoreImageSmall"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/car_storedetail_addfoucs"
+            />
     </RelativeLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -71,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rlStoreDetailTop"
-        app:tabSelectedTextColor="@color/black"
+        app:tabSelectedTextColor="#3C3434"
         app:tabTextColor="@color/white"
         tools:ignore="MissingConstraints" />
 
@@ -109,7 +110,8 @@
         app:layout_constraintEnd_toStartOf="@+id/viewMid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_bottom"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        >
 
         <ImageView
             android:layout_width="35dp"

@@ -53,15 +53,16 @@
             android:id="@+id/tvStoreAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="地址：苦境 十三区"
+            android:text="店铺地址：苦境 十三区"
             android:textSize="10sp"
             android:textColor="#393939"
             android:layout_marginLeft="12sp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/tvStoreOwnerPhone"
+            android:layout_below="@+id/tvStoreMainProduct"
             android:layout_toEndOf="@id/ivStoreDetailStoreImageBig"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            android:maxLines="2"
+            android:ellipsize="end"
+            />
         <TextView
             android:id="@+id/tvStoreQualification"
             android:layout_width="wrap_content"
@@ -71,7 +72,7 @@
             android:textColor="#393939"
             android:layout_marginLeft="12sp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/tvStoreAddress"
+            android:layout_below="@+id/tvStoreOwnerPhone"
             android:layout_toEndOf="@id/ivStoreDetailStoreImageBig"
             android:maxLines="1"
             android:ellipsize="end"/>
@@ -84,27 +85,28 @@
             android:textColor="#393939"
             android:layout_marginLeft="12sp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/tvStoreQualification"
             android:layout_toEndOf="@id/ivStoreDetailStoreImageBig"
+            android:layout_below="@+id/tvStoreQualification"
             android:maxLines="1"
             android:ellipsize="end"
             />
     </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
-    <TextView
-        android:id="@+id/tvStoreNotice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="店铺公告：纵使清明无雨色，入云深处亦沾衣。"
-        android:textSize="12sp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/car_border_store_notice"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/common_orange"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"/>
+        <TextView
+            android:id="@+id/tvStoreNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="店铺公告：纵使清明无雨色，入云深处亦沾衣。"
+            android:textSize="12sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/car_border_store_notice"
+            android:textColor="@color/common_orange"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStoreDetailGoods"
         android:layout_width="match_parent"

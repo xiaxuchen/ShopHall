@@ -1,6 +1,7 @@
 package com.cxyz.car.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,21 @@ public class PreviewChooseAdapter extends RecyclerView.Adapter<PreviewChooseAdap
 
     @Override
     public void onBindViewHolder(@NonNull InnerHolder holder, int position) {
+        final boolean[] isChecked = {false};
         holder.tv_option.setText(option[position]);
+        holder.tv_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isChecked[0]){
+                    holder.tv_option.setBackgroundResource(R.drawable.car_border_text_checked);
+                    isChecked[0] =true;
+                }else{
+                    holder.tv_option.setBackgroundResource(R.drawable.car_border_text);
+                    isChecked[0] =false;
+                }
+
+            }
+        });
     }
 
     @Override

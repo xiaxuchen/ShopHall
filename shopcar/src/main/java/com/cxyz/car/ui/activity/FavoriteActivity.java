@@ -31,6 +31,9 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
     private QMUIPullRefreshLayout qmuiPullRefreshLayout;
     private TextView tvFavriteLogin;
 
+    private UserManager userManager;
+    private UpdateListener updateListener;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,10 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
         recyclerView=findViewById(R.id.rvFavoriteGoods);
         qmuiPullRefreshLayout=findViewById(R.id.qmuiPullRefreshLayoutFavorite);
         tvFavriteLogin=findViewById(R.id.tvFavoriteLogin);
-        tvFavriteLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
+//        tvFavriteLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvFavriteLogin.getPaint().setAntiAlias(true);//抗锯齿
+
+        userManager=UserManager.getInstance();
     }
 
     @Override
@@ -79,15 +84,16 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
                 },1500);
             }
         });
-        UserManager.getInstance().setOnUpdateListener(new UpdateListener() {
+        updateListener=new UpdateListener() {
             @Override
             public User OnUpdate(User oldUser, User newUser) {
                 return null;
             }
-        });
+        };
+        UserManager.getInstance().setOnUpdateListener(updateListener);
         //判断用户是否登录
-        if (UserManager.getInstance().isLogin()) {
-            recyclerView.setVisibility(View.INVISIBLE);
+        if (userManager.isLogin()) {
+            recyclerView.setVisibility(View.VISIBLE);
             tvFavriteLogin.setVisibility(View.GONE);
         }else{
             recyclerView.setVisibility(View.GONE);
@@ -123,11 +129,6 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        UserManager.getInstance().removeOnUpdateListenner(new UpdateListener() {
-            @Override
-            public User OnUpdate(User oldUser, User newUser) {
-                return null;
-            }
-        });
+        userManager.removeOnUpdateListenner(updateListener);
     }
 }

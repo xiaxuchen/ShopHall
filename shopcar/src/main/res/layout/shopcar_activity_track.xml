@@ -12,7 +12,8 @@
         android:layout_height="50dp"
         app:background="@color/common_colorPrimary"
         tools:ignore="MissingConstraints"
-        app:backText="我的足迹"/>
+        app:backText="我的足迹"
+        />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/shopcarGuideline6"
         android:layout_width="wrap_content"
@@ -34,16 +35,22 @@
 
     <TextView
         android:id="@+id/tvTrackLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="您还没登录呢，点击这里转到登录界面..."
-        android:textColor="#B8B0B0"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/ivTrackDelete"
         app:layout_constraintStart_toStartOf="@+id/hbTrackHeaderBar"
         app:layout_constraintTop_toBottomOf="@+id/hbTrackHeaderBar"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/car_notlogin"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrack"

@@ -2,6 +2,7 @@ package com.cxyz.car.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -50,7 +51,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
     private ViewPager viewPager;
     private LinearLayout pointGroup;
     private TextView imageDesc;
-    int[] imageIds = {R.drawable.car_bg3, R.drawable.car_bg3, R.drawable.car_bg3, R.drawable.car_bg3};
+    int[] imageIds = {R.drawable.lunbo1, R.drawable.lunbo2, R.drawable.lunbo3, R.drawable.lunbo4};
     protected int lastPointPosition = 0;
     private boolean isRunning = false;
     private final String[] imageDescriptions = {"图片1",
@@ -188,6 +189,7 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
             QMUIRadiusImageView imageView = new QMUIRadiusImageView(context);
 //            Glide.with(imageView.getContext()).load(goodsImageListBeans.get(i).getGoodsImage()).into(imageView);
             imageView.setImageResource(imageIds[i]);
+            imageView.setBorderColor(Color.TRANSPARENT);
             imageList.add(imageView);
             //添加指示点
             ImageView point = new ImageView(context);
