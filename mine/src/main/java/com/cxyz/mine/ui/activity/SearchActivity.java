@@ -73,6 +73,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build("/shopcar/MainFragment").navigation();
+                SearchActivity.this.finish();
             }
         });
     }
