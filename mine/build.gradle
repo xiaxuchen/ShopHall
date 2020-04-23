@@ -55,6 +55,14 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
 
+    /**
+     * 解决依赖冲突的方法，2选一
+     */
 //不加这个依赖报gilde库冲突错
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+
+//    //依赖排除 因为com.github.LuckSiege.PictureSelector:picture_library:v2.1.0中有gilde的依赖，所以要排除依赖
+//    implementation ('com.github.LuckSiege.PictureSelector:picture_library:v2.1.0'){
+//        exclude group: 'com.github.bumptech.glide'
+//    }
 }
