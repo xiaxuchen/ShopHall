@@ -13,6 +13,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/CommonAppTheme"
         tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:theme"
         tools:targetApi="m">
         <receiver
             android:name=".receiver.MyReceiver"

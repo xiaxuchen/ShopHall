@@ -54,4 +54,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.github.bumptech.glide:glide:4.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+
+//不加这个依赖报gilde库冲突错
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 }

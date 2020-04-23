@@ -7,6 +7,9 @@
         <activity android:name=".ui.Activity.MainActivity"></activity>
         <activity android:name=".ui.Activity.ChatMessageActivity"></activity>
         <activity android:name=".ui.Activity.GoodsInfoActivity"></activity>
+        <activity android:name=".ui.Activity.ServiceChatActivity"></activity>
+        <activity android:name=".ui.Activity.LoginTestActicity"></activity>
+        <activity android:name=".ui.Activity.ImageBrowserActivity"></activity>
     </application>
 
 </manifest>
