@@ -20,14 +20,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
-import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.protocol.Brand;
 import com.cxyz.message.protocol.Specification;
 import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.ui.fragment.GraphicDetailsFragment;
 import com.cxyz.message.ui.fragment.ProductEvalInfoFragment;
 import com.cxyz.message.ui.fragment.ProductWillFragment;
@@ -36,7 +34,6 @@ import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 import com.cxyz.message.widget.view.FlowLayout;
 import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,8 +41,6 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
-import static com.cxyz.context.ContextManager.getContext;
 
 @Route(path = "/message/MainActivity")
 //goodsinfoactivity

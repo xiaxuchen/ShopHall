@@ -44,7 +44,7 @@
             android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@color/common_orange"
+            android:background="@color/color_orange"
             android:gravity="center"
             android:paddingLeft="5dp"
             android:paddingRight="10dp"

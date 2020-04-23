@@ -1,4 +1,5 @@
 apply plugin: 'kotlin-kapt'
+//apply plugin: 'org.greenrobot.greendao'
 // 如果是单模块调试，则业务模块为application，否则为library
 if (isDebug.toBoolean()) {
     apply plugin: 'com.android.application'
@@ -9,6 +10,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from:rootDir.path + '/android.gradle'
 android {
+
+
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     defaultConfig {
@@ -77,7 +80,7 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:${dep.routerAnnotationProcessor}"
     implementation 'com.github.zrunker:ZViewPager:v1.0.4'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.android.support:recyclerview-v7:25.2.0'
+    implementation 'com.android.support:recyclerview-v7:23.4.0'
     implementation 'com.qmuiteam:qmui:2.0.0-alpha02'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.alibaba:arouter-api:1.5.0'  //这里的版本根据github上面lastest version为准
@@ -98,4 +101,21 @@ dependencies {
     implementation 'com.flaviofaria:kenburnsview:1.0.7'//静态图片动画效果
     implementation 'com.github.florent37:diagonallayout:1.0.9'//切角图片
     implementation 'com.github.bumptech.glide:glide:4.3.1' //glide插件
+
+
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+
+    implementation 'io.github.leibnik:chatimageview:1.0.1'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+
 }
+/*
+greendao {
+    schemaVersion 1
+    targetGenDir 'src/main/java'
+    daoPackage 'com.cxyz.message.greendao'
+
+}*/

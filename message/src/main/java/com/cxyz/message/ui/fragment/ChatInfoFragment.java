@@ -4,21 +4,16 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
-import com.cxyz.mvp.fragment.BaseFragment;
-import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
-
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
+import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
 import com.cxyz.message.utils.RecyclerUtils;
-import com.cxyz.utils.ColorsUtil;
+import com.cxyz.mvp.fragment.BaseFragment;
+import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
 
 import java.util.ArrayList;

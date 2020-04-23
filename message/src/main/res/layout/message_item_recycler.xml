@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="80dp"
                 android:gravity="center"
-                android:background="#666666"
+                android:background="@color/qmui_config_color_gray_9"
                 android:text="其 他" />
 
             <TextView

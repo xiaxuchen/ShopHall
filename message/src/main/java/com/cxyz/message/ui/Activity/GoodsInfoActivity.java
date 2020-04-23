@@ -7,13 +7,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,20 +19,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.message.R;
-import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.protocol.Brand;
 import com.cxyz.message.protocol.Specification;
 import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.ui.fragment.GraphicDetailsFragment;
 import com.cxyz.message.ui.fragment.ProductEvalInfoFragment;
 import com.cxyz.message.ui.fragment.ProductWillFragment;
@@ -45,7 +40,6 @@ import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -61,11 +55,9 @@ import java.util.ArrayList;
 
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
-import cc.ibooker.zviewpagerlib.HolderCreator;
-import static com.cxyz.context.ContextManager.getContext;
 
 @Route(path = "/message/GoodsInfoActivity",group = "message")
-public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener{
+public class GoodsInfoActivity extends BaseActivity implements OnBannerListener{
     /**
      * 顶部tool
      */
@@ -310,10 +302,11 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         btaddshoppingcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  Intent intent=new Intent(getApplicationContext(),LoginTestActicity.class);
-                startActivity(intent);*/
-                ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
                 ToastUtil.showShort("点击购买");
+                Intent intent=new Intent(getApplicationContext(), ServiceChatActivity.class);
+                startActivity(intent);
+              //  ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
+
 
             }
         });
@@ -342,6 +335,7 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
         if (detailList == null)
             detailList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
+
             if (i == 0)
                 detailList.add(R.drawable.product_detail_one);
             else if (i == 1)
@@ -355,6 +349,7 @@ public class GoodsInfoActivity extends BaseActivity  implements OnBannerListener
             else if (i == 5)
                 detailList.add(R.drawable.product_banner_four);
         }
+
 
         // 初始化规格
         if (specificationList == null)

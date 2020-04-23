@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.cxyz.message.R;
-import com.cxyz.message.ui.adapter.ProductEvalInfoLvAdapter;
 import com.cxyz.message.protocol.GoodsEvaluate;
 import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.adapter.ProductEvalInfoLvAdapter;
 import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 
 /**

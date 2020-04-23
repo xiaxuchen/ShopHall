@@ -7,20 +7,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
 import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.utils.ColorsUtil;
 import com.cxyz.utils.ToastUtil;
 import com.cxyz.widget.HeaderBar;
-import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Route(path = "/message/ChatInfoActivity",group = "message")
 public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局

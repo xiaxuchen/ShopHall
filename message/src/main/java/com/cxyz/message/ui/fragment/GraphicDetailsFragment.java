@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -13,7 +14,6 @@ import com.bumptech.glide.Glide;
 import com.cxyz.message.R;
 import com.cxyz.message.protocol.ViewBundle;
 import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 

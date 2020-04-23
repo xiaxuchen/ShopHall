@@ -1,6 +1,5 @@
 package com.cxyz.message.ui.Activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -12,11 +11,7 @@ import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.ToastUtil;
 
-import java.util.List;
-
 import cn.jpush.im.android.api.JMessageClient;
-import cn.jpush.im.android.api.callback.RequestCallback;
-import cn.jpush.im.android.api.model.DeviceInfo;
 import cn.jpush.im.api.BasicCallback;
 
 public class LoginTestActicity extends BaseActivity {
@@ -56,7 +51,7 @@ public class LoginTestActicity extends BaseActivity {
                             System.out.println("desc:"+desc);
                             etpassword.setText(desc.toString());
                             Log.d("123",desc);
-                            Intent intent=new Intent(getApplicationContext(),ChatInfoActivity.class);
+                            Intent intent=new Intent(getApplicationContext(), ChatInfoActivity.class);
                             startActivity(intent);
                             // 注册成功
                         } else {
