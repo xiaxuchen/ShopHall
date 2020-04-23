@@ -105,7 +105,12 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:25.3.1'
     implementation 'org.greenrobot:greendao:3.2.2'
-    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+//    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+
+   //排除依赖
+    compile('com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'){
+        exclude group: 'com.github.bumptech.glide', module: 'glide'
+    }
 
     implementation 'io.github.leibnik:chatimageview:1.0.1'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
