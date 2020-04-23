@@ -2,6 +2,7 @@ package com.cxyz.message.protocol;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 
 /**

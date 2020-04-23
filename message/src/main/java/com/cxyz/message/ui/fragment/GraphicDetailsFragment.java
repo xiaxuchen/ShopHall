@@ -6,12 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
 import com.cxyz.message.R;
 import com.cxyz.message.protocol.ViewBundle;
 import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -78,9 +80,10 @@ public class GraphicDetailsFragment extends Fragment {
                 iv.setAdjustViewBounds(true);
 //                // 加载图片-一般为加载网络图片
 //                if (!TextUtils.isEmpty(value)) {}
-                Picasso.with(getActivity())
+               /* Picasso.with(getActivity())
                         .load(value)
-                        .into(iv);
+                        .into(iv);*/
+                Glide.with(getActivity()).load(value).into(iv);
                 mLinearLayout.addView(iv);
             }
         }

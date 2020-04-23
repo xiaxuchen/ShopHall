@@ -7,19 +7,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.message.R;
 import com.cxyz.message.ui.adapter.RecyclerViewAdapter;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
-import com.cxyz.utils.ColorsUtil;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
+import com.cxyz.widget.HeaderBar;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Route(path = "/message/ChatInfoActivity",group = "message")
 public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapter.onSlidingViewClickListener{
     private RecyclerView recycler;              //在xml 中 RecyclerView 布局
@@ -29,8 +28,7 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     private List<String> dataTitle;     //标题（谁的消息）
     private List<String> datasContent;  //内容（消息内容）
     private List<String> datasTime;     //时间（消息时间）
-    private QMUIRadiusImageView ivLogisticsInfo;
-    private QMUIRadiusImageView  ivDiscontInfo;
+    private HeaderBar hbChatinfotitle;
     @Override
     protected Object getContentView() {
         return R.layout.message_activity_chatinfo;
@@ -40,6 +38,7 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
     public void initView() {
         recycler = (RecyclerView)findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
+        hbChatinfotitle=findViewById(R.id.hbChatinfotitle);
         datas();//插入数据
         //更新界面
         updateInterface();
@@ -53,6 +52,12 @@ public class ChatInfoActivity extends BaseActivity implements RecyclerViewAdapte
 
     @Override
     public void setEvent() {
+        hbChatinfotitle.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                getActivity().finish();
+            }
+        });
 
     }
 

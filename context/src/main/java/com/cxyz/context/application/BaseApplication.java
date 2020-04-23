@@ -2,16 +2,28 @@ package com.cxyz.context.application;
 
 
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cxyz.context.ContextManager;
+import com.cxyz.context.greendao.DaoMaster;
+import com.cxyz.context.greendao.DaoSession;
 import com.cxyz.context.starter.Starter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
+
+import org.greenrobot.greendao.AbstractDaoSession;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.im.android.api.JMessageClient;
 
 /**
  * Created by 夏旭晨 on 2018/10/2.
@@ -22,6 +34,14 @@ import java.util.List;
  */
 
 public class BaseApplication extends Application {
+    private static BaseApplication instance;
+    private DaoSession daoSession;
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
+    public static BaseApplication getInstance() {
+        return instance;
+    }
 
     public static final String STARTER_NAME = "com.cxyz.starter";
 
@@ -39,6 +59,11 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(this, "chat-message", null);
+        SQLiteDatabase db = mHelper.getWritableDatabase();
+        daoSession = new DaoMaster(db).newSession();
+        instance = this;
+        initImageLoader(this);
         if(application == null && isApplication) {
             application = this;
         }
@@ -114,6 +139,18 @@ public class BaseApplication extends Application {
     public Application getApplication() {
         return application;
     }
+    /**
+     * 初始化ImageLoader
+     */
+    public static void initImageLoader(Context context) {
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                context)
+                .threadPoolSize(3).threadPriority(Thread.NORM_PRIORITY - 2)
+                //.memoryCache(new WeakMemoryCache())
+                .denyCacheImageMultipleSizesInMemory()
+                .tasksProcessingOrder(QueueProcessingType.LIFO)
+                .build();
+        ImageLoader.getInstance().init(config);}
 }
 
 

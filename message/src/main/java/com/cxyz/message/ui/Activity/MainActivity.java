@@ -1,7 +1,6 @@
 package com.cxyz.message.ui.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,14 +20,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.cxyz.message.R;
-import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.protocol.Brand;
 import com.cxyz.message.protocol.Specification;
 import com.cxyz.message.protocol.ViewBundle;
+import com.cxyz.message.ui.adapter.VPagerFragmentAdapter;
 import com.cxyz.message.ui.fragment.GraphicDetailsFragment;
 import com.cxyz.message.ui.fragment.ProductEvalInfoFragment;
 import com.cxyz.message.ui.fragment.ProductWillFragment;
@@ -37,7 +34,6 @@ import com.cxyz.message.widget.view.ChildAutoHeightViewPager;
 import com.cxyz.message.widget.view.FlowLayout;
 import com.cxyz.message.widget.view.MyScrollView;
 import com.cxyz.utils.ToastUtil;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -45,8 +41,6 @@ import java.util.ArrayList;
 import cc.ibooker.zviewpagerlib.GeneralVpLayout;
 import cc.ibooker.zviewpagerlib.Holder;
 import cc.ibooker.zviewpagerlib.HolderCreator;
-
-import static com.cxyz.context.ContextManager.getContext;
 
 @Route(path = "/message/MainActivity")
 //goodsinfoactivity
@@ -146,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 顶部的ViewPager
         RelativeLayout headerVpLayout = (RelativeLayout) findViewById(R.id.layout_header_vp);
         if (headerVpLayout != null) {
-            generalVpLayout = (GeneralVpLayout<Integer>) findViewById(R.id.generalVpLayout);
-            mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);
+           /* generalVpLayout = (GeneralVpLayout<Integer>) findViewById(R.id.generalVpLayout);
+            mtopVGroup = headerVpLayout.findViewById(R.id.viewGroup);*/
         }
         // 筛选框
         classifyLayout = (LinearLayout) findViewById(R.id.layout_classify);
@@ -349,26 +343,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // 点击事件监听
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_back:// 返回
-
-                break;
-            case R.id.iv_share:// 分享
-             //  Toast.makeText(MainActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
-                ToastUtil.showLong("分享功能");
-                break;
-            case R.id.tv_info_imgtext:// 图文详情
-                bottomVPager.setCurrentItem(0);
-                break;
-            case R.id.tv_info_photo:// 产品实拍
-                bottomVPager.setCurrentItem(1);
-                break;
-            case R.id.tv_info_eval:// 评价详情
-                bottomVPager.setCurrentItem(2);
-                break;
-            case R.id.iv_back_top:// 返回顶部
-                myScrollView.smoothScrollTo(0, vpagerTopDistance);
-                break;
+        int id = v.getId();// 返回
+        if (id == R.id.iv_back) {
+        } else if (id == R.id.iv_share) {// 分享
+            //  Toast.makeText(MainActivity.this, "分享功能", Toast.LENGTH_SHORT).show();
+            ToastUtil.showLong("分享功能");
+        } else if (id == R.id.tv_info_imgtext) {// 图文详情
+            bottomVPager.setCurrentItem(0);
+        } else if (id == R.id.tv_info_photo) {// 产品实拍
+            bottomVPager.setCurrentItem(1);
+        } else if (id == R.id.tv_info_eval) {// 评价详情
+            bottomVPager.setCurrentItem(2);
+        } else if (id == R.id.iv_back_top) {// 返回顶部
+            myScrollView.smoothScrollTo(0, vpagerTopDistance);
         }
     }
 

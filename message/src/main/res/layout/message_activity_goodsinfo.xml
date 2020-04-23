@@ -48,7 +48,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-
+                            <!--标题-->
+                            <TextView
+                                android:id="@+id/tv_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|start"
+                                android:paddingBottom="5dp"
+                                android:paddingEnd="15dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:paddingStart="15dp"
+                                android:paddingTop="5dp"
+                                android:text="外贸热销马油舒服干净"
+                                android:textColor="#333333"
+                                android:textSize="17sp" />
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -58,19 +72,51 @@
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
                                 android:paddingStart="10dp">
-
-                                <TextView
-                                    android:id="@+id/tv_price_symbol"
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginStart="5dp"
-                                    android:text="￥"
-                                    android:textColor="@color/colorTitle"
-                                    android:textSize="20sp" />
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="10个起批"></TextView>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center">
 
+                                        <TextView
+                                            android:id="@+id/tv_current_priceone"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="bottom"
+                                            android:layout_marginLeft="2dp"
+                                            android:layout_marginStart="2dp"
+                                            android:gravity="bottom"
+                                            android:padding="3dp"
+                                            android:text="￥99.6"
+                                            android:textColor="#ff9d20"
+                                            android:textSize="30sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="100个"></TextView>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center">
                                <TextView
-                                    android:id="@+id/tv_current_price"
+                                    android:id="@+id/tv_current_pricetwo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="bottom"
@@ -78,16 +124,50 @@
                                     android:layout_marginStart="2dp"
                                     android:gravity="bottom"
                                     android:padding="3dp"
-                                    android:text="99"
-                                    android:textColor="@color/colorTitle"
+                                    android:text="￥98.6"
+                                    android:textColor="#f3601d"
                                     android:textSize="30sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1000个"
+                                        android:layout_gravity="center"></TextView>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center">
+
+
+
+                                        <TextView
+                                            android:id="@+id/tv_current_pricethree"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="bottom"
+                                            android:layout_marginLeft="2dp"
+                                            android:layout_marginStart="2dp"
+                                            android:gravity="bottom"
+                                            android:padding="3dp"
+                                            android:text="￥96.9"
+                                            android:textColor="#d11e07"
+                                            android:textSize="30sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
 
                                 <com.cxyz.message.widget.view.FlowLayout
                                     android:id="@+id/flowlayout_special_offer"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="1" />
+                                    />
 
                              <!--   <TextView
                                     android:id="@+id/tv_taxes_dues"
@@ -101,21 +181,7 @@
                                     android:text="@string/taxes" />-->
 
                             </LinearLayout>
-                            <!--标题-->
-                            <TextView
-                                android:id="@+id/tv_title"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center|start"
-                                android:paddingBottom="5dp"
-                                android:paddingEnd="15dp"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:paddingStart="15dp"
-                                android:paddingTop="5dp"
-                                android:text="马油"
-                                android:textColor="#333333"
-                                android:textSize="17sp" />
+
 
                             <!--商品特征-->
 
@@ -252,17 +318,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0.5dp"
                                 android:background="#dedede" />
-
-                         <!--   <TextView
-                                android:id="@+id/tv_after_sale"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center|start"
-                                android:padding="13dp"
-                                android:text="@string/after_sale"
-                                android:textColor="#999999"
-                                android:textSize="14sp" />-->
-
                         </LinearLayout>
 
                         <View
