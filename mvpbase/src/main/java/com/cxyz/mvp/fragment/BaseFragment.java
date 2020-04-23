@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
@@ -89,13 +90,20 @@ public abstract class BaseFragment<p extends IBasePresenter> extends RxFragment 
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
-        mRootView = inflater.inflate(getLayoutId(), container, false);
-        initData(getArguments());
-        initView(mRootView,savedInstanceState);
-        mIsPrepare = true;
-        onLazyLoad();
-        setListener();
-        afterInit();
+        if (mRootView != null){
+            ViewGroup parent = (ViewGroup) mRootView.getParent();
+            if (parent != null){
+                parent.removeView(mRootView);
+            }
+        } else {
+            mRootView = inflater.inflate(getLayoutId(), container, false);
+            initData(getArguments());
+            initView(mRootView,savedInstanceState);
+            mIsPrepare = true;
+            onLazyLoad();
+            setListener();
+            afterInit();
+        }
         return mRootView;
     }
 

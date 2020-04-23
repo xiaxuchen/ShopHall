@@ -34,6 +34,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
         SpUtil.getInstance().putString("password",AesUtil.encrypt(UserManager.GEN_KEY,loginPassword))
         loginUserName = ""
         loginPassword = ""
+        finish()
     }
 
     override fun showError(msg: Any?) {
@@ -48,6 +49,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
 
     override fun initView() {
         flRoundBack.radius = dip(3)
+        etUsername.setText(SpUtil.getInstance().getString("username",""))
     }
 
     override fun initData() {
@@ -56,7 +58,6 @@ class LoginActivity : BaseActivity<LoginPresenter>(),ILoginView {
     override fun setEvent() {
         itvBack.onClick {
             this.onBackPressed()
-            LogUtil.d_withoutPre("jjjjjjjjjjjjjj")
         }
 
         btnLogin.onClick {
