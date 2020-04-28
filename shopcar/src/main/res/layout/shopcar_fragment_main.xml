@@ -16,7 +16,6 @@
         android:background="@color/common_colorPrimary"
         android:gravity="center"
         android:orientation="horizontal">
-
         <TextView
             android:id="@+id/tvMainSearch"
             android:layout_width="match_parent"
@@ -32,7 +31,6 @@
             android:paddingLeft="6dp"
             android:text="请输入搜索内容"
             android:textColor="#ccc" />
-
         <ImageView
             android:layout_width="22dp"
             android:layout_height="22dp"
@@ -40,7 +38,6 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="-40dp"
             android:background="@drawable/car_search" />
-
         <ImageView
             android:id="@+id/ivSao"
             android:layout_width="33dp"

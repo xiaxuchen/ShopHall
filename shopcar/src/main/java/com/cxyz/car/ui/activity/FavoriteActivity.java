@@ -22,6 +22,7 @@ import com.cxyz.mvp.adapter.BaseRecycleViewAdapter;
 import com.cxyz.relative.base.data.protocol.User;
 import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
+import com.cxyz.widget.HeaderBar;
 import com.qmuiteam.qmui.widget.pullRefreshLayout.QMUIPullRefreshLayout;
 
 import java.util.List;
@@ -29,8 +30,8 @@ import java.util.List;
 public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements IFavoriteView {
     private RecyclerView recyclerView;
     private QMUIPullRefreshLayout qmuiPullRefreshLayout;
-    private TextView tvFavriteLogin;
-
+    private TextView tvFavriteLogin;//是否登录提示
+    private HeaderBar hbFavoriteHeaderbar;//顶部导航
     private UserManager userManager;
     private UpdateListener updateListener;
 
@@ -52,6 +53,7 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
         tvFavriteLogin=findViewById(R.id.tvFavoriteLogin);
 //        tvFavriteLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvFavriteLogin.getPaint().setAntiAlias(true);//抗锯齿
+        hbFavoriteHeaderbar=findViewById(R.id.hbFavoriteHeaderbar);
 
         userManager=UserManager.getInstance();
     }
@@ -104,6 +106,13 @@ public class FavoriteActivity extends BaseActivity<FavoritePresenter> implements
             @Override
             public void onClick(View view) {
                 ARouter.getInstance().build("/main/LoginActivity").navigation();
+            }
+        });
+
+        hbFavoriteHeaderbar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
             }
         });
     }

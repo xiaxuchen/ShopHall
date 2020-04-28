@@ -21,6 +21,7 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
 import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
+import com.cxyz.widget.HeaderBar;
 
 import java.util.List;
 @Route(path="/shopcar/StoreActivity",group = "shopcar")
@@ -29,6 +30,7 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
     private Button btnStoreSendComment;
     private TextView tvStoreInput;
     private UpdateListener updateListener;
+    private HeaderBar hbStore;//顶部导航
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
         recyclerView=findViewById(R.id.rvStore);
         btnStoreSendComment=findViewById(R.id.btnStoreSendComment);
         tvStoreInput=findViewById(R.id.tvStoreInput);
+        hbStore=findViewById(R.id.hbStore);
     }
 
     @Override
@@ -68,6 +71,13 @@ public class StoreActivity extends BaseActivity<StorePresenter> implements IStor
                         Toast.makeText(StoreActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+        //点击返回
+        hbStore.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
             }
         });
     }

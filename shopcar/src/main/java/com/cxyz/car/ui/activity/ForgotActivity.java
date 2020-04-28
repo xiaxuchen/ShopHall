@@ -18,6 +18,7 @@ import com.cxyz.http.response.CheckResult;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.utils.GsonUtil;
+import com.cxyz.widget.HeaderBar;
 import com.google.gson.reflect.TypeToken;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 
@@ -29,6 +30,7 @@ public class ForgotActivity extends BaseActivity {
     private TextView tvStoreGetVerifyCode;//发送验证码按钮
     private QMUIRoundButton qmuiRoundButton;//确认修改按钮
     private TextView etForgotNewPassword;//新密码
+    private HeaderBar hbForgot;//顶部导航栏
     @Override
     protected Object getContentView() {
         return R.layout.shopcar_activity_forgot;
@@ -41,6 +43,7 @@ public class ForgotActivity extends BaseActivity {
         tvStoreGetVerifyCode=findViewById(R.id.tvStoreGetVerifyCode);
         qmuiRoundButton=findViewById(R.id.qmuibtnSure);
         etForgotNewPassword=findViewById(R.id.etForgotNewPassword);
+        hbForgot=findViewById(R.id.hbForgot);
     }
 
     @Override
@@ -112,6 +115,12 @@ public class ForgotActivity extends BaseActivity {
                     } catch (NetworkErrorException e) {
                         e.printStackTrace();
                     }
+            }
+        });
+        hbForgot.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
             }
         });
     }

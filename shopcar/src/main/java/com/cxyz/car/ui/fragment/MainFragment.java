@@ -170,6 +170,12 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
         this.context = activity;
     }
 
+//    @Override
+//    protected void afterInit() {
+//        super.afterInit();
+//        this.context=mActivity;
+//    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

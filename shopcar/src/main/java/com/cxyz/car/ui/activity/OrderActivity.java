@@ -24,6 +24,7 @@ import com.cxyz.car.ui.fragment.OrderSendFragment;
 import com.cxyz.car.ui.fragment.OrderWaitFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.widget.HeaderBar;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -37,6 +38,7 @@ public class OrderActivity extends BaseActivity {
     private TabLayout tl_nav;//导航栏
     String[] titles=new String[]{"全部","待付款","待发货","待收货","待评价"};//导航栏标题
     List<Fragment> fragmentList;
+    private HeaderBar shopcarHeaderbar;//顶部导航栏
     private OrderViewpagerAdapter adapter;//viewpager适配器，关联viewoager和tablayout
 
     @Override
@@ -61,6 +63,8 @@ public class OrderActivity extends BaseActivity {
         //初始化控件
         vp_order=findViewById(R.id.vpOrder);
         tl_nav=findViewById(R.id.tlOrderNav);
+        tl_nav.setSelectedTabIndicator(0);//取消下划线
+        shopcarHeaderbar=findViewById(R.id.shopcarHeaderbar);
     }
     /**
      * 初始化数据
@@ -78,7 +82,13 @@ public class OrderActivity extends BaseActivity {
 
     @Override
     public void setEvent() {
-
+        //点击返回
+        shopcarHeaderbar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

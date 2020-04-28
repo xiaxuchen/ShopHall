@@ -22,6 +22,7 @@ import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.cxyz.relative.base.data.protocol.User;
 import com.cxyz.relative.base.manager.UpdateListener;
 import com.cxyz.relative.base.manager.UserManager;
+import com.cxyz.widget.HeaderBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
     private RecyclerView rv_track;
     private TextView tvTrackLogin;
     private UpdateListener updateListener;
+    private HeaderBar hbTrackHeaderBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
         tvTrackLogin=findViewById(R.id.tvTrackLogin);
 //        tvTrackLogin.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); //下划线
         tvTrackLogin.getPaint().setAntiAlias(true);//抗锯齿
+        hbTrackHeaderBar=findViewById(R.id.hbTrackHeaderBar);
 
         updateListener=new UpdateListener() {
             @Override
@@ -78,6 +81,13 @@ public class TrackActivity extends BaseActivity<TrackPresenter> implements ITrac
             @Override
             public void onClick(View view) {
                 ARouter.getInstance().build("/main/LoginActivity").navigation();
+            }
+        });
+        //点击返回
+        hbTrackHeaderBar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
             }
         });
     }

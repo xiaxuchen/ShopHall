@@ -20,6 +20,7 @@ import com.cxyz.car.presenter.view.IOrderDetailView;
 import com.cxyz.car.ui.adapter.OrderDetailAdapter;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.widget.HeaderBar;
 
 import org.w3c.dom.Text;
 
@@ -28,6 +29,7 @@ import java.math.BigDecimal;
 @Route(path = "/shopcar/OrderDetailActivity", group = "shopcar")
 public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> implements IOrderDetailView {
     private RecyclerView recyclerView;
+    private HeaderBar hbOrderDetailHeaderbar;//顶部导航
 
     TextView username;//用户名
     TextView address;//用户地址
@@ -74,6 +76,7 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
         tvOrderDetailDelete=findViewById(R.id.tvOrderDetialDelete);
         tvOrderDeatilComment=findViewById(R.id.tvOrderDetailComment);
         tvOrderDetailPay=findViewById(R.id.tvOrderDetialPay);
+        hbOrderDetailHeaderbar=findViewById(R.id.hbOrderDetailHeaderbar);
     }
 
     @Override
@@ -83,6 +86,7 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
 
     @Override
     public void setEvent() {
+        //点击店铺名称跳到店铺详情界面
         storeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +109,13 @@ public class OrderDetailActivity extends BaseActivity<OrderDetailPresenter> impl
             @Override
             public void onClick(View view) {
                 ARouter.getInstance().build("/shopcar/SureOrderActivity").navigation();
+            }
+        });
+        //点击返回
+        hbOrderDetailHeaderbar.setBackClickListener(new HeaderBar.OnBackClickListener() {
+            @Override
+            public void onBackClick(View v) {
+                finish();
             }
         });
     }

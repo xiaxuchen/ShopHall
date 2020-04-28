@@ -25,6 +25,7 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
     private TextView tv_add;//增加按钮
     private TextView tv_descres;//减少按钮
     private EditText et_count;//数量
+    private ImageView ivPreviewChaHao;//关闭页面图标
     private int count = 1;
 
     private ImageView iv_image;//商品图片
@@ -54,6 +55,7 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
         iv_image=findViewById(R.id.ivPreviewImage);
         tv_price=findViewById(R.id.tvPreviewPrice);
         tv_remain=findViewById(R.id.tvPreviewRemain);
+        ivPreviewChaHao=findViewById(R.id.ivPreviewChaHao);
     }
     @Override
     public void initData() {
@@ -82,6 +84,13 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
                     count--;
                     et_count.setText(count + "");
                 }
+            }
+        });
+        //点击关闭页面
+        ivPreviewChaHao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

@@ -1,6 +1,7 @@
 package com.cxyz.car.ui.fragment;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ public class StoreDetailFragment extends BaseFragment {
 
     @Override
     protected void initData(Bundle bundle) {
+
     }
 
     @Override
@@ -74,7 +76,9 @@ public class StoreDetailFragment extends BaseFragment {
         storeNotice = view.findViewById(R.id.tvStoreNotice);
 
         recyclerView=view.findViewById(R.id.rvStoreDetailGoods);
-
+        //禁止recycleview滑动
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setNestedScrollingEnabled(false);
         //给控件赋值
         Glide.with(storeImageBig.getContext()).load(storeDetail.getStoreImage()).into(storeImageBig);
         storeOwnerName.setText("经营者："+storeDetailBean.getStoreOwnerName());
@@ -83,6 +87,7 @@ public class StoreDetailFragment extends BaseFragment {
         storeQualification.setText("店铺资质："+storeDetailBean.getStoreQualification());
         storeMainProduct.setText("主营商品："+storeDetailBean.getStoreMainProduct());
         storeNotice.setText("店铺公告："+storeDetailBean.getStoreNotice());
+
 
         recyclerView.setLayoutManager(new GridLayoutManager(mActivity,2));
         recyclerView.setAdapter(new StoreDetailGoodsAdapter(mActivity,goodsBeanList));
@@ -95,11 +100,12 @@ public class StoreDetailFragment extends BaseFragment {
 
     @Override
     protected void setListener() {
-
+        storeNotice.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     @Override
     public void showError(Object msg) {
 
     }
+
 }

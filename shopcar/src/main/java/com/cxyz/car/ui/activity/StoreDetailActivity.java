@@ -77,6 +77,7 @@ public class StoreDetailActivity extends BaseActivity<StoreDetailPresenter> impl
     @Override
     public void initView() {
         tabLayout=findViewById(R.id.tlStoreDetailGoodsCategory);
+        tabLayout.setSelectedTabIndicator(0);//隐藏tablayout下划线
         viewPager=findViewById(R.id.vpStoreDetail);
         qmuiIvStoreDetailStoreImageSmall=findViewById(R.id.qmuiIvStoreDetailStoreImageSmall);
         llGetService=findViewById(R.id.llgetService);

@@ -74,7 +74,7 @@
     tools:ignore="MissingConstraints"
     android:background="@color/common_colorPrimary"
     app:tabTextColor="@color/white"
-    app:tabSelectedTextColor="@color/black"
+    app:tabSelectedTextColor="#3F3737"
     app:tabMode="fixed"
     >
 </com.google.android.material.tabs.TabLayout>
