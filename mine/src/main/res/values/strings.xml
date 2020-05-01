@@ -58,5 +58,19 @@
     <string name="mineSearchFind">搜索发现</string>
     <string name="mineSearchMore">更多</string>
 
-
+    <style name="minedDialogStyle" parent="android:style/Theme.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowAnimationStyle">@style/mineAnim_scale</item>//这个用来设置acitivity弹出的风格
+    </style>
+    <style name="mineAnim_scale" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
 </resources>
