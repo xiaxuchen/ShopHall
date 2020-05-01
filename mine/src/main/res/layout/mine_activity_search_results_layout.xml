@@ -37,7 +37,7 @@
                 android:layout_height="31dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/mine_radius_border"
@@ -45,6 +45,7 @@
                 android:paddingLeft="6dp"
                 android:hint="请输入搜索内容"
                 android:textColorHint="#ccc"
+                android:textSize="14dp"
                 android:textColor="#3e4144" />
 
             <ImageView
@@ -68,12 +69,14 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlCommodityNav"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:background="@color/white"
         app:tabTextColor="#9c9c9c"
         app:tabSelectedTextColor="#cacaca"
         app:tabMode="fixed"
         app:layout_constraintTop_toBottomOf="@id/headerBar"
+        app:tabIndicatorColor="@color/common_colorPrimary"
+        app:tabIndicatorHeight="1dp"
         tools:ignore="MissingConstraints"
         >
     </com.google.android.material.tabs.TabLayout>

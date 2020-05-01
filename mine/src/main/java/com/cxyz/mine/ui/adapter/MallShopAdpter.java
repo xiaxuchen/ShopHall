@@ -51,7 +51,7 @@ public class MallShopAdpter extends RecyclerView.Adapter<MallShopAdpter.myHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MallShopAdpter.myHolder holder, int position) {
+    public void onBindViewHolder(@NonNull myHolder holder, int position) {
         Glide.with(holder.shopImage.getContext()).load(shopList.get(position).getShopImage()).into(holder.shopImage);
         holder.shopName.setText(shopList.get(position).getShopName());
         holder.shopImage.setOnClickListener(new View.OnClickListener() {

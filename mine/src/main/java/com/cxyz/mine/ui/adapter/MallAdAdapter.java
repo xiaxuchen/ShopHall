@@ -32,7 +32,7 @@ public class MallAdAdapter extends RecyclerView.Adapter<MallAdAdapter.myHolder> 
     @Override
     public myHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mine_recycle_item_mall_ad_layout, parent, false);
-        MallAdAdapter.myHolder vh = new MallAdAdapter.myHolder(v);
+        myHolder vh = new myHolder(v);
         return vh;
     }
 

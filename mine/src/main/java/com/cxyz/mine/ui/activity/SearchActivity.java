@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,9 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
     private ImageView imSearchBack;
     private RecyclerView rvHistory;
     private RecyclerView rvSearchFind;
+    private TextView tvMoreHistory;
+    private TextView tvMoreSearchFind;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,8 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
         btnSearch = findViewById(R.id.btnSearch);
         rvHistory = findViewById(R.id.rvHistory);
         rvSearchFind = findViewById(R.id.rvSearchFind);
+        tvMoreHistory = findViewById(R.id.tvMoreHistory);
+        tvMoreSearchFind = findViewById(R.id.tvMoreSearchFind);
     }
 
     @Override
@@ -73,6 +79,12 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
             @Override
             public void onClick(View v) {
                 ARouter.getInstance().build("/shopcar/MainFragment").navigation();
+            }
+        });
+
+        tvMoreHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
             }
         });
     }

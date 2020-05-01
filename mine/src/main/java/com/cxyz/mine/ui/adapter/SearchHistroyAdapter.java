@@ -31,7 +31,7 @@ public class SearchHistroyAdapter extends BaseRecycleViewAdapter<String, SearchH
     @Override
     public myHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mine_recycle_item_search_histroy_layout, parent, false);
-        SearchHistroyAdapter.myHolder vh = new SearchHistroyAdapter.myHolder(v);
+        myHolder vh = new myHolder(v);
         return vh;
     }
 

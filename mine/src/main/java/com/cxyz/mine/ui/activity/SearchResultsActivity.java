@@ -1,6 +1,5 @@
 package com.cxyz.mine.ui.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -9,11 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.cxyz.mine.R;
-import com.cxyz.mine.ui.adapter.SearchResultsViewPageAdapter;
-import com.cxyz.mine.ui.fragment.SearchResultsComprehensiveFragment;
-import com.cxyz.mine.ui.fragment.SearchResultsFilterFrament;
-import com.cxyz.mine.ui.fragment.SearchResultsPriceFrament;
-import com.cxyz.mine.ui.fragment.SearchResultsSalesFargment;
+import com.cxyz.mine.ui.adapter.SearchResultsViewPageShopAdapter;
+import com.cxyz.mine.ui.fragment.SearchResultGoodsFragment;
+import com.cxyz.mine.ui.fragment.SearchReusltShopsFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
 import com.google.android.material.tabs.TabLayout;
@@ -29,17 +26,9 @@ public class SearchResultsActivity extends  BaseActivity {
     private ImageView imSearchResultsBack;//顶部导航栏返回按钮
     private TabLayout   tlCommodityNav;//设置导航标题栏
     private ViewPager vpCommodity;//设置Fargment的ViewPager容器
-    private String[] titles = {"综合","销量","价格","筛选"};//导航栏个标题名
-    private SearchResultsViewPageAdapter adapter;
+    private String[] titles = {"商品","店铺"};//导航栏个标题名
+    private SearchResultsViewPageShopAdapter adapter;
     private List<Fragment> fragmentList;//viewpager适配器，关联viewoager和tablayout
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initView();
-        initData();
-        vpCommodity.setAdapter(adapter);//给viewpager设置适配器
-        tlCommodityNav.setupWithViewPager(vpCommodity);//tablayou与viewpager关联
-    }
 
     @Override
     protected Object getContentView() {
@@ -56,12 +45,13 @@ public class SearchResultsActivity extends  BaseActivity {
     @Override
     public void initData() {
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new SearchResultsComprehensiveFragment());//综合的Fragment
-        fragmentList.add(new SearchResultsSalesFargment());//销量的Fragment
-        fragmentList.add(new SearchResultsPriceFrament());//价格的Fragment
-        fragmentList.add(new SearchResultsFilterFrament());//筛选的Fragment
+        fragmentList.add(new SearchResultGoodsFragment());//商品Fragment
+        fragmentList.add(new SearchReusltShopsFragment());//商店的Fragment
 
-        adapter = new SearchResultsViewPageAdapter(getSupportFragmentManager(),fragmentList,titles);
+        adapter = new SearchResultsViewPageShopAdapter(getSupportFragmentManager(),fragmentList,titles);
+
+        vpCommodity.setAdapter(adapter);//给viewpager设置适配器
+        tlCommodityNav.setupWithViewPager(vpCommodity);//tablayou与viewpager关联
     }
 
     @Override

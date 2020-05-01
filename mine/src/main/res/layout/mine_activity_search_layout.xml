@@ -37,7 +37,7 @@
                 android:layout_height="31dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/mine_radius_border"
@@ -45,6 +45,7 @@
                 android:paddingLeft="6dp"
                 android:hint="请输入搜索内容"
                 android:textColorHint="#ccc"
+                android:textSize="14dp"
                 android:textColor="#3e4144" />
 
             <ImageView
@@ -113,6 +114,7 @@
             android:layout_marginRight="70dp"
             />
         <TextView
+            android:id="@+id/tvMoreHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mineSearchMore"
@@ -148,6 +150,7 @@
             android:layout_marginRight="70dp"
             />
         <TextView
+            android:id="@+id/tvMoreSearchFind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mineSearchMore"

@@ -36,7 +36,7 @@ public class LoginMineFragment extends BaseFragment {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-        LoginMineFragment.Onclick onclick = new LoginMineFragment.Onclick();
+        Onclick onclick = new Onclick();
         //头像设置
         qmuiIvAvatar = view.findViewById(R.id.qmuiIvAvatar);
         qmuiIvAvatar.setCircle(true);

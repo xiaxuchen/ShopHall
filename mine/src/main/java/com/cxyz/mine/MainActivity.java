@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.cxyz.mine.ui.activity.MallInformationActivity;
 import com.cxyz.mine.ui.activity.SearchActivity;
+import com.cxyz.mine.ui.activity.SearchFilterActivity;
 import com.cxyz.mine.ui.fragment.LoginMineFragment;
 import com.cxyz.mine.ui.fragment.MineFragment;
 import com.cxyz.mvp.activity.BaseActivity;
 import com.cxyz.mvp.ipresenter.IBasePresenter;
+import com.cxyz.utils.SpUtil;
 
 @Route(path ="/mine/MainActivity" ,group = "mine")
 public class MainActivity extends BaseActivity {
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
         btnMall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MallInformationActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchFilterActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,7 +64,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
+        SpUtil.getInstance().getString("count","");
     }
 
     @Override

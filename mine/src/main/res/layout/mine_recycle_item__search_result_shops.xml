@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shopTop"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="MissingConstraints">
+
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/ivShop"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:qmui_borderWidth="0dp"
+            app:qmui_border_color="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:qmui_corner_radius="5dp" />
+
+        <TextView
+            android:id="@+id/tvShopTitle"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="20dp"
+            android:singleLine="true"
+            android:text="你好呀"
+            android:textSize="16dp"
+            android:textColor="#727172"
+            app:layout_constraintLeft_toRightOf="@id/ivShop"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvShopAddress"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:text="你好呀"
+            android:textColor="#ababab"
+            android:textSize="12dp"
+            app:layout_constraintLeft_toRightOf="@id/ivShop"
+            app:layout_constraintTop_toBottomOf="@id/tvShopTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/btnIntoStore"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="40dp"
+        android:text="进店"
+        android:textColor="@color/common_colorPrimary"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        app:qmui_borderColor="@color/common_colorPrimary"
+        app:qmui_radius="5dp" />
+    <LinearLayout
+        android:id="@+id/imageShow"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/shopTop"
+        tools:ignore="MissingConstraints">
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/ivShopGood1"
+            android:layout_width="0dp"
+            app:qmui_borderWidth="0dp"
+            app:qmui_border_color="@color/white"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:qmui_corner_radius="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/ivShopGood2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:qmui_borderWidth="0dp"
+            app:qmui_border_color="@color/white"
+            android:layout_weight="1"
+            app:qmui_corner_radius="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/ivShopGood3"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:qmui_borderWidth="0dp"
+            app:qmui_border_color="@color/white"
+            android:layout_weight="1"
+            app:qmui_corner_radius="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/common_divider"
+        android:layout_below="@id/imageShow"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tvShopDs"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        tools:ignore="MissingConstraints"
+        android:text="主营：冬瓜瓜、西瓜、哈密瓜、山东甜瓜"
+        android:textColor="#7c7c7c"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+       android:layout_below="@id/divider"/>
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/common_divider"
+        android:layout_below="@id/tvShopDs"
+        tools:ignore="MissingConstraints" />
+</RelativeLayout>

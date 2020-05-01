@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.SearchResultGoodsFragment"
+    tools:ignore="ResourceName">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlCommodityNav"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginRight="80dp"
+        app:tabTextColor="#9c9c9c"
+        app:tabSelectedTextColor="@color/common_colorPrimary"
+        app:tabMode="fixed"
+        tools:ignore="MissingConstraints"
+        app:tabIndicatorColor="@color/common_colorPrimary"
+        app:tabIndicatorHeight="0dp"
+        >
+    </com.google.android.material.tabs.TabLayout>
+    <TextView
+        android:id="@+id/tvFilter"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:text="筛选"
+        android:textColor="#9c9c9c"
+        android:gravity="center"
+        app:layout_constraintLeft_toRightOf="@id/tlCommodityNav"
+        tools:ignore="MissingConstraints" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpCommodity"
+        app:layout_constraintTop_toBottomOf="@id/tlCommodityNav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <FrameLayout
+        android:id="@+id/fmFilter"
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        app:layout_constraintTop_toBottomOf="@id/tlCommodityNav"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
