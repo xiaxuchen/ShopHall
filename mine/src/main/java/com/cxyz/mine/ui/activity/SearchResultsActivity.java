@@ -1,8 +1,10 @@
 package com.cxyz.mine.ui.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -24,6 +26,7 @@ import java.util.List;
 @Route(path = "/mine/SearchResultsActivity",group = "mine")
 public class SearchResultsActivity extends  BaseActivity {
     private ImageView imSearchResultsBack;//顶部导航栏返回按钮
+    private ImageView imCamera;//调用相册
     private TabLayout   tlCommodityNav;//设置导航标题栏
     private ViewPager vpCommodity;//设置Fargment的ViewPager容器
     private String[] titles = {"商品","店铺"};//导航栏个标题名
@@ -38,6 +41,7 @@ public class SearchResultsActivity extends  BaseActivity {
     @Override
     public void initView() {
         imSearchResultsBack = findViewById(R.id.imSearchResultsBack);
+        imCamera = findViewById(R.id.imCamera);
         tlCommodityNav = findViewById(R.id.tlCommodityNav);
         vpCommodity = findViewById(R.id.vpCommodity);
     }
@@ -62,6 +66,14 @@ public class SearchResultsActivity extends  BaseActivity {
                 SearchResultsActivity.this.finish();
             }
         });
+
+        imCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(camera, 1);*/
+            }
+        });
     }
 
     @Override
@@ -69,4 +81,11 @@ public class SearchResultsActivity extends  BaseActivity {
         return null;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            System.out.println("相机被调用了");
+        }
+    }
 }

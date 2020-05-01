@@ -37,7 +37,7 @@
                 android:layout_height="31dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/mine_radius_border"
@@ -57,6 +57,7 @@
                 android:background="@mipmap/mine_search" />
         </RelativeLayout>
         <ImageView
+            android:id="@+id/imCamera"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@mipmap/mine_search_resultes_pictures"
