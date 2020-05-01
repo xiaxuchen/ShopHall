@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class AddAddressModelImpl extends IAddAddressModel {
+
     private CheckResult<Boolean> checkResult;
     private boolean flag;
     @Override
