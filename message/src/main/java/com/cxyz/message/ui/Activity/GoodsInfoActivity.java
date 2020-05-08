@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.message.R;
 import com.cxyz.message.protocol.Brand;
@@ -303,9 +304,11 @@ public class GoodsInfoActivity extends BaseActivity implements OnBannerListener{
             @Override
             public void onClick(View view) {
                 ToastUtil.showShort("点击购买");
-                Intent intent=new Intent(getApplicationContext(), ServiceChatActivity.class);
-                startActivity(intent);
-              //  ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
+               /* Intent intent=new Intent(getApplicationContext(), ServiceChatActivity.class);
+                startActivity(intent);*/
+                //ARouter.getInstance().build("/message/ChatInfoActivity").navigation();
+                ARouter.getInstance().build("/shopcar/PreviewActivity").navigation();
+
 
 
             }

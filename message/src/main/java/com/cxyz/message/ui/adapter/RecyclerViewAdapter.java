@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cxyz.message.R;
 import com.cxyz.message.ui.Activity.ChatMessageActivity;
+import com.cxyz.message.ui.Activity.ServiceChatActivity;
 import com.cxyz.message.utils.RecyclerUtils;
 import com.cxyz.message.widget.view.RecyclerItemView;
 import com.qmuiteam.qmui.widget.QMUIRadiusImageView;
@@ -83,7 +84,7 @@ public class RecyclerViewAdapter
 //                    int subscript = holder.getLayoutPosition();
 //                    onSvcl.onItemClick(view, subscript);
 //                }
-                context.startActivity(new Intent(context,ChatMessageActivity.class));
+                context.startActivity(new Intent(context, ServiceChatActivity.class));
             }
         });
         holder.other.setOnClickListener(new View.OnClickListener() {
