@@ -89,7 +89,6 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
         listView = view.findViewById(R.id.lv_bottom_ad);
         storeView = view.findViewById(R.id.rvMainStore);
         linearLayout=view.findViewById(R.id.qmuiMainLinearLayout);
-        linearLayout.setRadiusAndShadow(ScreenUtil.dp2px(context,8),ScreenUtil.dp2px(context,0),0.35f);
     }
 
     @Override
@@ -164,27 +163,24 @@ public class MainFragment extends BaseFragment<MainPresenter> implements IMainVi
      *
      * @param activity
      */
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.context = activity;
-    }
-
 //    @Override
-//    protected void afterInit() {
-//        super.afterInit();
-//        this.context=mActivity;
+//    public void onAttach(Activity activity) {
+//        super.onAttach(activity);
+//        this.context = activity;
 //    }
+
+    @Override
+    protected void afterInit() {
+        this.context=getActivity();
+        imageList = new ArrayList<>();
+        lunbo(goodsImageListBeans);
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        linearLayout.setRadiusAndShadow(ScreenUtil.dp2px(context,8),ScreenUtil.dp2px(context,0),0.35f);
         iPresenter.fecth();//加载底部商品列表
-
-        imageList = new ArrayList<>();
-        lunbo(goodsImageListBeans);
-
-
     }
     public void lunbo(List<StoreKindItem.GoodsImageListBean> goodsImageListBeans){
         /**
