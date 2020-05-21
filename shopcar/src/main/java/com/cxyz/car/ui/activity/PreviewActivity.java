@@ -2,6 +2,7 @@ package com.cxyz.car.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.cxyz.car.R;
 import com.cxyz.car.data.domain.PreviewItem;
@@ -34,6 +36,8 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
 
     private RecyclerView rv_choose;//颜色分类
 
+    private Button btnPreviewSure;//确定按钮
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,7 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
         tv_price=findViewById(R.id.tvPreviewPrice);
         tv_remain=findViewById(R.id.tvPreviewRemain);
         ivPreviewChaHao=findViewById(R.id.ivPreviewChaHao);
+        btnPreviewSure=findViewById(R.id.btnPreviewSure);
     }
     @Override
     public void initData() {
@@ -94,6 +99,13 @@ public class PreviewActivity extends BaseActivity<PreviewPresenter> implements I
             }
         });
 
+        //点击跳转到提交订单界面
+        btnPreviewSure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/shopcar/SureOrderActivity").navigation();
+            }
+        });
     }
 
     @Override
